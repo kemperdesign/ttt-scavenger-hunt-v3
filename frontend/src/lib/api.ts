@@ -2,7 +2,9 @@
 // St. Augustine TimeQuest — Typed API Client
 // ─────────────────────────────────────────────────────────────────────────────
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+// Default to same-origin ("") so production traffic flows through the Next.js
+// rewrite proxy (see next.config.js). Local dev sets NEXT_PUBLIC_API_URL in .env.local.
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 const TOKEN_KEY = "tq_access_token";
 const REFRESH_KEY = "tq_refresh_token";
 

@@ -3,6 +3,14 @@ const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
 
+  // Proxy API calls to the backend server-side (avoids HTTPS→HTTP mixed-content
+  // blocking in the browser; also makes API calls same-origin so CORS is moot).
+  // Local dev is unaffected: NEXT_PUBLIC_API_URL=http://localhost:8000 bypasses this.
+  async rewrites() {
+    const backend = process.env.BACKEND_ORIGIN || "http://173.230.128.241:8000";
+    return [{ source: "/api/:path*", destination: `${backend}/api/:path*` }];
+  },
+
   // Security headers
   async headers() {
     return [

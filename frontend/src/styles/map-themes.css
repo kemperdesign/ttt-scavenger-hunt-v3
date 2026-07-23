@@ -1,0 +1,70 @@
+/* ── Day / Night map themes ──────────────────────────────────────────────── */
+
+/* Applied via data-map-theme="day" | "night" on the map container */
+
+.map-container[data-map-theme="day"] {
+  filter: none;
+}
+
+.map-container[data-map-theme="night"] {
+  filter: brightness(0.85) saturate(0.8) hue-rotate(180deg) invert(1);
+}
+
+/* Custom pin colors that stay correct in both modes */
+.map-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.map-marker--active {
+  background: #c9973a;
+}
+
+.map-marker--completed {
+  background: #22c55e;
+}
+
+.map-marker--locked {
+  background: #475569;
+}
+
+.map-marker-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 50% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+}
+
+/* Time-of-day banner */
+.tod-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 100;
+  transition: background 0.5s ease;
+}
+
+.tod-banner[data-period="morning"] {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.tod-banner[data-period="afternoon"] {
+  background: linear-gradient(90deg, #fbbf24, #f97316);
+}
+
+.tod-banner[data-period="evening"] {
+  background: linear-gradient(90deg, #f97316, #7c3aed);
+}
+
+.tod-banner[data-period="night"] {
+  background: linear-gradient(90deg, #1e1b4b, #312e81);
+}

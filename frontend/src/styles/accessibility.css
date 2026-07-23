@@ -1,0 +1,83 @@
+/* ── Font size overrides ──────────────────────────────────────────────────── */
+
+[data-font-size="large"] {
+  font-size: 112.5%; /* 18px base */
+}
+
+[data-font-size="x-large"] {
+  font-size: 125%; /* 20px base */
+}
+
+/* ── High contrast mode ──────────────────────────────────────────────────── */
+
+[data-contrast="high"] {
+  --color-bg: #000000;
+  --color-surface: #111111;
+  --color-border: #ffffff;
+  --color-text: #ffffff;
+  --color-muted: #dddddd;
+  --color-amber: #ffcc00;
+  --color-amber-light: #ffe066;
+}
+
+[data-contrast="high"] body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-contrast="high"] button,
+[data-contrast="high"] [role="button"] {
+  border: 2px solid #ffffff;
+}
+
+[data-contrast="high"] a {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* ── Reduce motion ───────────────────────────────────────────────────────── */
+
+[data-reduce-motion="true"] *,
+[data-reduce-motion="true"] *::before,
+[data-reduce-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ── Screen-reader-only utility ─────────────────────────────────────────── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only.focusable:focus,
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ── Live region ─────────────────────────────────────────────────────────── */
+
+[aria-live] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}

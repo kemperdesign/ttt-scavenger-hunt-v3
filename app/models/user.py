@@ -20,4 +20,6 @@ class User(Base):
 
     sessions: Mapped[list["GameSession"]] = relationship("GameSession", back_populates="user")
     badges: Mapped[list["UserBadge"]] = relationship("UserBadge", back_populates="user")
-    submissions: Mapped[list["PhotoSubmission"]] = relationship("PhotoSubmission", back_populates="user")
+    submissions: Mapped[list["PhotoSubmission"]] = relationship(
+        "PhotoSubmission", back_populates="user", foreign_keys="PhotoSubmission.user_id"
+    )

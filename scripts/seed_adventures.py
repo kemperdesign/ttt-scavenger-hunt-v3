@@ -18,10 +18,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy import select, func
 from app.core.config import settings
+from app.db.base import Base  # must come first: registers all models, avoids circular import
 from app.models.adventure import Adventure
 from app.models.stop import Stop
 from app.models.badge import Badge
-from app.db.base import Base
 
 
 engine = create_async_engine(settings.DATABASE_URL)

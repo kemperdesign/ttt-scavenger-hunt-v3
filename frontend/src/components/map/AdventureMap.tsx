@@ -58,7 +58,7 @@ export default function AdventureMap({
       style: MAP_STYLES[mapTheme],
       center: [centerLng, centerLat],
       zoom: 15,
-      attributionControl: true,
+      attributionControl: {},
     });
 
     mapRef.current = map;

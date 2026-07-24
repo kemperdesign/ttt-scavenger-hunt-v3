@@ -253,7 +253,7 @@ async function apiRequest<T>(
     // Try refresh
     const refreshToken = localStorage.getItem(REFRESH_KEY);
     if (refreshToken) {
-      const refreshRes = await fetch(`${API_URL}/api/auth/refresh`, {
+      const refreshRes = await fetch(`${API_URL}/api/v1/auth/refresh`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh_token: refreshToken }),
@@ -283,99 +283,111 @@ async function apiRequest<T>(
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
 export async function login(email: string, password: string) {
-  const data = await apiRequest<{ access_token: string; refresh_token: string }>(
-    "/api/auth/login",
-    { method: "POST", body: JSON.stringify({ email, password }) }
-  );
+  // Backend /auth/token uses OAuth2 form encoding (username field carries the email)
+  const res = await fetch(`${API_URL}/api/v1/auth/token`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ username: email, password }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new ApiError(res.status, body || res.statusText);
+  }
+  const data: { access_token: string; refresh_token: string } = await res.json();
   setTokens(data.access_token, data.refresh_token);
   return data;
 }
 
 export async function register(email: string, password: string, display_name: string) {
-  return apiRequest<User>("/api/auth/register", {
-    method: "POST",
-    body: JSON.stringify({ email, password, display_name }),
-  });
+  const data = await apiRequest<{ access_token: string; refresh_token: string }>(
+    "/api/v1/auth/register",
+    {
+      method: "POST",
+      body: JSON.stringify({ email, username: display_name, password }),
+    }
+  );
+  setTokens(data.access_token, data.refresh_token);
+  return data;
 }
 
 export async function logout() {
   try {
-    await apiRequest("/api/auth/logout", { method: "POST" });
+    await apiRequest("/api/v1/auth/logout", { method: "POST" });
   } finally {
     clearTokens();
   }
 }
 
 export function getCurrentUser() {
-  return apiRequest<User>("/api/auth/me");
+  return apiRequest<User>("/api/v1/auth/me");
 }
 
 // ── Adventures ────────────────────────────────────────────────────────────────
 
 export function listAdventures() {
-  return apiRequest<Adventure[]>("/api/adventures");
+  return apiRequest<Adventure[]>("/api/v1/adventures");
 }
 
 export function getAdventure(id: string) {
-  return apiRequest<Adventure>(`/api/adventures/${id}`);
+  return apiRequest<Adventure>(`/api/v1/adventures/${id}`);
 }
 
 export function createAdventure(data: Partial<Adventure>) {
-  return apiRequest<Adventure>("/api/adventures", {
+  return apiRequest<Adventure>("/api/v1/adventures", {
     method: "POST",
     body: JSON.stringify(data),
   });
 }
 
 export function updateAdventure(id: string, data: Partial<Adventure>) {
-  return apiRequest<Adventure>(`/api/adventures/${id}`, {
-    method: "PUT",
+  return apiRequest<Adventure>(`/api/v1/adventures/${id}`, {
+    method: "PATCH",
     body: JSON.stringify(data),
   });
 }
 
 export function deleteAdventure(id: string) {
-  return apiRequest<void>(`/api/adventures/${id}`, { method: "DELETE" });
+  return apiRequest<void>(`/api/v1/adventures/${id}`, { method: "DELETE" });
 }
 
 export function publishAdventure(id: string) {
-  return apiRequest<Adventure>(`/api/adventures/${id}/publish`, { method: "POST" });
+  return apiRequest<Adventure>(`/api/v1/adventures/${id}/publish`, { method: "POST" });
 }
 
 export function unpublishAdventure(id: string) {
-  return apiRequest<Adventure>(`/api/adventures/${id}/unpublish`, { method: "POST" });
+  return apiRequest<Adventure>(`/api/v1/adventures/${id}/unpublish`, { method: "POST" });
 }
 
 export function getLeaderboard(adventureId: string) {
-  return apiRequest<LeaderboardEntry[]>(`/api/adventures/${adventureId}/leaderboard`);
+  return apiRequest<LeaderboardEntry[]>(`/api/v1/adventures/${adventureId}/leaderboard`);
 }
 
 // ── Stops ─────────────────────────────────────────────────────────────────────
 
 export function listStops(adventureId: string) {
-  return apiRequest<Stop[]>(`/api/adventures/${adventureId}/stops`);
+  return apiRequest<Stop[]>(`/api/v1/stops?adventure_id=${adventureId}`);
 }
 
 export function getStop(stopId: string) {
-  return apiRequest<Stop>(`/api/stops/${stopId}`);
+  return apiRequest<Stop>(`/api/v1/stops/${stopId}`);
 }
 
 export function createStop(adventureId: string, data: Partial<Stop>) {
-  return apiRequest<Stop>(`/api/adventures/${adventureId}/stops`, {
+  return apiRequest<Stop>(`/api/v1/stops`, {
     method: "POST",
-    body: JSON.stringify(data),
+    body: JSON.stringify({ ...data, adventure_id: adventureId }),
   });
 }
 
 export function updateStop(stopId: string, data: Partial<Stop>) {
-  return apiRequest<Stop>(`/api/stops/${stopId}`, {
-    method: "PUT",
+  return apiRequest<Stop>(`/api/v1/stops/${stopId}`, {
+    method: "PATCH",
     body: JSON.stringify(data),
   });
 }
 
 export function deleteStop(stopId: string) {
-  return apiRequest<void>(`/api/stops/${stopId}`, { method: "DELETE" });
+  return apiRequest<void>(`/api/v1/stops/${stopId}`, { method: "DELETE" });
 }
 
 // ── Challenges ────────────────────────────────────────────────────────────────
@@ -385,14 +397,14 @@ export function submitChallenge(
   answer: unknown,
   sessionId: string
 ) {
-  return apiRequest<ChallengeAttempt>(`/api/challenges/${challengeId}/submit`, {
+  return apiRequest<ChallengeAttempt>(`/api/v1/challenges/${challengeId}/submit`, {
     method: "POST",
     body: JSON.stringify({ answer, session_id: sessionId }),
   });
 }
 
 export function useHint(challengeId: string, sessionId: string) {
-  return apiRequest<{ hint_text: string }>(`/api/challenges/${challengeId}/hint`, {
+  return apiRequest<{ hint_text: string }>(`/api/v1/challenges/${challengeId}/hint`, {
     method: "POST",
     body: JSON.stringify({ session_id: sessionId }),
   });
@@ -401,106 +413,128 @@ export function useHint(challengeId: string, sessionId: string) {
 // ── GPS Check-in ──────────────────────────────────────────────────────────────
 
 export function gpsCheckin(stopId: string, sessionId: string, lat: number, lng: number) {
-  return apiRequest<{ checked_in: boolean; distance_meters: number }>(
-    "/api/checkin",
-    {
-      method: "POST",
-      body: JSON.stringify({ stop_id: stopId, session_id: sessionId, lat, lng }),
-    }
-  );
+  return apiRequest<{
+    success: boolean;
+    distance_meters: number;
+    required_radius: number;
+    message: string;
+  }>("/api/v1/gps/checkin", {
+    method: "POST",
+    body: JSON.stringify({ stop_id: stopId, session_id: sessionId, lat, lng }),
+  });
 }
 
 // ── Sessions ──────────────────────────────────────────────────────────────────
 
 export function createSession(adventureId: string, teamId?: string) {
-  return apiRequest<Session>("/api/sessions", {
+  return apiRequest<Session>("/api/v1/sessions", {
     method: "POST",
     body: JSON.stringify({ adventure_id: adventureId, team_id: teamId }),
   });
 }
 
 export function getSession(sessionId: string) {
-  return apiRequest<Session>(`/api/sessions/${sessionId}`);
+  return apiRequest<Session>(`/api/v1/sessions/${sessionId}`);
 }
 
 export function completeSession(sessionId: string) {
-  return apiRequest<Session>(`/api/sessions/${sessionId}/complete`, { method: "POST" });
+  return apiRequest<Session>(`/api/v1/sessions/${sessionId}/complete`, { method: "POST" });
 }
 
 // ── Teams ─────────────────────────────────────────────────────────────────────
 
 export function createTeam(adventureId: string, name: string) {
-  return apiRequest<Team>("/api/teams", {
+  return apiRequest<Team>("/api/v1/teams", {
     method: "POST",
     body: JSON.stringify({ adventure_id: adventureId, name }),
   });
 }
 
 export function joinTeam(joinCode: string) {
-  return apiRequest<Team>("/api/teams/join", {
+  return apiRequest<Team>("/api/v1/teams/join", {
     method: "POST",
     body: JSON.stringify({ join_code: joinCode }),
   });
 }
 
 export function getTeam(teamId: string) {
-  return apiRequest<Team>(`/api/teams/${teamId}`);
+  return apiRequest<Team>(`/api/v1/teams/${teamId}`);
 }
 
 // ── AI Historian ──────────────────────────────────────────────────────────────
 
-export function chatWithCharacter(
+export async function chatWithCharacter(
   characterId: string,
   message: string,
   history: AiMessage[],
   adventureId?: string
-) {
-  return apiRequest<AiMessage>("/api/ai/chat", {
-    method: "POST",
-    body: JSON.stringify({ character_id: characterId, message, history, adventure_id: adventureId }),
-  });
+): Promise<AiMessage> {
+  const data = await apiRequest<{ reply: string; character_id: string; character_name: string }>(
+    "/api/v1/characters/chat",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        character_id: characterId,
+        message,
+        history: history.map((m) => ({ role: m.role, content: m.content })),
+        adventure_id: adventureId,
+      }),
+    }
+  );
+  return { role: "assistant", content: data.reply };
 }
 
 export function listCharacters() {
-  return apiRequest<AiCharacter[]>("/api/ai/characters");
+  return apiRequest<AiCharacter[]>("/api/v1/characters");
 }
 
 // ── Badges ────────────────────────────────────────────────────────────────────
 
-export function checkBadges(sessionId: string, event: string, eventData: Record<string, unknown>) {
-  return apiRequest<{ awarded: Badge[] }>(`/api/sessions/${sessionId}/badges/check`, {
+export async function checkBadges(
+  sessionId: string,
+  _event?: string,
+  _eventData?: Record<string, unknown>
+) {
+  const awarded = await apiRequest<Badge[]>(`/api/v1/badges/check/${sessionId}`, {
     method: "POST",
-    body: JSON.stringify({ event, event_data: eventData }),
   });
+  return { awarded };
 }
 
-export function listBadges(sessionId: string) {
-  return apiRequest<Badge[]>(`/api/sessions/${sessionId}/badges`);
+export function listBadges(_sessionId?: string) {
+  // Backend returns the current user's earned badges (not session-scoped)
+  return apiRequest<Badge[]>("/api/v1/badges");
 }
 
 // ── Photo Submissions ─────────────────────────────────────────────────────────
 
 export function listSubmissions(params?: { adventure_id?: string; status?: string }) {
   const qs = params ? "?" + new URLSearchParams(params as Record<string, string>).toString() : "";
-  return apiRequest<PhotoSubmission[]>(`/api/admin/submissions${qs}`);
+  return apiRequest<PhotoSubmission[]>(`/api/v1/submissions${qs}`);
 }
 
 export function approveSubmission(id: string) {
-  return apiRequest<PhotoSubmission>(`/api/admin/submissions/${id}/approve`, { method: "POST" });
+  return apiRequest<PhotoSubmission>(`/api/v1/submissions/${id}/review`, {
+    method: "POST",
+    body: JSON.stringify({ action: "approve" }),
+  });
 }
 
 export function rejectSubmission(id: string) {
-  return apiRequest<PhotoSubmission>(`/api/admin/submissions/${id}/reject`, { method: "POST" });
+  return apiRequest<PhotoSubmission>(`/api/v1/submissions/${id}/review`, {
+    method: "POST",
+    body: JSON.stringify({ action: "reject" }),
+  });
 }
 
 // ── Account ───────────────────────────────────────────────────────────────────
 
 export function exportAccountData() {
-  return fetch(`${API_URL}/api/account/export`, {
+  return fetch(`${API_URL}/api/v1/account/export`, {
     headers: { Authorization: `Bearer ${getToken()}` },
   });
 }
 
 export function deleteAccount() {
-  return apiRequest<void>("/api/account", { method: "DELETE" });
+  return apiRequest<void>("/api/v1/account/delete", { method: "DELETE" });
 }

@@ -379,9 +379,17 @@ export function getChallenges(stopId: string) {
   return apiRequest<Challenge[]>(`/api/v1/challenges?stop_id=${stopId}`);
 }
 
-export function createChallenge(
-  data: Partial<Challenge> & { stop_id: string; challenge_type: string }
-) {
+export function createChallenge(data: {
+  stop_id: string;
+  challenge_type: string;
+  points: number;
+  config: Record<string, unknown>;
+  is_required: boolean;
+  title?: string;
+  prompt?: string;
+  order_index?: number;
+  hint_text?: string;
+}) {
   return apiRequest<Challenge>("/api/v1/challenges", {
     method: "POST",
     body: JSON.stringify(data),

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getLeaderboard } from "@/lib/api";
 
+export const runtime = "edge";
+
 interface Props {
   params: { id: string };
 }

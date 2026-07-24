@@ -4,9 +4,14 @@ const nextConfig = {
 
   // Proxy API calls to the backend server-side (avoids HTTPS→HTTP mixed-content
   // blocking in the browser; also makes API calls same-origin so CORS is moot).
+  // Must be a real hostname over HTTPS, not a bare IP/port — Cloudflare's Workers
+  // runtime (which Cloudflare Pages uses for dynamic routes) refuses to fetch()
+  // a literal IP address (error 1003) and won't reach non-standard ports either.
+  // Caddy on the Linode box terminates HTTPS for this nip.io hostname and proxies
+  // to the FastAPI container on localhost:8000.
   // Local dev is unaffected: NEXT_PUBLIC_API_URL=http://localhost:8000 bypasses this.
   async rewrites() {
-    const backend = process.env.BACKEND_ORIGIN || "http://173.230.128.241:8000";
+    const backend = process.env.BACKEND_ORIGIN || "https://173-230-128-241.nip.io";
     return [{ source: "/api/:path*", destination: `${backend}/api/:path*` }];
   },
 

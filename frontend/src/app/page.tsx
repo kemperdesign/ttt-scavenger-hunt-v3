@@ -4,7 +4,11 @@ import { listAdventures } from "@/lib/api";
 import { AppFooter } from "@/components/player/AppFooter";
 import { TimeOfDayBanner } from "@/components/player/TimeOfDayBanner";
 
-export const revalidate = 60; // ISR — revalidate every 60 seconds
+// Fetch fresh data on every request rather than baking it in at build time —
+// the Cloudflare Pages build sandbox can't reach the Linode backend anyway,
+// so a static/ISR snapshot would permanently show "no adventures".
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 async function getAdventures() {
   try {

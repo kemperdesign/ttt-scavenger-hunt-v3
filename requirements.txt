@@ -15,6 +15,10 @@ geoalchemy2==0.14.3
 # Auth
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+# passlib 1.7.4 (unmaintained) reads bcrypt's removed __about__.__version__
+# attribute for backend detection; bcrypt>=4.1 dropped it and breaks every
+# password hash/verify call. Pin to the last compatible release.
+bcrypt==4.0.1
 
 # AI / Vector search
 qdrant-client==1.7.3

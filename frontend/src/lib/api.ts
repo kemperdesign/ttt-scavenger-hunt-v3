@@ -27,8 +27,8 @@ export function clearTokens() {
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-export type Difficulty = "easy" | "medium" | "hard";
-export type AdventureStatus = "draft" | "published" | "archived";
+// Backend stores this as a plain string (default "moderate"); not a fixed enum.
+export type Difficulty = string;
 export type ChallengeType =
   | "gps_checkin"
   | "multiple_choice"
@@ -39,106 +39,59 @@ export type ChallengeType =
   | "qr_code"
   | "branching_story";
 
+// Matches backend AdventureOut (app/api/adventures.py) exactly.
 export interface Adventure {
   id: string;
   title: string;
   slug: string;
-  description: string;
+  description?: string;
+  short_description?: string;
   difficulty: Difficulty;
   estimated_duration_minutes: number;
-  price: number;
-  status: AdventureStatus;
   cover_image_url?: string;
-  stop_count: number;
+  start_lat?: number;
+  start_lng?: number;
+  tags: string[];
+  is_published: boolean;
+  is_featured: boolean;
+  total_points: number;
   created_at: string;
   updated_at: string;
 }
 
+// Matches backend StopOut (app/api/stops.py) exactly.
 export interface Stop {
   id: string;
   adventure_id: string;
-  name: string;
-  sequence_order: number;
-  latitude: number;
-  longitude: number;
+  title: string;
+  description?: string;
+  historical_content?: string;
+  order_index: number;
+  lat: number;
+  lng: number;
   gps_radius_meters: number;
-  historical_summary: string;
-  extended_history?: string;
-  accessibility_notes?: string;
-  cover_photo_url?: string;
-  historic_photo_url?: string;
+  image_url?: string;
   audio_url?: string;
-  challenges: Challenge[];
+  ai_character_id?: string;
+  points: number;
+  hint_text?: string;
+  created_at: string;
+  updated_at: string;
 }
 
-export interface BaseChallenge {
+// Matches backend ChallengeOut (app/api/challenges.py) exactly.
+export interface Challenge {
   id: string;
   stop_id: string;
   challenge_type: ChallengeType;
-  sequence_order: number;
-  points_possible: number;
-  hint_text?: string;
-  is_required: boolean;
-}
-
-export interface MultipleChoiceChallenge extends BaseChallenge {
-  challenge_type: "multiple_choice";
-  question: string;
-  options: string[];
-  correct_index: number;
-  explanation?: string;
-}
-
-export interface TextAnswerChallenge extends BaseChallenge {
-  challenge_type: "text_answer";
-  question: string;
-  accepted_answers: string[];
-  case_sensitive: boolean;
-}
-
-export interface PhotoChallenge extends BaseChallenge {
-  challenge_type: "photo_submission";
+  title: string;
   prompt: string;
-  requires_review: boolean;
+  order_index: number;
+  points: number;
+  is_required: boolean;
+  hint_text?: string;
+  config: Record<string, unknown>;
 }
-
-export interface AiConversationChallenge extends BaseChallenge {
-  challenge_type: "ai_conversation";
-  character_id: string;
-  opening_prompt: string;
-  min_exchanges: number;
-}
-
-export interface SequencePuzzleChallenge extends BaseChallenge {
-  challenge_type: "sequence_puzzle";
-  items: { id: string; label: string }[];
-  // correct_order not sent to client
-}
-
-export interface QrCodeChallenge extends BaseChallenge {
-  challenge_type: "qr_code";
-  instruction: string;
-}
-
-export interface BranchingStoryChallenge extends BaseChallenge {
-  challenge_type: "branching_story";
-  narrative: string;
-  choices: { id: string; label: string; description: string }[];
-}
-
-export interface GpsCheckinChallenge extends BaseChallenge {
-  challenge_type: "gps_checkin";
-}
-
-export type Challenge =
-  | MultipleChoiceChallenge
-  | TextAnswerChallenge
-  | PhotoChallenge
-  | AiConversationChallenge
-  | SequencePuzzleChallenge
-  | QrCodeChallenge
-  | BranchingStoryChallenge
-  | GpsCheckinChallenge;
 
 export interface ChallengeAttempt {
   id: string;
@@ -172,13 +125,18 @@ export interface Session {
   metadata: Record<string, unknown>;
 }
 
+// Alias — the player pages import this name; it's the same shape as Session.
+export type GameSession = Session;
+
+// Matches backend BadgeOut (app/api/badges.py) exactly.
 export interface Badge {
   id: string;
   name: string;
-  description: string;
-  icon: string;
-  image_url?: string;
-  earned_at: string;
+  description?: string;
+  icon_url?: string;
+  icon_emoji?: string;
+  adventure_id?: string;
+  earned_at?: string;
 }
 
 export interface AiCharacter {
@@ -324,8 +282,8 @@ export function getCurrentUser() {
 
 // ── Adventures ────────────────────────────────────────────────────────────────
 
-export function listAdventures() {
-  return apiRequest<Adventure[]>("/api/v1/adventures");
+export function listAdventures(publishedOnly = true) {
+  return apiRequest<Adventure[]>(`/api/v1/adventures?published_only=${publishedOnly}`);
 }
 
 export function getAdventure(id: string) {
@@ -367,6 +325,9 @@ export function getLeaderboard(adventureId: string) {
 export function listStops(adventureId: string) {
   return apiRequest<Stop[]>(`/api/v1/stops?adventure_id=${adventureId}`);
 }
+
+// Alias used by the admin adventure-detail page.
+export const getStops = listStops;
 
 export function getStop(stopId: string) {
   return apiRequest<Stop>(`/api/v1/stops/${stopId}`);
@@ -410,9 +371,36 @@ export function useHint(challengeId: string, sessionId: string) {
   });
 }
 
+// NOTE: the backend (app/api/challenges.py) currently only exposes GET /{id},
+// /submit and /hint — there is no list-by-stop, create, or delete route yet.
+// These calls compile and are used by the admin stop editor, but will 404
+// until that backend CRUD is added.
+export function getChallenges(stopId: string) {
+  return apiRequest<Challenge[]>(`/api/v1/challenges?stop_id=${stopId}`);
+}
+
+export function createChallenge(
+  data: Partial<Challenge> & { stop_id: string; challenge_type: string }
+) {
+  return apiRequest<Challenge>("/api/v1/challenges", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteChallenge(challengeId: string) {
+  return apiRequest<void>(`/api/v1/challenges/${challengeId}`, { method: "DELETE" });
+}
+
 // ── GPS Check-in ──────────────────────────────────────────────────────────────
 
-export function gpsCheckin(stopId: string, sessionId: string, lat: number, lng: number) {
+export function gpsCheckin(params: {
+  stop_id: string;
+  session_id: string;
+  lat: number;
+  lng: number;
+  simulated?: boolean;
+}) {
   return apiRequest<{
     success: boolean;
     distance_meters: number;
@@ -420,7 +408,7 @@ export function gpsCheckin(stopId: string, sessionId: string, lat: number, lng: 
     message: string;
   }>("/api/v1/gps/checkin", {
     method: "POST",
-    body: JSON.stringify({ stop_id: stopId, session_id: sessionId, lat, lng }),
+    body: JSON.stringify(params),
   });
 }
 
@@ -490,15 +478,8 @@ export function listCharacters() {
 
 // ── Badges ────────────────────────────────────────────────────────────────────
 
-export async function checkBadges(
-  sessionId: string,
-  _event?: string,
-  _eventData?: Record<string, unknown>
-) {
-  const awarded = await apiRequest<Badge[]>(`/api/v1/badges/check/${sessionId}`, {
-    method: "POST",
-  });
-  return { awarded };
+export function checkBadges(sessionId: string) {
+  return apiRequest<Badge[]>(`/api/v1/badges/check/${sessionId}`, { method: "POST" });
 }
 
 export function listBadges(_sessionId?: string) {
@@ -507,6 +488,29 @@ export function listBadges(_sessionId?: string) {
 }
 
 // ── Photo Submissions ─────────────────────────────────────────────────────────
+
+// Backend (app/api/submissions.py) returns the submission record, not a score —
+// photos are scored on admin approval, not at upload time. points_earned is
+// reported as 0 until that review workflow exists on the frontend.
+export async function submitPhotoChallenge(challengeId: string, sessionId: string, file: File) {
+  const form = new FormData();
+  form.append("challenge_id", challengeId);
+  form.append("session_id", sessionId);
+  form.append("file", file);
+
+  const token = getToken();
+  const res = await fetch(`${API_URL}/api/v1/submissions`, {
+    method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    body: form,
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new ApiError(res.status, body || res.statusText);
+  }
+  const submission = await res.json();
+  return { ...submission, points_earned: 0 };
+}
 
 export function listSubmissions(params?: { adventure_id?: string; status?: string }) {
   const qs = params ? "?" + new URLSearchParams(params as Record<string, string>).toString() : "";

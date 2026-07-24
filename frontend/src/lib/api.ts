@@ -139,35 +139,37 @@ export interface Badge {
   earned_at?: string;
 }
 
+// Matches backend CharacterOut (app/api/characters.py) exactly.
 export interface AiCharacter {
   id: string;
   name: string;
   display_name: string;
   era: string;
   personality: string;
-  portrait_url?: string;
-  source_count: number;
+  greeting: string;
 }
 
+// Matches backend SubmissionOut (app/api/submissions.py) exactly.
 export interface PhotoSubmission {
   id: string;
+  user_id: string;
   challenge_id: string;
   session_id: string;
-  player_name: string;
-  stop_name: string;
-  challenge_prompt: string;
-  photo_url: string;
-  status: "pending" | "approved" | "rejected";
+  image_url: string;
+  status: string;
+  reviewer_notes?: string;
   submitted_at: string;
 }
 
+// Matches backend LeaderboardEntry (app/api/adventures.py). Note: the backend
+// does not return a per-row id, so user_id is left optional/undefined here —
+// the leaderboard page uses it as a React key, which is a pre-existing gap.
 export interface LeaderboardEntry {
   rank: number;
-  name: string;
-  score: number;
-  completion_time_minutes: number;
-  completed_at: string;
-  is_current_user: boolean;
+  username: string;
+  total_points: number;
+  completed_at?: string;
+  user_id?: string;
 }
 
 export interface User {
@@ -316,8 +318,9 @@ export function unpublishAdventure(id: string) {
   return apiRequest<Adventure>(`/api/v1/adventures/${id}/unpublish`, { method: "POST" });
 }
 
-export function getLeaderboard(adventureId: string) {
-  return apiRequest<LeaderboardEntry[]>(`/api/v1/adventures/${adventureId}/leaderboard`);
+export function getLeaderboard(adventureId: string, limit?: number) {
+  const qs = limit ? `?limit=${limit}` : "";
+  return apiRequest<LeaderboardEntry[]>(`/api/v1/adventures/${adventureId}/leaderboard${qs}`);
 }
 
 // ── Stops ─────────────────────────────────────────────────────────────────────
@@ -365,10 +368,13 @@ export function submitChallenge(
 }
 
 export function useHint(challengeId: string, sessionId: string) {
-  return apiRequest<{ hint_text: string }>(`/api/v1/challenges/${challengeId}/hint`, {
-    method: "POST",
-    body: JSON.stringify({ session_id: sessionId }),
-  });
+  return apiRequest<{ hint_text: string; points_deducted: number }>(
+    `/api/v1/challenges/${challengeId}/hint`,
+    {
+      method: "POST",
+      body: JSON.stringify({ session_id: sessionId }),
+    }
+  );
 }
 
 // NOTE: the backend (app/api/challenges.py) currently only exposes GET /{id},
@@ -459,12 +465,14 @@ export function getTeam(teamId: string) {
 
 // ── AI Historian ──────────────────────────────────────────────────────────────
 
+// Return shape uses `response` (not the backend's raw `reply`) to match the
+// one real call site (AIChatChallenge.tsx: `response.response`).
 export async function chatWithCharacter(
   characterId: string,
   message: string,
-  history: AiMessage[],
+  history: AiMessage[] = [],
   adventureId?: string
-): Promise<AiMessage> {
+): Promise<{ response: string; character_id: string; character_name: string }> {
   const data = await apiRequest<{ reply: string; character_id: string; character_name: string }>(
     "/api/v1/characters/chat",
     {
@@ -477,7 +485,7 @@ export async function chatWithCharacter(
       }),
     }
   );
-  return { role: "assistant", content: data.reply };
+  return { response: data.reply, character_id: data.character_id, character_name: data.character_name };
 }
 
 export function listCharacters() {
@@ -520,8 +528,8 @@ export async function submitPhotoChallenge(challengeId: string, sessionId: strin
   return { ...submission, points_earned: 0 };
 }
 
-export function listSubmissions(params?: { adventure_id?: string; status?: string }) {
-  const qs = params ? "?" + new URLSearchParams(params as Record<string, string>).toString() : "";
+export function listSubmissions(status?: string) {
+  const qs = status ? `?status=${encodeURIComponent(status)}` : "";
   return apiRequest<PhotoSubmission[]>(`/api/v1/submissions${qs}`);
 }
 
@@ -532,10 +540,10 @@ export function approveSubmission(id: string) {
   });
 }
 
-export function rejectSubmission(id: string) {
+export function rejectSubmission(id: string, notes?: string) {
   return apiRequest<PhotoSubmission>(`/api/v1/submissions/${id}/review`, {
     method: "POST",
-    body: JSON.stringify({ action: "reject" }),
+    body: JSON.stringify({ action: "reject", notes }),
   });
 }
 

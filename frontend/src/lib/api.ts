@@ -2,9 +2,18 @@
 // St. Augustine TimeQuest — Typed API Client
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Default to same-origin ("") so production traffic flows through the Next.js
-// rewrite proxy (see next.config.js). Local dev sets NEXT_PUBLIC_API_URL in .env.local.
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+// Browser fetches default to same-origin ("") so they flow through the Next.js
+// rewrite proxy (see next.config.js) — that avoids CORS/mixed-content issues.
+// But a relative URL can't be resolved by a server-side fetch (Server Components /
+// edge functions run inside the Cloudflare Worker, with no browser "current page"
+// to be relative to), so those must hit the backend directly instead — this is a
+// server-to-server call, so CORS/mixed-content don't apply there anyway.
+// Local dev sets NEXT_PUBLIC_API_URL in .env.local, which overrides both cases.
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  (typeof window === "undefined"
+    ? process.env.BACKEND_ORIGIN || "https://173-230-128-241.nip.io"
+    : "");
 const TOKEN_KEY = "tq_access_token";
 const REFRESH_KEY = "tq_refresh_token";
 

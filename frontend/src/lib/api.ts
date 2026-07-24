@@ -72,7 +72,7 @@ export interface Stop {
   gps_radius_meters: number;
   image_url?: string;
   audio_url?: string;
-  ai_character_id?: string;
+  ai_character_id?: string | null;
   points: number;
   hint_text?: string;
   created_at: string;

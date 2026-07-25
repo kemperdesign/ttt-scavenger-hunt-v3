@@ -27,6 +27,7 @@ from app.api import (
     account,
     gps_checkin,
     admin_audit,
+    admin_users,
 )
 
 # Middleware
@@ -88,6 +89,7 @@ def create_app() -> FastAPI:
     app.include_router(account.router,      prefix=f"{API_PREFIX}/account",     tags=["account"])
     app.include_router(gps_checkin.router,  prefix=f"{API_PREFIX}/gps",         tags=["gps"])
     app.include_router(admin_audit.router,  prefix=f"{API_PREFIX}/admin/audit", tags=["admin"])
+    app.include_router(admin_users.router,  prefix=f"{API_PREFIX}/admin/users", tags=["admin"])
 
     # ── Health check ──────────────────────────────────────────────────────────
     @app.get("/api/health", tags=["health"])

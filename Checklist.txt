@@ -56,11 +56,14 @@ repo. `[ ]` = still to build.
 - [ ] AI character creator + knowledge-source assignment UI — not built; `admin/characters` page only displays the 7 characters that are hardcoded in `app/ai/characters.py` (Python), read-only
 - [x] Photo-submission review queue — verified working (approve/reject)
 - [x] Player analytics dashboard — verified (leaderboard per adventure)
-- [ ] Preview-as-player mode — not built
-- [ ] Simulated-location testing controls (admin-side) — not built as an admin control (the player-facing `SimulatedGPS.tsx` debug tool is separate and already covered above)
-- [ ] "Skip checkpoint" / "reset adventure" testing controls — not built
+- [x] Preview-as-player mode — "▶ Preview as Player" button on the admin adventure page opens the normal player flow (new tab) with a non-persisted, leaderboard-excluded session; auto-teleports simulated GPS to the current stop plus a "Skip Stop" control, so a full walkthrough works from a desk with no real movement
+- [x] Simulated-location testing controls (admin-side) — covered by preview mode's auto-GPS-teleport + skip-stop control above, scoped to admin-only sessions
+- [ ] "Reset adventure" testing control — not built (preview sessions are already fresh/disposable each time, so lower priority, but no explicit reset button exists for a player's real session)
 - [ ] Award-test-points control — not built
 - [ ] View AI retrieval sources (debug panel) — not built
+- [x] User management / permissions — `admin/users` page: list users, promote/demote admin, deactivate/reactivate account. Self-lockout guarded (can't remove your own admin access or deactivate yourself). Logged to the audit trail.
+- [x] Audit log viewer — `admin/audit-log` page surfaces the existing (previously unused) `AuditLog` backend/endpoint; user-permission changes and bulk submission reviews now write entries
+- [x] Bulk content moderation — photo submissions page: select-all + per-item checkboxes, bulk approve/reject via new `POST /submissions/bulk-review`
 
 ## Stage 5 — AI Historian (RAG)
 
@@ -128,8 +131,8 @@ repo. `[ ]` = still to build.
 - [ ] Rate limiting — slowapi middleware is wired up in code; not load-tested against the live deployment yet
 - [ ] Upload file validation + photo size limits
 - [ ] Location-data retention policy (store check-in result/time only, not continuous tracks)
-- [ ] Account deletion + data export
-- [ ] Audit logs
+- [x] Account deletion + data export — `/account/export` and `/account/delete` verified; account delete was one of the four endpoints hit by the AsyncSession.delete() bug above, now fixed
+- [x] Audit logs — backend (`AuditLog` model + `/admin/audit` endpoint) existed but had no admin UI and almost nothing wrote to it; now viewable at `admin/audit-log`, and user-permission changes + bulk submission reviews log entries. Most other admin actions (adventure/stop/challenge CRUD) still don't log — only user management and bulk moderation do so far.
 - [ ] Automated database + media backups
 - [ ] AI prompt-injection controls
 - [ ] Content moderation for user-submitted photos

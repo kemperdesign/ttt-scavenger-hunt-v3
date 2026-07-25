@@ -619,6 +619,63 @@ export function rejectSubmission(id: string, notes?: string) {
   });
 }
 
+export function bulkReviewSubmissions(
+  submissionIds: string[],
+  action: "approve" | "reject",
+  notes?: string
+) {
+  return apiRequest<{ reviewed_count: number }>("/api/v1/submissions/bulk-review", {
+    method: "POST",
+    body: JSON.stringify({ submission_ids: submissionIds, action, notes }),
+  });
+}
+
+// ── Admin: Users & Permissions ──────────────────────────────────────────────────
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  username: string;
+  is_admin: boolean;
+  is_active: boolean;
+  created_at: string;
+}
+
+export function listUsers() {
+  return apiRequest<AdminUser[]>("/api/v1/admin/users");
+}
+
+export function updateUser(
+  userId: string,
+  updates: { is_admin?: boolean; is_active?: boolean }
+) {
+  return apiRequest<AdminUser>(`/api/v1/admin/users/${userId}`, {
+    method: "PATCH",
+    body: JSON.stringify(updates),
+  });
+}
+
+// ── Admin: Audit Log ─────────────────────────────────────────────────────────────
+
+export interface AuditLogEntry {
+  id: string;
+  user_id: string | null;
+  action: string;
+  resource_type: string | null;
+  resource_id: string | null;
+  details: Record<string, unknown>;
+  ip_address: string | null;
+  created_at: string;
+}
+
+export function listAuditLogs(options?: { action?: string; limit?: number }) {
+  const params = new URLSearchParams();
+  if (options?.action) params.set("action", options.action);
+  if (options?.limit) params.set("limit", String(options.limit));
+  const qs = params.toString() ? `?${params.toString()}` : "";
+  return apiRequest<AuditLogEntry[]>(`/api/v1/admin/audit${qs}`);
+}
+
 // ── Account ───────────────────────────────────────────────────────────────────
 
 export function exportAccountData() {

@@ -6,7 +6,7 @@ import io
 from uuid import UUID
 from datetime import datetime
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from pydantic import BaseModel
@@ -21,6 +21,7 @@ from app.models.user import User
 from app.auth.deps import get_current_user, get_current_admin
 from app.core.config import settings
 from app.utils.file_validation import validate_image
+from app.utils.audit import log_action
 
 router = APIRouter()
 
@@ -48,6 +49,16 @@ class SubmissionOut(BaseModel):
 class ReviewRequest(BaseModel):
     action: str  # "approve" or "reject"
     notes: Optional[str] = None
+
+
+class BulkReviewRequest(BaseModel):
+    submission_ids: List[str]
+    action: str  # "approve" or "reject"
+    notes: Optional[str] = None
+
+
+class BulkReviewResponse(BaseModel):
+    reviewed_count: int
 
 
 @router.post("", response_model=SubmissionOut, status_code=201)
@@ -163,3 +174,39 @@ async def review_submission(
         reviewer_notes=sub.reviewer_notes,
         submitted_at=sub.submitted_at,
     )
+
+
+@router.post("/bulk-review", response_model=BulkReviewResponse)
+async def bulk_review_submissions(
+    body: BulkReviewRequest,
+    request: Request,
+    db: AsyncSession = Depends(get_db),
+    reviewer: User = Depends(get_current_admin),
+):
+    if body.action not in ("approve", "reject"):
+        raise HTTPException(status_code=400, detail="action must be 'approve' or 'reject'")
+    if not body.submission_ids:
+        raise HTTPException(status_code=400, detail="submission_ids must not be empty")
+
+    ids = [UUID(sid) for sid in body.submission_ids]
+    result = await db.execute(select(PhotoSubmission).where(PhotoSubmission.id.in_(ids)))
+    subs = result.scalars().all()
+
+    new_status = "approved" if body.action == "approve" else "rejected"
+    for sub in subs:
+        sub.status = new_status
+        sub.reviewer_notes = body.notes
+        sub.reviewed_by_id = reviewer.id
+        sub.reviewed_at = datetime.utcnow()
+
+    await log_action(
+        db,
+        action=f"admin.bulk_{body.action}_submissions",
+        user_id=reviewer.id,
+        resource_type="photo_submission",
+        details={"submission_ids": body.submission_ids, "count": len(subs)},
+        request=request,
+    )
+
+    await db.flush()
+    return BulkReviewResponse(reviewed_count=len(subs))

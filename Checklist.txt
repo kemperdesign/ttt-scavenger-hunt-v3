@@ -88,9 +88,9 @@ repo. `[ ]` = still to build.
 - [x] Camera upload flow for photo challenges — `PhotoChallengeCapture.tsx` verified (camera/file picker, preview, 10MB validation)
 - [x] IndexedDB local progress caching — `useIndexedDB`/`useOfflineSync` hooks verified actually used in the adventure start page (not just scaffolded and unused)
 - [x] Accessibility pass — `AccessibilityContext` + `AccessibilityPanel` verified: font size (normal/large/x-large), high contrast, reduce motion, persisted to localStorage
-- [ ] Solo vs. team selection flow — not built (no such screen exists)
+- [x] Solo vs. team selection flow — `TeamSetup.tsx` (see team join-code entry below) shown before every new adventure session
 - [ ] Safety/location-permission notice screen — not built; the app requests location directly via the browser's native permission prompt, no custom pre-permission explainer screen first
-- [ ] Team join-code UI — `joinTeam()` exists in the API client and the backend endpoint works, but no frontend screen calls it — there's nowhere in the UI to actually enter a join code
+- [x] Team join-code UI — `TeamSetup.tsx` shown before a new session starts: play solo, create a team (join code shown prominently to share), or join by entering a code. Also fixed the `Team` frontend type, which previously didn't match the backend response shape at all.
 
 ## Stage 7 — Field Test
 

@@ -35,6 +35,10 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str = ""
     OPENAI_MODEL: str = "gpt-4o-mini"
 
+    # ── Ollama (RAG embeddings only — not used for chat) ────────────────────────
+    OLLAMA_BASE_URL: str = "http://localhost:11434"
+    OLLAMA_EMBED_MODEL: str = "nomic-embed-text"
+
     # ── CORS ──────────────────────────────────────────────────────────────────
     CORS_ORIGINS: List[str] = ["http://localhost:3000"]
 

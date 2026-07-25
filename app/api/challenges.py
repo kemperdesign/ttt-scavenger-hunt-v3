@@ -371,19 +371,21 @@ async def chat(
     try:
         async with httpx.AsyncClient() as client:
             response = await client.post(
-                f"{settings.OLLAMA_BASE_URL}/api/chat",
+                "https://api.openai.com/v1/chat/completions",
+                headers={"Authorization": f"Bearer {settings.OPENAI_API_KEY}"},
                 json={
-                    "model": settings.OLLAMA_CHAT_MODEL,
+                    "model": settings.OPENAI_MODEL,
                     "messages": [
                         {"role": "system", "content": character["system_prompt"]}
                     ] + messages,
-                    "stream": False,
+                    "temperature": 0.7,
+                    "max_tokens": 500,
                 },
                 timeout=30,
             )
             response.raise_for_status()
             result = response.json()
-            reply = result.get("message", {}).get("content", "")
+            reply = result["choices"][0]["message"]["content"]
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"LLM error: {str(e)}")
 

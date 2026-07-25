@@ -30,10 +30,10 @@ class Settings(BaseSettings):
     MINIO_BUCKET: str = "timequest-media"
     MINIO_SECURE: bool = False
 
-    # ── Ollama ────────────────────────────────────────────────────────────────
-    OLLAMA_BASE_URL: str = "http://localhost:11434"
-    OLLAMA_EMBED_MODEL: str = "nomic-embed-text"
-    OLLAMA_CHAT_MODEL: str = "llama3.2"
+    # ── LLM ───────────────────────────────────────────────────────────────────
+    # Use OpenAI API for character chat (Ollama requires too much RAM on 2GB VPS)
+    OPENAI_API_KEY: str = ""
+    OPENAI_MODEL: str = "gpt-4o-mini"
 
     # ── CORS ──────────────────────────────────────────────────────────────────
     CORS_ORIGINS: List[str] = ["http://localhost:3000"]

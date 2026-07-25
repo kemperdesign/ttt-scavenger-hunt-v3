@@ -3,6 +3,7 @@
 export const runtime = "edge";
 
 import React, { useState, useEffect, useCallback, Suspense } from "react";
+import dynamic from "next/dynamic";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import {
   getAdventure,
@@ -11,6 +12,7 @@ import {
   gpsCheckin,
   submitChallenge,
   checkBadges,
+  completeSession,
   type Adventure,
   type Stop,
   type GameSession,
@@ -25,6 +27,8 @@ import { TimeOfDayBanner } from "@/components/player/TimeOfDayBanner";
 import { SimulatedGPS } from "@/components/debug/SimulatedGPS";
 import { AppFooter } from "@/components/player/AppFooter";
 import { TeamSetup } from "@/components/player/TeamSetup";
+
+const AdventureMap = dynamic(() => import("@/components/map/AdventureMap"), { ssr: false });
 
 interface EarnedBadge {
   id: string;
@@ -189,18 +193,29 @@ function AdventurePageInner() {
         if (newBadges.length > 0) {
           setPendingBadge(newBadges[0]);
         }
-        // Advance to next stop
-        setTimeout(() => {
-          setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
-          setFeedback(null);
-        }, 1500);
+
+        const isLastStop = currentStopIndex >= stops.length - 1;
+        if (isLastStop) {
+          setTimeout(async () => {
+            try {
+              await completeSession(session.id);
+            } finally {
+              router.push(`/adventure/${id}/complete`);
+            }
+          }, 1500);
+        } else {
+          setTimeout(() => {
+            setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
+            setFeedback(null);
+          }, 1500);
+        }
       } else {
         setFeedback(result.message);
       }
     } catch {
       setFeedback("Check-in failed. Try again.");
     }
-  }, [session, currentStop, location, simulated, stops.length]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [session, currentStop, location, simulated, stops.length, currentStopIndex, id, router]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (loading) {
     return (
@@ -296,6 +311,20 @@ function AdventurePageInner() {
                 <p className="text-slate-300 text-sm leading-relaxed">{currentStop.description}</p>
               )}
             </section>
+
+            <AdventureMap
+              stops={stops}
+              currentStopIndex={currentStopIndex}
+              playerLat={location?.lat}
+              playerLng={location?.lng}
+              mapTheme={mapTheme}
+              completedStopIds={
+                session && "completed_stop_ids" in session
+                  ? (session as unknown as { completed_stop_ids?: string[] }).completed_stop_ids ?? []
+                  : []
+              }
+              className="h-56 w-full"
+            />
 
             {/* GPS distance */}
             <section aria-label="Location status">

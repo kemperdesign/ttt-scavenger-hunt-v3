@@ -8,30 +8,26 @@ import Link from "next/link";
 import { checkBadges, getLeaderboard, type Badge } from "@/lib/api";
 import { BadgeTray } from "@/components/player/BadgeTray";
 import { AppFooter } from "@/components/player/AppFooter";
+import { useIndexedDB } from "@/hooks/useIndexedDB";
 
 export default function AdventureCompletePage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const [badges, setBadges] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const sessionId = typeof window !== "undefined"
-    ? localStorage.getItem(`session_${id}`) ?? ""
-    : "";
+  const { get: dbGet } = useIndexedDB();
 
   useEffect(() => {
-    if (!sessionId) {
-      setLoading(false);
-      return;
-    }
     (async () => {
       try {
+        const sessionId = await dbGet<string>(`session_${id}`);
+        if (!sessionId) return;
         const earned = await checkBadges(sessionId);
         setBadges(earned);
       } catch {}
       finally { setLoading(false); }
     })();
-  }, [sessionId]);
+  }, [id, dbGet]);
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col">

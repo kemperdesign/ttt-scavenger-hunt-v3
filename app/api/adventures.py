@@ -242,6 +242,7 @@ async def get_leaderboard(
             .where(
                 GameSession.adventure_id == adventure_id,
                 GameSession.is_complete == True,
+                GameSession.is_preview == False,
             )
             .order_by(GameSession.total_points.desc(), GameSession.completed_at.asc())
             .limit(limit)

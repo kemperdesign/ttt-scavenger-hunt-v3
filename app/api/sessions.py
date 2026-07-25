@@ -22,6 +22,7 @@ router = APIRouter()
 class SessionCreate(BaseModel):
     adventure_id: str
     team_id: Optional[str] = None
+    is_preview: bool = False
 
 
 class SessionOut(BaseModel):
@@ -36,6 +37,7 @@ class SessionOut(BaseModel):
     completed_challenge_ids: List[str]
     hints_used: int
     is_complete: bool
+    is_preview: bool
     completed_at: Optional[datetime]
     started_at: datetime
 
@@ -56,6 +58,7 @@ def _to_out(s: GameSession) -> SessionOut:
         completed_challenge_ids=s.completed_challenge_ids or [],
         hints_used=s.hints_used,
         is_complete=s.is_complete,
+        is_preview=s.is_preview,
         completed_at=s.completed_at,
         started_at=s.started_at,
     )
@@ -76,6 +79,7 @@ async def create_session(
         user_id=current_user.id,
         adventure_id=adventure_id,
         team_id=UUID(body.team_id) if body.team_id else None,
+        is_preview=body.is_preview and current_user.is_admin,
     )
     db.add(session)
     await db.flush()

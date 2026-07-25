@@ -132,6 +132,7 @@ export interface Session {
   started_at: string;
   completed_at?: string;
   metadata: Record<string, unknown>;
+  is_preview?: boolean;
 }
 
 // Alias — the player pages import this name; it's the same shape as Session.
@@ -499,10 +500,10 @@ export function gpsCheckin(params: {
 
 // ── Sessions ──────────────────────────────────────────────────────────────────
 
-export function createSession(adventureId: string, teamId?: string) {
+export function createSession(adventureId: string, teamId?: string, isPreview = false) {
   return apiRequest<Session>("/api/v1/sessions", {
     method: "POST",
-    body: JSON.stringify({ adventure_id: adventureId, team_id: teamId }),
+    body: JSON.stringify({ adventure_id: adventureId, team_id: teamId, is_preview: isPreview }),
   });
 }
 

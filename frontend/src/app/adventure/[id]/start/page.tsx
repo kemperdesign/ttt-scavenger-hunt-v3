@@ -2,8 +2,8 @@
 
 export const runtime = "edge";
 
-import React, { useState, useEffect, useCallback } from "react";
-import { useParams, useRouter } from "next/navigation";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import {
   getAdventure,
   createSession,
@@ -43,8 +43,27 @@ function haversine(lat1: number, lng1: number, lat2: number, lng2: number): numb
 }
 
 export default function AdventurePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-950 flex items-center justify-center" role="status" aria-live="polite">
+          <div className="text-slate-400 text-center">
+            <div className="animate-spin text-4xl mb-4" aria-hidden="true">⏳</div>
+            <p>Loading adventure…</p>
+          </div>
+        </div>
+      }
+    >
+      <AdventurePageInner />
+    </Suspense>
+  );
+}
+
+function AdventurePageInner() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isPreview = searchParams.get("preview") === "1";
   const { mapTheme } = useTimeOfDay();
 
   const [adventure, setAdventure] = useState<Adventure | null>(null);
@@ -84,16 +103,25 @@ export default function AdventurePage() {
         setAdventure(adv);
         setStops(stps);
 
-        // Try to restore session from IndexedDB
-        const savedSessionId = await dbGet<string>(`session_${id}`);
-        if (savedSessionId) {
-          // Could fetch session from API here; using local state for now
-          setSession({ id: savedSessionId } as GameSession);
-        } else {
-          const sess = await createSession(id);
+        if (isPreview) {
+          // Preview mode always starts a fresh, non-persisted session — never
+          // touches IndexedDB, so it can't collide with the admin's own
+          // real player progress on this adventure.
+          const sess = await createSession(id, undefined, true);
           setSession(sess);
-          await dbSet(`session_${id}`, sess.id);
-          setCurrentStopIndex(sess.current_stop_index ?? 0);
+          setSimulated(true);
+        } else {
+          // Try to restore session from IndexedDB
+          const savedSessionId = await dbGet<string>(`session_${id}`);
+          if (savedSessionId) {
+            // Could fetch session from API here; using local state for now
+            setSession({ id: savedSessionId } as GameSession);
+          } else {
+            const sess = await createSession(id);
+            setSession(sess);
+            await dbSet(`session_${id}`, sess.id);
+            setCurrentStopIndex(sess.current_stop_index ?? 0);
+          }
         }
       } catch (e) {
         setError("Failed to load adventure. Check your connection.");
@@ -101,7 +129,20 @@ export default function AdventurePage() {
         setLoading(false);
       }
     })();
-  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [id, isPreview]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Preview mode: auto-teleport simulated GPS to whatever stop is current,
+  // so an admin can walk through the whole adventure without leaving their desk.
+  useEffect(() => {
+    if (isPreview && currentStop) {
+      simulateLocation(currentStop.lat, currentStop.lng);
+    }
+  }, [isPreview, currentStop, simulateLocation]);
+
+  const handleSkipStop = useCallback(() => {
+    setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
+    setFeedback(null);
+  }, [stops.length]);
 
   const handleCheckin = useCallback(async () => {
     if (!session || !currentStop || !location) return;
@@ -159,6 +200,22 @@ export default function AdventurePage() {
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col" data-map-theme={mapTheme}>
+      {isPreview && (
+        <div
+          role="status"
+          className="bg-amber-500 text-slate-900 px-4 py-2 flex items-center justify-between gap-3 text-sm font-medium"
+        >
+          <span>🔍 Preview Mode — this run won&apos;t appear on the leaderboard</span>
+          <button
+            onClick={handleSkipStop}
+            disabled={currentStopIndex >= stops.length - 1}
+            className="shrink-0 bg-slate-900 text-amber-400 px-3 py-1 rounded-lg text-xs font-semibold disabled:opacity-40 min-h-[32px]"
+          >
+            Skip Stop →
+          </button>
+        </div>
+      )}
+
       <TimeOfDayBanner />
 
       {/* Header */}

@@ -196,19 +196,31 @@ export default function AdminAdventureDetailPage() {
             {adventure.is_published ? "Published" : "Draft"}
           </span>
         </div>
-        <button
-          onClick={handleTogglePublish}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors min-h-[44px] ${
-            adventure.is_published
-              ? "border border-slate-600 text-slate-300 hover:bg-slate-700"
-              : "bg-green-700 hover:bg-green-600 text-white"
-          }`}
-          aria-label={
-            adventure.is_published ? "Unpublish this adventure" : "Publish this adventure"
-          }
-        >
-          {adventure.is_published ? "Unpublish" : "Publish"}
-        </button>
+        <div className="flex gap-2">
+          {id !== "new" && stops.length > 0 && (
+            <Link
+              href={`/adventure/${id}/start?preview=1`}
+              target="_blank"
+              className="px-4 py-2 rounded-lg text-sm font-medium border border-amber-600 text-amber-400 hover:bg-amber-900/30 transition-colors min-h-[44px] inline-flex items-center"
+              aria-label="Preview this adventure as a player in a new tab"
+            >
+              ▶ Preview as Player
+            </Link>
+          )}
+          <button
+            onClick={handleTogglePublish}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors min-h-[44px] ${
+              adventure.is_published
+                ? "border border-slate-600 text-slate-300 hover:bg-slate-700"
+                : "bg-green-700 hover:bg-green-600 text-white"
+            }`}
+            aria-label={
+              adventure.is_published ? "Unpublish this adventure" : "Publish this adventure"
+            }
+          >
+            {adventure.is_published ? "Unpublish" : "Publish"}
+          </button>
+        </div>
       </section>
 
       {/* Edit form */}

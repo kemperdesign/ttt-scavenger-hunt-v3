@@ -20,6 +20,7 @@ class GameSession(Base):
     completed_challenge_ids: Mapped[list] = mapped_column(JSONB, default=list)
     hints_used: Mapped[int] = mapped_column(Integer, default=0)
     is_complete: Mapped[bool] = mapped_column(Boolean, default=False)
+    is_preview: Mapped[bool] = mapped_column(Boolean, default=False)
     completed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)
     started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

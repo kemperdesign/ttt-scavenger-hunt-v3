@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { chatWithCharacter } from "@/lib/api";
+import { chatInConversationChallenge } from "@/lib/api";
 
 interface AIConversationChallengeProps {
   challengeId: string;
@@ -53,7 +53,7 @@ export default function AIConversationChallenge({
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
 
     try {
-      const data = await chatWithCharacter(challengeId, sessionId, userMessage);
+      const data = await chatInConversationChallenge(challengeId, sessionId, userMessage);
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
 
       if (data.completion) {

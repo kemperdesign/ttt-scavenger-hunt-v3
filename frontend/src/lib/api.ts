@@ -402,7 +402,7 @@ export function useHint(challengeId: string, sessionId: string) {
   );
 }
 
-export function chatWithCharacter(
+export function chatInConversationChallenge(
   challengeId: string,
   sessionId: string,
   message: string

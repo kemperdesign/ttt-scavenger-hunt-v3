@@ -5,7 +5,7 @@ export const runtime = "edge";
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { getStop, updateStop, getChallenges, createChallenge, deleteChallenge } from "@/lib/api";
+import { getStop, updateStop, createStop, getChallenges, createChallenge, deleteChallenge } from "@/lib/api";
 import type { Stop, Challenge } from "@/lib/api";
 
 type SaveState = "idle" | "saving" | "saved" | "error";
@@ -98,14 +98,7 @@ export default function StopEditorPage() {
 
     try {
       if (isNewStop) {
-        // Would call createStop — redirect after creation
-        const res = await fetch(`/api/v1/stops`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...payload, adventure_id: adventureId, order_index: 0 }),
-        });
-        if (!res.ok) throw new Error();
-        const created = await res.json();
+        const created = await createStop(adventureId, payload);
         setSaveState("saved");
         router.push(`/admin/adventures/${adventureId}/stops/${created.id}`);
       } else {

@@ -1,0 +1,202 @@
+# St. Augustine TimeQuest — Feature Checklist
+
+Compiled from the three source documents (St. Augustine AI Adventure App
+plan, "What You Need to Build the First Version," and the Let's Roam
+reference). Organized by build stage. `[x]` = scaffolded in the current
+repo. `[ ]` = still to build.
+
+---
+
+## Stage 1 — Project Foundation
+
+- [x] Git repository with the recommended folder structure — public on GitHub at kemperdesign/ttt-scavenger-hunt-v3 (made public to work around Vercel Hobby's forced deployment-protection wall; safe, no secrets ever committed)
+- [x] Next.js + TypeScript frontend project
+- [x] FastAPI backend project
+- [x] PostgreSQL/PostGIS-ready SQLAlchemy models
+- [x] Environment configuration (`.env.example` for both frontend/backend) — both exist and are complete; fixed `CORS_ORIGINS` to use valid JSON syntax (pydantic-settings requires it for `List[str]` fields — a bare string crashes the app on startup). Real production `.env` was hand-created on the server only, never committed (correct — see Deployment Notes below)
+- [ ] Alembic migration scaffold — present but unused so far; production tables were created directly from `Base.metadata.create_all` (no versioned migrations exist yet in `alembic/versions/`)
+- [x] Actual PostgreSQL + PostGIS instance provisioned and migrated — running on Linode, seeded with 1 adventure / 5 stops
+- [ ] Development launch scripts (one-command "start everything" script)
+- [ ] `LICENSE` file
+
+## Stage 2 — Adventure Engine
+
+- [x] Adventure schema — verified in `app/models/adventure.py`: title, slug, description, short_description, difficulty, estimated_duration_minutes, start_lat/lng, total_points, tags, is_published, is_featured. Note: no "price" or "status" enum as originally envisioned — the real schema uses `is_published`/`is_featured` booleans instead
+- [x] Stops schema — verified: title, lat/lng, gps_radius_meters, order_index, points, hint_text, ai_character_id, historical_content
+- [x] Challenge schema + all 8 challenge type enums — verified in `app/api/challenges.py`: real evaluation logic exists for multiple_choice, text_answer, sequence_puzzle, qr_code, gps_checkin, and photo_submission. `ai_conversation` and `branching_story` both just return an automatic success (open-ended by design) — branching_story's actual choice-tree UI lives client-side in `BranchingStoryChallenge.tsx`, not validated server-side
+- [x] Scoring (`points_awarded` on each attempt) — verified
+- [x] Progress tracking (`GameSession` + `ChallengeAttempt` tables) — verified
+- [ ] Test-data importer (`scripts/import_adventure.py`) — does not exist; only `seed_adventures.py` exists, which seeds one hardcoded adventure, not a generic importer for arbitrary content
+- [x] Sample adventure content, 5 stops — real seeded adventure exists: **"Founding St. Augustine: 1565"** (not "Secrets of St. Augustine" as originally named — content differs from the original plan, but a complete working sample with 5 real stops exists and is live in production)
+- [x] Sequence-puzzle challenge validation logic — verified: real order-comparison logic (`user_order == correct_order`)
+- [x] QR-code challenge validation logic — verified: real code-comparison logic (`scanned_code == expected`)
+- [ ] Branching-story logic (choice → next stop/challenge) — frontend component (`BranchingStoryChallenge.tsx`) exists, but the backend evaluator is a stub that always returns success; no real server-side choice-tree state machine
+- [x] Hint system exposed in the player UI — `HintButton.tsx` verified wired into the adventure start page (two-tap confirm, deducts points)
+- [x] Achievement badges (schema + award logic) — `Badge`/`UserBadge` models + `/badges/check/{session_id}` endpoint verified
+- [ ] Leaderboard endpoint (cross-team ranking) — endpoint exists and works, but is individual-player ranking only (rank/username/total_points); not team-aware
+
+## Stage 3 — Map and GPS
+
+- [x] Interactive map (MapLibre GL) — `AdventureMap.tsx` verified, needs a MapTiler key in production to render real tiles (see Accounts/Infrastructure)
+- [x] Stop markers — verified (numbered, color-coded by completed/current/upcoming)
+- [x] "Check in here" button calling the geofence endpoint — verified, wired to `/gps/checkin`
+- [x] Server-side geofence validation (haversine distance, not client-trusted) — verified in `app/api/gps_checkin.py`
+- [x] Live player position marker on the map — verified
+- [x] Simulated GPS mode — `SimulatedGPS.tsx` verified, gated by `ALLOW_SIMULATED_GPS` env var
+- [ ] Distance/direction indicator — `DistanceIndicator.tsx` shows **distance only** (meters + proximity color), no compass bearing/direction text like "northeast" as originally envisioned
+- [ ] Street-crossing / route-safety warnings on the map — not built
+- [x] Day/night route indicators — `TimeOfDayBanner` + `useTimeOfDay` + map theme switching verified
+
+## Stage 4 — Administrator Portal
+
+- [x] Admin login UI — verified working end-to-end this session (tested real login, fixed the bcrypt bug that was silently blocking it, fixed an infinite-redirect-loop bug on this exact page)
+- [x] Adventure editor — verified: create/edit description, duration, difficulty, tags, featured flag, publish/unpublish/delete
+- [ ] Stop editor — mostly built (lat/lng, GPS radius, historical text, points, hint text, reorder via order_index all verified) but **images/audio are plain URL text fields, not an upload widget** — no file picker exists
+- [ ] Challenge editor — partially built: can add a challenge with type + points only (generic `config: {}`); no per-type-specific field UI (e.g. no way to enter multiple-choice options, the correct sequence, the expected QR code, etc. through the admin UI). Also **the backend has no list/create/delete routes for challenges yet** (only get/submit/hint), so this editor's Add/Delete buttons currently 404 in production regardless of the frontend UI gap
+- [ ] AI character creator + knowledge-source assignment UI — not built; `admin/characters` page only displays the 7 characters that are hardcoded in `app/ai/characters.py` (Python), read-only
+- [x] Photo-submission review queue — verified working (approve/reject)
+- [x] Player analytics dashboard — verified (leaderboard per adventure)
+- [ ] Preview-as-player mode — not built
+- [ ] Simulated-location testing controls (admin-side) — not built as an admin control (the player-facing `SimulatedGPS.tsx` debug tool is separate and already covered above)
+- [ ] "Skip checkpoint" / "reset adventure" testing controls — not built
+- [ ] Award-test-points control — not built
+- [ ] View AI retrieval sources (debug panel) — not built
+
+## Stage 5 — AI Historian (RAG)
+
+- [ ] Ollama actually running in production — currently NOT deployed on the Linode box (a 2GB RAM plan isn't enough headroom to run it well alongside Postgres/MinIO/Qdrant); `/api/v1/characters/chat` will fail until either the VPS is upsized (4GB+) or this is swapped for a cloud LLM API (Together.ai / Anthropic / OpenAI — cheaper and lower-latency than self-hosting for an MVP's traffic level)
+- [ ] RAG query pipeline skeleton (`app/ai/rag.py`) — Ollama + Qdrant
+- [ ] Character chat API endpoint with source citations + uncertainty flag
+- [ ] One sample character (Spanish colonial guide) with a scoped system prompt
+- [ ] Source ingestion pipeline (chunking + embedding of approved documents)
+- [ ] Source register / metadata tracking (title, author, date, rights, reliability, review status)
+- [ ] Qdrant collection actually populated with St. Augustine sources
+- [ ] Additional characters: Henry Flagler, Pedro Menéndez de Avilés, Gilded Age hotel guest, pirate captain, colonial shopkeeper, civil-rights-era guide, Timucua cultural interpreter (needs historian consultation)
+- [ ] Prompt-injection / guardrail testing
+- [ ] Fallback/uncertainty response tuning
+- [ ] "Learn more" source panel in the player UI
+
+## Stage 6 — Mobile / PWA Experience
+
+- [x] Installable PWA manifest
+- [x] Mobile-responsive Tailwind layout
+- [x] Service worker for offline caching — `sw.js` verified: cache-first static assets, LRU tile cache (500 entries), network-first API with stale-while-revalidate fallback, offline page fallback
+- [x] Camera upload flow for photo challenges — `PhotoChallengeCapture.tsx` verified (camera/file picker, preview, 10MB validation)
+- [x] IndexedDB local progress caching — `useIndexedDB`/`useOfflineSync` hooks verified actually used in the adventure start page (not just scaffolded and unused)
+- [x] Accessibility pass — `AccessibilityContext` + `AccessibilityPanel` verified: font size (normal/large/x-large), high contrast, reduce motion, persisted to localStorage
+- [ ] Solo vs. team selection flow — not built (no such screen exists)
+- [ ] Safety/location-permission notice screen — not built; the app requests location directly via the browser's native permission prompt, no custom pre-permission explainer screen first
+- [ ] Team join-code UI — `joinTeam()` exists in the API client and the backend endpoint works, but no frontend screen calls it — there's nowhere in the UI to actually enter a join code
+
+## Stage 7 — Field Test
+
+- [ ] Walk the full 5-stop route in person; verify GPS accuracy at each radius
+- [ ] Test on iPhone and Android
+- [ ] Test on cellular and Wi-Fi
+- [ ] Test in bright sunlight (screen visibility)
+- [ ] Test offline recovery
+- [ ] Verify sidewalk accessibility, crossings, hours, construction at each stop
+- [ ] Confirm average walking time matches the 45–60 min estimate
+- [ ] Team-joining test with multiple devices
+- [ ] AI response accuracy review by a historical reviewer
+
+---
+
+## Content To Produce (per stop, all 5 stops)
+
+- [ ] 150-word summary + 400-word extended history per stop
+- [ ] Key dates, people, documented facts, common myths
+- [ ] Audio narration script (+ recorded audio)
+- [ ] Historic photograph + cover photograph + map marker image
+- [ ] Character portraits
+- [ ] Achievement badge art
+- [ ] Second trivia question per stop (spec calls for two; sample has one)
+- [ ] Bonus/optional challenge per stop
+- [ ] Final "decode the phrase" end-game challenge using collected answers
+
+## Historical Source Register
+
+- [ ] Catalog existing St. Augustine RAG sources with: title, author, date, URL, rights status, reliability, locations covered, period, review status, reviewer
+- [ ] Historian/community review pass before publishing sensitive content (esp. Civil Rights Journey adventure, Timucua character)
+
+## Security & Privacy
+
+- [x] Password hashing (bcrypt) and JWT auth (backend) — was scaffolded but silently non-functional in production; fixed and verified working end-to-end (see Deployment Notes: bcrypt/passlib pin)
+- [x] HTTPS in production — frontend via Cloudflare Pages (automatic), backend via Caddy + Let's Encrypt on a free nip.io hostname (see Deployment Notes)
+- [ ] Rate limiting — slowapi middleware is wired up in code; not load-tested against the live deployment yet
+- [ ] Upload file validation + photo size limits
+- [ ] Location-data retention policy (store check-in result/time only, not continuous tracks)
+- [ ] Account deletion + data export
+- [ ] Audit logs
+- [ ] Automated database + media backups
+- [ ] AI prompt-injection controls
+- [ ] Content moderation for user-submitted photos
+- [ ] Child-use policy
+- [ ] Privacy policy and terms pages
+
+## Accounts / Infrastructure (needed before public launch)
+
+- [x] GitHub repo — public, not private (required by Vercel Hobby's deployment protection; harmless since no secrets are committed — see Deployment Notes)
+- [ ] Domain name (trademark search first) — not purchased yet; currently running on free subdomains (`*.pages.dev` for frontend, `*.nip.io` for backend) which is fine for testing but should be replaced before public launch
+- [ ] Project email address
+- [x] Hosting provider / Linux VPS — Linode 2GB Nanode, Docker Compose, see Deployment Notes for exact stack
+- [ ] Transactional email provider
+- [ ] Stripe (only once paid adventures launch)
+- [ ] Error-monitoring service
+- [ ] Analytics (PostHog + Metabase or equivalent)
+- [ ] Map tile provider or self-hosted tile strategy — no MapTiler key configured in production yet; map will show placeholder until one is added
+- [x] Object storage (MinIO locally / S3-compatible in production) — MinIO running on the Linode box, bucket auto-created on boot
+
+## People / Roles To Cover
+
+- [ ] Product owner decisions locked (audience, branding, business model)
+- [ ] Developer (frontend/backend/deploy) — in progress
+- [ ] Instructional/experience designer pass (challenge sequencing, difficulty, hints, engagement)
+- [ ] Independent historical reviewer
+- [ ] Field tester
+
+---
+
+## Postponed by Design (do not build yet)
+
+- [ ] Native iOS / Android apps
+- [ ] Full AR / camera-based landmark recognition
+- [ ] Real-time multiplayer movement
+- [ ] Automatic AI photo-challenge judging
+- [ ] Voice character conversations
+- [ ] Cryptocurrency rewards
+- [ ] Facial recognition
+- [ ] Multi-city marketplace / white-label accounts
+- [ ] School LMS integrations
+- [ ] Dynamic AI-generated personalized routes
+- [ ] Corporate dashboards / business subscriptions
+
+## Future Adventures (beyond the first prototype)
+
+- [ ] The Flagler Challenge
+- [ ] Haunted St. Augustine
+- [ ] Pirate Pursuit
+- [ ] Civil Rights Journey (requires historian + community review before publication)
+
+## Deployment Notes — What's Actually Live, And What To Reuse
+
+The app is deployed and reachable end-to-end for testing. Concrete state:
+
+**Frontend:** https://ttt-scavenger-hunt-v3.pages.dev (Cloudflare Pages, free tier)
+**Backend:** https://173-230-128-241.nip.io (Linode 2GB VPS, Docker Compose, Caddy reverse proxy)
+**Admin login:** kemperdesignservices@gmail.com / 4173 (weak on purpose for a private test box — change before this ever becomes public)
+
+Working config, in case the next project needs the same stack:
+
+- **Cloudflare Pages + Next.js**: build command `npx @cloudflare/next-on-pages@1`, output dir `.vercel/output/static`, root dir = your frontend folder. Needs a `.npmrc` with `legacy-peer-deps=true` (Cloudflare's own toolchain has an internal version conflict otherwise) and the `nodejs_compat` compatibility flag set on *both* Production and Preview environments (Settings → Runtime).
+- **No domain was purchased.** Backend gets a real hostname for free via `nip.io` (wildcard public DNS: `173-230-128-241.nip.io` resolves straight to that IP, no signup needed) plus Caddy for automatic free HTTPS. This was required, not optional — Cloudflare Workers refuse to `fetch()` a bare IP address.
+- **GitHub repo had to be public**, not private, because Vercel's Hobby tier forces a login wall on private-repo deployments that can't be disabled without a paid plan. (We ultimately moved off Vercel to Cloudflare Pages anyway, which doesn't have this restriction — but the repo is already public and there's no reason to flip it back.)
+- A full reusable write-up of every deployment gotcha we hit (Cloudflare build settings, the bcrypt/passlib version trap, SQLAlchemy circular-import patterns, the AuthGuard-guards-its-own-login-page loop, etc.) is saved separately at `deployment-playbook-notes.md` on the Desktop — read that before starting the next project's deployment.
+
+## Revenue Model (post-MVP)
+
+- [ ] Paid premium adventures / family & group passes / annual membership
+- [ ] Corporate team-building packages
+- [ ] School program pricing + teacher dashboard
+- [ ] Sponsored stops / partner QR-code offers (schema exists via `partners` table; no admin UI or redemption flow yet)
+- [ ] Private event booking (birthdays, proposals, bachelor/ette, conferences)

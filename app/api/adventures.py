@@ -71,6 +71,14 @@ class LeaderboardEntry(BaseModel):
     completed_at: Optional[datetime]
 
 
+class TeamLeaderboardEntry(BaseModel):
+    rank: int
+    team_name: str
+    member_count: int
+    total_points: int
+    completed_at: Optional[datetime]
+
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def _to_out(a: Adventure) -> AdventureOut:
@@ -193,29 +201,58 @@ async def unpublish_adventure(
     return _to_out(adventure)
 
 
-@router.get("/{adventure_id}/leaderboard", response_model=List[LeaderboardEntry])
+@router.get("/{adventure_id}/leaderboard")
 async def get_leaderboard(
     adventure_id: UUID,
+    type: str = "player",
     limit: int = 20,
     db: AsyncSession = Depends(get_db),
 ):
-    result = await db.execute(
-        select(GameSession, User)
-        .join(User, GameSession.user_id == User.id)
-        .where(
-            GameSession.adventure_id == adventure_id,
-            GameSession.is_complete == True,
+    """
+    Get adventure leaderboard.
+
+    type: "player" for individual rankings, "team" for team rankings
+    """
+    if type == "team":
+        from app.models.team import Team, TeamMember
+
+        result = await db.execute(
+            select(Team, func.count(TeamMember.id).label("member_count"))
+            .outerjoin(TeamMember)
+            .where(Team.adventure_id == adventure_id)
+            .group_by(Team.id)
+            .order_by(Team.total_points.desc())
+            .limit(limit)
         )
-        .order_by(GameSession.total_points.desc(), GameSession.completed_at.asc())
-        .limit(limit)
-    )
-    rows = result.all()
-    return [
-        LeaderboardEntry(
-            rank=i + 1,
-            username=user.username,
-            total_points=session.total_points,
-            completed_at=session.completed_at,
+        rows = result.all()
+        return [
+            TeamLeaderboardEntry(
+                rank=i + 1,
+                team_name=team.name,
+                member_count=member_count or 0,
+                total_points=team.total_points,
+                completed_at=None,
+            )
+            for i, (team, member_count) in enumerate(rows)
+        ]
+    else:
+        result = await db.execute(
+            select(GameSession, User)
+            .join(User, GameSession.user_id == User.id)
+            .where(
+                GameSession.adventure_id == adventure_id,
+                GameSession.is_complete == True,
+            )
+            .order_by(GameSession.total_points.desc(), GameSession.completed_at.asc())
+            .limit(limit)
         )
-        for i, (session, user) in enumerate(rows)
-    ]
+        rows = result.all()
+        return [
+            LeaderboardEntry(
+                rank=i + 1,
+                username=user.username,
+                total_points=session.total_points,
+                completed_at=session.completed_at,
+            )
+            for i, (session, user) in enumerate(rows)
+        ]

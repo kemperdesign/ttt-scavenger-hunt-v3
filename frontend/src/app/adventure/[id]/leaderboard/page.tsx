@@ -1,23 +1,38 @@
-import Link from "next/link";
-import { getLeaderboard } from "@/lib/api";
+"use client";
 
-export const runtime = "edge";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getLeaderboard, type LeaderboardEntry, type TeamLeaderboardEntry } from "@/lib/api";
 
 interface Props {
   params: { id: string };
 }
 
-export default async function LeaderboardPage({ params }: Props) {
-  let entries: Awaited<ReturnType<typeof getLeaderboard>> = [];
-  let error = false;
+export default function LeaderboardPage({ params }: Props) {
+  const [type, setType] = useState<"player" | "team">("player");
+  const [entries, setEntries] = useState<(LeaderboardEntry | TeamLeaderboardEntry)[]>([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    entries = await getLeaderboard(params.id);
-  } catch {
-    error = true;
-  }
+  useEffect(() => {
+    async function load() {
+      setLoading(true);
+      setError(false);
+      try {
+        const data = await getLeaderboard(params.id, { type, limit: 20 });
+        setEntries(data);
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, [params.id, type]);
 
   const medals = ["🥇", "🥈", "🥉"];
+  const isTeamEntry = (entry: LeaderboardEntry | TeamLeaderboardEntry): entry is TeamLeaderboardEntry =>
+    "team_name" in entry;
 
   return (
     <main className="min-h-screen bg-slate-900 text-white px-4 py-8 max-w-lg mx-auto">
@@ -30,8 +45,34 @@ export default async function LeaderboardPage({ params }: Props) {
           ← Back
         </Link>
         <h1 className="text-2xl font-bold mt-3">Leaderboard</h1>
-        <p className="text-slate-400 text-sm mt-1">Top completions for this adventure</p>
+        <p className="text-slate-400 text-sm mt-1">
+          {type === "team" ? "Team rankings" : "Individual rankings"}
+        </p>
       </header>
+
+      {/* Type toggle */}
+      <div className="flex gap-2 mb-6">
+        <button
+          onClick={() => setType("player")}
+          className={`flex-1 py-2 rounded-lg font-medium text-sm transition-colors min-h-[44px] ${
+            type === "player"
+              ? "bg-amber-500 text-slate-900"
+              : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+          }`}
+        >
+          Players
+        </button>
+        <button
+          onClick={() => setType("team")}
+          className={`flex-1 py-2 rounded-lg font-medium text-sm transition-colors min-h-[44px] ${
+            type === "team"
+              ? "bg-amber-500 text-slate-900"
+              : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+          }`}
+        >
+          Teams
+        </button>
+      </div>
 
       {error && (
         <div role="alert" className="bg-red-900/40 border border-red-700 rounded-lg p-4 mb-6">
@@ -39,27 +80,36 @@ export default async function LeaderboardPage({ params }: Props) {
         </div>
       )}
 
-      {!error && entries.length === 0 && (
-        <div className="text-center py-16 text-slate-400">
-          <p className="text-4xl mb-3">🏆</p>
-          <p className="font-medium">No completions yet</p>
-          <p className="text-sm mt-1">Be the first to finish!</p>
+      {loading && (
+        <div className="text-center py-8 text-slate-400" role="status">
+          <p className="animate-pulse">Loading...</p>
         </div>
       )}
 
-      {entries.length > 0 && (
+      {!error && !loading && entries.length === 0 && (
+        <div className="text-center py-16 text-slate-400">
+          <p className="text-4xl mb-3">🏆</p>
+          <p className="font-medium">
+            {type === "team" ? "No team scores yet" : "No completions yet"}
+          </p>
+          <p className="text-sm mt-1">
+            {type === "team" ? "Teams will appear here" : "Be the first to finish!"}
+          </p>
+        </div>
+      )}
+
+      {!error && !loading && entries.length > 0 && (
         <ol aria-label="Leaderboard rankings" className="space-y-3">
           {entries.map((entry, idx) => {
             const isTop3 = idx < 3;
             return (
               <li
-                key={entry.user_id}
+                key={entry.rank}
                 className={`flex items-center gap-4 rounded-xl p-4 ${
                   isTop3
                     ? "bg-amber-900/30 border border-amber-700/50"
                     : "bg-slate-800"
                 }`}
-                aria-label={`Rank ${idx + 1}: ${entry.username}, ${entry.total_points} points`}
               >
                 {/* Rank */}
                 <span
@@ -71,15 +121,26 @@ export default async function LeaderboardPage({ params }: Props) {
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold truncate">{entry.username}</p>
-                  {entry.completed_at && (
-                    <p className="text-slate-400 text-xs mt-0.5">
-                      {new Date(entry.completed_at).toLocaleDateString(undefined, {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </p>
+                  {isTeamEntry(entry) ? (
+                    <>
+                      <p className="font-semibold truncate">{entry.team_name}</p>
+                      <p className="text-slate-400 text-xs mt-0.5">
+                        {entry.member_count} {entry.member_count === 1 ? "member" : "members"}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="font-semibold truncate">{entry.username}</p>
+                      {entry.completed_at && (
+                        <p className="text-slate-400 text-xs mt-0.5">
+                          {new Date(entry.completed_at).toLocaleDateString(undefined, {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </p>
+                      )}
+                    </>
                   )}
                 </div>
 

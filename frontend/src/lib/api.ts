@@ -181,6 +181,15 @@ export interface LeaderboardEntry {
   user_id?: string;
 }
 
+// Matches backend TeamLeaderboardEntry (app/api/adventures.py).
+export interface TeamLeaderboardEntry {
+  rank: number;
+  team_name: string;
+  member_count: number;
+  total_points: number;
+  completed_at?: string;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -327,9 +336,16 @@ export function unpublishAdventure(id: string) {
   return apiRequest<Adventure>(`/api/v1/adventures/${id}/unpublish`, { method: "POST" });
 }
 
-export function getLeaderboard(adventureId: string, limit?: number) {
-  const qs = limit ? `?limit=${limit}` : "";
-  return apiRequest<LeaderboardEntry[]>(`/api/v1/adventures/${adventureId}/leaderboard${qs}`);
+export function getLeaderboard(
+  adventureId: string,
+  options?: { type?: "player" | "team"; limit?: number }
+) {
+  const type = options?.type || "player";
+  const limit = options?.limit || 20;
+  const qs = `?type=${type}&limit=${limit}`;
+  return apiRequest<LeaderboardEntry[] | TeamLeaderboardEntry[]>(
+    `/api/v1/adventures/${adventureId}/leaderboard${qs}`
+  );
 }
 
 // ── Stops ─────────────────────────────────────────────────────────────────────

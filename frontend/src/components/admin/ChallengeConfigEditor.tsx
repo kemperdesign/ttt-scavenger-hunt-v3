@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import type { Challenge } from "@/lib/api";
+import { BranchingStoryEditor } from "./BranchingStoryEditor";
 
 interface ChallengeConfigEditorProps {
   challenge: Challenge;
@@ -449,15 +450,7 @@ function BranchingStoryConfig({
   config: Record<string, unknown>;
   onUpdate: (updates: Record<string, unknown>) => void;
 }) {
-  return (
-    <div className="p-3 bg-slate-700/50 rounded border border-slate-600 text-sm text-slate-300">
-      <p className="mb-2">
-        <strong>Note:</strong> Branching story config is complex. It requires defining choice nodes and
-        transitions. For now, the story will auto-complete after a player reads it.
-      </p>
-      <p>Full story branching editor coming soon.</p>
-    </div>
-  );
+  return <BranchingStoryEditor config={config} onUpdate={onUpdate} />;
 }
 
 function PhotoSubmissionConfig({

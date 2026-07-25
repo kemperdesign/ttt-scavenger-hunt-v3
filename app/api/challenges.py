@@ -343,9 +343,16 @@ def _evaluate(challenge: Challenge, answer_data: dict) -> tuple[bool, str]:
         # Photos go to admin review queue — mark as pending
         return True, "Photo submitted for review. Points will be awarded after approval."
 
-    elif ctype in ("ai_conversation", "branching_story"):
-        # These are open-ended; completion is determined by exchange count or story end node
-        return True, "Well done exploring this story!"
+    elif ctype == "ai_conversation":
+        # Open-ended; completion determined by min_exchanges on frontend
+        return True, "Great conversation!"
+
+    elif ctype == "branching_story":
+        # Player completes branching story by reaching an end node (no choices)
+        # answer_data should indicate final node reached
+        # For now, server trusts the client: if they submit, they reached an end
+        # Ideal: track final node in answer_data and validate it has no choices
+        return True, "You completed the story!"
 
     else:
         return False, "Unknown challenge type."

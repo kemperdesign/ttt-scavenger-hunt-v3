@@ -3,41 +3,44 @@
 import { useState, useEffect, useRef } from "react";
 
 interface StoryNode {
-  id: string;
   text: string;
-  choices?: StoryChoice[];
-  is_ending?: boolean;
-  points_awarded?: number;
-}
-
-interface StoryChoice {
-  label: string;
-  next_node_id: string;
+  choices?: Array<{ id: string; text: string; next_node: string }>;
 }
 
 interface BranchingStoryChallengeProps {
-  nodes: Record<string, StoryNode>;
-  startNodeId: string;
+  config: Record<string, unknown>;
   characterName: string;
-  onComplete: (pointsEarned: number) => void;
+  onComplete?: () => void;
   points: number;
 }
 
 export default function BranchingStoryChallenge({
-  nodes,
-  startNodeId,
+  config,
   characterName,
   onComplete,
   points,
 }: BranchingStoryChallengeProps) {
-  const [currentNodeId, setCurrentNodeId] = useState(startNodeId);
-  const [history, setHistory] = useState<string[]>([startNodeId]);
+  const startNode = (config.start_node as string) || "node_1";
+  const nodes = (config.branches as Record<string, StoryNode>) || {};
+
+  const [currentNodeId, setCurrentNodeId] = useState(startNode);
+  const [history, setHistory] = useState<string[]>([startNode]);
   const [isComplete, setIsComplete] = useState(false);
   const [choiceMade, setChoiceMade] = useState(false);
   const liveRegionRef = useRef<HTMLDivElement>(null);
   const firstChoiceRef = useRef<HTMLButtonElement>(null);
 
   const currentNode = nodes[currentNodeId];
+  const hasChoices = (currentNode?.choices?.length ?? 0) > 0;
+  const isEndNode = !hasChoices; // Node with no choices is an ending
+
+  // Auto-complete when reaching an end node
+  useEffect(() => {
+    if (isEndNode && !isComplete) {
+      setIsComplete(true);
+      onComplete?.();
+    }
+  }, [currentNodeId, isEndNode, isComplete, onComplete]);
 
   // Announce new story text to screen readers
   useEffect(() => {
@@ -61,17 +64,11 @@ export default function BranchingStoryChallenge({
     setHistory((h) => [...h, nextNodeId]);
     setCurrentNodeId(nextNodeId);
     setChoiceMade(true);
-
-    if (nextNode.is_ending) {
-      setIsComplete(true);
-      const earned = nextNode.points_awarded ?? points;
-      onComplete(earned);
-    }
   };
 
   const handleRestart = () => {
-    setCurrentNodeId(startNodeId);
-    setHistory([startNodeId]);
+    setCurrentNodeId(startNode);
+    setHistory([startNode]);
     setIsComplete(false);
     setChoiceMade(false);
   };
@@ -119,7 +116,7 @@ export default function BranchingStoryChallenge({
       </div>
 
       {/* Choices */}
-      {!currentNode.is_ending && currentNode.choices && currentNode.choices.length > 0 && (
+      {hasChoices && (
         <div
           className="px-5 pb-5 space-y-2"
           role="group"
@@ -128,23 +125,23 @@ export default function BranchingStoryChallenge({
           <p className="text-slate-400 text-xs mb-3 font-medium uppercase tracking-wide">
             What do you do?
           </p>
-          {currentNode.choices.map((choice, idx) => (
+          {currentNode.choices?.map((choice, idx) => (
             <button
-              key={choice.next_node_id}
+              key={choice.id}
               ref={idx === 0 ? firstChoiceRef : undefined}
-              onClick={() => handleChoice(choice.next_node_id)}
+              onClick={() => handleChoice(choice.next_node)}
               className="w-full text-left bg-slate-700 hover:bg-amber-900/40 border border-slate-600 hover:border-amber-600 text-white rounded-xl px-4 py-3 text-sm transition-colors min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400"
-              aria-label={`Choose: ${choice.label}`}
+              aria-label={`Choose: ${choice.text}`}
             >
               <span className="text-amber-400 mr-2" aria-hidden="true">›</span>
-              {choice.label}
+              {choice.text}
             </button>
           ))}
         </div>
       )}
 
       {/* Ending */}
-      {currentNode.is_ending && (
+      {isEndNode && isComplete && (
         <div className="px-5 pb-5 space-y-4">
           <div
             role="status"
@@ -153,7 +150,7 @@ export default function BranchingStoryChallenge({
           >
             <p className="text-2xl mb-1" aria-hidden="true">✨</p>
             <p className="text-green-300 font-semibold text-sm">
-              Story complete — +{currentNode.points_awarded ?? points} points!
+              Story complete — +{points} points!
             </p>
           </div>
 

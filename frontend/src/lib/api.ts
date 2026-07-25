@@ -386,10 +386,6 @@ export function useHint(challengeId: string, sessionId: string) {
   );
 }
 
-// NOTE: the backend (app/api/challenges.py) currently only exposes GET /{id},
-// /submit and /hint — there is no list-by-stop, create, or delete route yet.
-// These calls compile and are used by the admin stop editor, but will 404
-// until that backend CRUD is added.
 export function getChallenges(stopId: string) {
   return apiRequest<Challenge[]>(`/api/v1/challenges?stop_id=${stopId}`);
 }
@@ -407,6 +403,16 @@ export function createChallenge(data: {
 }) {
   return apiRequest<Challenge>("/api/v1/challenges", {
     method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export function updateChallenge(
+  challengeId: string,
+  data: Partial<Omit<Challenge, "id">>
+) {
+  return apiRequest<Challenge>(`/api/v1/challenges/${challengeId}`, {
+    method: "PATCH",
     body: JSON.stringify(data),
   });
 }

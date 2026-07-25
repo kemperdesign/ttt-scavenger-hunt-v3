@@ -58,6 +58,81 @@ class HintResponse(BaseModel):
     points_deducted: int
 
 
+class CreateChallengeRequest(BaseModel):
+    stop_id: str
+    challenge_type: str
+    title: str = "Untitled Challenge"
+    prompt: str = ""
+    order_index: int = 0
+    points: int = 10
+    is_required: bool = True
+    hint_text: Optional[str] = None
+    config: dict = {}
+
+
+class UpdateChallengeRequest(BaseModel):
+    title: Optional[str] = None
+    prompt: Optional[str] = None
+    challenge_type: Optional[str] = None
+    order_index: Optional[int] = None
+    points: Optional[int] = None
+    is_required: Optional[bool] = None
+    hint_text: Optional[str] = None
+    config: Optional[dict] = None
+
+
+@router.get("")
+async def list_challenges(stop_id: str, db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(Challenge)
+        .where(Challenge.stop_id == UUID(stop_id))
+        .order_by(Challenge.order_index)
+    )
+    challenges = result.scalars().all()
+    return [
+        ChallengeOut(
+            id=str(ch.id), stop_id=str(ch.stop_id),
+            challenge_type=ch.challenge_type, title=ch.title,
+            prompt=ch.prompt, order_index=ch.order_index,
+            points=ch.points, is_required=ch.is_required,
+            hint_text=ch.hint_text, config=ch.config,
+        )
+        for ch in challenges
+    ]
+
+
+@router.post("", response_model=ChallengeOut)
+async def create_challenge(
+    body: CreateChallengeRequest,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    if not current_user.is_admin:
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    challenge = Challenge(
+        stop_id=UUID(body.stop_id),
+        challenge_type=body.challenge_type,
+        title=body.title,
+        prompt=body.prompt,
+        order_index=body.order_index,
+        points=body.points,
+        is_required=body.is_required,
+        hint_text=body.hint_text,
+        config=body.config,
+    )
+    db.add(challenge)
+    await db.flush()
+
+    return ChallengeOut(
+        id=str(challenge.id), stop_id=str(challenge.stop_id),
+        challenge_type=challenge.challenge_type, title=challenge.title,
+        prompt=challenge.prompt, order_index=challenge.order_index,
+        points=challenge.points, is_required=challenge.is_required,
+        hint_text=challenge.hint_text, config=challenge.config,
+    )
+
+
 @router.get("/{challenge_id}", response_model=ChallengeOut)
 async def get_challenge(challenge_id: UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
@@ -71,6 +146,68 @@ async def get_challenge(challenge_id: UUID, db: AsyncSession = Depends(get_db)):
         points=ch.points, is_required=ch.is_required,
         hint_text=ch.hint_text, config=ch.config,
     )
+
+
+@router.patch("/{challenge_id}", response_model=ChallengeOut)
+async def update_challenge(
+    challenge_id: UUID,
+    body: UpdateChallengeRequest,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    if not current_user.is_admin:
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
+    ch = result.scalar_one_or_none()
+    if not ch:
+        raise HTTPException(status_code=404, detail="Challenge not found")
+
+    if body.title is not None:
+        ch.title = body.title
+    if body.prompt is not None:
+        ch.prompt = body.prompt
+    if body.challenge_type is not None:
+        ch.challenge_type = body.challenge_type
+    if body.order_index is not None:
+        ch.order_index = body.order_index
+    if body.points is not None:
+        ch.points = body.points
+    if body.is_required is not None:
+        ch.is_required = body.is_required
+    if body.hint_text is not None:
+        ch.hint_text = body.hint_text
+    if body.config is not None:
+        ch.config = body.config
+
+    await db.flush()
+
+    return ChallengeOut(
+        id=str(ch.id), stop_id=str(ch.stop_id),
+        challenge_type=ch.challenge_type, title=ch.title,
+        prompt=ch.prompt, order_index=ch.order_index,
+        points=ch.points, is_required=ch.is_required,
+        hint_text=ch.hint_text, config=ch.config,
+    )
+
+
+@router.delete("/{challenge_id}")
+async def delete_challenge(
+    challenge_id: UUID,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    if not current_user.is_admin:
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
+    ch = result.scalar_one_or_none()
+    if not ch:
+        raise HTTPException(status_code=404, detail="Challenge not found")
+
+    db.delete(ch)
+    await db.flush()
+    return {"status": "deleted"}
 
 
 @router.post("/{challenge_id}/submit", response_model=SubmitResponse)

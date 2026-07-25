@@ -84,6 +84,23 @@ export default function StopEditorPage() {
   const handleSave = useCallback(async () => {
     setSaveState("saving");
     setErrorMsg("");
+
+    if (!title.trim()) {
+      setErrorMsg("Title is required.");
+      setSaveState("error");
+      return;
+    }
+    if (!lat || isNaN(parseFloat(lat))) {
+      setErrorMsg("Valid latitude is required.");
+      setSaveState("error");
+      return;
+    }
+    if (!lng || isNaN(parseFloat(lng))) {
+      setErrorMsg("Valid longitude is required.");
+      setSaveState("error");
+      return;
+    }
+
     const payload = {
       title,
       description,
@@ -107,7 +124,7 @@ export default function StopEditorPage() {
         setSaveState("saved");
         setTimeout(() => setSaveState("idle"), 2000);
       }
-    } catch {
+    } catch (err) {
       setErrorMsg("Save failed. Please try again.");
       setSaveState("error");
     }

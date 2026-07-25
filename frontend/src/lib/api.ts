@@ -402,6 +402,21 @@ export function useHint(challengeId: string, sessionId: string) {
   );
 }
 
+export function chatWithCharacter(
+  challengeId: string,
+  sessionId: string,
+  message: string
+) {
+  return apiRequest<{
+    reply: string;
+    message_count: number;
+    completion: boolean;
+  }>(`/api/v1/challenges/${challengeId}/chat`, {
+    method: "POST",
+    body: JSON.stringify({ session_id: sessionId, message }),
+  });
+}
+
 export function getChallenges(stopId: string) {
   return apiRequest<Challenge[]>(`/api/v1/challenges?stop_id=${stopId}`);
 }

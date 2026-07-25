@@ -6,12 +6,24 @@ interface DistanceIndicatorProps {
   distanceMeters: number | null;
   requiredRadiusMeters: number;
   isWithinRange: boolean;
+  bearingDegrees?: number | null;
+}
+
+const COMPASS_POINTS = [
+  "north", "northeast", "east", "southeast",
+  "south", "southwest", "west", "northwest",
+];
+
+function bearingToCompass(deg: number): string {
+  const index = Math.round(deg / 45) % 8;
+  return COMPASS_POINTS[index];
 }
 
 export function DistanceIndicator({
   distanceMeters,
   requiredRadiusMeters,
   isWithinRange,
+  bearingDegrees,
 }: DistanceIndicatorProps) {
   if (distanceMeters === null) {
     return (
@@ -38,8 +50,13 @@ export function DistanceIndicator({
       ? `${Math.round(distanceMeters)}m`
       : `${(distanceMeters / 1000).toFixed(1)}km`;
 
+  const direction =
+    !isWithinRange && bearingDegrees != null ? bearingToCompass(bearingDegrees) : null;
+
   const label = isWithinRange
     ? "You're at the location!"
+    : direction
+    ? `${displayDist} away — head ${direction}`
     : `${displayDist} away — keep moving`;
 
   return (
@@ -49,8 +66,28 @@ export function DistanceIndicator({
       aria-label={label}
       role="status"
     >
-      <div className="flex justify-between text-xs text-slate-400">
-        <span>{isWithinRange ? "✅ You're here!" : `📍 ${displayDist} away`}</span>
+      <div className="flex justify-between items-center text-xs text-slate-400">
+        <span className="flex items-center gap-1.5">
+          {isWithinRange ? (
+            "✅ You're here!"
+          ) : (
+            <>
+              📍 {displayDist} away
+              {direction && bearingDegrees != null && (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="inline-block transition-transform duration-300"
+                    style={{ transform: `rotate(${bearingDegrees}deg)` }}
+                  >
+                    ↑
+                  </span>
+                  <span className="capitalize">head {direction}</span>
+                </>
+              )}
+            </>
+          )}
+        </span>
         <span>{Math.round(requiredRadiusMeters)}m range</span>
       </div>
       <div

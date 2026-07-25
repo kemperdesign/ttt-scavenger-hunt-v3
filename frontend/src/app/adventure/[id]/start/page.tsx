@@ -43,6 +43,17 @@ function haversine(lat1: number, lng1: number, lat2: number, lng2: number): numb
   return 2 * R * Math.asin(Math.sqrt(a));
 }
 
+// Initial compass bearing from point 1 to point 2, in degrees (0 = north, clockwise).
+function bearing(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const f1 = (lat1 * Math.PI) / 180;
+  const f2 = (lat2 * Math.PI) / 180;
+  const dl = ((lng2 - lng1) * Math.PI) / 180;
+  const y = Math.sin(dl) * Math.cos(f2);
+  const x = Math.cos(f1) * Math.sin(f2) - Math.sin(f1) * Math.cos(f2) * Math.cos(dl);
+  const deg = (Math.atan2(y, x) * 180) / Math.PI;
+  return (deg + 360) % 360;
+}
+
 export default function AdventurePage() {
   return (
     <Suspense
@@ -86,6 +97,11 @@ function AdventurePageInner() {
   const distance =
     location && currentStop
       ? haversine(location.lat, location.lng, currentStop.lat, currentStop.lng)
+      : null;
+
+  const bearingDegrees =
+    location && currentStop
+      ? bearing(location.lat, location.lng, currentStop.lat, currentStop.lng)
       : null;
 
   const isWithinRange =
@@ -292,6 +308,7 @@ function AdventurePageInner() {
                   distanceMeters={distance}
                   requiredRadiusMeters={currentStop.gps_radius_meters ?? 30}
                   isWithinRange={isWithinRange}
+                  bearingDegrees={bearingDegrees}
                 />
               )}
             </section>

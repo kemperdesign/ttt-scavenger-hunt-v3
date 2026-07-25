@@ -8,6 +8,7 @@ import Link from "next/link";
 import {
   getAdventure,
   updateAdventure,
+  createAdventure,
   getStops,
   deleteStop,
   publishAdventure,
@@ -39,6 +40,11 @@ export default function AdminAdventureDetailPage() {
   useEffect(() => {
     async function load() {
       try {
+        if (id === "new") {
+          setAdventure({ id: "new", title: "", tags: [] } as any);
+          setLoading(false);
+          return;
+        }
         const [adv, stopsData] = await Promise.all([
           getAdventure(id),
           getStops(id),
@@ -66,22 +72,29 @@ export default function AdminAdventureDetailPage() {
     if (!adventure) return;
     setSaveState("saving");
     setErrorMsg("");
+    const payload = {
+      title,
+      description,
+      short_description: shortDesc,
+      difficulty,
+      estimated_duration_minutes: duration,
+      tags: tags
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean),
+      is_featured: isFeatured,
+    };
     try {
-      const updated = await updateAdventure(id, {
-        title,
-        description,
-        short_description: shortDesc,
-        difficulty,
-        estimated_duration_minutes: duration,
-        tags: tags
-          .split(",")
-          .map((t) => t.trim())
-          .filter(Boolean),
-        is_featured: isFeatured,
-      });
-      setAdventure(updated);
-      setSaveState("saved");
-      setTimeout(() => setSaveState("idle"), 2000);
+      if (id === "new") {
+        const created = await createAdventure(payload);
+        setSaveState("saved");
+        router.push(`/admin/adventures/${created.id}`);
+      } else {
+        const updated = await updateAdventure(id, payload);
+        setAdventure(updated);
+        setSaveState("saved");
+        setTimeout(() => setSaveState("idle"), 2000);
+      }
     } catch {
       setErrorMsg("Save failed. Please try again.");
       setSaveState("error");
@@ -96,6 +109,7 @@ export default function AdminAdventureDetailPage() {
     duration,
     tags,
     isFeatured,
+    router,
   ]);
 
   const handleTogglePublish = useCallback(async () => {

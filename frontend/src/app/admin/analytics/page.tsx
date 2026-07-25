@@ -18,7 +18,7 @@ export default function AdminAnalyticsPage() {
 
   useEffect(() => {
     if (!selectedAdventure) return;
-    getLeaderboard(selectedAdventure, 20).then(setLeaderboard);
+    getLeaderboard(selectedAdventure, { limit: 20 }).then(setLeaderboard);
   }, [selectedAdventure]);
 
   return (

@@ -24,6 +24,7 @@ import { BadgeEarned } from "@/components/player/BadgeEarned";
 import { TimeOfDayBanner } from "@/components/player/TimeOfDayBanner";
 import { SimulatedGPS } from "@/components/debug/SimulatedGPS";
 import { AppFooter } from "@/components/player/AppFooter";
+import { TeamSetup } from "@/components/player/TeamSetup";
 
 interface EarnedBadge {
   id: string;
@@ -75,6 +76,7 @@ function AdventurePageInner() {
   const [pendingBadge, setPendingBadge] = useState<EarnedBadge | null>(null);
   const [simulated, setSimulated] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [needsTeamSetup, setNeedsTeamSetup] = useState(false);
 
   const { location, error: gpsError, simulateLocation } = usePlayerLocation(simulated);
   const { set: dbSet, get: dbGet } = useIndexedDB();
@@ -117,10 +119,8 @@ function AdventurePageInner() {
             // Could fetch session from API here; using local state for now
             setSession({ id: savedSessionId } as GameSession);
           } else {
-            const sess = await createSession(id);
-            setSession(sess);
-            await dbSet(`session_${id}`, sess.id);
-            setCurrentStopIndex(sess.current_stop_index ?? 0);
+            // New session: ask solo/create-team/join-team before starting
+            setNeedsTeamSetup(true);
           }
         }
       } catch (e) {
@@ -138,6 +138,18 @@ function AdventurePageInner() {
       simulateLocation(currentStop.lat, currentStop.lng);
     }
   }, [isPreview, currentStop, simulateLocation]);
+
+  const handleTeamSetupDone = useCallback(async (teamId: string | null) => {
+    setNeedsTeamSetup(false);
+    try {
+      const sess = await createSession(id, teamId ?? undefined);
+      setSession(sess);
+      await dbSet(`session_${id}`, sess.id);
+      setCurrentStopIndex(sess.current_stop_index ?? 0);
+    } catch {
+      setError("Failed to start adventure. Check your connection.");
+    }
+  }, [id, dbSet]);
 
   const handleSkipStop = useCallback(() => {
     setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
@@ -183,6 +195,10 @@ function AdventurePageInner() {
         </div>
       </div>
     );
+  }
+
+  if (needsTeamSetup) {
+    return <TeamSetup adventureId={id} onDone={handleTeamSetupDone} />;
   }
 
   if (error || !adventure) {

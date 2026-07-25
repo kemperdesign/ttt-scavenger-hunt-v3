@@ -112,14 +112,16 @@ export interface ChallengeAttempt {
   submitted_at: string;
 }
 
+// Matches backend TeamOut (app/api/teams.py) exactly.
 export interface Team {
   id: string;
   name: string;
   join_code: string;
   adventure_id: string;
-  member_count: number;
-  members: { id: string; display_name: string }[];
-  created_at: string;
+  leader_id: string | null;
+  total_points: number;
+  max_members: number;
+  members: { user_id: string; username: string; joined_at: string }[];
 }
 
 export interface Session {

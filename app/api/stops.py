@@ -141,5 +141,5 @@ async def delete_stop(
     stop = result.scalar_one_or_none()
     if not stop:
         raise HTTPException(status_code=404, detail="Stop not found")
-    db.delete(stop)
+    await db.delete(stop)
     await db.flush()

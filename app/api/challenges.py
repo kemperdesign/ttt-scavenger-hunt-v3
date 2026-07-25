@@ -223,7 +223,7 @@ async def delete_challenge(
     if not ch:
         raise HTTPException(status_code=404, detail="Challenge not found")
 
-    db.delete(ch)
+    await db.delete(ch)
     await db.flush()
     return {"status": "deleted"}
 

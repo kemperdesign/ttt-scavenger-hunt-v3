@@ -100,6 +100,6 @@ async def delete_account(
     Permanently delete the current user account and all associated data.
     Cascades via FK constraints on sessions, badges, submissions.
     """
-    db.delete(current_user)
+    await db.delete(current_user)
     await db.flush()
     return None

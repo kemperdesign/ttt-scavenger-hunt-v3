@@ -167,7 +167,7 @@ async def delete_adventure(
     adventure = result.scalar_one_or_none()
     if not adventure:
         raise HTTPException(status_code=404, detail="Adventure not found")
-    db.delete(adventure)
+    await db.delete(adventure)
     await db.flush()
 
 

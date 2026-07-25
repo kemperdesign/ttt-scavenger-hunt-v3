@@ -43,7 +43,7 @@ repo. `[ ]` = still to build.
 - [x] Server-side geofence validation (haversine distance, not client-trusted) — verified in `app/api/gps_checkin.py`
 - [x] Live player position marker on the map — verified
 - [x] Simulated GPS mode — `SimulatedGPS.tsx` verified, gated by `ALLOW_SIMULATED_GPS` env var
-- [ ] Distance/direction indicator — `DistanceIndicator.tsx` shows **distance only** (meters + proximity color), no compass bearing/direction text like "northeast" as originally envisioned
+- [x] Distance/direction indicator — `DistanceIndicator.tsx` now shows a rotating arrow + compass text ("head northeast") alongside distance and proximity color, using a new `bearing()` helper (initial great-circle bearing) next to the existing `haversine()` distance calc. North-up convention, no device-orientation permission needed.
 - [ ] Street-crossing / route-safety warnings on the map — not built
 - [x] Day/night route indicators — `TimeOfDayBanner` + `useTimeOfDay` + map theme switching verified
 

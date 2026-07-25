@@ -159,7 +159,8 @@ async def delete_adventure(
     adventure = result.scalar_one_or_none()
     if not adventure:
         raise HTTPException(status_code=404, detail="Adventure not found")
-    await db.delete(adventure)
+    db.delete(adventure)
+    await db.flush()
 
 
 @router.post("/{adventure_id}/publish", response_model=AdventureOut)

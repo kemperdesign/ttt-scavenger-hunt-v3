@@ -153,10 +153,14 @@ export default function StopEditorPage() {
   }, [stopId, newChallengeType, newChallengePoints]);
 
   const handleSaveConfig = useCallback(
-    async (config: Record<string, unknown>) => {
+    async (updates: {
+      title: string;
+      prompt: string;
+      config: Record<string, unknown>;
+    }) => {
       if (!editingChallenge) return;
       try {
-        const updated = await updateChallenge(editingChallenge.id, { config });
+        const updated = await updateChallenge(editingChallenge.id, updates);
         setChallenges((prev) =>
           prev.map((c) => (c.id === editingChallenge.id ? updated : c))
         );

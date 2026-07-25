@@ -6,7 +6,11 @@ import { BranchingStoryEditor } from "./BranchingStoryEditor";
 
 interface ChallengeConfigEditorProps {
   challenge: Challenge;
-  onSave: (config: Record<string, unknown>) => Promise<void>;
+  onSave: (updates: {
+    title: string;
+    prompt: string;
+    config: Record<string, unknown>;
+  }) => Promise<void>;
   onClose: () => void;
 }
 
@@ -16,6 +20,8 @@ export function ChallengeConfigEditor({
   onClose,
 }: ChallengeConfigEditorProps) {
   const [config, setConfig] = useState(challenge.config || {});
+  const [title, setTitle] = useState(challenge.title);
+  const [prompt, setPrompt] = useState(challenge.prompt);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
@@ -23,14 +29,14 @@ export function ChallengeConfigEditor({
     setSaving(true);
     setError("");
     try {
-      await onSave(config);
+      await onSave({ title, prompt, config });
       onClose();
     } catch {
       setError("Failed to save configuration.");
     } finally {
       setSaving(false);
     }
-  }, [config, onSave, onClose]);
+  }, [title, prompt, config, onSave, onClose]);
 
   const updateConfig = (updates: Record<string, unknown>) => {
     setConfig((prev) => ({ ...prev, ...updates }));
@@ -66,9 +72,9 @@ export function ChallengeConfigEditor({
             <input
               id="ch-title"
               type="text"
-              value={challenge.title}
-              disabled
-              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm opacity-60"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm"
             />
           </div>
 
@@ -78,10 +84,10 @@ export function ChallengeConfigEditor({
             </label>
             <textarea
               id="ch-prompt"
-              value={challenge.prompt}
-              disabled
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
               rows={2}
-              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm opacity-60 resize-none"
+              className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm resize-none"
             />
           </div>
 

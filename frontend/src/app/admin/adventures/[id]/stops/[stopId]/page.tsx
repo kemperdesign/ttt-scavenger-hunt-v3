@@ -5,8 +5,9 @@ export const runtime = "edge";
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { getStop, updateStop, createStop, getChallenges, createChallenge, deleteChallenge } from "@/lib/api";
+import { getStop, updateStop, createStop, getChallenges, createChallenge, deleteChallenge, updateChallenge } from "@/lib/api";
 import type { Stop, Challenge } from "@/lib/api";
+import { ChallengeConfigEditor } from "@/components/admin/ChallengeConfigEditor";
 
 type SaveState = "idle" | "saving" | "saved" | "error";
 
@@ -30,6 +31,7 @@ export default function StopEditorPage() {
   const [loading, setLoading] = useState(true);
   const [saveState, setSaveState] = useState<SaveState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [editingChallenge, setEditingChallenge] = useState<Challenge | null>(null);
 
   // Stop form fields
   const [title, setTitle] = useState("");
@@ -144,10 +146,27 @@ export default function StopEditorPage() {
       });
       setChallenges((prev) => [...prev, created]);
       setAddingChallenge(false);
+      setEditingChallenge(created);
     } catch {
       setErrorMsg("Failed to add challenge.");
     }
   }, [stopId, newChallengeType, newChallengePoints]);
+
+  const handleSaveConfig = useCallback(
+    async (config: Record<string, unknown>) => {
+      if (!editingChallenge) return;
+      try {
+        const updated = await updateChallenge(editingChallenge.id, { config });
+        setChallenges((prev) =>
+          prev.map((c) => (c.id === editingChallenge.id ? updated : c))
+        );
+      } catch {
+        setErrorMsg("Failed to save configuration.");
+        throw new Error("Failed to save configuration.");
+      }
+    },
+    [editingChallenge]
+  );
 
   const handleDeleteChallenge = useCallback(async (challengeId: string) => {
     if (!confirm("Delete this challenge?")) return;
@@ -336,11 +355,18 @@ export default function StopEditorPage() {
           ) : (
             <ul className="space-y-2">
               {challenges.map((ch) => (
-                <li key={ch.id} className="flex items-center gap-3 bg-slate-800 rounded-lg px-4 py-3">
+                <li key={ch.id} className="flex items-center gap-2 bg-slate-800 rounded-lg px-4 py-3">
                   <div className="flex-1 min-w-0">
                     <p className="text-white text-sm font-medium">{ch.challenge_type.replace(/_/g, " ")}</p>
                     <p className="text-slate-400 text-xs">{ch.points} pts{ch.is_required ? " · required" : ""}</p>
                   </div>
+                  <button
+                    onClick={() => setEditingChallenge(ch)}
+                    className="text-xs bg-slate-700 hover:bg-slate-600 text-slate-300 px-3 py-1 rounded min-h-[44px]"
+                    aria-label={`Configure ${ch.challenge_type} challenge`}
+                  >
+                    Configure
+                  </button>
                   <button
                     onClick={() => handleDeleteChallenge(ch.id)}
                     className="text-xs text-red-400 hover:text-red-300 px-2 py-1 min-h-[44px]"
@@ -353,6 +379,14 @@ export default function StopEditorPage() {
             </ul>
           )}
         </section>
+      )}
+
+      {editingChallenge && (
+        <ChallengeConfigEditor
+          challenge={editingChallenge}
+          onSave={handleSaveConfig}
+          onClose={() => setEditingChallenge(null)}
+        />
       )}
     </main>
   );

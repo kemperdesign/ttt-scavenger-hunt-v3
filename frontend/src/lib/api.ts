@@ -379,6 +379,31 @@ export function deleteStop(stopId: string) {
   return apiRequest<void>(`/api/v1/stops/${stopId}`, { method: "DELETE" });
 }
 
+export async function uploadStopMedia(
+  stopId: string,
+  mediaType: "image" | "audio",
+  file: File
+): Promise<Stop> {
+  const token = getToken();
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(
+    `${API_URL}/api/v1/stops/${stopId}/media?media_type=${mediaType}`,
+    {
+      method: "POST",
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+      body: formData,
+    }
+  );
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new ApiError(res.status, body || res.statusText);
+  }
+  return res.json() as Promise<Stop>;
+}
+
 // ── Challenges ────────────────────────────────────────────────────────────────
 
 export function submitChallenge(

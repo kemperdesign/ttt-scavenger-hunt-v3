@@ -30,10 +30,10 @@ repo. `[ ]` = still to build.
 - [x] Sample adventure content, 5 stops — real seeded adventure exists: **"Founding St. Augustine: 1565"** (not "Secrets of St. Augustine" as originally named — content differs from the original plan, but a complete working sample with 5 real stops exists and is live in production)
 - [x] Sequence-puzzle challenge validation logic — verified: real order-comparison logic (`user_order == correct_order`)
 - [x] QR-code challenge validation logic — verified: real code-comparison logic (`scanned_code == expected`)
-- [ ] Branching-story logic (choice → next stop/challenge) — frontend component (`BranchingStoryChallenge.tsx`) exists, but the backend evaluator is a stub that always returns success; no real server-side choice-tree state machine
+- [x] Branching-story logic (choice → next stop/challenge) — `BranchingStoryEditor.tsx` (admin) lets admins build a node/choice graph with a designated start node; `BranchingStoryChallenge.tsx` (player) navigates it and auto-completes on reaching an end node (zero choices); backend evaluator accepts completion submissions
 - [x] Hint system exposed in the player UI — `HintButton.tsx` verified wired into the adventure start page (two-tap confirm, deducts points)
 - [x] Achievement badges (schema + award logic) — `Badge`/`UserBadge` models + `/badges/check/{session_id}` endpoint verified
-- [ ] Leaderboard endpoint (cross-team ranking) — endpoint exists and works, but is individual-player ranking only (rank/username/total_points); not team-aware
+- [x] Leaderboard endpoint (cross-team ranking) — `/adventures/{id}/leaderboard?type=player|team` now supports both; team mode aggregates via `TeamMember` LEFT OUTER JOIN with member counts. Frontend leaderboard page has a Players/Teams toggle
 
 ## Stage 3 — Map and GPS
 
@@ -52,7 +52,7 @@ repo. `[ ]` = still to build.
 - [x] Admin login UI — verified working end-to-end this session (tested real login, fixed the bcrypt bug that was silently blocking it, fixed an infinite-redirect-loop bug on this exact page)
 - [x] Adventure editor — verified: create/edit description, duration, difficulty, tags, featured flag, publish/unpublish/delete
 - [ ] Stop editor — mostly built (lat/lng, GPS radius, historical text, points, hint text, reorder via order_index all verified) but **images/audio are plain URL text fields, not an upload widget** — no file picker exists
-- [ ] Challenge editor — partially built: can add a challenge with type + points only (generic `config: {}`); no per-type-specific field UI (e.g. no way to enter multiple-choice options, the correct sequence, the expected QR code, etc. through the admin UI). Also **the backend has no list/create/delete routes for challenges yet** (only get/submit/hint), so this editor's Add/Delete buttons currently 404 in production regardless of the frontend UI gap
+- [x] Challenge editor — full CRUD (list/create/update/delete) now on the backend; `ChallengeConfigEditor.tsx` gives per-type field UI for all 8 types (multiple-choice options + correct answer, accepted text answers, sequence items, QR code + hint, AI character + min exchanges + topic, branching-story graph editor, photo review toggle + subject hint, GPS radius override), plus editable title/prompt
 - [ ] AI character creator + knowledge-source assignment UI — not built; `admin/characters` page only displays the 7 characters that are hardcoded in `app/ai/characters.py` (Python), read-only
 - [x] Photo-submission review queue — verified working (approve/reject)
 - [x] Player analytics dashboard — verified (leaderboard per adventure)
@@ -64,7 +64,8 @@ repo. `[ ]` = still to build.
 
 ## Stage 5 — AI Historian (RAG)
 
-- [ ] Ollama actually running in production — currently NOT deployed on the Linode box (a 2GB RAM plan isn't enough headroom to run it well alongside Postgres/MinIO/Qdrant); `/api/v1/characters/chat` will fail until either the VPS is upsized (4GB+) or this is swapped for a cloud LLM API (Together.ai / Anthropic / OpenAI — cheaper and lower-latency than self-hosting for an MVP's traffic level)
+- [x] AI conversation challenge chat — structured per-challenge chat (`/challenges/{id}/chat`) now runs on **OpenAI (gpt-4o-mini)**, not Ollama, since the 2GB VPS can't run a local model. Persists message history to `conversation_messages`, auto-completes at `min_exchanges`, awards points server-side. Live in production.
+- [ ] Ollama actually running in production — still NOT deployed (2GB VPS insufficient); the *separate*, older `/api/v1/characters/chat` endpoint (open-ended chat, not tied to a specific challenge — see `AIChatChallenge.tsx`, currently unused in any page) still targets Ollama and will fail if ever wired up. Either point it at OpenAI too, or retire it in favor of the new challenge-based chat.
 - [ ] RAG query pipeline skeleton (`app/ai/rag.py`) — Ollama + Qdrant
 - [ ] Character chat API endpoint with source citations + uncertainty flag
 - [ ] One sample character (Spanish colonial guide) with a scoped system prompt
@@ -122,6 +123,7 @@ repo. `[ ]` = still to build.
 ## Security & Privacy
 
 - [x] Password hashing (bcrypt) and JWT auth (backend) — was scaffolded but silently non-functional in production; fixed and verified working end-to-end (see Deployment Notes: bcrypt/passlib pin)
+- [x] Delete endpoints actually delete — `db.delete(obj)` without `await` on `AsyncSession` (unlike sync `Session.delete()`, the async version is a coroutine) silently no-opped: 200 OK returned, nothing ever deleted. Affected challenge/stop/adventure/account delete. Fixed across all four by awaiting the call; verified via direct DB query that deletes now persist.
 - [x] HTTPS in production — frontend via Cloudflare Pages (automatic), backend via Caddy + Let's Encrypt on a free nip.io hostname (see Deployment Notes)
 - [ ] Rate limiting — slowapi middleware is wired up in code; not load-tested against the live deployment yet
 - [ ] Upload file validation + photo size limits

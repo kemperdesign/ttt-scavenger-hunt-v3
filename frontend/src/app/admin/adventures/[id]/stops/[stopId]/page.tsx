@@ -8,6 +8,7 @@ import Link from "next/link";
 import { getStop, updateStop, createStop, getChallenges, createChallenge, deleteChallenge, updateChallenge } from "@/lib/api";
 import type { Stop, Challenge } from "@/lib/api";
 import { ChallengeConfigEditor } from "@/components/admin/ChallengeConfigEditor";
+import { MediaUploadField } from "@/components/admin/MediaUploadField";
 
 type SaveState = "idle" | "saving" | "saved" | "error";
 
@@ -43,6 +44,8 @@ export default function StopEditorPage() {
   const [points, setPoints] = useState(100);
   const [hintText, setHintText] = useState("");
   const [characterId, setCharacterId] = useState("");
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
   // New challenge form
   const [addingChallenge, setAddingChallenge] = useState(false);
@@ -74,6 +77,8 @@ export default function StopEditorPage() {
         setPoints(stopData.points);
         setHintText(stopData.hint_text ?? "");
         setCharacterId(stopData.ai_character_id ?? "");
+        setImageUrl(stopData.image_url ?? null);
+        setAudioUrl(stopData.audio_url ?? null);
       } catch {
         setErrorMsg("Failed to load stop.");
       } finally {
@@ -296,6 +301,27 @@ export default function StopEditorPage() {
             placeholder="spanish_colonial_guide"
             className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
         </div>
+
+        {isNewStop ? (
+          <p className="text-xs text-slate-500 bg-slate-800/50 rounded-lg px-3 py-2">
+            Save this stop first to unlock image and audio uploads.
+          </p>
+        ) : (
+          <>
+            <MediaUploadField
+              stopId={stopId}
+              mediaType="image"
+              currentUrl={imageUrl}
+              onUploaded={setImageUrl}
+            />
+            <MediaUploadField
+              stopId={stopId}
+              mediaType="audio"
+              currentUrl={audioUrl}
+              onUploaded={setAudioUrl}
+            />
+          </>
+        )}
 
         <button
           onClick={handleSave}

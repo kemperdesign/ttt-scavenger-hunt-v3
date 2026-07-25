@@ -73,11 +73,19 @@ FastAPI backend (Docker) — Linode 2GB VPS, 173.230.128.241
 
 ## Known gaps (not fixed — be aware before relying on these features)
 
-- **AI Historian chat** — Ollama isn't running (see architecture above); `/api/v1/characters/chat` will error
-- **Admin challenge management** (add/delete challenges) — backend has no list/create/delete routes for challenges yet, only get/submit/hint; the admin stop editor will 404 on those actions
+- **Legacy `/api/v1/characters/chat` endpoint** — still targets Ollama (not running, 2GB VPS can't support it) and will error. This is separate from the newer, working AI conversation challenge chat (`/challenges/{id}/chat`, OpenAI-backed) — the legacy one isn't wired into any page currently, so it's dormant rather than actively broken.
 - **Leaderboard page** — backend doesn't return a per-row user ID, so its React list key is always undefined (cosmetic warning, not a crash)
 - **Photo submission points** — backend scores photos on admin review, not at upload time, so the upload UI always shows 0 points immediately (accurate; the review workflow itself isn't built in the UI yet)
 - **No real domain, no MapTiler key configured in production** (map shows placeholder), no Stripe/email/error-monitoring setup — all fine for private testing, all needed before any public launch
+- **Stop editor image/audio fields** — plain URL text inputs, no upload widget (in progress)
+
+## Fixed since last update (2026-07-25)
+
+- Challenge admin CRUD (list/create/update/delete) + per-type config editor for all 8 challenge types
+- Team leaderboard (`?type=team` alongside existing player ranking)
+- Full branching-story logic (admin graph editor + player navigation + backend completion validation)
+- AI conversation challenge chat, now OpenAI-backed (`gpt-4o-mini`) since Ollama can't run on this VPS
+- **Critical bug**: `AsyncSession.delete()` called without `await` silently no-opped across challenge/stop/adventure/account delete endpoints — returned 200 OK but never deleted the row. Fixed in all four.
 
 ---
 

@@ -2,20 +2,36 @@
 Stops CRUD.
 """
 
-from uuid import UUID
+from uuid import UUID, uuid4
 from typing import Optional, List
 from datetime import datetime
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from pydantic import BaseModel
+import boto3
 
 from app.db.session import get_db
 from app.models.stop import Stop
 from app.models.user import User
 from app.auth.deps import get_current_admin
+from app.core.config import settings
+from app.utils.file_validation import validate_image, validate_audio
 
 router = APIRouter()
+
+
+def _get_minio():
+    return boto3.client(
+        "s3",
+        endpoint_url=f"{'https' if settings.MINIO_SECURE else 'http'}://{settings.MINIO_ENDPOINT}",
+        aws_access_key_id=settings.MINIO_ACCESS_KEY,
+        aws_secret_access_key=settings.MINIO_SECRET_KEY,
+    )
+
+
+_AUDIO_EXTENSIONS = {"audio/mpeg": "mp3", "audio/wav": "wav", "audio/ogg": "ogg"}
+_IMAGE_EXTENSIONS = {"image/jpeg": "jpg", "image/png": "png", "image/gif": "gif", "image/webp": "webp"}
 
 
 class StopBase(BaseModel):
@@ -127,6 +143,51 @@ async def update_stop(
         raise HTTPException(status_code=404, detail="Stop not found")
     for field, value in body.model_dump(exclude_none=True).items():
         setattr(stop, field, value)
+    await db.flush()
+    return _to_out(stop)
+
+
+@router.post("/{stop_id}/media", response_model=StopOut)
+async def upload_stop_media(
+    stop_id: UUID,
+    media_type: str,
+    file: UploadFile = File(...),
+    db: AsyncSession = Depends(get_db),
+    _: User = Depends(get_current_admin),
+):
+    if media_type not in ("image", "audio"):
+        raise HTTPException(status_code=400, detail="media_type must be 'image' or 'audio'")
+
+    result = await db.execute(select(Stop).where(Stop.id == stop_id))
+    stop = result.scalar_one_or_none()
+    if not stop:
+        raise HTTPException(status_code=404, detail="Stop not found")
+
+    contents = await file.read()
+    if media_type == "image":
+        mime = validate_image(contents, filename=file.filename or "upload")
+        ext = _IMAGE_EXTENSIONS[mime]
+    else:
+        mime = validate_audio(contents, filename=file.filename or "upload")
+        ext = _AUDIO_EXTENSIONS[mime]
+
+    key = f"stops/{stop_id}/{media_type}/{uuid4()}.{ext}"
+    try:
+        minio = _get_minio()
+        minio.put_object(
+            Bucket=settings.MINIO_BUCKET,
+            Key=key,
+            Body=contents,
+            ContentType=mime,
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Storage error: {str(e)}")
+
+    url = f"{'https' if settings.MINIO_SECURE else 'http'}://{settings.MINIO_ENDPOINT}/{settings.MINIO_BUCKET}/{key}"
+    if media_type == "image":
+        stop.image_url = url
+    else:
+        stop.audio_url = url
     await db.flush()
     return _to_out(stop)
 

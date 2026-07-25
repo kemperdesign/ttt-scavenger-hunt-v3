@@ -13,7 +13,7 @@ class Base(DeclarativeBase):
 from app.models.user import User  # noqa: F401, E402
 from app.models.adventure import Adventure  # noqa: F401, E402
 from app.models.stop import Stop  # noqa: F401, E402
-from app.models.challenge import Challenge  # noqa: F401, E402
+from app.models.challenge import Challenge, ChallengeAttempt, ConversationMessage  # noqa: F401, E402
 from app.models.session import GameSession  # noqa: F401, E402
 from app.models.team import Team, TeamMember  # noqa: F401, E402
 from app.models.badge import Badge, UserBadge  # noqa: F401, E402

@@ -6,17 +6,19 @@ import math
 from uuid import UUID
 from datetime import datetime, timezone
 from typing import Optional, List, Any
+import httpx
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, desc
 from pydantic import BaseModel
 
 from app.db.session import get_db
-from app.models.challenge import Challenge, ChallengeAttempt
+from app.models.challenge import Challenge, ChallengeAttempt, ConversationMessage
 from app.models.session import GameSession
 from app.models.user import User
 from app.auth.deps import get_current_user
 from app.core.config import settings
+from app.ai.characters import get_character
 
 router = APIRouter()
 
@@ -56,6 +58,22 @@ class HintRequest(BaseModel):
 class HintResponse(BaseModel):
     hint_text: str
     points_deducted: int
+
+
+class ChatRequest(BaseModel):
+    session_id: str
+    message: str
+
+
+class ChatMessage(BaseModel):
+    role: str  # "user" or "assistant"
+    content: str
+
+
+class ChatResponse(BaseModel):
+    reply: str
+    message_count: int
+    completion: bool
 
 
 class CreateChallengeRequest(BaseModel):
@@ -293,6 +311,109 @@ async def use_hint(
     await db.flush()
 
     return HintResponse(hint_text=challenge.hint_text, points_deducted=penalty)
+
+
+@router.post("/{challenge_id}/chat", response_model=ChatResponse)
+async def chat(
+    challenge_id: UUID,
+    body: ChatRequest,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    ch_result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
+    challenge = ch_result.scalar_one_or_none()
+    if not challenge or challenge.challenge_type != "ai_conversation":
+        raise HTTPException(status_code=404, detail="AI conversation challenge not found")
+
+    sess_result = await db.execute(
+        select(GameSession).where(
+            GameSession.id == UUID(body.session_id),
+            GameSession.user_id == current_user.id,
+        )
+    )
+    session = sess_result.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    cfg = challenge.config or {}
+    character_id = cfg.get("character_id", "spanish_colonial_guide")
+    min_exchanges = cfg.get("min_exchanges", 3)
+    character = get_character(character_id)
+    if not character:
+        raise HTTPException(status_code=500, detail="Character not found")
+
+    msg_result = await db.execute(
+        select(ConversationMessage)
+        .where(
+            ConversationMessage.session_id == session.id,
+            ConversationMessage.challenge_id == challenge.id,
+        )
+        .order_by(ConversationMessage.created_at)
+    )
+    history = msg_result.scalars().all()
+
+    user_msg = ConversationMessage(
+        session_id=session.id,
+        challenge_id=challenge.id,
+        user_id=current_user.id,
+        role="user",
+        content=body.message,
+    )
+    db.add(user_msg)
+    await db.flush()
+
+    messages = [
+        {"role": m.role, "content": m.content}
+        for m in history
+    ]
+    messages.append({"role": "user", "content": body.message})
+
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f"{settings.OLLAMA_BASE_URL}/api/chat",
+                json={
+                    "model": settings.OLLAMA_CHAT_MODEL,
+                    "messages": [
+                        {"role": "system", "content": character["system_prompt"]}
+                    ] + messages,
+                    "stream": False,
+                },
+                timeout=30,
+            )
+            response.raise_for_status()
+            result = response.json()
+            reply = result.get("message", {}).get("content", "")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"LLM error: {str(e)}")
+
+    assistant_msg = ConversationMessage(
+        session_id=session.id,
+        challenge_id=challenge.id,
+        user_id=current_user.id,
+        role="assistant",
+        content=reply,
+    )
+    db.add(assistant_msg)
+    await db.flush()
+
+    exchanges = len([m for m in history if m.role == "user"]) + 1
+    is_complete = exchanges >= min_exchanges
+
+    if is_complete:
+        completed = list(session.completed_challenge_ids or [])
+        if str(challenge_id) not in completed:
+            completed.append(str(challenge_id))
+            session.completed_challenge_ids = completed
+            session.total_points = (session.total_points or 0) + challenge.points
+
+    await db.flush()
+
+    return ChatResponse(
+        reply=reply,
+        message_count=exchanges,
+        completion=is_complete,
+    )
 
 
 # ── Challenge type evaluators ─────────────────────────────────────────────────

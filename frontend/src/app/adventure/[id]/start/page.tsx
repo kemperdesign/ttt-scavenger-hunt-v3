@@ -237,8 +237,8 @@ function AdventurePageInner() {
       <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4" role="alert">
         <div className="text-center space-y-4">
           <p className="text-red-400">{error ?? "Adventure not found"}</p>
-          <button onClick={() => router.back()} className="min-h-[44px] px-4 py-2 bg-slate-700 rounded-lg text-white">
-            Go Back
+          <button onClick={() => router.push("/")} className="min-h-[44px] px-4 py-2 bg-slate-700 rounded-lg text-white">
+            ← Back to Home
           </button>
         </div>
       </div>
@@ -275,8 +275,12 @@ function AdventurePageInner() {
             </p>
           </div>
           <button
-            onClick={() => router.back()}
-            aria-label="Exit adventure"
+            onClick={() => {
+              if (confirm("Exit this adventure? Your progress is saved and you can resume later.")) {
+                router.push("/");
+              }
+            }}
+            aria-label="Exit adventure and return home"
             className="min-h-[44px] min-w-[44px] text-slate-400 hover:text-white flex items-center justify-center"
           >
             ✕

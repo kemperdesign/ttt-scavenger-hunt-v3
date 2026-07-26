@@ -14,7 +14,7 @@ repo. `[ ]` = still to build.
 - [x] FastAPI backend project
 - [x] PostgreSQL/PostGIS-ready SQLAlchemy models
 - [x] Environment configuration (`.env.example` for both frontend/backend) — both exist and are complete; fixed `CORS_ORIGINS` to use valid JSON syntax (pydantic-settings requires it for `List[str]` fields — a bare string crashes the app on startup). Real production `.env` was hand-created on the server only, never committed (correct — see Deployment Notes below)
-- [ ] Alembic migration scaffold — present but unused so far; production tables were created directly from `Base.metadata.create_all` (no versioned migrations exist yet in `alembic/versions/`)
+- [x] Alembic migration scaffold — actively used now: 4 real versioned migrations (`001_add_conversation_messages` through `004_add_stop_safety_warning`), applied via `alembic upgrade head` on every backend deploy
 - [x] Actual PostgreSQL + PostGIS instance provisioned and migrated — running on Linode, seeded with 1 adventure / 5 stops
 - [ ] Development launch scripts (one-command "start everything" script)
 - [ ] `LICENSE` file

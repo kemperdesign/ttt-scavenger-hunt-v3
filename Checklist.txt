@@ -205,3 +205,31 @@ Working config, in case the next project needs the same stack:
 - [ ] School program pricing + teacher dashboard
 - [ ] Sponsored stops / partner QR-code offers (schema exists via `partners` table; no admin UI or redemption flow yet)
 - [ ] Private event booking (birthdays, proposals, bachelor/ette, conferences)
+
+## Future App Idea: Wine Passport (separate concept, not part of TimeQuest)
+
+A personal wine-tracking app — logging bottles tried, where and when, with
+ratings and photos. Distinct product from TimeQuest; captured here so the
+idea isn't lost.
+
+**Core features (as requested):**
+- [ ] Wine log — track every wine tried, with date and notes
+- [ ] Location tagging — where each wine was had (restaurant, winery, home, etc.)
+- [ ] Rating system — personal score/review per wine
+- [ ] Label photo capture — snap a photo of the bottle label per entry
+- [ ] "Where to buy" lookup — locate retailers or sources carrying a given wine
+
+**Additional feature ideas:**
+- [ ] Label OCR — auto-extract producer/vintage/varietal from a label photo instead of typing it in
+- [ ] Barcode/QR scan — quick lookup against a wine database instead of manual entry
+- [ ] Tasting notes template — structured fields (nose, palate, finish, tannins, acidity) beyond a free-text note
+- [ ] Food pairing suggestions — per wine or varietal
+- [ ] Personal cellar/inventory tracking — bottles owned vs. bottles already had, with quantity and storage location
+- [ ] Drink-window reminders — notify when an aging bottle is approaching its ideal drinking window
+- [ ] Price tracking — what was paid vs. current market price
+- [ ] Wine region exploration — map view of regions/wineries visited or wines tried from
+- [ ] Social features — share tasting notes or a passport profile with friends, compare ratings
+- [ ] Wishlist — wines to try, separate from the log of wines already had
+- [ ] Achievement badges — e.g. "tried 10 varietals," "visited 5 regions" (same pattern as TimeQuest's badge system)
+- [ ] Export/share the passport — PDF or shareable link of a personal wine history
+- [ ] AI sommelier chat — ask for recommendations based on logged preferences (same pattern as TimeQuest's AI historian characters)

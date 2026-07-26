@@ -338,7 +338,7 @@ async def chat(
     cfg = challenge.config or {}
     character_id = cfg.get("character_id", "spanish_colonial_guide")
     min_exchanges = cfg.get("min_exchanges", 3)
-    character = get_character(character_id)
+    character = await get_character(character_id, db)
     if not character:
         raise HTTPException(status_code=500, detail="Character not found")
 
@@ -376,7 +376,7 @@ async def chat(
                 json={
                     "model": settings.OPENAI_MODEL,
                     "messages": [
-                        {"role": "system", "content": character["system_prompt"]}
+                        {"role": "system", "content": character.system_prompt}
                     ] + messages,
                     "temperature": 0.7,
                     "max_tokens": 500,

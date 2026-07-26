@@ -161,6 +161,25 @@ export interface AiCharacter {
   greeting: string;
 }
 
+// Matches backend CharacterDetailOut (app/api/characters.py) exactly.
+export interface AiCharacterDetail extends AiCharacter {
+  system_prompt: string;
+  uncertainty_phrase: string;
+  source_topics: string[];
+}
+
+export interface AiCharacterInput {
+  id: string;
+  name: string;
+  display_name: string;
+  era: string;
+  personality: string;
+  system_prompt: string;
+  uncertainty_phrase: string;
+  greeting: string;
+  source_topics: string[];
+}
+
 // Matches backend SubmissionOut (app/api/submissions.py) exactly.
 export interface PhotoSubmission {
   id: string;
@@ -564,6 +583,28 @@ export async function chatWithCharacter(
 
 export function listCharacters() {
   return apiRequest<AiCharacter[]>("/api/v1/characters");
+}
+
+export function getCharacterDetail(characterId: string) {
+  return apiRequest<AiCharacterDetail>(`/api/v1/characters/${characterId}`);
+}
+
+export function createCharacter(data: AiCharacterInput) {
+  return apiRequest<AiCharacterDetail>("/api/v1/characters", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export function updateCharacter(characterId: string, data: Partial<Omit<AiCharacterInput, "id">>) {
+  return apiRequest<AiCharacterDetail>(`/api/v1/characters/${characterId}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteCharacter(characterId: string) {
+  return apiRequest<void>(`/api/v1/characters/${characterId}`, { method: "DELETE" });
 }
 
 // ── Badges ────────────────────────────────────────────────────────────────────

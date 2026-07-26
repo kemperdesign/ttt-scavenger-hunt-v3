@@ -20,3 +20,4 @@ from app.models.badge import Badge, UserBadge  # noqa: F401, E402
 from app.models.submission import PhotoSubmission  # noqa: F401, E402
 from app.models.audit_log import AuditLog  # noqa: F401, E402
 from app.models.token_blacklist import TokenBlacklist  # noqa: F401, E402
+from app.models.character import AICharacter  # noqa: F401, E402

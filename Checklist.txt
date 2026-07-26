@@ -25,7 +25,7 @@ repo. `[ ]` = still to build.
 - [x] Stops schema — verified: title, lat/lng, gps_radius_meters, order_index, points, hint_text, ai_character_id, historical_content
 - [x] Challenge schema + all 8 challenge type enums — verified in `app/api/challenges.py`: real evaluation logic exists for multiple_choice, text_answer, sequence_puzzle, qr_code, gps_checkin, and photo_submission. `ai_conversation` and `branching_story` both just return an automatic success (open-ended by design) — branching_story's actual choice-tree UI lives client-side in `BranchingStoryChallenge.tsx`, not validated server-side
 - [x] Scoring (`points_awarded` on each attempt) — verified
-- [x] Progress tracking (`GameSession` + `ChallengeAttempt` tables) — verified
+- [x] Progress tracking (`GameSession` + `ChallengeAttempt` tables) — verified. Fixed a real dead-end bug: checking into the last stop just re-showed the same "Check In Here" screen forever (the index-advance logic clamped at `stops.length - 1`, so the last stop could never trigger completion). Now calls `completeSession()` and navigates to the completion page. Also fixed the completion page reading its session ID from an unused `localStorage` key instead of the IndexedDB key the start page actually writes to — badges never loaded there either.
 - [ ] Test-data importer (`scripts/import_adventure.py`) — does not exist; only `seed_adventures.py` exists, which seeds one hardcoded adventure, not a generic importer for arbitrary content
 - [x] Sample adventure content, 5 stops — real seeded adventure exists: **"Founding St. Augustine: 1565"** (not "Secrets of St. Augustine" as originally named — content differs from the original plan, but a complete working sample with 5 real stops exists and is live in production)
 - [x] Sequence-puzzle challenge validation logic — verified: real order-comparison logic (`user_order == correct_order`)
@@ -37,7 +37,7 @@ repo. `[ ]` = still to build.
 
 ## Stage 3 — Map and GPS
 
-- [x] Interactive map (MapLibre GL) — `AdventureMap.tsx` verified, needs a MapTiler key in production to render real tiles (see Accounts/Infrastructure)
+- [x] Interactive map (MapLibre GL) — `AdventureMap.tsx` was fully built but never actually imported/rendered anywhere in the app; wired into the player start page. MapTiler key is now live in Cloudflare Production (an earlier copy-paste mistake included the literal word "Key" as part of the value, causing silent 403s — fixed)
 - [x] Stop markers — verified (numbered, color-coded by completed/current/upcoming)
 - [x] "Check in here" button calling the geofence endpoint — verified, wired to `/gps/checkin`
 - [x] Server-side geofence validation (haversine distance, not client-trusted) — verified in `app/api/gps_checkin.py`
@@ -82,7 +82,7 @@ repo. `[ ]` = still to build.
 
 ## Stage 6 — Mobile / PWA Experience
 
-- [x] Installable PWA manifest
+- [x] Installable PWA manifest — icon files it referenced (`icon-192.png`, `icon-512.png`, favicon) never actually existed (404s on every load); added a simple hourglass mark matching the app's amber/slate theme
 - [x] Mobile-responsive Tailwind layout
 - [x] Service worker for offline caching — `sw.js` verified: cache-first static assets, LRU tile cache (500 entries), network-first API with stale-while-revalidate fallback, offline page fallback
 - [x] Camera upload flow for photo challenges — `PhotoChallengeCapture.tsx` verified (camera/file picker, preview, 10MB validation)
@@ -149,7 +149,7 @@ repo. `[ ]` = still to build.
 - [ ] Stripe (only once paid adventures launch)
 - [ ] Error-monitoring service
 - [ ] Analytics (PostHog + Metabase or equivalent)
-- [ ] Map tile provider or self-hosted tile strategy — no MapTiler key configured in production yet; map will show placeholder until one is added
+- [x] Map tile provider — MapTiler key configured in Cloudflare Production and confirmed rendering real tiles live
 - [x] Object storage (MinIO locally / S3-compatible in production) — MinIO running on the Linode box, bucket auto-created on boot
 
 ## People / Roles To Cover

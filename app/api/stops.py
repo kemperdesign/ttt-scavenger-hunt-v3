@@ -48,6 +48,7 @@ class StopBase(BaseModel):
     ai_character_id: Optional[str] = None
     points: int = 10
     hint_text: Optional[str] = None
+    safety_warning: Optional[str] = None
 
 
 class StopCreate(StopBase):
@@ -67,6 +68,7 @@ class StopUpdate(BaseModel):
     ai_character_id: Optional[str] = None
     points: Optional[int] = None
     hint_text: Optional[str] = None
+    safety_warning: Optional[str] = None
 
 
 class StopOut(StopBase):
@@ -94,6 +96,7 @@ def _to_out(s: Stop) -> StopOut:
         ai_character_id=s.ai_character_id,
         points=s.points,
         hint_text=s.hint_text,
+        safety_warning=s.safety_warning,
         created_at=s.created_at,
         updated_at=s.updated_at,
     )

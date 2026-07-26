@@ -25,6 +25,7 @@ class Stop(Base):
     ai_character_id: Mapped[str] = mapped_column(String(50), nullable=True)
     points: Mapped[int] = mapped_column(Integer, default=10)
     hint_text: Mapped[str] = mapped_column(Text, nullable=True)
+    safety_warning: Mapped[str] = mapped_column(Text, nullable=True)
     metadata_json: Mapped[dict] = mapped_column(JSONB, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

@@ -43,6 +43,7 @@ export default function StopEditorPage() {
   const [radius, setRadius] = useState(40);
   const [points, setPoints] = useState(100);
   const [hintText, setHintText] = useState("");
+  const [safetyWarning, setSafetyWarning] = useState("");
   const [characterId, setCharacterId] = useState("");
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -76,6 +77,7 @@ export default function StopEditorPage() {
         setRadius(stopData.gps_radius_meters);
         setPoints(stopData.points);
         setHintText(stopData.hint_text ?? "");
+        setSafetyWarning(stopData.safety_warning ?? "");
         setCharacterId(stopData.ai_character_id ?? "");
         setImageUrl(stopData.image_url ?? null);
         setAudioUrl(stopData.audio_url ?? null);
@@ -117,6 +119,7 @@ export default function StopEditorPage() {
       gps_radius_meters: radius,
       points,
       hint_text: hintText,
+      safety_warning: safetyWarning,
       ai_character_id: characterId || null,
     };
 
@@ -137,7 +140,7 @@ export default function StopEditorPage() {
     }
   }, [
     title, description, historicalContent, lat, lng, radius, points,
-    hintText, characterId, isNewStop, stopId, adventureId, router,
+    hintText, safetyWarning, characterId, isNewStop, stopId, adventureId, router,
   ]);
 
   const handleAddChallenge = useCallback(async () => {
@@ -290,6 +293,18 @@ export default function StopEditorPage() {
           </label>
           <input id="stop-hint" type="text" value={hintText} onChange={(e) => setHintText(e.target.value)}
             className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
+        </div>
+
+        <div>
+          <label htmlFor="stop-safety" className="block text-sm font-medium text-slate-300 mb-1">
+            ⚠️ Safety Warning (street crossings, uneven sidewalks, construction, etc.)
+          </label>
+          <textarea id="stop-safety" rows={2} value={safetyWarning} onChange={(e) => setSafetyWarning(e.target.value)}
+            placeholder="e.g., Busy crossing at Cordova St — use the marked crosswalk"
+            className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 resize-none" />
+          <p className="text-xs text-slate-500 mt-1">
+            Shown to players as a caution banner while navigating to this stop. Leave blank if none.
+          </p>
         </div>
 
         <div>

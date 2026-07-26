@@ -84,6 +84,7 @@ export interface Stop {
   ai_character_id?: string | null;
   points: number;
   hint_text?: string;
+  safety_warning?: string;
   created_at: string;
   updated_at: string;
 }

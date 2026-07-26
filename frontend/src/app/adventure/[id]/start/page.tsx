@@ -316,6 +316,16 @@ function AdventurePageInner() {
               )}
             </section>
 
+            {currentStop.safety_warning && (
+              <div
+                role="alert"
+                className="flex items-start gap-2.5 p-3 bg-amber-900/30 border border-amber-700 rounded-lg"
+              >
+                <span className="text-lg shrink-0" aria-hidden="true">⚠️</span>
+                <p className="text-amber-200 text-sm leading-relaxed">{currentStop.safety_warning}</p>
+              </div>
+            )}
+
             <AdventureMap
               stops={stops}
               currentStopIndex={currentStopIndex}

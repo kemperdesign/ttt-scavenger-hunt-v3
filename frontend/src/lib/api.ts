@@ -103,14 +103,12 @@ export interface Challenge {
   config: Record<string, unknown>;
 }
 
-export interface ChallengeAttempt {
-  id: string;
-  challenge_id: string;
-  session_id: string;
+// Matches backend SubmitResponse (app/api/challenges.py) exactly.
+export interface ChallengeSubmitResult {
   is_correct: boolean;
-  points_awarded: number;
-  hint_used: boolean;
-  submitted_at: string;
+  points_earned: number;
+  feedback: string;
+  attempt_id: string;
 }
 
 // Matches backend TeamOut (app/api/teams.py) exactly.
@@ -431,12 +429,12 @@ export async function uploadStopMedia(
 
 export function submitChallenge(
   challengeId: string,
-  answer: unknown,
+  answerData: Record<string, unknown>,
   sessionId: string
 ) {
-  return apiRequest<ChallengeAttempt>(`/api/v1/challenges/${challengeId}/submit`, {
+  return apiRequest<ChallengeSubmitResult>(`/api/v1/challenges/${challengeId}/submit`, {
     method: "POST",
-    body: JSON.stringify({ answer, session_id: sessionId }),
+    body: JSON.stringify({ session_id: sessionId, answer_data: answerData }),
   });
 }
 
@@ -459,6 +457,7 @@ export function chatInConversationChallenge(
     reply: string;
     message_count: number;
     completion: boolean;
+    retrieved_sources: string[];
   }>(`/api/v1/challenges/${challengeId}/chat`, {
     method: "POST",
     body: JSON.stringify({ session_id: sessionId, message }),
@@ -535,6 +534,17 @@ export function getSession(sessionId: string) {
 
 export function completeSession(sessionId: string) {
   return apiRequest<Session>(`/api/v1/sessions/${sessionId}/complete`, { method: "POST" });
+}
+
+export function resetSession(sessionId: string) {
+  return apiRequest<Session>(`/api/v1/sessions/${sessionId}/reset`, { method: "POST" });
+}
+
+export function awardTestPoints(sessionId: string, points: number) {
+  return apiRequest<Session>(`/api/v1/sessions/${sessionId}/award-points`, {
+    method: "POST",
+    body: JSON.stringify({ points }),
+  });
 }
 
 // ── Teams ─────────────────────────────────────────────────────────────────────

@@ -14,7 +14,7 @@ from app.db.session import get_db
 from app.models.session import GameSession
 from app.models.adventure import Adventure
 from app.models.user import User
-from app.auth.deps import get_current_user
+from app.auth.deps import get_current_user, get_current_admin
 
 router = APIRouter()
 
@@ -23,6 +23,10 @@ class SessionCreate(BaseModel):
     adventure_id: str
     team_id: Optional[str] = None
     is_preview: bool = False
+
+
+class AwardPointsRequest(BaseModel):
+    points: int
 
 
 class SessionOut(BaseModel):
@@ -123,5 +127,53 @@ async def complete_session(
     session.is_complete = True
     session.status = "completed"
     session.completed_at = datetime.now(tz=timezone.utc)
+    await db.flush()
+    return _to_out(session)
+
+
+@router.post("/{session_id}/reset", response_model=SessionOut)
+async def reset_session(
+    session_id: UUID,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Restart a player's own session from the beginning — self-service, not admin-gated."""
+    result = await db.execute(
+        select(GameSession).where(
+            GameSession.id == session_id,
+            GameSession.user_id == current_user.id,
+        )
+    )
+    session = result.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    session.status = "active"
+    session.current_stop_index = 0
+    session.total_points = 0
+    session.completed_stop_ids = []
+    session.completed_challenge_ids = []
+    session.hints_used = 0
+    session.is_complete = False
+    session.completed_at = None
+    await db.flush()
+    return _to_out(session)
+
+
+@router.post("/{session_id}/award-points", response_model=SessionOut)
+async def award_test_points(
+    session_id: UUID,
+    body: AwardPointsRequest,
+    db: AsyncSession = Depends(get_db),
+    _: User = Depends(get_current_admin),
+):
+    """Admin testing tool — manually add points to a session to test point-dependent
+    features (badge thresholds, leaderboard position) without playing through challenges."""
+    result = await db.execute(select(GameSession).where(GameSession.id == session_id))
+    session = result.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    session.total_points = max(0, session.total_points + body.points)
     await db.flush()
     return _to_out(session)

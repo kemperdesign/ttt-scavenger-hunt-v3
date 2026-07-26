@@ -11,6 +11,8 @@ interface AIConversationChallengeProps {
   topic?: string;
   points: number;
   onComplete?: () => void;
+  /** Admin/preview-only: shows what RAG context (if any) backed the last reply. */
+  showDebugPanel?: boolean;
 }
 
 interface Message {
@@ -26,12 +28,14 @@ export default function AIConversationChallenge({
   topic,
   points,
   onComplete,
+  showDebugPanel = false,
 }: AIConversationChallengeProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [isComplete, setIsComplete] = useState(false);
+  const [lastRetrievedSources, setLastRetrievedSources] = useState<string[] | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -55,6 +59,7 @@ export default function AIConversationChallenge({
     try {
       const data = await chatInConversationChallenge(challengeId, sessionId, userMessage);
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
+      setLastRetrievedSources(data.retrieved_sources ?? []);
 
       if (data.completion) {
         setIsComplete(true);
@@ -161,6 +166,29 @@ export default function AIConversationChallenge({
             </button>
           </div>
         </div>
+      )}
+
+      {showDebugPanel && lastRetrievedSources !== null && (
+        <details className="border-t border-slate-600 bg-slate-900/50 px-4 py-2 text-xs">
+          <summary className="text-slate-400 cursor-pointer select-none">
+            🔍 Debug: AI retrieval sources ({lastRetrievedSources.length})
+          </summary>
+          <div className="mt-2 space-y-2">
+            {lastRetrievedSources.length === 0 ? (
+              <p className="text-slate-500 italic">
+                No sources retrieved for the last message — either Qdrant has no matching
+                content for this character&apos;s topics, or the RAG pipeline isn&apos;t reachable
+                (embedding service down).
+              </p>
+            ) : (
+              lastRetrievedSources.map((chunk, i) => (
+                <p key={i} className="text-slate-400 bg-slate-800 rounded p-2 leading-relaxed">
+                  {chunk}
+                </p>
+              ))
+            )}
+          </div>
+        </details>
       )}
     </section>
   );

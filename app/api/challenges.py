@@ -19,6 +19,7 @@ from app.models.user import User
 from app.auth.deps import get_current_user
 from app.core.config import settings
 from app.ai.characters import get_character
+from app.ai.rag import retrieve_context
 
 router = APIRouter()
 
@@ -74,6 +75,7 @@ class ChatResponse(BaseModel):
     reply: str
     message_count: int
     completion: bool
+    retrieved_sources: List[str] = []
 
 
 class CreateChallengeRequest(BaseModel):
@@ -369,6 +371,20 @@ async def chat(
     messages.append({"role": "user", "content": body.message})
 
     try:
+        retrieved_chunks = await retrieve_context(
+            query=body.message,
+            topics=character.source_topics or [],
+            top_k=3,
+        )
+    except Exception:
+        retrieved_chunks = []
+
+    system_prompt = character.system_prompt
+    if retrieved_chunks:
+        context_text = "\n\n".join(retrieved_chunks)
+        system_prompt += f"\n\n[Historical context to draw from if relevant:]\n{context_text}"
+
+    try:
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 "https://api.openai.com/v1/chat/completions",
@@ -376,7 +392,7 @@ async def chat(
                 json={
                     "model": settings.OPENAI_MODEL,
                     "messages": [
-                        {"role": "system", "content": character.system_prompt}
+                        {"role": "system", "content": system_prompt}
                     ] + messages,
                     "temperature": 0.7,
                     "max_tokens": 500,
@@ -415,6 +431,7 @@ async def chat(
         reply=reply,
         message_count=exchanges,
         completion=is_complete,
+        retrieved_sources=retrieved_chunks,
     )
 
 

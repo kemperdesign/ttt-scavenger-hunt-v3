@@ -10,12 +10,15 @@ import {
   createSession,
   listStops,
   gpsCheckin,
-  submitChallenge,
+  getChallenges,
   checkBadges,
   completeSession,
+  resetSession,
+  awardTestPoints,
   type Adventure,
   type Stop,
   type GameSession,
+  type Challenge,
 } from "@/lib/api";
 import { usePlayerLocation } from "@/hooks/usePlayerLocation";
 import { useTimeOfDay } from "@/hooks/useTimeOfDay";
@@ -27,6 +30,7 @@ import { TimeOfDayBanner } from "@/components/player/TimeOfDayBanner";
 import { SimulatedGPS } from "@/components/debug/SimulatedGPS";
 import { AppFooter } from "@/components/player/AppFooter";
 import { TeamSetup } from "@/components/player/TeamSetup";
+import { ChallengeRenderer } from "@/components/player/ChallengeRenderer";
 
 const AdventureMap = dynamic(() => import("@/components/map/AdventureMap"), { ssr: false });
 
@@ -92,6 +96,9 @@ function AdventurePageInner() {
   const [simulated, setSimulated] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [needsTeamSetup, setNeedsTeamSetup] = useState(false);
+  const [checkedIn, setCheckedIn] = useState(false);
+  const [stopChallenges, setStopChallenges] = useState<Challenge[]>([]);
+  const [completedChallengeIds, setCompletedChallengeIds] = useState<Set<string>>(new Set());
 
   const { location, error: gpsError, simulateLocation } = usePlayerLocation(simulated);
   const { set: dbSet, get: dbGet } = useIndexedDB();
@@ -159,6 +166,13 @@ function AdventurePageInner() {
     }
   }, [isPreview, currentStop, simulateLocation]);
 
+  // Reset per-stop challenge state whenever the current stop changes.
+  useEffect(() => {
+    setCheckedIn(false);
+    setStopChallenges([]);
+    setCompletedChallengeIds(new Set());
+  }, [currentStopIndex]);
+
   const handleTeamSetupDone = useCallback(async (teamId: string | null) => {
     setNeedsTeamSetup(false);
     try {
@@ -176,6 +190,53 @@ function AdventurePageInner() {
     setFeedback(null);
   }, [stops.length]);
 
+  const advanceOrComplete = useCallback(() => {
+    if (!session) return;
+    const isLastStop = currentStopIndex >= stops.length - 1;
+    if (isLastStop) {
+      (async () => {
+        try {
+          await completeSession(session.id);
+        } finally {
+          router.push(`/adventure/${id}/complete`);
+        }
+      })();
+    } else {
+      setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
+      setFeedback(null);
+    }
+  }, [session, currentStopIndex, stops.length, id, router]);
+
+  const handleChallengeComplete = useCallback((challengeId: string) => {
+    setCompletedChallengeIds((prev) => new Set(prev).add(challengeId));
+  }, []);
+
+  const handleResetProgress = useCallback(async () => {
+    if (!session) return;
+    if (!confirm("Restart this adventure from the beginning? All progress on this run will be lost.")) return;
+    try {
+      await resetSession(session.id);
+      setCurrentStopIndex(0);
+      setCheckedIn(false);
+      setStopChallenges([]);
+      setCompletedChallengeIds(new Set());
+      setFeedback(null);
+    } catch {
+      setFeedback("Failed to reset progress. Try again.");
+    }
+  }, [session]);
+
+  const handleAwardTestPoints = useCallback(async () => {
+    if (!session) return;
+    try {
+      await awardTestPoints(session.id, 50);
+      setFeedback("+50 test points awarded");
+      setTimeout(() => setFeedback(null), 2000);
+    } catch {
+      setFeedback("Failed to award test points.");
+    }
+  }, [session]);
+
   const handleCheckin = useCallback(async () => {
     if (!session || !currentStop || !location) return;
     try {
@@ -188,26 +249,32 @@ function AdventurePageInner() {
       });
       if (result.success) {
         setFeedback("✅ Location verified!");
+        setCheckedIn(true);
+
         // Check for new badges
         const newBadges = await checkBadges(session.id);
         if (newBadges.length > 0) {
           setPendingBadge(newBadges[0]);
         }
 
-        const isLastStop = currentStopIndex >= stops.length - 1;
-        if (isLastStop) {
-          setTimeout(async () => {
-            try {
-              await completeSession(session.id);
-            } finally {
-              router.push(`/adventure/${id}/complete`);
-            }
+        // Load this stop's challenges (gps_checkin type is already satisfied
+        // by the check-in itself, so it doesn't need its own UI)
+        let challenges: Challenge[] = [];
+        try {
+          challenges = (await getChallenges(currentStop.id)).filter(
+            (c) => c.challenge_type !== "gps_checkin"
+          );
+        } catch {
+          // If challenges fail to load, don't block progression on it
+        }
+        setStopChallenges(challenges);
+
+        if (challenges.length === 0) {
+          setTimeout(() => {
+            advanceOrComplete();
           }, 1500);
         } else {
-          setTimeout(() => {
-            setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
-            setFeedback(null);
-          }, 1500);
+          setTimeout(() => setFeedback(null), 1500);
         }
       } else {
         setFeedback(result.message);
@@ -215,7 +282,7 @@ function AdventurePageInner() {
     } catch {
       setFeedback("Check-in failed. Try again.");
     }
-  }, [session, currentStop, location, simulated, stops.length, currentStopIndex, id, router]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [session, currentStop, location, simulated, advanceOrComplete]);
 
   if (loading) {
     return (
@@ -253,13 +320,21 @@ function AdventurePageInner() {
           className="bg-amber-500 text-slate-900 px-4 py-2 flex items-center justify-between gap-3 text-sm font-medium"
         >
           <span>🔍 Preview Mode — this run won&apos;t appear on the leaderboard</span>
-          <button
-            onClick={handleSkipStop}
-            disabled={currentStopIndex >= stops.length - 1}
-            className="shrink-0 bg-slate-900 text-amber-400 px-3 py-1 rounded-lg text-xs font-semibold disabled:opacity-40 min-h-[32px]"
-          >
-            Skip Stop →
-          </button>
+          <div className="flex gap-2 shrink-0">
+            <button
+              onClick={handleAwardTestPoints}
+              className="bg-slate-900 text-amber-400 px-3 py-1 rounded-lg text-xs font-semibold min-h-[32px]"
+            >
+              +50 Test Points
+            </button>
+            <button
+              onClick={handleSkipStop}
+              disabled={currentStopIndex >= stops.length - 1}
+              className="bg-slate-900 text-amber-400 px-3 py-1 rounded-lg text-xs font-semibold disabled:opacity-40 min-h-[32px]"
+            >
+              Skip Stop →
+            </button>
+          </div>
         </div>
       )}
 
@@ -301,6 +376,15 @@ function AdventurePageInner() {
             style={{ width: `${(currentStopIndex / stops.length) * 100}%` }}
           />
         </div>
+
+        {!isPreview && (
+          <button
+            onClick={handleResetProgress}
+            className="mt-2 text-slate-500 hover:text-slate-300 text-xs underline"
+          >
+            Restart adventure from the beginning
+          </button>
+        )}
       </header>
 
       {/* Main content */}
@@ -357,23 +441,55 @@ function AdventurePageInner() {
             </section>
 
             {/* Check-in button */}
-            <button
-              onClick={handleCheckin}
-              disabled={!isWithinRange && !simulated}
-              aria-label={
-                isWithinRange || simulated
-                  ? "Check in at this location"
-                  : "You must be at the location to check in"
-              }
-              className="w-full min-h-[52px] px-6 py-3 rounded-xl font-bold text-lg transition-all focus-visible:outline-amber-500 disabled:opacity-40 disabled:cursor-not-allowed bg-amber-600 hover:bg-amber-500 text-white"
-            >
-              {isWithinRange || simulated ? "✅ Check In Here" : "📍 Walk to Location"}
-            </button>
+            {!checkedIn && (
+              <button
+                onClick={handleCheckin}
+                disabled={!isWithinRange && !simulated}
+                aria-label={
+                  isWithinRange || simulated
+                    ? "Check in at this location"
+                    : "You must be at the location to check in"
+                }
+                className="w-full min-h-[52px] px-6 py-3 rounded-xl font-bold text-lg transition-all focus-visible:outline-amber-500 disabled:opacity-40 disabled:cursor-not-allowed bg-amber-600 hover:bg-amber-500 text-white"
+              >
+                {isWithinRange || simulated ? "✅ Check In Here" : "📍 Walk to Location"}
+              </button>
+            )}
 
             {feedback && (
               <p className="text-center text-sm" role="status" aria-live="polite">
                 {feedback}
               </p>
+            )}
+
+            {/* Challenges for this stop, shown after check-in */}
+            {checkedIn && stopChallenges.length > 0 && session && (
+              <section aria-label="Stop challenges" className="space-y-3">
+                <h3 className="text-slate-300 text-sm font-semibold uppercase tracking-wide">
+                  Complete to continue
+                </h3>
+                {stopChallenges.map((challenge) => (
+                  <ChallengeRenderer
+                    key={challenge.id}
+                    challenge={challenge}
+                    sessionId={session.id}
+                    isComplete={completedChallengeIds.has(challenge.id)}
+                    onComplete={() => handleChallengeComplete(challenge.id)}
+                    isPreview={isPreview}
+                  />
+                ))}
+
+                {stopChallenges
+                  .filter((c) => c.is_required)
+                  .every((c) => completedChallengeIds.has(c.id)) && (
+                  <button
+                    onClick={advanceOrComplete}
+                    className="w-full min-h-[52px] px-6 py-3 rounded-xl font-bold text-lg bg-amber-600 hover:bg-amber-500 text-white transition-colors"
+                  >
+                    {currentStopIndex >= stops.length - 1 ? "🏁 Finish Adventure" : "Continue to Next Stop →"}
+                  </button>
+                )}
+              </section>
             )}
 
             {/* Hint */}

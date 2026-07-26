@@ -1,0 +1,66 @@
+{
+  "adventure": {
+    "title": "Example Adventure — Replace Me",
+    "slug": "example-adventure",
+    "description": "A longer description of the adventure shown on its detail page.",
+    "short_description": "One-line summary shown on the home page card.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 60,
+    "start_lat": 29.8981,
+    "start_lng": -81.3120,
+    "total_points": 200,
+    "tags": ["history", "example"],
+    "is_published": false,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "First Stop Name",
+      "description": "Short description shown while navigating to this stop.",
+      "historical_content": "Longer historical/background text shown once the player checks in.",
+      "lat": 29.8981,
+      "lng": -81.3120,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": null,
+      "points": 100,
+      "hint_text": "A clue to help players find this location.",
+      "safety_warning": "Optional — e.g. 'Busy crossing at Main St, use the marked crosswalk'. Leave out or null if none.",
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Example Question",
+          "prompt": "What year was this built?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look for the cornerstone.",
+          "config": {
+            "options": ["1750", "1800", "1850", "1900"],
+            "correct_index": 0,
+            "explanation": "Correct! It was built in 1750."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Second Stop Name",
+      "description": "Description for the second stop.",
+      "historical_content": "Historical content for the second stop.",
+      "lat": 29.8937,
+      "lng": -81.3131,
+      "gps_radius_meters": 30.0,
+      "ai_character_id": null,
+      "points": 100,
+      "hint_text": "Another clue.",
+      "safety_warning": null,
+      "challenges": []
+    }
+  ],
+  "badges": [
+    {
+      "name": "Example Completer",
+      "description": "Completed the example adventure",
+      "icon_emoji": "🏆",
+      "trigger_condition": { "type": "adventure_complete" }
+    }
+  ]
+}

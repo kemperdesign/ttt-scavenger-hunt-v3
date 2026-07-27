@@ -81,6 +81,7 @@ class ChatResponse(BaseModel):
     reply: str
     character_id: str
     character_name: str
+    retrieved_sources: List[str] = []
 
 
 def _detail_out(c: AICharacter) -> CharacterDetailOut:
@@ -189,15 +190,19 @@ async def chat_with_character(
             topics=character.source_topics or [],
             top_k=3,
         )
-        context_text = "\n\n".join(context_chunks) if context_chunks else ""
     except Exception:
-        context_text = ""
+        context_chunks = []
 
-    # Build messages list for Ollama
     system_prompt = character.system_prompt
-    if context_text:
+    if context_chunks:
+        context_text = "\n\n".join(context_chunks)
+        system_prompt += f"\n\n[Historical context to draw from if relevant:]\n{context_text}"
+    else:
         system_prompt += (
-            f"\n\n[Historical context to draw from if relevant:]\n{context_text}"
+            f"\n\nNo specific historical source material was found for this question. "
+            f"If it goes beyond what you'd plausibly know from your own character "
+            f"background above, say something like \"{character.uncertainty_phrase}\" "
+            f"rather than inventing specific dates, names, or figures."
         )
 
     messages = [{"role": "system", "content": system_prompt}]
@@ -205,20 +210,21 @@ async def chat_with_character(
         messages.append(turn)
     messages.append({"role": "user", "content": body.message})
 
-    # Call Ollama chat API
     try:
         async with httpx.AsyncClient(timeout=30.0) as client:
             response = await client.post(
-                f"{settings.OLLAMA_BASE_URL}/api/chat",
+                "https://api.openai.com/v1/chat/completions",
+                headers={"Authorization": f"Bearer {settings.OPENAI_API_KEY}"},
                 json={
-                    "model": settings.OLLAMA_CHAT_MODEL,
+                    "model": settings.OPENAI_MODEL,
                     "messages": messages,
-                    "stream": False,
+                    "temperature": 0.7,
+                    "max_tokens": 500,
                 },
             )
             response.raise_for_status()
             data = response.json()
-            reply = data["message"]["content"]
+            reply = data["choices"][0]["message"]["content"]
     except Exception as e:
         raise HTTPException(status_code=503, detail=f"AI service unavailable: {str(e)}")
 
@@ -226,4 +232,5 @@ async def chat_with_character(
         reply=reply,
         character_id=character.id,
         character_name=character.display_name,
+        retrieved_sources=context_chunks,
     )

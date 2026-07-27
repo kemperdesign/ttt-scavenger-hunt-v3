@@ -122,6 +122,21 @@ export default function AIConversationChallenge({
           </div>
         ))}
 
+        {!isComplete && lastRetrievedSources && lastRetrievedSources.length > 0 && (
+          <details className="bg-slate-700/50 rounded-lg px-3 py-2">
+            <summary className="text-amber-400 text-xs font-medium cursor-pointer select-none">
+              📚 Learn more about this
+            </summary>
+            <div className="mt-2 space-y-2">
+              {lastRetrievedSources.map((chunk, i) => (
+                <p key={i} className="text-slate-300 text-xs leading-relaxed">
+                  {chunk}
+                </p>
+              ))}
+            </div>
+          </details>
+        )}
+
         {isComplete && (
           <div className="text-center py-4">
             <p className="text-2xl mb-2" aria-hidden="true">✨</p>

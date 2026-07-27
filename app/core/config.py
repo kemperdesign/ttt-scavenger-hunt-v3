@@ -31,12 +31,15 @@ class Settings(BaseSettings):
     MINIO_SECURE: bool = False
 
     # ── LLM ───────────────────────────────────────────────────────────────────
-    # Use OpenAI API for character chat (Ollama requires too much RAM on 2GB VPS)
+    # Use OpenAI API for character chat AND RAG embeddings (Ollama requires too
+    # much RAM on the 2GB VPS and isn't running there).
     OPENAI_API_KEY: str = ""
     OPENAI_MODEL: str = "gpt-4o-mini"
+    OPENAI_EMBED_MODEL: str = "text-embedding-3-small"
+    OPENAI_EMBED_DIM: int = 768  # matches the existing Qdrant collection (was nomic-embed-text's native size)
 
-    # ── Ollama (RAG embeddings + legacy /characters/chat — new AI conversation
-    # challenges use OpenAI above instead) ───────────────────────────────────────
+    # ── Ollama (unused — kept only so old .env files with these keys don't
+    # break settings parsing; nothing in the app calls Ollama anymore) ──────────
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_EMBED_MODEL: str = "nomic-embed-text"
     OLLAMA_CHAT_MODEL: str = "llama3.2"

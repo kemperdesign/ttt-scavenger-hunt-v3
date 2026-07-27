@@ -69,17 +69,17 @@ repo. `[ ]` = still to build.
 ## Stage 5 — AI Historian (RAG)
 
 - [x] AI conversation challenge chat — structured per-challenge chat (`/challenges/{id}/chat`) now runs on **OpenAI (gpt-4o-mini)**, not Ollama, since the 2GB VPS can't run a local model. Persists message history to `conversation_messages`, auto-completes at `min_exchanges`, awards points server-side. Live in production.
-- [ ] Ollama actually running in production — still NOT deployed (2GB VPS insufficient); the *separate*, older `/api/v1/characters/chat` endpoint (open-ended chat, not tied to a specific challenge — see `AIChatChallenge.tsx`, currently unused in any page) still targets Ollama and will fail if ever wired up. Either point it at OpenAI too, or retire it in favor of the new challenge-based chat.
-- [ ] RAG query pipeline skeleton (`app/ai/rag.py`) — Ollama + Qdrant
-- [ ] Character chat API endpoint with source citations + uncertainty flag
+- [x] Ollama removed from the live code path entirely — every function that called it (`app/ai/rag.py` embeddings, `app/ai/ingest.py` embeddings, the legacy `/api/v1/characters/chat` endpoint) now uses OpenAI instead (`text-embedding-3-small` for embeddings, truncated to 768 dims to match the existing Qdrant collection; `gpt-4o-mini` for chat, same as the challenge-based endpoint). `OLLAMA_*` settings kept as unused/harmless so old `.env` files don't break config parsing.
+- [x] RAG query pipeline (`app/ai/rag.py`) — now functionally complete infrastructure: embeds via OpenAI, searches Qdrant, filters by score threshold and topic. **Still returns empty results in practice** because Qdrant has no ingested content yet (see Source ingestion below) — that's a content-population task, not a code gap.
+- [x] Character chat API endpoint with source citations + uncertainty flag — both chat endpoints (`/challenges/{id}/chat` and the legacy `/characters/chat`) now return `retrieved_sources` (the actual RAG chunks used, i.e. citations) and inject an explicit "say you're uncertain rather than inventing specifics" instruction into the system prompt when no source material was retrieved for that message
 - [ ] One sample character (Spanish colonial guide) with a scoped system prompt
-- [ ] Source ingestion pipeline (chunking + embedding of approved documents)
+- [x] Source ingestion pipeline (`app/ai/ingest.py`) — chunking + embedding logic is functional (PDF/HTML/text extraction, 400-token chunks with 50-token overlap, now embeds via OpenAI instead of Ollama). **Not run against real content** — `data/sources/` are still stub files; ingesting placeholder/fabricated "history" would be worse than an empty collection, so this is deliberately left for whenever real, reviewed source material exists
 - [ ] Source register / metadata tracking (title, author, date, rights, reliability, review status)
 - [ ] Qdrant collection actually populated with St. Augustine sources
 - [ ] Additional characters: Henry Flagler, Pedro Menéndez de Avilés, Gilded Age hotel guest, pirate captain, colonial shopkeeper, civil-rights-era guide, Timucua cultural interpreter (needs historian consultation)
-- [ ] Prompt-injection / guardrail testing
-- [ ] Fallback/uncertainty response tuning
-- [ ] "Learn more" source panel in the player UI
+- [x] Prompt-injection / guardrail testing — `tests/test_rag_injection.py`: verifies the existing pattern-match guard in `app/ai/rag.py` catches known injection phrasing and doesn't false-positive on real historical questions (3 tests, all passing). Copied into the Docker image now too (`Dockerfile.backend`), runnable via `docker compose exec backend pytest`.
+- [x] Fallback/uncertainty response tuning — see source citations note above; when RAG finds nothing relevant, the model is explicitly instructed to use the character's own `uncertainty_phrase` instead of fabricating specifics
+- [x] "Learn more" source panel in the player UI — `AIConversationChallenge.tsx` shows a collapsible "📚 Learn more about this" section (friendlier framing than the separate admin-only debug panel) whenever a reply drew on real retrieved source material. Won't show anything yet since Qdrant is still empty — will start working automatically once real content is ingested
 
 ## Stage 6 — Mobile / PWA Experience
 

@@ -383,6 +383,13 @@ async def chat(
     if retrieved_chunks:
         context_text = "\n\n".join(retrieved_chunks)
         system_prompt += f"\n\n[Historical context to draw from if relevant:]\n{context_text}"
+    else:
+        system_prompt += (
+            f"\n\nNo specific historical source material was found for this question. "
+            f"If it goes beyond what you'd plausibly know from your own character "
+            f"background above, say something like \"{character.uncertainty_phrase}\" "
+            f"rather than inventing specific dates, names, or figures."
+        )
 
     try:
         async with httpx.AsyncClient() as client:

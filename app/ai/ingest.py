@@ -2,7 +2,7 @@
 Document ingestion pipeline:
   1. Extract text from PDF / HTML / plain text
   2. Chunk into 400-token segments with 50-token overlap
-  3. Embed each chunk via Ollama nomic-embed-text
+  3. Embed each chunk via OpenAI
   4. Upsert into Qdrant
 """
 
@@ -25,7 +25,7 @@ from app.core.config import settings
 COLLECTION = settings.QDRANT_COLLECTION
 CHUNK_SIZE = 400      # tokens (approximate: 1 token ≈ 4 chars)
 CHUNK_OVERLAP = 50
-EMBED_DIM = 768       # nomic-embed-text output dimension
+EMBED_DIM = settings.OPENAI_EMBED_DIM
 
 
 # ── Text extraction ──────────────────────────────────────────────────────────
@@ -90,12 +90,17 @@ def chunk_text(text: str, chunk_tokens: int = CHUNK_SIZE, overlap_tokens: int = 
 
 def embed_sync(text: str) -> list[float]:
     response = httpx.post(
-        f"{settings.OLLAMA_BASE_URL}/api/embeddings",
-        json={"model": settings.OLLAMA_EMBED_MODEL, "prompt": text},
+        "https://api.openai.com/v1/embeddings",
+        headers={"Authorization": f"Bearer {settings.OPENAI_API_KEY}"},
+        json={
+            "model": settings.OPENAI_EMBED_MODEL,
+            "input": text,
+            "dimensions": settings.OPENAI_EMBED_DIM,
+        },
         timeout=60.0,
     )
     response.raise_for_status()
-    return response.json()["embedding"]
+    return response.json()["data"][0]["embedding"]
 
 
 # ── Qdrant upsert ─────────────────────────────────────────────────────────────

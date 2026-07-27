@@ -1,5 +1,5 @@
 """
-RAG retrieval: embed query via Ollama → search Qdrant → return relevant chunks.
+RAG retrieval: embed query via OpenAI → search Qdrant → return relevant chunks.
 """
 
 from typing import List
@@ -10,7 +10,7 @@ from qdrant_client.models import Filter, FieldCondition, MatchAny
 from app.core.config import settings
 
 COLLECTION = settings.QDRANT_COLLECTION
-EMBED_MODEL = settings.OLLAMA_EMBED_MODEL
+EMBED_MODEL = settings.OPENAI_EMBED_MODEL
 UNCERTAINTY_THRESHOLD = settings.RAG_UNCERTAINTY_THRESHOLD
 
 # Prompt injection guard patterns
@@ -32,14 +32,19 @@ def _check_injection(text: str) -> bool:
 
 
 async def embed_text(text: str) -> List[float]:
-    """Embed a string via Ollama and return the vector."""
+    """Embed a string via OpenAI and return the vector."""
     async with httpx.AsyncClient(timeout=30.0) as client:
         response = await client.post(
-            f"{settings.OLLAMA_BASE_URL}/api/embeddings",
-            json={"model": EMBED_MODEL, "prompt": text},
+            "https://api.openai.com/v1/embeddings",
+            headers={"Authorization": f"Bearer {settings.OPENAI_API_KEY}"},
+            json={
+                "model": EMBED_MODEL,
+                "input": text,
+                "dimensions": settings.OPENAI_EMBED_DIM,
+            },
         )
         response.raise_for_status()
-        return response.json()["embedding"]
+        return response.json()["data"][0]["embedding"]
 
 
 async def retrieve_context(

@@ -116,9 +116,9 @@ repo. `[ ]` = still to build.
 - [ ] Historic photograph + cover photograph + map marker image
 - [ ] Character portraits
 - [ ] Achievement badge art
-- [ ] Second trivia question per stop (spec calls for two; sample has one)
+- [x] Second trivia question per stop — `scripts/founding_st_augustine.json`: each of the 5 stops now has 2 challenges (trivia multiple-choice + keyword text_answer). Imported via `import_adventure.py` instead of `seed_adventures.py` (which didn't create challenges).
 - [ ] Bonus/optional challenge per stop
-- [ ] Final "decode the phrase" end-game challenge using collected answers
+- [x] Final "decode the phrase" end-game challenge — `sequence_puzzle` challenge on the final stop (Lincolnville): players collect one keyword per stop (CASTILLO, GATES, FLAGLER, FOUNTAIN, LINCOLN) then arrange them in visit order for a 100-point bonus.
 
 ## Historical Source Register
 
@@ -132,14 +132,14 @@ repo. `[ ]` = still to build.
 - [x] HTTPS in production — frontend via Cloudflare Pages (automatic), backend via Caddy + Let's Encrypt on a free nip.io hostname (see Deployment Notes)
 - [ ] Rate limiting — slowapi middleware is wired up in code; not load-tested against the live deployment yet
 - [x] Upload file validation + photo size limits — already fully built in `app/utils/file_validation.py`: magic-byte check (JPEG/PNG/GIF/WebP), 10MB hard limit, EXIF strip + JPEG re-encode on upload. Checklist was stale.
-- [ ] Location-data retention policy (store check-in result/time only, not continuous tracks)
+- [x] Location-data retention policy — enforced by design: `gps_checkin.py` stores only the boolean result + timestamp; `GameSession` model has no lat/lng fields at all. Policy documented in updated privacy page.
 - [x] Account deletion + data export — `/account/export` and `/account/delete` verified; account delete was one of the four endpoints hit by the AsyncSession.delete() bug above, now fixed
 - [x] Audit logs — backend (`AuditLog` model + `/admin/audit` endpoint) existed but had no admin UI and almost nothing wrote to it; now viewable at `admin/audit-log`, and user-permission changes + bulk submission reviews log entries. Most other admin actions (adventure/stop/challenge CRUD) still don't log — only user management and bulk moderation do so far.
 - [ ] Automated database + media backups
-- [ ] AI prompt-injection controls
+- [x] AI prompt-injection controls — pattern-match guard in `app/ai/rag.py` (`_check_injection`), tested in `tests/test_rag_injection.py`. Checklist was stale.
 - [ ] Content moderation for user-submitted photos
-- [ ] Child-use policy
-- [ ] Privacy policy and terms pages
+- [x] Child-use policy — added "Children's Privacy" section to privacy page: no knowing collection from under-13 without parental consent, recommends adult account management for children under 13.
+- [x] Privacy policy and terms pages — both pages existed; updated privacy page with explicit location-data retention statement ("check-in result + time only, never the path") and children's privacy section. Checklist was stale.
 
 ## Accounts / Infrastructure (needed before public launch)
 

@@ -1,0 +1,271 @@
+{
+  "adventure": {
+    "title": "Founding St. Augustine: 1565",
+    "slug": "founding-st-augustine-1565",
+    "description": "Follow Pedro Menéndez de Avilés from the moment his ships entered Matanzas Bay to the founding ceremony on September 8, 1565. Visit the sites where the first permanent European settlement in the continental United States took root.",
+    "short_description": "Trace the founding of America's oldest city on foot.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 90,
+    "start_lat": 29.8981,
+    "start_lng": -81.3120,
+    "total_points": 650,
+    "tags": ["history", "colonial", "spanish", "founding"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "Castillo de San Marcos",
+      "description": "The oldest masonry fort in the continental United States, built of coquina between 1672 and 1695.",
+      "historical_content": "The Castillo's coquina walls never fell to cannon fire. When English forces bombarded it during the 1702 siege, cannonballs sank into the soft shell-stone instead of shattering it. Doña Isabella Reyes, our colonial guide, took shelter here during the 1740 siege.",
+      "lat": 29.8981,
+      "lng": -81.3120,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Look for the star-shaped fort with coquina walls on the waterfront.",
+      "safety_warning": "The walkway along the waterfront seawall can be narrow. Watch your step and keep children close to the wall side.",
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Coquina Secret",
+          "prompt": "What unusual property of coquina rock made the Castillo nearly indestructible under cannon fire?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what happens when a cannonball hits something hard vs. something soft.",
+          "config": {
+            "options": [
+              "It was harder than iron, deflecting cannonballs",
+              "It absorbed impact by compressing rather than shattering",
+              "It was reinforced with hidden steel beams",
+              "It was coated in a Spanish secret compound"
+            ],
+            "correct_index": 1,
+            "explanation": "Coquina is a soft limestone made of compressed shell fragments. Rather than shattering like brick or stone, it absorbed cannon impacts — cannonballs literally sank in and stopped."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Keyword: CASTILLO",
+          "prompt": "To build your final decode phrase, you need a keyword from each stop. At this stop, the keyword is the Spanish word for 'castle' — the same word in the fort's name. Enter it now.",
+          "points": 25,
+          "is_required": true,
+          "hint_text": "It's right in the name of this fort.",
+          "config": {
+            "accepted_answers": ["castillo"],
+            "case_sensitive": false,
+            "explanation": "CASTILLO — keep this word. You'll use all five keywords at the final stop."
+          }
+        }
+      ]
+    },
+    {
+      "title": "City Gates of St. Augustine",
+      "description": "The original northern boundary of the colonial city, rebuilt in 1808 on foundations dating to 1739.",
+      "historical_content": "These gates marked the entrance to the colonial town along the Old King's Highway. During the British period (1763–1783), Scottish merchant Thomas Dunbar would have passed through here regularly on his way to trade with loyalist refugees.",
+      "lat": 29.8937,
+      "lng": -81.3131,
+      "gps_radius_meters": 30.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Two white pillars flanking the entrance to St. George Street.",
+      "safety_warning": "St. George Street is a pedestrian zone past the gates, but the approach on Orange Street has active traffic. Cross at the marked crosswalk.",
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Which Walls?",
+          "prompt": "The earthen defensive wall that the City Gates once anchored was built in 1704 to protect against a specific threat. What was it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about who St. Augustine's neighbors to the north were in 1704.",
+          "config": {
+            "options": [
+              "Hurricane flooding from the Atlantic",
+              "British raids from Carolina colonies",
+              "Pirate fleets in the harbor",
+              "Timucua uprisings in the interior"
+            ],
+            "correct_index": 1,
+            "explanation": "Governor Zúñiga ordered the construction of a earthen wall with a moat after Colonel James Moore's English forces from Carolina burned most of the city in 1702. The gates are what remains."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Keyword: GATES",
+          "prompt": "Stop two keyword: the simple English word for what you're standing at right now.",
+          "points": 25,
+          "is_required": true,
+          "hint_text": "The name of this stop contains it.",
+          "config": {
+            "accepted_answers": ["gates"],
+            "case_sensitive": false,
+            "explanation": "GATES — your second keyword. Three more to collect."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College / Ponce de León Hotel",
+      "description": "Henry Flagler's 1888 masterpiece — the most luxurious hotel in the Americas when it opened.",
+      "historical_content": "Henry Flagler built this Spanish Renaissance Revival hotel in 1888 using the then-cutting-edge technology of poured concrete. Thomas Edison personally installed the electric lighting — one of the first hotels in the world to have it. Mrs. Eleanor Whitmore, wintering here in 1895, described the rotunda as 'the most magnificent room I have ever entered.'",
+      "lat": 29.8898,
+      "lng": -81.3135,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "The yellow Spanish-style building on King Street, now a college.",
+      "safety_warning": null,
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "A Famous Guest",
+          "prompt": "Thomas Edison personally supervised the installation of the Ponce de León Hotel's electric lighting. Who was his close friend and business partner who also wintered in St. Augustine during this era?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think of another famous inventor of the same period.",
+          "config": {
+            "options": [
+              "Alexander Graham Bell",
+              "Nikola Tesla",
+              "Henry Ford",
+              "George Westinghouse"
+            ],
+            "correct_index": 2,
+            "explanation": "Henry Ford and Thomas Edison were close friends who both wintered in Florida. Ford's Fort Myers estate was near Edison's winter lab in southwest Florida — though both visited St. Augustine as part of Flagler's elite circuit."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Keyword: FLAGLER",
+          "prompt": "Stop three keyword: the last name of the man who built this hotel.",
+          "points": 25,
+          "is_required": true,
+          "hint_text": "His name is on the college that occupies this building today.",
+          "config": {
+            "accepted_answers": ["flagler"],
+            "case_sensitive": false,
+            "explanation": "FLAGLER — halfway there."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Fountain of Youth Archaeological Park",
+      "description": "Site of the first Timucua village encountered by Menéndez in 1565 and the original landing site.",
+      "historical_content": "Archaeological evidence places a Timucua village of the Seloy band here. Pedro Menéndez celebrated the first Mass of the new settlement at or near this site on September 8, 1565, with the Timucua people watching.",
+      "lat": 29.9028,
+      "lng": -81.3169,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "North of downtown along Magnolia Avenue — look for the peacocks.",
+      "safety_warning": "Magnolia Avenue has no sidewalk for a short stretch north of the visitor entrance. Walk on the left side facing traffic and use caution.",
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Real Date",
+          "prompt": "St. Augustine is often called the oldest continuously occupied European city in the continental U.S. What year was it officially founded?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Pedro Menéndez arrived the year after Shakespeare was born.",
+          "config": {
+            "options": ["1513", "1539", "1565", "1607"],
+            "correct_index": 2,
+            "explanation": "1565 — Pedro Menéndez de Avilés founded St. Augustine on September 8, 1565, 42 years before Jamestown and 55 years before the Mayflower."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Keyword: FOUNTAIN",
+          "prompt": "Stop four keyword: the first word in the name of this park.",
+          "points": 25,
+          "is_required": true,
+          "hint_text": "Ponce de León supposedly came to Florida searching for one.",
+          "config": {
+            "accepted_answers": ["fountain"],
+            "case_sensitive": false,
+            "explanation": "FOUNTAIN — one more to go."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lincolnville — Civil Rights Landmark",
+      "description": "The heart of St. Augustine's Black community and center of the 1964 civil rights demonstrations.",
+      "historical_content": "In 1964, Dr. Robert Hayling led night marches from Lincolnville toward the segregated tourist areas downtown. James Holloway, 19, walked these streets. Dr. Martin Luther King Jr. was arrested nearby during his visit to St. Augustine, and events here directly contributed to the Civil Rights Act of 1964.",
+      "lat": 29.8810,
+      "lng": -81.3098,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "The historic neighborhood south of the plaza — look for the community signs.",
+      "safety_warning": null,
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Legislation Connection",
+          "prompt": "Events in St. Augustine in 1964 directly influenced national legislation. Which landmark law did the St. Augustine demonstrations help push over the finish line?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Dr. King was here the same year it passed.",
+          "config": {
+            "options": [
+              "The Voting Rights Act of 1965",
+              "The Civil Rights Act of 1964",
+              "The Fair Housing Act of 1968",
+              "The 24th Amendment (1964)"
+            ],
+            "correct_index": 1,
+            "explanation": "Dr. King's high-profile arrest in St. Augustine and the nationally covered demonstrations here helped build momentum for the Civil Rights Act of 1964, signed by President Johnson on July 2, 1964."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Keyword: LINCOLN",
+          "prompt": "Stop five keyword: the first word in the name of this neighborhood.",
+          "points": 25,
+          "is_required": true,
+          "hint_text": "Named after the president who signed the Emancipation Proclamation.",
+          "config": {
+            "accepted_answers": ["lincoln"],
+            "case_sensitive": false,
+            "explanation": "LINCOLN — you have all five keywords now. Time for the final challenge!"
+          }
+        },
+        {
+          "challenge_type": "sequence_puzzle",
+          "title": "Decode the Phrase",
+          "prompt": "You've collected five keywords from across St. Augustine's history. Arrange them in the order you visited the stops to reveal a final phrase. Drag them into the correct order:\n\nCASTILLO · GATES · FLAGLER · FOUNTAIN · LINCOLN",
+          "points": 100,
+          "is_required": false,
+          "hint_text": "The correct order matches the order you visited the stops — from the waterfront fort to Lincolnville.",
+          "config": {
+            "correct_order": ["CASTILLO", "GATES", "FLAGLER", "FOUNTAIN", "LINCOLN"],
+            "items": ["CASTILLO", "GATES", "FLAGLER", "FOUNTAIN", "LINCOLN"],
+            "explanation": "CASTILLO · GATES · FLAGLER · FOUNTAIN · LINCOLN — five pillars of St. Augustine's layered history: Spanish colonial defense, British colonial trade, Gilded Age grandeur, the founding moment, and the Civil Rights movement. You've walked them all."
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "name": "Founding Explorer",
+      "description": "Completed the Founding St. Augustine adventure",
+      "icon_emoji": "🏆",
+      "trigger_condition": { "type": "adventure_complete" }
+    },
+    {
+      "name": "Speed Historian",
+      "description": "Completed the adventure in under 75 minutes",
+      "icon_emoji": "⚡",
+      "trigger_condition": { "type": "speed_run", "max_minutes": 75 }
+    },
+    {
+      "name": "Pathfinder",
+      "description": "Completed the adventure without using any hints",
+      "icon_emoji": "🧭",
+      "trigger_condition": { "type": "no_hints" }
+    }
+  ]
+}

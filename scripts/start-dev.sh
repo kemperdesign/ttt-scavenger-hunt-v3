@@ -110,9 +110,10 @@ if [ "$NO_SEED" = false ]; then
   ADVENTURE_COUNT=$(docker compose exec -T postgres psql -U timequest -d timequest -tAc \
     "SELECT COUNT(*) FROM adventures;" 2>/dev/null || echo "0")
   if [ "$ADVENTURE_COUNT" -eq 0 ]; then
-    docker compose exec -T backend python scripts/seed_adventures.py
+    docker compose exec -T backend python scripts/import_adventure.py \
+      --file scripts/founding_st_augustine.json
     docker compose exec -T backend python scripts/seed_sources.py
-    echo "   ✓ Adventure and source registry seeded"
+    echo "   ✓ Adventure (with challenges) and source registry seeded"
   else
     echo "   ✓ Adventure data already seeded (${ADVENTURE_COUNT} adventure(s) found)"
   fi

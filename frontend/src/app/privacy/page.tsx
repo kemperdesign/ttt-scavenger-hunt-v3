@@ -43,27 +43,48 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-white font-semibold text-xl mb-3">Location Data</h2>
           <p>
-            Location access is required to play TimeQuest. Your precise GPS coordinates are sent
-            to our servers only at the moment you check in at a stop. We use them to verify
-            proximity (within {process.env.NEXT_PUBLIC_GPS_RADIUS ?? "30"} meters of the stop)
-            and do not retain them after verification.
+            Location access is required to play TimeQuest. Your precise GPS coordinates are
+            transmitted to our servers <strong>only at the moment you tap &ldquo;Check In&rdquo;</strong> at
+            a stop. We use them solely to verify proximity and do not retain them after
+            verification. We do not track your movement path, log your location continuously,
+            or share coordinates with any third party.
+          </p>
+          <p className="mt-2">
+            What we <em>do</em> store: the check-in result (yes/no), the time of check-in,
+            and the stop that was checked in to. Nothing else.
           </p>
         </section>
 
         <section>
-          <h2 className="text-white font-semibold text-xl mb-3">Data Retention & Deletion</h2>
+          <h2 className="text-white font-semibold text-xl mb-3">Children&apos;s Privacy</h2>
           <p>
-            You may export all your data or permanently delete your account at any time from
-            your account settings. Deleting your account removes all associated data including
-            gameplay history, badges, and submitted photos within 30 days.
+            TimeQuest is designed for general audiences and is intended to be used by families.
+            We do not knowingly collect personal information from children under 13 without
+            verifiable parental consent. If you believe your child has provided personal information
+            without your consent, please contact us and we will delete it promptly.
+          </p>
+          <p className="mt-2">
+            We recommend that children under 13 use TimeQuest with a parent or guardian who
+            creates and manages the account.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-white font-semibold text-xl mb-3">Data Retention &amp; Deletion</h2>
+          <p>
+            You may request export of all your data or permanent deletion of your account by
+            contacting us. Deleting your account removes all associated data including gameplay
+            history, badges, and submitted photos within 30 days.
           </p>
         </section>
 
         <section>
           <h2 className="text-white font-semibold text-xl mb-3">Third-Party Services</h2>
           <p>
-            We use MapTiler for map tiles. Map tile requests are subject to MapTiler's own
-            privacy policy. No personal data is shared with map providers.
+            We use MapTiler for map tiles and OpenAI to power AI character conversations.
+            Map tile requests are subject to MapTiler&apos;s privacy policy. AI chat messages
+            are processed by OpenAI and subject to their usage policies; we do not store
+            the contents of individual chat messages beyond the active session.
           </p>
         </section>
 

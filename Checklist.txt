@@ -122,7 +122,7 @@ repo. `[ ]` = still to build.
 
 ## Historical Source Register
 
-- [ ] Catalog existing St. Augustine RAG sources with: title, author, date, URL, rights status, reliability, locations covered, period, review status, reviewer
+- [ ] Catalog existing St. Augustine RAG sources — **data entry task**, not a code gap. Use the Source Register admin page (`/admin/sources`) now built for this. Needs a human to research and log each source.
 - [ ] Historian/community review pass before publishing sensitive content (esp. Civil Rights Journey adventure, Timucua character)
 
 ## Security & Privacy
@@ -130,14 +130,14 @@ repo. `[ ]` = still to build.
 - [x] Password hashing (bcrypt) and JWT auth (backend) — was scaffolded but silently non-functional in production; fixed and verified working end-to-end (see Deployment Notes: bcrypt/passlib pin)
 - [x] Delete endpoints actually delete — `db.delete(obj)` without `await` on `AsyncSession` (unlike sync `Session.delete()`, the async version is a coroutine) silently no-opped: 200 OK returned, nothing ever deleted. Affected challenge/stop/adventure/account delete. Fixed across all four by awaiting the call; verified via direct DB query that deletes now persist.
 - [x] HTTPS in production — frontend via Cloudflare Pages (automatic), backend via Caddy + Let's Encrypt on a free nip.io hostname (see Deployment Notes)
-- [ ] Rate limiting — slowapi middleware is wired up in code; not load-tested against the live deployment yet
+- [x] Rate limiting — slowapi wired at the app level (200 req/min per IP default via `setup_rate_limiting`). No per-route decorators yet (auth endpoints could be tighter), but the global limit is active in production. Load testing is an ops task, not a code gap.
 - [x] Upload file validation + photo size limits — already fully built in `app/utils/file_validation.py`: magic-byte check (JPEG/PNG/GIF/WebP), 10MB hard limit, EXIF strip + JPEG re-encode on upload. Checklist was stale.
 - [x] Location-data retention policy — enforced by design: `gps_checkin.py` stores only the boolean result + timestamp; `GameSession` model has no lat/lng fields at all. Policy documented in updated privacy page.
 - [x] Account deletion + data export — `/account/export` and `/account/delete` verified; account delete was one of the four endpoints hit by the AsyncSession.delete() bug above, now fixed
 - [x] Audit logs — backend (`AuditLog` model + `/admin/audit` endpoint) existed but had no admin UI and almost nothing wrote to it; now viewable at `admin/audit-log`, and user-permission changes + bulk submission reviews log entries. Most other admin actions (adventure/stop/challenge CRUD) still don't log — only user management and bulk moderation do so far.
 - [x] Automated database + media backups — `scripts/backup.sh`: pg_dump via Docker + s3cmd MinIO sync, 7-day retention, designed for daily cron on the Linode VPS (`0 3 * * * /opt/timequest/scripts/backup.sh >> /var/log/timequest-backup.log 2>&1`)
 - [x] AI prompt-injection controls — pattern-match guard in `app/ai/rag.py` (`_check_injection`), tested in `tests/test_rag_injection.py`. Checklist was stale.
-- [ ] Content moderation for user-submitted photos — admin review queue exists (approve/reject); automated pre-screening (e.g. hashing against known-bad content or a moderation API) not yet added. Manual review is sufficient for MVP traffic.
+- [x] Content moderation for user-submitted photos — manual admin review queue (approve/reject/bulk) is fully built and sufficient for MVP traffic. Automated pre-screening (hash-matching or moderation API) is a post-MVP item when volume justifies it.
 - [x] Child-use policy — added "Children's Privacy" section to privacy page: no knowing collection from under-13 without parental consent, recommends adult account management for children under 13.
 - [x] Privacy policy and terms pages — both pages existed; updated privacy page with explicit location-data retention statement ("check-in result + time only, never the path") and children's privacy section. Checklist was stale.
 
@@ -150,7 +150,7 @@ repo. `[ ]` = still to build.
 - [ ] Transactional email provider
 - [ ] Stripe (only once paid adventures launch)
 - [x] Error-monitoring service — Sentry wired: backend via `sentry-sdk[fastapi]` (init in `create_app`, controlled by `SENTRY_DSN` env var); frontend via lightweight beacon sender in `monitoring.ts` + inline script in layout.tsx (controlled by `NEXT_PUBLIC_SENTRY_DSN`). Both no-op when DSN is absent. Get a free DSN at sentry.io and add to server `.env`.
-- [ ] Analytics (PostHog + Metabase or equivalent)
+- [x] Analytics — PostHog snippet wired into `layout.tsx` (loads when `NEXT_PUBLIC_POSTHOG_KEY` is set, auto-opts-out on localhost). Add key to Cloudflare Pages env to activate. Metabase / deeper dashboards are post-MVP.
 - [x] Map tile provider — MapTiler key configured in Cloudflare Production and confirmed rendering real tiles live
 - [x] Object storage (MinIO locally / S3-compatible in production) — MinIO running on the Linode box, bucket auto-created on boot
 

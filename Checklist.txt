@@ -16,8 +16,8 @@ repo. `[ ]` = still to build.
 - [x] Environment configuration (`.env.example` for both frontend/backend) — both exist and are complete; fixed `CORS_ORIGINS` to use valid JSON syntax (pydantic-settings requires it for `List[str]` fields — a bare string crashes the app on startup). Real production `.env` was hand-created on the server only, never committed (correct — see Deployment Notes below)
 - [x] Alembic migration scaffold — actively used now: 4 real versioned migrations (`001_add_conversation_messages` through `004_add_stop_safety_warning`), applied via `alembic upgrade head` on every backend deploy
 - [x] Actual PostgreSQL + PostGIS instance provisioned and migrated — running on Linode, seeded with 1 adventure / 5 stops
-- [ ] Development launch scripts (one-command "start everything" script)
-- [ ] `LICENSE` file
+- [x] Development launch scripts — `scripts/start-dev.sh` updated: removed Ollama model pulls (replaced by OpenAI), added `seed_characters.py` to the seed step (idempotent)
+- [x] `LICENSE` file — MIT
 
 ## Stage 2 — Adventure Engine
 
@@ -72,11 +72,12 @@ repo. `[ ]` = still to build.
 - [x] Ollama removed from the live code path entirely — every function that called it (`app/ai/rag.py` embeddings, `app/ai/ingest.py` embeddings, the legacy `/api/v1/characters/chat` endpoint) now uses OpenAI instead (`text-embedding-3-small` for embeddings, truncated to 768 dims to match the existing Qdrant collection; `gpt-4o-mini` for chat, same as the challenge-based endpoint). `OLLAMA_*` settings kept as unused/harmless so old `.env` files don't break config parsing.
 - [x] RAG query pipeline (`app/ai/rag.py`) — now functionally complete infrastructure: embeds via OpenAI, searches Qdrant, filters by score threshold and topic. **Still returns empty results in practice** because Qdrant has no ingested content yet (see Source ingestion below) — that's a content-population task, not a code gap.
 - [x] Character chat API endpoint with source citations + uncertainty flag — both chat endpoints (`/challenges/{id}/chat` and the legacy `/characters/chat`) now return `retrieved_sources` (the actual RAG chunks used, i.e. citations) and inject an explicit "say you're uncertain rather than inventing specifics" instruction into the system prompt when no source material was retrieved for that message
-- [ ] One sample character (Spanish colonial guide) with a scoped system prompt
+- [x] One sample character (Spanish colonial guide) with a scoped system prompt — `scripts/seed_characters.py` (idempotent, `--force` to re-seed); still needs to actually be run against the production DB
 - [x] Source ingestion pipeline (`app/ai/ingest.py`) — chunking + embedding logic is functional (PDF/HTML/text extraction, 400-token chunks with 50-token overlap, now embeds via OpenAI instead of Ollama). **Not run against real content** — `data/sources/` are still stub files; ingesting placeholder/fabricated "history" would be worse than an empty collection, so this is deliberately left for whenever real, reviewed source material exists
-- [ ] Source register / metadata tracking (title, author, date, rights, reliability, review status)
+- [x] Source register / metadata tracking — `source_documents` table (migration `005`), `app/api/sources.py` (admin-only CRUD, filter by review_status), `admin/sources` UI page with add/edit/delete/approve, nav link in AdminLayout
 - [ ] Qdrant collection actually populated with St. Augustine sources
-- [ ] Additional characters: Henry Flagler, Pedro Menéndez de Avilés, Gilded Age hotel guest, pirate captain, colonial shopkeeper, civil-rights-era guide, Timucua cultural interpreter (needs historian consultation)
+- [x] Additional characters — all 6 added to `scripts/seed_characters.py`: Henry Flagler, Pedro Menéndez de Avilés, Mrs. Eleanor Whitmore (Gilded Age tourist), Captain Rodrigo Vargas (pirate), Thomas Dunbar (colonial shopkeeper), James Holloway (civil rights guide). Needs `python scripts/seed_characters.py` run against prod DB.
+- [ ] Timucua cultural interpreter (needs historian consultation before adding — sensitive Indigenous content)
 - [x] Prompt-injection / guardrail testing — `tests/test_rag_injection.py`: verifies the existing pattern-match guard in `app/ai/rag.py` catches known injection phrasing and doesn't false-positive on real historical questions (3 tests, all passing). Copied into the Docker image now too (`Dockerfile.backend`), runnable via `docker compose exec backend pytest`.
 - [x] Fallback/uncertainty response tuning — see source citations note above; when RAG finds nothing relevant, the model is explicitly instructed to use the character's own `uncertainty_phrase` instead of fabricating specifics
 - [x] "Learn more" source panel in the player UI — `AIConversationChallenge.tsx` shows a collapsible "📚 Learn more about this" section (friendlier framing than the separate admin-only debug panel) whenever a reply drew on real retrieved source material. Won't show anything yet since Qdrant is still empty — will start working automatically once real content is ingested
@@ -90,7 +91,7 @@ repo. `[ ]` = still to build.
 - [x] IndexedDB local progress caching — `useIndexedDB`/`useOfflineSync` hooks verified actually used in the adventure start page (not just scaffolded and unused)
 - [x] Accessibility pass — `AccessibilityContext` + `AccessibilityPanel` verified: font size (normal/large/x-large), high contrast, reduce motion, persisted to localStorage
 - [x] Solo vs. team selection flow — `TeamSetup.tsx` (see team join-code entry below) shown before every new adventure session
-- [ ] Safety/location-permission notice screen — not built; the app requests location directly via the browser's native permission prompt, no custom pre-permission explainer screen first
+- [x] Safety/location-permission notice screen — `LocationPermissionNotice` component shown before GPS starts; explains what data is and isn't collected; player must tap "Allow" before the browser permission prompt fires. Wired into adventure start page via `manualStart` flag on `usePlayerLocation`.
 - [x] Team join-code UI — `TeamSetup.tsx` shown before a new session starts: play solo, create a team (join code shown prominently to share), or join by entering a code. Also fixed the `Team` frontend type, which previously didn't match the backend response shape at all.
 
 ## Stage 7 — Field Test
@@ -130,7 +131,7 @@ repo. `[ ]` = still to build.
 - [x] Delete endpoints actually delete — `db.delete(obj)` without `await` on `AsyncSession` (unlike sync `Session.delete()`, the async version is a coroutine) silently no-opped: 200 OK returned, nothing ever deleted. Affected challenge/stop/adventure/account delete. Fixed across all four by awaiting the call; verified via direct DB query that deletes now persist.
 - [x] HTTPS in production — frontend via Cloudflare Pages (automatic), backend via Caddy + Let's Encrypt on a free nip.io hostname (see Deployment Notes)
 - [ ] Rate limiting — slowapi middleware is wired up in code; not load-tested against the live deployment yet
-- [ ] Upload file validation + photo size limits
+- [x] Upload file validation + photo size limits — already fully built in `app/utils/file_validation.py`: magic-byte check (JPEG/PNG/GIF/WebP), 10MB hard limit, EXIF strip + JPEG re-encode on upload. Checklist was stale.
 - [ ] Location-data retention policy (store check-in result/time only, not continuous tracks)
 - [x] Account deletion + data export — `/account/export` and `/account/delete` verified; account delete was one of the four endpoints hit by the AsyncSession.delete() bug above, now fixed
 - [x] Audit logs — backend (`AuditLog` model + `/admin/audit` endpoint) existed but had no admin UI and almost nothing wrote to it; now viewable at `admin/audit-log`, and user-permission changes + bulk submission reviews log entries. Most other admin actions (adventure/stop/challenge CRUD) still don't log — only user management and bulk moderation do so far.

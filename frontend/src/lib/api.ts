@@ -709,6 +709,51 @@ export function updateUser(
   });
 }
 
+// ── Admin: Source Register ───────────────────────────────────────────────────────
+
+export interface SourceDocument {
+  id: number;
+  title: string;
+  author: string | null;
+  publication_date: string | null;
+  url: string | null;
+  local_filename: string | null;
+  rights_status: string;
+  reliability: string;
+  locations_covered: string[];
+  periods_covered: string[];
+  review_status: string;
+  reviewer: string | null;
+  notes: string | null;
+  ingested: boolean;
+}
+
+export type SourceCreate = Omit<SourceDocument, "id" | "ingested">;
+export type SourceUpdate = Partial<Omit<SourceDocument, "id">>;
+
+export function listSources(review_status?: string) {
+  const qs = review_status ? `?review_status=${review_status}` : "";
+  return apiRequest<SourceDocument[]>(`/api/v1/admin/sources${qs}`);
+}
+
+export function createSource(data: Partial<SourceCreate>) {
+  return apiRequest<SourceDocument>("/api/v1/admin/sources", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export function updateSource(id: number, data: SourceUpdate) {
+  return apiRequest<SourceDocument>(`/api/v1/admin/sources/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteSource(id: number) {
+  return apiRequest<void>(`/api/v1/admin/sources/${id}`, { method: "DELETE" });
+}
+
 // ── Admin: Audit Log ─────────────────────────────────────────────────────────────
 
 export interface AuditLogEntry {

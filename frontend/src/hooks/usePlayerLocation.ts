@@ -26,7 +26,8 @@ const GPS_OPTIONS: PositionOptions = {
 };
 
 export function usePlayerLocation(
-  simulated = false
+  simulated = false,
+  manualStart = false  // when true, don't auto-start — caller must call startTracking()
 ): UsePlayerLocationReturn {
   const [location, setLocation] = useState<PlayerLocation | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -89,13 +90,13 @@ export function usePlayerLocation(
     });
   }, []);
 
-  // Auto-start if not simulated
+  // Auto-start unless simulated or manual start is requested
   useEffect(() => {
-    if (!simulated) {
+    if (!simulated && !manualStart) {
       startTracking();
     }
     return () => stopTracking();
-  }, [simulated]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [simulated, manualStart]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     location,

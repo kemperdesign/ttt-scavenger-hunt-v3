@@ -104,31 +104,21 @@ if [ "$NO_MIGRATE" = false ]; then
   echo "   ✓ Migrations complete"
 fi
 
-# ── Pull Ollama models (first run only) ────────────────────────────────────────
-echo "→ Checking Ollama models..."
-if ! docker compose exec -T ollama ollama list 2>/dev/null | grep -q "llama3"; then
-  echo "   Pulling llama3.2 (first run — this may take several minutes)..."
-  docker compose exec -T ollama ollama pull llama3.2
-fi
-if ! docker compose exec -T ollama ollama list 2>/dev/null | grep -q "nomic-embed-text"; then
-  echo "   Pulling nomic-embed-text..."
-  docker compose exec -T ollama ollama pull nomic-embed-text
-fi
-echo "   ✓ Ollama models ready"
-
 # ── Seed data ──────────────────────────────────────────────────────────────────
 if [ "$NO_SEED" = false ]; then
   echo "→ Seeding adventure data..."
-  # Check if already seeded (idempotent)
   ADVENTURE_COUNT=$(docker compose exec -T postgres psql -U timequest -d timequest -tAc \
     "SELECT COUNT(*) FROM adventures;" 2>/dev/null || echo "0")
   if [ "$ADVENTURE_COUNT" -eq 0 ]; then
     docker compose exec -T backend python scripts/seed_adventures.py
     docker compose exec -T backend python scripts/seed_sources.py
-    echo "   ✓ Sample adventure and AI sources seeded"
+    echo "   ✓ Adventure and source registry seeded"
   else
-    echo "   ✓ Data already seeded (${ADVENTURE_COUNT} adventure(s) found)"
+    echo "   ✓ Adventure data already seeded (${ADVENTURE_COUNT} adventure(s) found)"
   fi
+
+  echo "→ Seeding AI characters (idempotent)..."
+  docker compose exec -T backend python scripts/seed_characters.py
 fi
 
 # ── Done ───────────────────────────────────────────────────────────────────────

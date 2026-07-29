@@ -56,6 +56,18 @@
             "case_sensitive": false,
             "explanation": "CASTILLO — keep this word. You'll use all five keywords at the final stop."
           }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Speak with Doña Isabella",
+          "prompt": "Chat with Doña Isabella Reyes, a colonial resident of 1750 St. Augustine, about life inside the Castillo during a siege. Ask her at least two questions to complete this bonus challenge.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask her about the 1740 siege or what the coquina walls felt like from inside.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
         }
       ]
     },
@@ -100,6 +112,18 @@
             "accepted_answers": ["gates"],
             "case_sensitive": false,
             "explanation": "GATES — your second keyword. Three more to collect."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Speak with Thomas Dunbar",
+          "prompt": "Chat with Thomas Dunbar, a Scottish merchant who passed through these gates daily in 1775. Ask him at least two questions about trade or life during the British period.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the loyalist refugees arriving from the American colonies, or what goods he sold.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
           }
         }
       ]
@@ -146,6 +170,18 @@
             "case_sensitive": false,
             "explanation": "FLAGLER — halfway there."
           }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Speak with Henry Flagler",
+          "prompt": "Chat with Henry Flagler himself, speaking at the 1888 grand opening of his Ponce de León Hotel. Ask him at least two questions about his vision for Florida or the hotel's construction.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about Thomas Edison installing the lights, or why he chose St. Augustine for his first hotel.",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
         }
       ]
     },
@@ -185,6 +221,18 @@
             "accepted_answers": ["fountain"],
             "case_sensitive": false,
             "explanation": "FOUNTAIN — one more to go."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Speak with Pedro Menéndez",
+          "prompt": "Chat with Pedro Menéndez de Avilés, Adelantado of Florida, speaking in September 1565 just after founding St. Augustine. Ask him at least two questions about the founding or the Timucua people he encountered.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Mass on September 8th, or why Spain needed a settlement in Florida.",
+          "config": {
+            "character_id": "pedro_menendez",
+            "min_exchanges": 2
           }
         }
       ]
@@ -230,6 +278,18 @@
             "accepted_answers": ["lincoln"],
             "case_sensitive": false,
             "explanation": "LINCOLN — you have all five keywords now. Time for the final challenge!"
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Speak with James Holloway",
+          "prompt": "Chat with James Holloway, a 19-year-old Lincolnville resident who walked these streets during the 1964 civil rights demonstrations. Ask him at least two questions about what he witnessed.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the night marches, or what it meant to have Dr. King come to St. Augustine.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
           }
         },
         {

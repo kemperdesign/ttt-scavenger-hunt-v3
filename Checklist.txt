@@ -117,7 +117,7 @@ repo. `[ ]` = still to build.
 - [ ] Character portraits
 - [ ] Achievement badge art
 - [x] Second trivia question per stop — `scripts/founding_st_augustine.json`: each of the 5 stops now has 2 challenges (trivia multiple-choice + keyword text_answer). Imported via `import_adventure.py` instead of `seed_adventures.py` (which didn't create challenges).
-- [ ] Bonus/optional challenge per stop
+- [x] Bonus/optional challenge per stop — each of the 5 stops in `founding_st_augustine.json` now has a bonus `ai_conversation` challenge (50 pts, `is_required: false`) with the stop's assigned character and `min_exchanges: 2`
 - [x] Final "decode the phrase" end-game challenge — `sequence_puzzle` challenge on the final stop (Lincolnville): players collect one keyword per stop (CASTILLO, GATES, FLAGLER, FOUNTAIN, LINCOLN) then arrange them in visit order for a 100-point bonus.
 
 ## Historical Source Register
@@ -135,9 +135,9 @@ repo. `[ ]` = still to build.
 - [x] Location-data retention policy — enforced by design: `gps_checkin.py` stores only the boolean result + timestamp; `GameSession` model has no lat/lng fields at all. Policy documented in updated privacy page.
 - [x] Account deletion + data export — `/account/export` and `/account/delete` verified; account delete was one of the four endpoints hit by the AsyncSession.delete() bug above, now fixed
 - [x] Audit logs — backend (`AuditLog` model + `/admin/audit` endpoint) existed but had no admin UI and almost nothing wrote to it; now viewable at `admin/audit-log`, and user-permission changes + bulk submission reviews log entries. Most other admin actions (adventure/stop/challenge CRUD) still don't log — only user management and bulk moderation do so far.
-- [ ] Automated database + media backups
+- [x] Automated database + media backups — `scripts/backup.sh`: pg_dump via Docker + s3cmd MinIO sync, 7-day retention, designed for daily cron on the Linode VPS (`0 3 * * * /opt/timequest/scripts/backup.sh >> /var/log/timequest-backup.log 2>&1`)
 - [x] AI prompt-injection controls — pattern-match guard in `app/ai/rag.py` (`_check_injection`), tested in `tests/test_rag_injection.py`. Checklist was stale.
-- [ ] Content moderation for user-submitted photos
+- [ ] Content moderation for user-submitted photos — admin review queue exists (approve/reject); automated pre-screening (e.g. hashing against known-bad content or a moderation API) not yet added. Manual review is sufficient for MVP traffic.
 - [x] Child-use policy — added "Children's Privacy" section to privacy page: no knowing collection from under-13 without parental consent, recommends adult account management for children under 13.
 - [x] Privacy policy and terms pages — both pages existed; updated privacy page with explicit location-data retention statement ("check-in result + time only, never the path") and children's privacy section. Checklist was stale.
 
@@ -149,7 +149,7 @@ repo. `[ ]` = still to build.
 - [x] Hosting provider / Linux VPS — Linode 2GB Nanode, Docker Compose, see Deployment Notes for exact stack
 - [ ] Transactional email provider
 - [ ] Stripe (only once paid adventures launch)
-- [ ] Error-monitoring service
+- [x] Error-monitoring service — Sentry wired: backend via `sentry-sdk[fastapi]` (init in `create_app`, controlled by `SENTRY_DSN` env var); frontend via lightweight beacon sender in `monitoring.ts` + inline script in layout.tsx (controlled by `NEXT_PUBLIC_SENTRY_DSN`). Both no-op when DSN is absent. Get a free DSN at sentry.io and add to server `.env`.
 - [ ] Analytics (PostHog + Metabase or equivalent)
 - [x] Map tile provider — MapTiler key configured in Cloudflare Production and confirmed rendering real tiles live
 - [x] Object storage (MinIO locally / S3-compatible in production) — MinIO running on the Linode box, bucket auto-created on boot

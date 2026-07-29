@@ -55,6 +55,9 @@ class Settings(BaseSettings):
     # ── RAG ───────────────────────────────────────────────────────────────────
     RAG_UNCERTAINTY_THRESHOLD: float = 0.65
 
+    # ── Error monitoring ──────────────────────────────────────────────────────
+    SENTRY_DSN: str = ""  # leave empty to disable
+
     # ── Debug ─────────────────────────────────────────────────────────────────
     DEBUG: bool = True
 

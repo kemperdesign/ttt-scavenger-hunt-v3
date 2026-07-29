@@ -49,6 +49,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   navigator.serviceWorker.register('/sw.js').catch(console.error);
                 });
               }
+              ${process.env.NEXT_PUBLIC_SENTRY_DSN ? `
+              (function(){
+                var dsn="${process.env.NEXT_PUBLIC_SENTRY_DSN}";
+                window.addEventListener('error',function(e){
+                  try{var u=new URL(dsn),k=u.username,p=u.pathname.replace('/',''),h=u.hostname;
+                  var ep='https://'+h+'/api/'+p+'/envelope/';
+                  var env=JSON.stringify({sdk:{name:'sentry.javascript.browser'}})+'\n'+JSON.stringify({type:'event'})+'\n'+JSON.stringify({message:e.message,level:'error',request:{url:location.href},timestamp:Date.now()/1000});
+                  if(navigator.sendBeacon)navigator.sendBeacon(ep,new Blob([env],{type:'application/x-sentry-envelope'}));
+                  }catch(ex){}
+                });
+              })();` : ""}
             `,
           }}
         />

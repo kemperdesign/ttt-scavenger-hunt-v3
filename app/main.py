@@ -4,6 +4,7 @@ St. Augustine TimeQuest — FastAPI Application Factory
 Wires together all routers, middleware, and startup/shutdown hooks.
 """
 
+import sentry_sdk
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -46,7 +47,17 @@ async def lifespan(app: FastAPI):
     await engine.dispose()
 
 
+def _init_sentry() -> None:
+    if settings.SENTRY_DSN:
+        sentry_sdk.init(
+            dsn=settings.SENTRY_DSN,
+            traces_sample_rate=0.2,
+            environment="production" if not settings.DEBUG else "development",
+        )
+
+
 def create_app() -> FastAPI:
+    _init_sentry()
     app = FastAPI(
         title="St. Augustine TimeQuest API",
         description="Backend for the TimeQuest location-based adventure PWA",

@@ -806,3 +806,28 @@ export function exportAccountData() {
 export function deleteAccount() {
   return apiRequest<void>("/api/v1/account/delete", { method: "DELETE" });
 }
+
+// ── Wine Passport ─────────────────────────────────────────────────────────────
+
+export interface WineStamp {
+  venue_id: string;
+  stamped_at: string;
+}
+
+export function getWineStamps() {
+  return apiRequest<WineStamp[]>("/api/v1/wine-passport");
+}
+
+export function addWineStamp(venue_id: string) {
+  return apiRequest<WineStamp>("/api/v1/wine-passport", {
+    method: "POST",
+    body: JSON.stringify({ venue_id }),
+  });
+}
+
+export function removeWineStamp(venue_id: string) {
+  return apiRequest<void>(`/api/v1/wine-passport/${encodeURIComponent(venue_id)}`, {
+    method: "DELETE",
+  });
+}
+

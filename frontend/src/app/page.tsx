@@ -37,6 +37,25 @@ export default async function HomePage() {
       </header>
 
       <main id="main-content" className="flex-1 px-4 pb-8">
+        {/* Quick-access utility buttons */}
+        <div className="flex gap-3 mb-6">
+          <Link
+            href="/parking"
+            className="flex-1 flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
+            aria-label="Parking and shuttle information"
+          >
+            <span className="text-2xl" aria-hidden="true">🅿️</span>
+            <span className="text-white text-xs font-medium leading-tight">Parking &amp;<br />Shuttles</span>
+          </Link>
+          <Link
+            href="/restrooms"
+            className="flex-1 flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
+            aria-label="Public restroom locations"
+          >
+            <span className="text-2xl" aria-hidden="true">🚻</span>
+            <span className="text-white text-xs font-medium leading-tight">Public<br />Restrooms</span>
+          </Link>
+        </div>
         {adventures.length === 0 ? (
           <div className="text-center py-12 text-slate-500">
             <p>No adventures available yet. Check back soon!</p>

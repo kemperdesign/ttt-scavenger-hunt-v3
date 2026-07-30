@@ -74,6 +74,10 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     </>
   );
 
+  if (pathname === "/admin/login") {
+    return <main className="min-h-screen bg-slate-950 flex flex-col">{children}</main>;
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row">
       {/* Mobile top bar */}

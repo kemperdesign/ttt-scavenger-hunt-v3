@@ -15,6 +15,7 @@ export function HamburgerMenu() {
     { href: "/wine-passport", label: "Wine Passport" },
     { href: "/privacy", label: "Privacy Policy" },
     { href: "/terms", label: "Terms of Service" },
+    { href: "/admin", label: "Admin Portal" },
   ];
 
   return (

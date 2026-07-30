@@ -56,6 +56,21 @@ export default async function HomePage() {
             <span className="text-white text-xs font-medium leading-tight">Map of<br />St. Augustine</span>
           </Link>
         </div>
+        {/* Wine Passport — full-width */}
+        <div className="mb-3">
+          <Link
+            href="/wine-passport"
+            className="flex items-center gap-3 bg-amber-900/25 hover:bg-amber-900/40 border border-amber-800/40 rounded-2xl px-5 py-4 transition-colors focus-visible:outline-amber-500"
+            aria-label="Wine Passport — collect stamps at local wine venues"
+          >
+            <span className="text-2xl" aria-hidden="true">🍷</span>
+            <div>
+              <p className="text-amber-100 text-sm font-semibold">Wine Passport</p>
+              <p className="text-amber-300/70 text-xs">Visit local wine venues &amp; collect stamps</p>
+            </div>
+            <span className="ml-auto text-amber-700 text-lg" aria-hidden="true">›</span>
+          </Link>
+        </div>
         {/* Restaurants — full-width */}
         <div className="mb-3">
           <Link

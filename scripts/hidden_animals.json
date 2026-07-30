@@ -1,0 +1,373 @@
+{
+  "adventure": {
+    "title": "Hidden Animals of St. Augustine",
+    "slug": "hidden-animals",
+    "description": "St. Augustine is a city of stone lions, marble eagles, bronze dolphins, carved pelicans, painted sea turtles, iron roosters, and a surprising number of animals hidden in crests, signs, fountains, statues, and storefronts. This is the ultimate family-friendly hunt — no history knowledge needed, just sharp eyes and a love of finding things that don't want to be found. How many hidden animals can you find?",
+    "short_description": "Find animals hidden in statues, signs, crests, fountains, and storefronts across the historic district.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 60,
+    "start_lat": 29.8944,
+    "start_lng": -81.3123,
+    "total_points": 600,
+    "tags": ["animals", "family-friendly", "children", "observation", "easy", "fun"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "Bridge of Lions — The Big Cats",
+      "description": "The Bridge of Lions is the best place to start an animal hunt — two enormous marble lions guard the western entrance, and there are animal details all around the bridge approach: carved fish on the bayfront railings, bird carvings, and the two famous Medici lions themselves. This stop challenges you to find the lions, identify what they're holding, and then spot the other animal that appears multiple times in this area in connection with the bridge's name.",
+      "historical_content": "The marble lions at the Bridge of Lions are Medici lions — named after the famous Medici lion sculptures in Florence, Italy. The original Medici lion was sculpted by Flaminio Vacca in the 16th century; the St. Augustine versions are 20th-century reproductions. Each lion rests a paw on a sphere.\n\nThe Bridge of Lions is named partly as a pun on Juan Ponce de León — León means lion in Spanish. The bridge opened February 26, 1927; Dr. Andrew Anderson donated the lions and the bridge's name. The marble lions were restored during the bridge's reconstruction in the 2000s.\n\nThe lion (leo) also appears in the coats of arms of several European noble families and nations — it is the most common heraldic animal in European tradition. Spanish colonial Florida used the lion in the coat of arms of the Kingdom of León, which is also represented in the name Ponce de León.",
+      "lat": 29.8944,
+      "lng": -81.3123,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the western end of the Bridge of Lions — the drawbridge connecting downtown to Anastasia Island at the foot of Cathedral Place.",
+      "safety_warning": "Stay on the pedestrian walkway. Do not lean over the railing.",
+      "metadata_json": {
+        "animals_to_find": [
+          "Two marble Medici lions on pedestals (each with paw on a sphere)",
+          "Fish and marine life carvings on the bridge railings or nearby structures",
+          "Any bird carvings or decorations in the bridge approach area"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Is Each Lion Holding?",
+          "prompt": "Each of the two marble lions at the Bridge of Lions rests one paw on an object. What is it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look directly beneath the raised paw of either lion. It's a simple shape — a Medici lion traditional motif.",
+          "config": {
+            "options": [
+              "A fish",
+              "A crown",
+              "A sphere (ball)",
+              "A shield"
+            ],
+            "correct_index": 2,
+            "explanation": "Each Medici lion rests its paw on a sphere — a sphere symbolizing dominion and power in European heraldic tradition. The Medici lion design originates with 16th-century Florentine sculptor Flaminio Vacca; the Bridge of Lions versions are 20th-century reproductions donated by Dr. Andrew Anderson."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "What Does León Mean?",
+          "prompt": "The Bridge of Lions is named as a pun on a Spanish explorer's name. Juan Ponce de León's last name contains the Spanish word for a specific animal — the same animal you're looking at right now. What does León mean in English?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "You're standing right next to the answer.",
+          "config": {
+            "accepted_answers": ["lion", "lions", "the lion"],
+            "case_sensitive": false,
+            "explanation": "León means lion in Spanish. The Bridge of Lions is named partly as a pun on Juan Ponce de León — the Spanish explorer who discovered Florida in 1513. León = lion. The marble lions and the bridge's name both refer to the same animal."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Lion in Heraldry",
+          "prompt": "Ask the guide about the lion in European heraldry — why is the lion the most common animal in European coats of arms, crests, and royal symbols? What does the lion represent, and how many lion symbols can you find just in this area of St. Augustine?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the lion in the Kingdom of León's coat of arms, or about the Medici family's use of the lion symbol.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Castillo de San Marcos — Animals in the Fort",
+      "description": "The Castillo de San Marcos is named for Saint Mark — whose symbol is the lion (specifically a winged lion). The fort's crest, the National Park Service emblems, and the various decorative elements of the Castillo and its grounds contain animal imagery. The real wildlife question here, though, is about the fort's actual resident creatures — what lives in the moat, what nests in the coquina walls, and what marine animals appear in the bay just outside.",
+      "historical_content": "Saint Mark the Evangelist is symbolized by a winged lion — one of the four evangelists' symbols from Christian iconography (Matthew=angel, Mark=winged lion, Luke=bull, John=eagle). The Castillo de San Marcos is named for this saint.\n\nThe fort's moat today supports a variety of wildlife: wading birds (great blue herons, snowy egrets, little blue herons), small turtles, and various fish. In the colonial period, the moat was designed as a defensive feature — deeper and sometimes stocked with animals (historically, some colonial moats were used to raise fish for the garrison's food supply, though this is not documented for the Castillo specifically).\n\nThe National Park Service emblem — an arrowhead with a bison, mountain, and tree — appears on the fort's signs. The pelican, a common Florida bird, appears frequently in St. Augustine's commercial and municipal art. The brown pelican is the official bird of Louisiana but is closely associated with all of Florida's Gulf and Atlantic coastal communities.",
+      "lat": 29.9002,
+      "lng": -81.3119,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk north on the bayfront to the Castillo de San Marcos. Look at the signage, the decorative carvings, the moat, and the nearby bay for animals — real and symbolic.",
+      "safety_warning": "Do not enter the moat area or approach wildlife too closely.",
+      "metadata_json": {
+        "animals_to_find": [
+          "Winged lion (symbol of Saint Mark) — may appear in fort's decorative elements or signage",
+          "National Park Service arrowhead emblem (includes bison and tree)",
+          "Wading birds in and around the moat (great blue heron, snowy egret)",
+          "Brown pelicans along the bayfront near the fort",
+          "Turtles in the moat (look carefully at the water)",
+          "Dolphins in Matanzas Bay (visible from the fort's ramparts or the bayfront)"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Saint's Symbol",
+          "prompt": "The Castillo de San Marcos is named for Saint Mark the Evangelist. What is Saint Mark's traditional Christian symbol — found in art, heraldry, and religious decoration?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The four evangelists (Matthew, Mark, Luke, John) each have an animal symbol. Mark's is a powerful predator.",
+          "config": {
+            "options": [
+              "A dove",
+              "A winged eagle",
+              "A winged lion",
+              "A pelican"
+            ],
+            "correct_index": 2,
+            "explanation": "Saint Mark the Evangelist is symbolized by a winged lion — his traditional symbol in Christian iconography. The four evangelists' symbols are: Matthew (winged man/angel), Mark (winged lion), Luke (winged bull/ox), John (eagle). The Castillo is named for Mark, making the lion a hidden animal connection between the fort and the Bridge of Lions."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Real Wildlife Spotter",
+          "prompt": "Walk to the edge of the moat or look out from the fort's grounds toward the bayfront. What large wading bird — gray-blue in color, with a long neck and a slow, deliberate hunting style — is very commonly seen in and around the Castillo's moat and bayfront?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's the largest heron in North America — you'll recognize it by its enormous size and its very slow, patient stance while hunting fish.",
+          "config": {
+            "accepted_answers": [
+              "great blue heron", "blue heron", "heron", "great blue", "gbh"
+            ],
+            "case_sensitive": false,
+            "explanation": "The great blue heron (Ardea herodias) is one of the most commonly seen large birds at the Castillo's moat and bayfront. Standing up to 4.5 feet tall with a 6-foot wingspan, great blue herons are unmistakable. They hunt fish by standing perfectly still in shallow water and striking with their long bill."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Animals in the Fort",
+          "prompt": "Ask the guide what animals lived in and around the Castillo during the colonial period — both as wildlife and as deliberately kept animals. Did Spanish soldiers keep animals in the fort?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about horses, cattle, chickens, or dogs in a colonial military garrison, or ask about what the soldiers ate.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Government House Area — The Eagle and the Lion",
+      "description": "Government House and the Plaza de la Constitución area contain some of the most concentrated animal symbolism in the city — the American eagle (on federal-era plaques and seals), the Spanish lion (on colonial-era crests), and the Ponce de León statue (lion connection). The area around the Plaza also has several storefronts and restaurants with animal-themed signs. This stop challenges you to find at least three different animals represented within a block of the Plaza.",
+      "historical_content": "The bald eagle has been the national symbol of the United States since 1782. After Florida became an American territory in 1821, the American eagle replaced Spanish colonial symbols on government buildings and official seals. Government House's American-era construction (1834-36) incorporated federal symbols.\n\nThe lion appears in the heraldry of the Kingdom of León (one of the kingdoms that merged to form Spain) and in the coats of arms of Castile and León. The royal arms of Spain feature multiple animals: a lion (León), a castle (Castile), chains (Navarre), and an eagle (the Holy Roman Empire's double-headed eagle). The Ponce de León statue at the plaza connects to the lion through his last name.\n\nSt. Augustine's municipal seal features the Castillo de San Marcos and the city motto 'Oldest City.' Various official and commercial seals in the plaza area incorporate local symbols — the pelican (Florida), the alligator (Florida), and the manatee (a protected local species).",
+      "lat": 29.8961,
+      "lng": -81.3131,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the Plaza de la Constitución and Government House area. Look at government seals, plaques, statues, and the surrounding storefronts. You're looking for at least 3 different animals represented in decorative or symbolic form.",
+      "safety_warning": null,
+      "metadata_json": {
+        "animals_to_find": [
+          "American bald eagle — on federal government seals and plaques on or near Government House",
+          "Lion — on Spanish colonial crests, the Ponce de León statue connection, or decorative elements",
+          "Pelican — Florida's unofficial symbolic bird, appears on various signs and decorations",
+          "Alligator — Florida's most famous animal, appears in tourist merchandise and some signage",
+          "Manatee — on some environmental or municipal signage near the waterfront"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The American Symbol",
+          "prompt": "The bald eagle appears on American government buildings, seals, and plaques throughout St. Augustine — including the Government House area. When did the bald eagle become the national symbol of the United States?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was adopted shortly after American independence — the designers of the Great Seal considered other options before choosing the eagle.",
+          "config": {
+            "options": [
+              "1776 — in the Declaration of Independence",
+              "1782 — when the Great Seal of the United States was formally adopted",
+              "1821 — when Florida became a U.S. territory",
+              "1837 — when Andrew Jackson added it to American currency"
+            ],
+            "correct_index": 1,
+            "explanation": "The bald eagle was adopted as the national symbol of the United States in 1782 when the Great Seal of the United States was formally approved. Benjamin Franklin famously objected to the eagle choice, preferring the turkey. The eagle replaced the Spanish colonial lion as the dominant animal symbol in St. Augustine after Florida's 1821 transfer to the United States."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Florida Reptile",
+          "prompt": "Florida's most famous native animal — a large reptile found throughout the state's freshwater systems and sometimes spotted in the St. Augustine area marshes — appears frequently in Florida merchandise, signs, and decorations. Name this reptile.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a large reptile with a powerful jaw and a distinctive long body — native to the southeastern United States. Not a crocodile (though those are in South Florida).",
+          "config": {
+            "accepted_answers": ["alligator", "american alligator", "gator", "alligators"],
+            "case_sensitive": false,
+            "explanation": "The American alligator (Alligator mississippiensis) is Florida's most famous native reptile — found throughout the state's freshwater marshes, rivers, and sometimes coastal areas. St. Augustine's surrounding marshes and the St. Johns River support alligator populations. The alligator appears frequently in Florida tourism merchandise and signage throughout the historic district."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Animals in Heraldry",
+          "prompt": "Ask the guide about how to read a coat of arms — what the different animals mean in European heraldic tradition. The lion, eagle, and bull all appear in coats of arms visible in St. Augustine. What do they represent?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what the lion means in Spanish heraldry, or about the difference between the American eagle and the double-headed eagle of the Holy Roman Empire.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lightner Museum Fountain — Aquatic Animals",
+      "description": "The Lightner Museum (the former Alcazar Hotel, built by Henry Flagler in 1888) has one of the most beautiful outdoor water features in St. Augustine — a large pool and fountain area in the main courtyard, now serving as a café. The pool was originally the hotel's indoor swimming pool — the largest indoor swimming pool in the world when it was built. The aquatic setting invites a focused search for animal imagery: fish, turtles, dolphins, and other water creatures in the Lightner's tile work, ironwork, and decorative elements.",
+      "historical_content": "The Alcazar Hotel was built by Henry Flagler in 1888 — the same year as the Ponce de León Hotel (now Flagler College). It was designed by the same architects: Carrère and Hastings. The Alcazar featured the largest indoor swimming pool in the world when it was completed — a 120 by 50 foot pool heated by natural springs, with the water supplied from an artesian well.\n\nThe pool was set in the hotel's large central courtyard — making the Alcazar one of the most innovative resort buildings of the Gilded Age. The pool area also featured Turkish baths, a gymnasium, and a bicycle track.\n\nOtto C. Lightner purchased the building in 1947 and donated it to the City of St. Augustine as a museum for his collection of Victorian-era art and antiques. The pool was converted to its current use as a café/restaurant. The ironwork, tile work, and decorative elements throughout the building include numerous animal motifs — aquatic creatures particularly, given the pool's central role in the building.\n\nThe Lightner Museum's collection also includes extensive natural history specimens — taxidermy, shells, corals, and Florida wildlife — adding to the animal theme of this stop.",
+      "lat": 29.8913,
+      "lng": -81.3148,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "Walk to the Lightner Museum at 75 King Street — the ornate building across from Flagler College. Enter the main courtyard (free) to see the former swimming pool and café area.",
+      "safety_warning": null,
+      "metadata_json": {
+        "animals_to_find": [
+          "Fish — in tile work, ironwork, or decorative elements around the former pool",
+          "Dolphins — common decorative element in Gilded Age resort architecture",
+          "Turtles — in tilework or garden elements",
+          "Birds — in the Victorian collection or decorative elements",
+          "Shells — technically mollusks; everywhere in the tile and decorative program"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The World's Largest Pool",
+          "prompt": "When Henry Flagler's Alcazar Hotel (now the Lightner Museum) opened in 1888, its indoor swimming pool held a world record. What was the record?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was the largest of its kind in the world when completed. The pool was indoors, heated, and 120 by 50 feet.",
+          "config": {
+            "options": [
+              "Deepest indoor swimming pool in North America",
+              "Largest indoor swimming pool in the world",
+              "First heated indoor swimming pool in Florida",
+              "Longest continuous lap pool in the Western Hemisphere"
+            ],
+            "correct_index": 1,
+            "explanation": "The Alcazar Hotel's indoor swimming pool was the largest indoor swimming pool in the world when it was completed in 1888 — measuring 120 by 50 feet, heated by natural springs, and supplied by an artesian well. It was part of Henry Flagler's vision of the Alcazar as a complete resort offering not just rooms but entertainment, exercise, and luxury bathing."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Museum's Donor",
+          "prompt": "The Alcazar Hotel became the Lightner Museum when it was donated to the City of St. Augustine. Who donated it, and in what decade?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "His name is on the museum. He purchased the building in 1947 and donated it along with his art collection.",
+          "config": {
+            "accepted_answers": ["otto lightner", "otto c lightner", "lightner", "otto c. lightner", "1940s", "1947"],
+            "case_sensitive": false,
+            "explanation": "Otto C. Lightner purchased the former Alcazar Hotel in 1947 and donated it to the City of St. Augustine as a museum for his extensive collection of Victorian-era art and antiques. The museum bears his name and continues to display his collection alongside the remarkable architecture of the former hotel."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: A Victorian Tourist",
+          "prompt": "Ask the Victorian tourist what it was like to arrive at the Alcazar Hotel in 1888 — to step off Henry Flagler's train and into the world's largest indoor swimming pool. What made this hotel different from anything else in America?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Turkish baths, the bicycle track, or about what Gilded Age wealthy tourists expected from a luxury resort.",
+          "config": {
+            "character_id": "victorian_tourist",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. George Street South — Hidden Animals in Signs and Storefronts",
+      "description": "The southern section of St. George Street — between King Street and the Oldest House — has the densest concentration of animal imagery in storefronts, restaurant signs, gallery windows, and decorative elements. This is the most open-ended stop: walk slowly, look at every sign and window, and find as many different animals as you can. The final challenge is to name the one animal that appears most frequently across the entire historic district's commercial signage.",
+      "historical_content": "Animal imagery in commercial signage has been used since medieval times — in the era before widespread literacy, animals on inn and tavern signs told customers what kind of establishment they were entering. A red lion, a white horse, a black bear — these were visual identifiers for illiterate customers.\n\nIn St. Augustine, commercial animal imagery reflects both Florida's wildlife (pelicans, alligators, dolphins, sea turtles, manatees) and the city's historical symbols (lions from the Bridge of Lions and the Ponce de León connection, eagles from American federal symbolism).\n\nThe sea turtle has special significance in St. Augustine: the Atlantic loggerhead sea turtle nests on the beaches of St. Johns County from May through September, making it a conservation symbol as well as a tourist mascot. The Florida manatee — listed as an endangered species — is a symbol of the coastal ecology of the St. Johns River and the coastal waterways around St. Augustine.\n\nThe pelican appears throughout Gulf and Atlantic coastal Florida as an informal mascot — the brown pelican is an extremely visible bird, diving dramatically for fish in the Matanzas Bay and along the bayfront.",
+      "lat": 29.8930,
+      "lng": -81.3140,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk the southern section of St. George Street between King Street and Bridge Street — the blocks with galleries, restaurants, and specialty shops. Walk slowly and look at every sign and window.",
+      "safety_warning": null,
+      "metadata_json": {
+        "animals_to_find": [
+          "Pelican — probably the most common animal in St. Augustine commercial signage",
+          "Sea turtle — conservation symbol; nests on St. Johns County beaches",
+          "Dolphin — commonly seen in Matanzas Bay; popular in restaurant and boat tour signage",
+          "Alligator — Florida's most famous reptile; appears in tourist merchandise",
+          "Manatee — protected species; appears in environmental and commercial signage",
+          "Lion — Bridge of Lions connection; appears in various commercial contexts",
+          "Eagle — American federal symbol; appears in patriotic contexts",
+          "Fish — generic fish appear in seafood restaurant and fishing charter signage"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Most Common Animal",
+          "prompt": "After searching the south end of St. George Street, which Florida animal do you think appears most frequently in commercial signage and decorative elements across the St. Augustine historic district?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about which animal is both visually dramatic and closely associated with coastal Florida — commonly seen diving for fish in the Matanzas Bay.",
+          "config": {
+            "options": [
+              "The alligator",
+              "The manatee",
+              "The brown pelican",
+              "The bald eagle"
+            ],
+            "correct_index": 2,
+            "explanation": "The brown pelican is arguably the most commonly appearing animal in St. Augustine's historic district commercial signage — it's visually dramatic (large, distinctive, easily recognized in silhouette), closely associated with coastal Florida, and commonly seen in real life diving for fish in the Matanzas Bay and along the bayfront. Alligators are more common in inland Florida imagery; pelicans dominate coastal St. Augustine."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Nesting Visitor",
+          "prompt": "One of Florida's most important conservation animals nests on the beaches of St. Johns County from May through September. You'll see it on conservation signs, restaurant menus, and galleries throughout the historic district. What animal is it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a reptile — it comes ashore at night to lay eggs in the sand. The loggerhead is the most common species on these beaches.",
+          "config": {
+            "accepted_answers": [
+              "sea turtle", "sea turtles", "loggerhead", "loggerhead sea turtle", "loggerhead turtle",
+              "atlantic loggerhead", "turtle", "turtles"
+            ],
+            "case_sensitive": false,
+            "explanation": "The Atlantic loggerhead sea turtle (Caretta caretta) nests on St. Johns County beaches from May through September — the females coming ashore at night to lay eggs in the sand. The loggerhead is listed as a threatened species; local conservation efforts protect the nesting beaches. It's a symbol of both Florida's natural heritage and its conservation challenges."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Animal Tally",
+          "prompt": "Tell the guide which animals you found on this hunt and ask whether there are any you missed. Ask specifically about the most unusual or unexpected animal hidden somewhere in the historic district that most visitors walk right past.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the gargoyles on Flagler College, or about any unusual animal carvings in the Cathedral Basilica area.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Master Animal Spotter",
+      "description": "You found all the hidden animals of St. Augustine.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Animal Detective",
+      "description": "You spotted animals at three locations.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "Eagle Eyes",
+      "description": "You found every animal without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

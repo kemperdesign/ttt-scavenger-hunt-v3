@@ -1,0 +1,384 @@
+{
+  "adventure": {
+    "title": "Fortifications and Defenders",
+    "slug": "fortifications-and-defenders",
+    "description": "St. Augustine spent 250 years as one of the most contested military posts in the Americas — claimed by Spain, threatened by England, taken by Britain, returned to Spain, and finally transferred to the United States. Explore the Castillo, the City Gate, the bayfront, and the sites of battles that shaped not just Florida but the continent. Who built these walls, what were they defending against, and why does the Castillo still stand?",
+    "short_description": "Explore the forts, walls, and military history of the Ancient City.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 80,
+    "start_lat": 29.9002,
+    "start_lng": -81.3119,
+    "total_points": 600,
+    "tags": ["military", "history", "castillo", "colonial", "fort", "walking"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "Castillo de San Marcos — The Unconquered Fort",
+      "description": "The Castillo de San Marcos is the oldest masonry fortification of its type in the continental United States — a star-shaped coquina fort on the Matanzas Bay that was never taken in battle in over 350 years. Construction began in 1672, replacing nine wooden forts that had been burned or destroyed. The star shape, the moat, the coquina walls, the cannon batteries, and the glacis (sloped outer embankment) all tell the story of 17th-century Spanish military engineering under pressure.",
+      "historical_content": "Governor Francisco de la Guerra y la Vega broke ground for the Castillo on October 2, 1672. The first stone was laid November 9, 1672. The fort took 23 years to complete, finishing in 1695. It replaced nine successive wooden forts that had been destroyed — the first wooden fort dates to 1565 when Pedro Menéndez landed.\n\nThe star shape (a bastion fort design) was the dominant military engineering form of 16th and 17th century Europe. Each diamond-shaped bastion eliminated blind spots by allowing defenders to fire along the walls. The Castillo has four bastions: San Pedro (northeast), San Pablo (northwest), San Agustin (southwest), and San Carlos (southeast). The curtain walls between the bastions are 12 feet thick at the base.\n\nThe coquina (from the Spanish word for shellfish) was quarried from Anastasia Island across the Matanzas River. Workers crossed the river daily to quarry and transport it. The remarkable property of coquina — absorbing cannon fire rather than shattering — was unknown to the builders. It was discovered by enemies. When English attackers fired cannon balls at the fort during the 1702 siege, the balls embedded in the soft stone rather than blasting it apart.\n\nThe Castillo was designated a National Monument on October 15, 1924. It is operated by the National Park Service.",
+      "lat": 29.9002,
+      "lng": -81.3119,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "The Castillo de San Marcos is on the bayfront — the massive coquina star fort north of the Plaza. Walk north on St. George Street to Castillo Drive.",
+      "safety_warning": "Do not climb the walls or enter restricted areas. The moat perimeter can be slippery when wet.",
+      "metadata_json": {
+        "key_facts": [
+          "Oldest masonry fortification of its type in the continental United States",
+          "Construction began October 2, 1672 (groundbreaking); November 9, 1672 (first stone); completed 1695",
+          "Replaced nine previous wooden forts, all burned or destroyed",
+          "Star shape with four bastions: San Pedro, San Pablo, San Agustin, San Carlos",
+          "Coquina walls are 12 feet thick at the base",
+          "Never taken in battle in over 350 years",
+          "Cannon balls embedded in coquina rather than shattering — the key to its invulnerability",
+          "Designated National Monument October 15, 1924; operated by the National Park Service"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Shape of Defense",
+          "prompt": "The Castillo de San Marcos is a 'star fort' — a bastion fort design. Looking at or picturing the fort from above, what is the military purpose of the diamond-shaped bastions at each corner?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what a straight wall cannot do: attackers can approach it from the side without being seen. The bastion design solves this problem.",
+          "config": {
+            "options": [
+              "To provide housing for extra soldiers and cannon crews",
+              "To allow defenders to fire along the walls and eliminate blind spots where attackers could shelter",
+              "To collect rainwater for the garrison during sieges",
+              "To support a taller observation tower at each corner"
+            ],
+            "correct_index": 1,
+            "explanation": "The diamond-shaped bastions allowed defenders to fire along the curtain walls — eliminating the blind spots at the base of straight walls where attackers could shelter from fire. This bastion fort design was the dominant military engineering form of 16th and 17th century Europe."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Stone That Saved the City",
+          "prompt": "The Castillo is built from a local material quarried on Anastasia Island. Name the shell-stone building material unique to this region — the same one used in the Oldest House, the City Gate, and many historic buildings in St. Augustine.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The Spanish name for this material comes from the word for shellfish. It's a sedimentary rock made of compressed shell fragments cemented together.",
+          "config": {
+            "accepted_answers": ["coquina", "coquina stone", "coquina rock"],
+            "case_sensitive": false,
+            "explanation": "Coquina — from the Spanish word for shellfish — is a sedimentary rock composed of compressed shell fragments. It was quarried on Anastasia Island across the Matanzas River. Its remarkable property: cannon balls embed in the soft stone rather than shattering it, making the Castillo nearly impregnable to artillery."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The 1702 Siege",
+          "prompt": "Ask the guide about the November 1702 siege — when English Governor James Moore brought 800 soldiers and Native American allies to destroy St. Augustine. What happened, and how did the Castillo hold?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the 1,500 civilians who sheltered inside, or about what happened to Moore's naval fleet.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "City Gate — The Last Line Before the Fort",
+      "description": "The City Gate at the north end of St. George Street marks where the Cubo Line — the defensive earthwork protecting the city's northern land approach — had its primary opening. The current coquina pillars were built in 1808, but a defensive line and gate have protected this approach since the early 18th century. The Cubo Line ran from the Castillo de San Marcos west to the San Sebastian River, essentially cutting off the peninsula on which St. Augustine sits.",
+      "historical_content": "The Cubo Line was first constructed in 1704-05 and rebuilt in 1737. It was a wooden palisade with earthworks — designed to prevent enemy forces from marching south down the peninsula toward the city and the fort. The name comes from the type of redoubt at its ends.\n\nThe wooden gate (La Leche Gate) stood here from at least 1739. The current coquina pillars were built in 1808 under Engineer Captain Manuel de Hita, who recommended masonry guardhouses to replace the deteriorating wooden structures. The pillars are 14 feet high, the opening 12 feet wide.\n\nEach pillar is topped with a pomegranate — the symbol of fertility and the symbol of Granada, Spain. The original pillars were trimmed with red plaster. The guardhouses were completed by 1818 with pomegranate decorations added by Francisco de Cortazar.\n\nThe Cubo Line's defensive earthwork can still be seen in traces north of the gate — the terrain falls off slightly to the north of the pillars where the line's earthworks once stood. The area just inside (south of) the gate was where Spanish colonists made their last stand during the English raid of 1702, burning their own wooden buildings before retreating into the Castillo.",
+      "lat": 29.8984,
+      "lng": -81.3131,
+      "gps_radius_meters": 30.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk south from the Castillo along St. George Street to the City Gate — the white coquina pillars that frame the northern entrance to the pedestrian zone.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Cubo Line defensive earthwork first built 1704-05, rebuilt 1737",
+          "Ran from the Castillo to the San Sebastian River, cutting off the peninsula",
+          "La Leche Gate (wooden) stood here from at least 1739",
+          "Current coquina pillars built 1808 under Engineer Captain Manuel de Hita",
+          "Pillars are 14 feet high; opening 12 feet wide",
+          "Each pillar topped with a pomegranate — symbol of Granada, Spain, and fertility",
+          "Originally trimmed with red plaster; pomegranate capping added 1818 by Francisco de Cortazar"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Defensive Line",
+          "prompt": "The City Gate was the primary opening in a defensive earthwork that protected St. Augustine's northern land approach. What was this earthwork line called, and what geographical features did it connect?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The line ran across the entire peninsula — from the bay-side fort to the river on the west side of the city.",
+          "config": {
+            "options": [
+              "The Rosario Line, running from Fort Matanzas to the Cubo Redoubt",
+              "The Cubo Line, running from the Castillo de San Marcos west to the San Sebastian River",
+              "The Drake Redoubt, running from the Bay to the Tolomato River",
+              "The Menéndez Wall, running from the Cathedral to the Fountain of Youth"
+            ],
+            "correct_index": 1,
+            "explanation": "The Cubo Line ran from the Castillo de San Marcos on the bay side west to the San Sebastian River — cutting off the entire peninsula on which St. Augustine sits and blocking any land approach from the north. It was first built in 1704-05 and rebuilt in 1737."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Who Burned the City — and Why?",
+          "prompt": "During the 1702 English siege, Spanish colonists burned their own buildings south of the City Gate before retreating into the Castillo. Why would defenders burn their own city?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Military tactics involve denying the enemy resources. Think about what wooden buildings would provide to besieging soldiers.",
+          "config": {
+            "options": [
+              "It was a religious ritual — burning the city was a way to pray for divine protection",
+              "To deny the English attacker shelter, firewood, and building materials for siege works outside the fort",
+              "The fire was accidental, started by retreating soldiers who dropped their torches",
+              "The Governor ordered it to punish residents who had collaborated with the English"
+            ],
+            "correct_index": 1,
+            "explanation": "The Spanish burned their own buildings to deny the English attackers shelter, firewood, and materials for building siege works or scaling platforms outside the Castillo. This scorched-earth tactic was standard military practice — forcing besiegers to operate in the open with no cover."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Five Colonial Powers",
+          "prompt": "Ask the guide about all the colonial powers that controlled St. Augustine: Spain (twice), Britain, the Confederacy, and the United States. How did each power change the city's defenses?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what the British did to the Castillo, or how the fort was used during the Civil War.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Bayfront — The Matanzas and What It Remembers",
+      "description": "The Matanzas Bay is where the most important military events in St. Augustine's history unfolded — from Pedro Menéndez's 1565 landing to the British naval bombardment of 1702 to the Civil War gunboats of 1862. The bayfront promenade (Avenida Menéndez) follows the waterline where the old Spanish seawall stood. The name Matanzas — meaning 'slaughters' in Spanish — comes from a September 1565 event 14 miles south of this spot: the massacre of approximately 250 French Huguenot soldiers at Matanzas Inlet.",
+      "historical_content": "The Matanzas Massacre took place at Matanzas Inlet on September 20, 1565 — just 12 days after St. Augustine was founded. Pedro Menéndez led the attack personally, capturing and executing approximately 245-250 surviving French soldiers from Fort Caroline (now Jacksonville) who had been shipwrecked trying to sail south to reinforce their colony. The surviving French asked for mercy; Menéndez reportedly replied that he could give them none 'as enemies of God and of my king.' The inlet received the permanent name Matanzas.\n\nSir Francis Drake's raid on St. Augustine came on June 7, 1586, with approximately 2,000 English pirates. They burned the entire wooden city to the ground. A Black Spanish soldier named Juan Fernandez is credited with alerting the city to Drake's approach from his post at the inlet — giving the population time to escape into the forest. Drake burned 249 houses but captured no inhabitants.\n\nThe pirate Robert Searles (also known as Davis) raided St. Augustine on May 28, 1668 — catching the city completely unprepared. He killed 60 people and carried off treasure. This disaster convinced the Spanish crown to authorize the Castillo de San Marcos — the stone fort that finally provided real protection.\n\nThe bayfront seawall visible today dates from the late 19th and early 20th centuries. The original Spanish city had no formal seawall — just the natural shoreline.",
+      "lat": 29.8944,
+      "lng": -81.3123,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk south from the Castillo along Avenida Menéndez (the bayfront promenade) to the central bayfront area near the Bridge of Lions.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Matanzas means 'slaughters' in Spanish — named for the massacre of approximately 250 French Huguenots at Matanzas Inlet, September 20, 1565",
+          "Drake's Raid: June 7, 1586 — approximately 2,000 English forces burned 249 houses; Black soldier Juan Fernandez alerted the city",
+          "Robert Searles (Davis) pirate raid: May 28, 1668 — killed 60 people, stole treasure, directly led to the Spanish crown authorizing the Castillo",
+          "The bayfront is the historic site of most major military events in St. Augustine's first two centuries",
+          "The visible seawall dates from the late 19th and early 20th centuries"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Does Matanzas Mean?",
+          "prompt": "The bay you're looking at is Matanzas Bay, and 14 miles south is Matanzas Inlet. What does Matanzas mean in Spanish — and what event gave this body of water its name?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was named by Pedro Menéndez after an event 12 days after St. Augustine was founded. It's not a pleasant word.",
+          "config": {
+            "options": [
+              "Matanzas means 'fortifications' — named for the Spanish defensive walls built here",
+              "Matanzas means 'slaughters' — named for Menéndez's execution of approximately 250 French Huguenot soldiers at the inlet in September 1565",
+              "Matanzas means 'tides' — named for the strong tidal currents at the inlet",
+              "Matanzas means 'lions' — named for the Bridge of Lions that would later stand here"
+            ],
+            "correct_index": 1,
+            "explanation": "Matanzas means 'slaughters' in Spanish. Pedro Menéndez gave the inlet this name after he executed approximately 250 French Huguenot soldiers there on September 20, 1565 — twelve days after founding St. Augustine. The soldiers had been shipwrecked and asked for mercy; Menéndez refused."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Raid That Built the Fort",
+          "prompt": "Sir Francis Drake raided and burned St. Augustine in 1586. But a later raid — smaller but more shocking — directly led the Spanish crown to authorize the construction of the Castillo de San Marcos. Which raid was it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was a surprise pirate attack in 1668 — the city was caught completely off guard, and 60 people were killed. The shock prompted Spain to finally fund a stone fort.",
+          "config": {
+            "options": [
+              "The Drake Raid of 1586",
+              "The English Siege of 1702",
+              "The Robert Searles (Davis) pirate raid of 1668",
+              "The Oglethorpe Bombardment of 1740"
+            ],
+            "correct_index": 2,
+            "explanation": "The Robert Searles (also known as Davis) pirate raid of May 28, 1668 killed 60 people and seized treasure from a completely unprepared city. The Spanish crown, shocked that pirates could sack St. Augustine so easily, authorized the construction of the Castillo de San Marcos — the stone fort that would finally protect the city. Construction began just four years later, in 1672."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The First Defenders",
+          "prompt": "Ask the guide about Juan Fernandez — the Black Spanish soldier who warned St. Augustine about Drake's raid in 1586. Who were the African and Black soldiers in Spanish colonial Florida, and what role did they play in the city's defense?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about Fort Mose (1738) — the first free Black settlement in North America, established just north of St. Augustine.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Fort Mose Site — The First Free Black Settlement",
+      "description": "Two miles north of the City Gate, on what was once an island in the marshes near the Tolomato River, stood Fort Mose (pronounced MOH-say) — the first legally sanctioned free Black settlement in North America. Established in 1738 by the Spanish governor, Fort Mose was a fortified community of escaped slaves from English Carolina, many of whom converted to Catholicism to qualify for Spanish protection. The fort was destroyed and rebuilt; the site is now a Florida State Park.",
+      "historical_content": "Spain's colonial policy offered freedom and land to enslaved people who escaped from English colonies, converted to Catholicism, and agreed to defend St. Augustine. The first escapes began arriving from Carolina plantations in the 1680s. By 1738, Governor Manuel de Montiano established Fort Mose as an official military post — a fortified village of approximately 100 free Black men, women, and children who served as militia.\n\nThe fort's commander was Francisco Menéndez — a Mandinga warrior from West Africa who had been enslaved in Carolina, escaped, been recaptured, escaped again, and eventually reached St. Augustine where he earned his freedom. He served the Spanish as a soldier and leader of the Fort Mose community for decades.\n\nIn 1740, British General James Oglethorpe invaded Florida from his new colony of Georgia. His forces occupied Fort Mose briefly. In a surprise counterattack called the Battle of Fort Mose (June 26, 1740), Francisco Menéndez led a dawn raid that killed or captured most of the British garrison — one of the most decisive military victories by Black soldiers in early American history.\n\nFort Mose was destroyed in 1740 during Oglethorpe's invasion and rebuilt in 1752. When Florida was transferred to Britain in 1763, the Fort Mose community chose to leave with the Spanish rather than live under British rule — they were evacuated to Havana, Cuba, where their descendants still live.\n\nThe Fort Mose site is now a Florida State Park north of the city. The nearest landmark visible from the city is the general area of the marsh; the fort itself has been partially archaeologically excavated.",
+      "lat": 29.9200,
+      "lng": -81.3140,
+      "gps_radius_meters": 80.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Fort Mose State Park is approximately 2 miles north of the City Gate on Saratoga Boulevard. Drive or ride north — the park has a small visitor center and boardwalk over the marsh.",
+      "safety_warning": "Fort Mose State Park has specific hours. The marsh boardwalk is accessible but may be wet. Check the park's hours before visiting.",
+      "metadata_json": {
+        "key_facts": [
+          "First legally sanctioned free Black settlement in North America — established 1738 by Spanish Governor Montiano",
+          "Spain offered freedom to escaped English-colony slaves who converted to Catholicism and defended St. Augustine",
+          "Fort Mose commander: Francisco Menéndez, a Mandinga warrior from West Africa who escaped Carolina slavery",
+          "Battle of Fort Mose: June 26, 1740 — Francisco Menéndez's dawn raid destroyed most of Oglethorpe's occupying garrison",
+          "Fort Mose community chose evacuation to Havana over living under British rule when Florida was ceded in 1763",
+          "Now a Florida State Park; site partially archaeologically excavated",
+          "Spanish policy of offering freedom to escaped slaves was a deliberate strategy to destabilize English colonies"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Did Spain Offer Freedom?",
+          "prompt": "Spain offered freedom to enslaved people who escaped from English colonies to St. Augustine — on the condition that they convert to Catholicism and serve in the militia. What was Spain's strategic motivation for this policy?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Spain and England were rivals. Think about how offering freedom to English colonists' enslaved workers would affect England's economy and military power in the region.",
+          "config": {
+            "options": [
+              "Spain had a moral objection to slavery and sought to abolish it throughout the Americas",
+              "Spain needed soldiers and farm workers and had no enslaved workers of its own",
+              "Spain deliberately weakened English colonies by attracting their enslaved workers — gaining free soldiers for St. Augustine while destabilizing English Carolina",
+              "The Pope had ordered all Catholic nations to grant asylum to escaped slaves"
+            ],
+            "correct_index": 2,
+            "explanation": "Spain's offer of freedom was a deliberate military and economic strategy — by attracting enslaved workers from English Carolina plantations, Spain weakened the English colony's labor supply while gaining motivated soldiers for St. Augustine's defense. The Fort Mose community's military effectiveness (especially at the 1740 Battle of Fort Mose) proved the strategy sound."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Commander of Fort Mose",
+          "prompt": "Fort Mose was commanded by a remarkable man — a Mandinga warrior from West Africa who had been enslaved in Carolina, escaped multiple times, and eventually reached St. Augustine where he earned his freedom. What was his name?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He shares a last name with the founder of St. Augustine — likely adopted after converting to Catholicism.",
+          "config": {
+            "accepted_answers": ["francisco menendez", "menendez", "francisco menéndez", "menéndez"],
+            "case_sensitive": false,
+            "explanation": "Francisco Menéndez — a Mandinga warrior from West Africa — was the commander of Fort Mose. He led the dawn raid at the Battle of Fort Mose on June 26, 1740, that destroyed most of British General Oglethorpe's garrison and helped save St. Augustine. His story is one of the most remarkable in early American history."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Freedom on the Frontier",
+          "prompt": "Ask the guide about the choices facing the Fort Mose community in 1763 — when Florida was transferred from Spain to Britain. They were free people under Spanish law; under British rule, they would not be. What did they choose, and what does that choice tell us about freedom in colonial Florida?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the evacuation to Havana, or about what the community had built at Fort Mose over 25 years.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Plaza de la Constitución — Where the Flags Changed",
+      "description": "The Plaza de la Constitución is where the most consequential moments in St. Augustine's political history took place — including the transfer of Florida from Spain to the United States on July 10, 1821. For 256 years (1565-1821), this plaza was the center of a Spanish colonial city. The flags were exchanged here as the last Spanish governor handed the territory to the first American governor. The Constitution Monument in the center has stood through all of it.",
+      "historical_content": "The Plaza de la Constitución has been the central public space of St. Augustine since the city's founding in 1565. In the Spanish colonial tradition, the plaza was flanked by the church (Cathedral), the government (Government House), and commerce — exactly the arrangement still visible today.\n\nFlorida's transfer from Spain to the United States was the result of the Adams-Onís Treaty of 1819 (ratified 1821). Spain ceded Florida for $5 million in American debts. Governor José Coppinger was the last Spanish governor. Andrew Jackson became the first American territorial governor on July 10, 1821 — the day the flags were exchanged in this plaza.\n\nThe Constitution Monument in the center of the plaza was erected in 1813 by Geronimo Alvarez (then mayor and owner of the Oldest House) to honor the Spanish Constitution of 1812. When Florida transferred to the United States, American officials wanted it removed. Mayor Alvarez refused. The monument survived — and is now the only monument honoring the Spanish Constitution of 1812 still standing in the Western Hemisphere.\n\nDuring the Civil Rights Movement of 1963-1964, this plaza was the scene of wade-ins at the bayfront beach and night marches. The Slave Market (now identified as the Old Market) in the plaza was a focal point — though its exact history as an actual slave market is more complex than often depicted in tourism marketing.",
+      "lat": 29.8954,
+      "lng": -81.3132,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "Walk south on St. George Street to the Plaza de la Constitución — the open park between King Street and Cathedral Place, with the Constitution Monument in the center.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Florida flags exchanged here July 10, 1821 — Spain to United States via the Adams-Onís Treaty of 1819",
+          "Last Spanish Governor: José Coppinger; first American Territorial Governor: Andrew Jackson",
+          "Constitution Monument erected 1813 by Mayor Geronimo Alvarez — sole surviving monument to the Spanish Constitution of 1812 in the Western Hemisphere",
+          "Alvarez refused American officials' request to remove the monument after the transfer",
+          "Site of Civil Rights protests, wade-ins, and night marches in 1963-1964",
+          "The plaza arrangement (church, government, commerce) reflects the traditional Spanish colonial plaza design"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Last Day of Spanish Florida",
+          "prompt": "On July 10, 1821, the flags were exchanged in this plaza — Spain giving up Florida to the United States. What agreement made this transfer happen, and what did the United States effectively pay for Florida?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The agreement was signed in 1819 and ratified in 1821. The 'payment' was actually an assumption of debts, not cash directly to Spain.",
+          "config": {
+            "options": [
+              "The Treaty of Paris (1783), which transferred Florida for prisoner releases",
+              "The Louisiana Purchase (1803), which included Florida in the deal",
+              "The Adams-Onís Treaty (1819/1821), in which the U.S. assumed $5 million in American debts to Spain",
+              "The Florida Purchase Act (1820), in which Congress paid $10 million directly to the Spanish crown"
+            ],
+            "correct_index": 2,
+            "explanation": "The Adams-Onís Treaty (signed 1819, ratified 1821) transferred Florida to the United States. The 'price' was $5 million — not cash to Spain, but the U.S. government's assumption of debts that Spanish citizens owed to American citizens. Secretary of State John Quincy Adams negotiated the treaty with Spanish Foreign Minister Luis de Onís."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Monument That Survived",
+          "prompt": "The Constitution Monument in the center of this plaza survived the transfer of Florida to the United States — even though American officials wanted it removed. The mayor of St. Augustine refused to allow its destruction. Name the mayor who defied American officials to save this monument.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He owned a famous house on St. Francis Street — the same family name is associated with the Oldest House.",
+          "config": {
+            "accepted_answers": ["geronimo alvarez", "alvarez", "geronimo"],
+            "case_sensitive": false,
+            "explanation": "Geronimo Alvarez — the mayor of St. Augustine and owner of the González-Alvarez House (the Oldest House) — refused American officials' request to tear down the Constitution Monument. It remains today as the only surviving monument honoring the Spanish Constitution of 1812 in the Western Hemisphere."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: A City of Five Flags",
+          "prompt": "Speak with Pedro Menéndez about what he would think of St. Augustine now — 460 years after he founded it. Ask him about the different governments that have claimed his city and what has remained constant.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Menéndez about the British period, or ask what he thinks about the United States having Florida now.",
+          "config": {
+            "character_id": "pedro_menendez",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Defender's Medal",
+      "description": "You completed the full circuit of St. Augustine's military history.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Garrison Recruit",
+      "description": "You visited three of the city's defensive sites.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Quarter Asked",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

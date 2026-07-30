@@ -1,0 +1,379 @@
+{
+  "adventure": {
+    "title": "Doors, Windows, and Balconies",
+    "slug": "doors-windows-balconies",
+    "description": "No historical knowledge required. St. Augustine's architectural details — the wooden balconies, shuttered windows, coquina arches, wrought-iron railings, and carved doorways — are the most visually distinctive in any American city. This purely visual hunt challenges you to find specific details, count features, match close-up photographs, and complete architectural bingo. Perfect for families, beginners, and anyone who has ever said 'look at that doorway.'",
+    "short_description": "Find architectural details — doors, windows, balconies, and more — across the historic district.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 60,
+    "start_lat": 29.8984,
+    "start_lng": -81.3131,
+    "total_points": 600,
+    "tags": ["architecture", "family-friendly", "visual", "observation", "easy", "no history required"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "City Gate Area — Count the Columns",
+      "description": "The City Gate at the north end of St. George Street is the most recognizable architectural feature in St. Augustine — two white coquina pillars topped with carved pomegranates. But it's just the beginning of this visual hunt. The area around the gate has more architectural details per square meter than almost any other block: ironwork fences, wooden balconies on adjacent buildings, shuttered windows, and coquina stonework in multiple tones.",
+      "historical_content": "The City Gate pillars are made of coquina — the local shell-stone that was the primary building material of colonial St. Augustine. Coquina is soft, porous, and weathers to a warm tan or gray color. It can be cut cleanly when freshly quarried but hardens over time.\n\nThe wooden balconies visible on buildings near the City Gate are characteristic of Spanish colonial architecture — overhanging the sidewalk to provide shade and shelter from rain. In a subtropical climate, balconies and deep overhangs are practical as well as decorative.\n\nThe pomegranate on top of each City Gate pillar is both decorative and symbolic — the symbol of the city of Granada, Spain, and a traditional symbol of fertility and abundance.",
+      "lat": 29.8984,
+      "lng": -81.3131,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Stand at the City Gate — the white coquina pillars at the north end of St. George Street. Look at both pillars, the surrounding fence, and the adjacent buildings.",
+      "safety_warning": null,
+      "metadata_json": {
+        "visual_features_to_find": [
+          "Two coquina pillars with carved pomegranates on top",
+          "Iron fence connecting the gate area",
+          "Wooden balconies on adjacent buildings overhanging the sidewalk",
+          "Shuttered windows on colonial-era buildings nearby"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "text_answer",
+          "title": "Count the Carved Details",
+          "prompt": "Look at the top of each City Gate pillar. Each one is capped with a carved decorative feature. How many pomegranate-capped pillars are there at the City Gate?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The gate has two pillars. Do both have the same decorative top, or are they different?",
+          "config": {
+            "accepted_answers": ["2", "two", "two pillars", "2 pillars"],
+            "case_sensitive": false,
+            "explanation": "There are two coquina pillars at the City Gate, and both are capped with carved pomegranates — the symbol of fertility and of Granada, Spain. The gate was built in 1808 under Engineer Captain Manuel de Hita."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Architectural Materials Spotter",
+          "prompt": "Looking at the City Gate pillars and the surrounding buildings, you can identify the primary colonial building material used throughout St. Augustine. The pillars are made of a local shell-stone that weathers to a warm tan or gray. What is this material called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The name comes from the Spanish word for shellfish. The stone is made of compressed shell fragments and is unique to this region.",
+          "config": {
+            "options": [
+              "Limestone",
+              "Granite",
+              "Coquina",
+              "Sandstone"
+            ],
+            "correct_index": 2,
+            "explanation": "Coquina — from the Spanish word for shellfish — is the local building material unique to the St. Augustine region. Made of compressed shell fragments cemented together, it was quarried on Anastasia Island across the Matanzas River. It was used for the City Gate, the Castillo de San Marcos, the Oldest House, and many other colonial structures."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Why Does St. Augustine Look Like This?",
+          "prompt": "Ask the guide why St. Augustine's architecture looks so different from other American cities — the coquina walls, the wooden balconies, the shutters, and the deep overhangs. What climate and cultural influences produced this distinctive visual style?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Spanish colonial tradition of balconied buildings, or about why subtropical buildings need different designs than New England ones.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Aviles Street — The Narrowest and Oldest",
+      "description": "Aviles Street — said to be the oldest street in the oldest city in the United States — is a narrow lane running parallel to and one block west of St. George Street. The buildings on Aviles Street are among the most architecturally significant in St. Augustine: coquina walls, wooden second stories, interior courtyards, exterior staircases, overhanging balconies with carved wooden brackets, and shuttered windows painted in faded colonial colors. This is the best block in the city for the architectural detail hunter.",
+      "historical_content": "Aviles Street is named for the hometown of St. Augustine's founder, Pedro Menéndez de Avilés — the city of Avilés in Asturias, northwestern Spain. The street is believed to be one of the oldest continuously occupied streets in the United States.\n\nThe buildings on Aviles Street reflect multiple construction periods: some coquina ground floors date to the 18th century Spanish colonial period; the wooden second floors and balcony additions often date to the British period (1763-1784) or the American Territorial period (1821-1845). The combination of materials — coquina base, wooden upper story — is a visual record of St. Augustine's transition between colonial powers.\n\nThe Ximenez-Fatio House at 20 Aviles Street (c. 1797-98) is the most complete example of Spanish colonial urban architecture on the street, with its full coquina ground floor, overhanging wooden balcony, and shuttered windows.",
+      "lat": 29.8927,
+      "lng": -81.3137,
+      "gps_radius_meters": 45.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk west from St. George Street one block to Aviles Street. Walk the full length of the street slowly — every building has visual details worth noting.",
+      "safety_warning": null,
+      "metadata_json": {
+        "visual_features_to_find": [
+          "Coquina ground floors (tan/gray shell-stone)",
+          "Wooden second stories and balconies overhanging the sidewalk",
+          "Carved wooden balcony brackets",
+          "Shuttered windows in faded colonial colors",
+          "Exterior staircases leading to upper floors",
+          "Interior courtyard entrances (look for gates between buildings)",
+          "Wooden doors with iron hardware"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Two Building Materials in One",
+          "prompt": "Walking down Aviles Street, you can see many buildings with different materials on their ground floor vs. their upper story. Which combination most commonly tells the story of St. Augustine's two colonial periods?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The older Spanish colonial structures used one material; the British colonial additions used another. Look at the difference between the street-level floors and the upper floors.",
+          "config": {
+            "options": [
+              "Brick ground floor + stone upper story",
+              "Coquina (shell-stone) ground floor + wooden upper story",
+              "Granite ground floor + coquina upper story",
+              "Adobe ground floor + terra cotta tile upper story"
+            ],
+            "correct_index": 1,
+            "explanation": "The most common combination is coquina (shell-stone) ground floor from the Spanish colonial period + wooden upper story added during the British period (1763-1784) or the American Territorial period. This material combination is a visual record of St. Augustine's transition between colonial powers — you can literally read the history of the city in the walls."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Find a Courtyard Gate",
+          "prompt": "Spanish colonial buildings in St. Augustine often had interior courtyards for privacy, air circulation, and a private garden. These courtyards are accessed through gates between the building and its neighbor. On Aviles Street, how many gates leading to interior courtyards can you spot on this block? (Count only gates you can actually see, not guesses.)",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Walk the full length of Aviles Street slowly. Courtyard gates are usually wooden or iron, set between buildings, sometimes arched.",
+          "config": {
+            "accepted_answers": ["1", "2", "3", "4", "one", "two", "three", "four", "several", "multiple"],
+            "case_sensitive": false,
+            "explanation": "Multiple courtyard gates are visible on Aviles Street — the exact number varies by season and how gates are positioned. The key insight is that Spanish colonial buildings regularly included interior courtyards accessible through exterior gates — a Mediterranean architectural tradition that provided privacy, shade, and garden space in a dense urban setting."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Reading a Building",
+          "prompt": "Ask the colonial shopkeeper to teach you how to 'read' a building in St. Augustine — what the different materials, window types, and balcony styles tell you about when the building was constructed and who lived there.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask specifically about the Ximenez-Fatio House at 20 Aviles Street, or about what shutters indicate about the climate.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. George Street Central — Balcony Count",
+      "description": "The central section of St. George Street — between Treasury Street and Hypolita Street — has the highest concentration of wooden balconies in the historic district. Some are narrow wrought-iron balconies barely wide enough to stand on; others are wide wooden planked balconies with carved brackets that overhang the sidewalk by several feet. From the street, you can count balconies, identify materials, and spot the differences between Spanish colonial, British colonial, and 19th-century American interpretations of the balcony tradition.",
+      "historical_content": "The wooden balcony is one of the most characteristic features of Spanish colonial architecture in the Caribbean and Gulf of Mexico. In St. Augustine, balconies served both practical and social functions: they provided shade for the buildings and the sidewalk below; they allowed second-floor residents to communicate with the street; and they were social spaces where families could sit outdoors without being on the public street.\n\nThe wrought-iron railing on many St. Augustine balconies reflects Spanish and Mediterranean ironwork traditions. Wrought iron was imported or made by local blacksmiths — it's forged (worked) iron, as opposed to cast iron (poured into molds). Wrought iron has a rougher, more irregular surface; cast iron has smoother, more uniform curves. Both are visible on St. George Street.\n\nThe carved wooden bracket supporting a projecting balcony is called a corbel. Corbels in St. Augustine range from plain cut timber to elaborate carved scrollwork — the more decorative the corbel, the more prosperous the building's owner typically was.",
+      "lat": 29.8960,
+      "lng": -81.3135,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Stand in the middle of St. George Street between Treasury Street and Hypolita Street. Look up — count the balconies you can see in both directions from this spot.",
+      "safety_warning": null,
+      "metadata_json": {
+        "visual_features_to_find": [
+          "Wooden balconies overhanging the sidewalk with carved wooden brackets (corbels)",
+          "Wrought-iron railings on narrow balconies",
+          "Differences between wide wooden balconies and narrow iron ones",
+          "Balcony brackets: plain timber vs. carved scrollwork",
+          "Shuttered windows on second floors above balconies"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Iron vs. Wood — Spot the Difference",
+          "prompt": "Two types of metal railings appear on St. George Street balconies. Looking at the railings you can see, which description best identifies the difference between wrought iron and cast iron?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "One type of iron is forged by a blacksmith (hammered into shape when hot); the other is poured into molds. The surface texture is the key visual difference.",
+          "config": {
+            "options": [
+              "Wrought iron is always black; cast iron is always silver or gray",
+              "Wrought iron has a rougher, more irregular surface from being hammered; cast iron has smoother, more uniform molded shapes",
+              "Wrought iron is used for horizontal rails only; cast iron for vertical posts only",
+              "There is no visual difference — the terms refer only to manufacturing era"
+            ],
+            "correct_index": 1,
+            "explanation": "Wrought iron is forged (hammered) by a blacksmith while hot — it has a rougher, more irregular surface texture. Cast iron is poured into molds while liquid — it has smoother, more uniform curves and repeated patterns. Both types appear on St. George Street balconies. Colonial-era ironwork is more likely to be wrought iron; 19th-century decorative ironwork is often cast iron."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Balcony Bracket Name",
+          "prompt": "The carved wooden bracket that supports a projecting balcony — visible under the floor of every overhanging balcony on St. George Street — has a specific architectural name. What is it called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The word comes from Latin via French — a projecting bracket used in masonry or carpentry to support a structure above.",
+          "config": {
+            "accepted_answers": ["corbel", "corbels", "a corbel"],
+            "case_sensitive": false,
+            "explanation": "The carved wooden bracket supporting a projecting balcony is called a corbel. In St. Augustine, corbels range from plain cut timber to elaborately carved scrollwork — the more decorative the corbel, the more prosperous the building's original owner was typically thought to be."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Why Balconies?",
+          "prompt": "Ask the colonial shopkeeper why balconies are so important in Spanish colonial architecture — and why they are less common in New England colonial architecture. What does the difference tell you about climate and culture?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the subtropical climate of St. Augustine vs. the cold winters of Massachusetts, or about how balconies function as shade structures.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Charlotte Street — Window Styles Through Time",
+      "description": "Charlotte Street, running parallel to St. George Street on the east side, has some of the most varied window designs in the historic district — colonial wooden casements with hand-blown glass panes, 19th-century double-hung sash windows, shuttered openings without glass, and modern windows hidden behind original shutters. The windows on any given building can tell you roughly when it was built, what it was used for, and how much the owner could afford.",
+      "historical_content": "Window glass was expensive in the colonial period — much of it had to be imported. Many early Spanish colonial buildings had no glass in their windows; instead, they used wooden shutters that could be opened for air and closed for privacy and weather protection. The shutters themselves were often louvered (with angled slats) to allow air movement even when closed.\n\nThe 18th-century colonial window typically had multiple small panes of hand-blown glass — the glass-blowing process limited pane size. These small-pane windows are recognizable by the slight irregularities in the glass (bubbles, waves, thickness variations) and the divided light pattern created by the wooden muntins (the small bars holding the panes).\n\nThe double-hung sash window — where two panels slide vertically past each other — became common in Florida buildings from the American Territorial period (post-1821) onward. The earlier casement window swings open on hinges like a door. Both types appear on Charlotte Street.\n\nShutters in the tropics and subtropics were functional: they blocked direct sun, deflected rain, and allowed air circulation in a climate without air conditioning. The louvered shutter — with angled horizontal slats — is an architectural solution to the problem of getting airflow while keeping out rain.",
+      "lat": 29.8940,
+      "lng": -81.3143,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk one block east from St. George Street to Charlotte Street. Walk the block between Treasury Street and Cathedral Place, looking at windows on both sides of the street.",
+      "safety_warning": null,
+      "metadata_json": {
+        "visual_features_to_find": [
+          "Louvered shutters (angled slats for air movement)",
+          "Multiple small panes of hand-blown glass in colonial windows",
+          "Wooden muntins (bars) dividing window panes",
+          "Double-hung sash windows (two panels sliding vertically)",
+          "Casement windows (swinging on hinges like a door)",
+          "Shuttered openings without glass",
+          "Decorative window hoods or pediments"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Louvered Shutters?",
+          "prompt": "Many buildings on Charlotte Street have louvered shutters — shutters with angled horizontal slats. What is the functional purpose of the angled slats, making them better for subtropical Florida than solid panel shutters?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what a tropical/subtropical building needs most from its windows: air movement and rain protection simultaneously.",
+          "config": {
+            "options": [
+              "Angled slats deflect bullets while still allowing light in",
+              "Angled slats allow air circulation while still blocking direct rain — essential in a subtropical climate",
+              "Angled slats are easier to manufacture than solid panels in a pre-industrial economy",
+              "Angled slats allow the occupant to see out without being seen from the street"
+            ],
+            "correct_index": 1,
+            "explanation": "Louvered shutters allow air to circulate through the angled slats even when the shutter is closed — critical for comfort in a subtropical climate without air conditioning. The angled slats are designed so that horizontal rainfall is deflected away while vertical airflow continues. This makes them significantly more functional than solid panel shutters in Florida's climate."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Old Glass vs. New Glass",
+          "prompt": "Colonial-era windows used hand-blown glass, which looks different from modern machine-made glass. If you find an original colonial window pane and look through it, what would you notice that would be absent in modern glass?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The glass-blowing process in the 18th century was not perfectly controlled. The result is glass that is not entirely uniform.",
+          "config": {
+            "options": [
+              "The glass would be tinted green or purple from the iron and manganese in the sand used",
+              "The glass would have bubbles, waves, and slight thickness variations from the hand-blowing process",
+              "The glass would be frosted and opaque, not clear",
+              "The glass would be extremely thick to withstand colonial-era weather"
+            ],
+            "correct_index": 1,
+            "explanation": "Hand-blown glass from the colonial era has subtle bubbles, waves (called 'flow lines'), and slight thickness variations caused by the manual blowing process. These imperfections make old glass visually distinctive — light passing through it creates slight distortions. If you find a building with original colonial glass, you can sometimes see these characteristics by looking at an angle."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Window Tax",
+          "prompt": "Ask the colonial shopkeeper about the famous 'window tax' that affected building design in the British colonial world — where property owners were taxed based on the number of windows in their building, leading some to brick up windows. Did this affect St. Augustine during the British period?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask specifically whether you can spot any bricked-up window openings on Charlotte Street — a visual sign of the window tax's effect on building design.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College Entrance — The Grand Door",
+      "description": "The main entrance to Flagler College (formerly the Ponce de León Hotel) features what is arguably the most ornate doorway in St. Augustine — a pair of massive carved wooden doors set within an elaborate Spanish Renaissance Revival arch, flanked by carved stone columns and decorated with terracotta tiles. The doors were part of the original 1888 hotel design by architects Carrère and Hastings. Finding specific architectural details on this facade — the number of terracotta panels, the column capitals, the carved figures — is the final challenge of the visual hunt.",
+      "historical_content": "Carrère and Hastings were the architects of the Ponce de León Hotel (now Flagler College), completed in 1888. Thomas Hastings and John Carrère had just returned from the École des Beaux-Arts in Paris when Henry Flagler hired them to design his flagship hotel. The Ponce de León was their first major commission — and its success launched their career. They went on to design the New York Public Library.\n\nThe hotel's architectural style is Spanish Renaissance Revival — drawing on the Spanish colonial architecture of the 16th and 17th centuries while incorporating Moorish elements from southern Spain (particularly the Alhambra in Granada). The terracotta tile decorations were made by the Excelsior Terra Cotta Company of New York; the carved stone details were made by local craftsmen.\n\nThe four towers (two large, two smaller) were designed to evoke a Spanish Renaissance castle. The exterior finishes include cast concrete (one of the earliest uses of reinforced concrete in Florida), terracotta tile, and carved stone.\n\nThe main entrance doors open into an interior atrium — the entrance lobby, now the college's administrative heart. The stained glass windows in the original dining hall (now the college cafeteria) and the interior rotunda are also significant architectural details.",
+      "lat": 29.8905,
+      "lng": -81.3135,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Flagler College is at 74 King Street — walk south on St. George Street to King Street, then turn right (west) one block. The main entrance faces King Street.",
+      "safety_warning": "Flagler College is an active academic institution. Exterior observation and photography are welcome at all times. Tours of the interior are offered seasonally.",
+      "metadata_json": {
+        "visual_features_to_find": [
+          "Main entrance: massive carved wooden doors in an ornate Spanish Renaissance Revival arch",
+          "Carved stone columns flanking the entrance arch",
+          "Terracotta tile decorative panels across the facade",
+          "Four towers: two large towers at the corners, two smaller secondary towers",
+          "Moorish-style arched windows on the ground floor",
+          "Cast concrete facade (unusual for 1888 construction)",
+          "Carved figures and decorative medallions above the main entrance"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Count the Towers",
+          "prompt": "The Ponce de León Hotel (now Flagler College) was designed with multiple towers to evoke a Spanish Renaissance castle. Looking at the building from King Street, how many towers can you count?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Walk back across the street for the best view of the full facade. Look for the tall corner towers and the smaller secondary towers.",
+          "config": {
+            "options": [
+              "Two towers",
+              "Three towers",
+              "Four towers",
+              "Six towers"
+            ],
+            "correct_index": 2,
+            "explanation": "The Ponce de León Hotel has four towers — two large octagonal corner towers and two smaller secondary towers flanking the main entrance. Architects Carrère and Hastings designed the towers to evoke a Spanish Renaissance castle. The building was their first major commission; they later designed the New York Public Library."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Architects' Later Work",
+          "prompt": "Carrère and Hastings, who designed this building in 1888, went on to design one of the most famous public buildings in New York City — their most celebrated later work. What famous New York building did they design?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a landmark on Fifth Avenue in Midtown Manhattan — one of the most recognizable library buildings in the world, with two famous stone lions out front.",
+          "config": {
+            "accepted_answers": [
+              "new york public library", "the new york public library", "nypl",
+              "new york public library main branch", "new york city public library"
+            ],
+            "case_sensitive": false,
+            "explanation": "Carrère and Hastings designed the New York Public Library's main branch on Fifth Avenue — completed in 1911 and considered one of the finest Beaux-Arts buildings in the United States. The Ponce de León Hotel (1888) was their first major commission. Both buildings share the same attention to ornate stone carving, elaborate entrances, and classical proportions."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Best Detail",
+          "prompt": "Ask Henry Flagler which architectural detail of his Ponce de León Hotel he is most proud of — and whether he thinks architects Carrère and Hastings captured what he wanted for St. Augustine's new identity as a luxury resort destination.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the terracotta decorations, the stained glass, or the cast concrete construction — each was unusual or innovative for 1888.",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Architectural Bingo Complete",
+      "description": "You spotted every type of door, window, and balcony across the historic district.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Window Spotter",
+      "description": "You found architectural details at three stops.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "Sharp-Eyed",
+      "description": "You answered every visual challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

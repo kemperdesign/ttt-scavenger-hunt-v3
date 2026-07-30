@@ -1,0 +1,385 @@
+{
+  "adventure": {
+    "title": "Pirate and Privateer Hunt",
+    "slug": "pirate-and-privateer",
+    "description": "St. Augustine was raided, burned, and plundered more than any other city in colonial North America. Pirates, privateers, and English raiders terrorized the city for 200 years — from Sir Francis Drake's 1586 raid to the pirate Robert Searles in 1668. Decode the compass, find the nautical clues, collect digital pieces of eight, and learn the difference between a privateer who worked for a king and a pirate who worked for himself.",
+    "short_description": "Follow pirate clues and compass bearings through the Ancient City's most raided sites.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 80,
+    "start_lat": 29.8944,
+    "start_lng": -81.3123,
+    "total_points": 600,
+    "tags": ["pirates", "history", "adventure", "family-friendly", "bayfront", "naval"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "Bridge of Lions — The Lookout Post",
+      "description": "In the 16th and 17th centuries, a sentinel at the Matanzas Inlet — about 14 miles south of this spot — was the first warning system St. Augustine had against approaching ships. When a fleet was spotted, riders raced north to alert the city. The Bridge of Lions now spans the same Matanzas River that pirate ships once used to approach the city. From this spot, you can see the water approaches that Drake, Searles, and Oglethorpe all used to threaten St. Augustine.",
+      "historical_content": "The Matanzas Inlet was the southern water approach to St. Augustine. Pirates and enemy navies coming from the Caribbean would enter the inlet and sail north through the Matanzas River toward the city. The Spanish maintained a lookout tower at the inlet from the early colonial period, and Fort Matanzas was eventually built there in 1742 to block this approach.\n\nSir Francis Drake's 1586 raid is the most famous English attack on St. Augustine. Drake was operating as a privateer — a licensed pirate who attacked enemies of England under a government commission called a Letter of Marque. He was not technically a pirate under English law; Spain, naturally, disagreed.\n\nA Black Spanish soldier named Juan Fernandez is credited with spotting Drake's fleet first and riding north to warn St. Augustine — giving residents time to escape before Drake's 2,000 men arrived on June 7, 1586. Drake burned 249 buildings and took whatever treasure was portable, but captured no inhabitants.\n\nThe distinction between a pirate and a privateer: A privateer operated under a Letter of Marque from a government, attacking only enemy ships and cities. Drake had a Letter of Marque from Queen Elizabeth I authorizing him to attack Spanish possessions. A pirate had no government authorization — attacking anyone for personal profit. Robert Searles (also known as Davis), who raided St. Augustine in 1668, was a pure pirate with no government backing.\n\nFort Matanzas was built in 1742 specifically to block the southern water approach. It was constructed of coquina, like the Castillo, and protected the inlet for the remainder of the Spanish colonial period.",
+      "lat": 29.8944,
+      "lng": -81.3123,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "pirate_captain",
+      "points": 100,
+      "hint_text": "Start at the Bridge of Lions — the western end of the drawbridge at Cathedral Place. Face the water and look south — you're looking at the Matanzas River.",
+      "safety_warning": "Stay on the pedestrian walkway. Do not lean over the railing.",
+      "metadata_json": {
+        "key_facts": [
+          "Matanzas Inlet (14 miles south) was the main southern water approach to St. Augustine used by raiders",
+          "Fort Matanzas built 1742 specifically to block this southern approach",
+          "Sir Francis Drake: 1586 raid with approximately 2,000 men; burned 249 buildings; no inhabitants captured",
+          "Drake was a privateer — operated under a Letter of Marque from Queen Elizabeth I",
+          "Juan Fernandez (Black Spanish soldier) spotted Drake's fleet and warned the city",
+          "Privateer = government-licensed raider; Pirate = unauthorized raider for personal profit",
+          "Robert Searles (Davis): 1668 pure pirate raid — killed 60 people, stole treasure, prompted construction of the Castillo"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Privateer or Pirate?",
+          "prompt": "Sir Francis Drake raided and burned St. Augustine in 1586. Under English law, Drake was not technically a pirate — he had official permission. What document did Drake carry that made his attacks legal under English law?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was issued by the monarch and authorized attacks on enemy ships and territories — the standard tool for government-licensed raiding.",
+          "config": {
+            "options": [
+              "A Royal Warrant allowing any Englishman to attack Spanish cities",
+              "A Letter of Marque from Queen Elizabeth I authorizing him to attack Spanish possessions",
+              "A naval officer's commission making him an Admiral of the Atlantic",
+              "A Papal dispensation authorizing Protestant England to seize Catholic territory"
+            ],
+            "correct_index": 1,
+            "explanation": "Drake carried a Letter of Marque from Queen Elizabeth I — a government document authorizing him to attack Spanish ships and possessions. This made him a privateer, not a pirate, under English law. Spain, of course, considered him a pirate regardless of English paperwork. The distinction mattered greatly: a captured privateer had diplomatic leverage; a captured pirate was simply hanged."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Warning That Saved the City",
+          "prompt": "When Drake's fleet of approximately 2,000 men approached St. Augustine in June 1586, the city was warned just in time to evacuate. Who gave the warning that saved the inhabitants?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He was a soldier stationed at the lookout post near Matanzas Inlet — the first person to spot Drake's fleet approaching.",
+          "config": {
+            "options": [
+              "Governor Pedro Menéndez Marqués, who spotted the fleet from the Castillo watch tower",
+              "A Timucuan scout who paddled north in a canoe",
+              "Juan Fernandez, a Black Spanish soldier stationed at the southern lookout",
+              "A French Catholic priest who had infiltrated Drake's fleet as a spy"
+            ],
+            "correct_index": 2,
+            "explanation": "Juan Fernandez — a Black Spanish soldier stationed at the southern lookout near Matanzas Inlet — spotted Drake's fleet first and rode north to warn St. Augustine. His warning gave residents time to escape into the forests with their valuables before Drake's men arrived. Drake burned 249 buildings but captured no inhabitants."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Pirate Captain's Code",
+          "prompt": "Ask the pirate captain about the difference between privateering and piracy — and which one paid better. How did the golden age of piracy in the Caribbean affect St. Augustine?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Letters of Marque system, or about what happened to privateers when their countries made peace and cancelled their commissions.",
+          "config": {
+            "character_id": "pirate_captain",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Castillo de San Marcos — The Fort That Stopped the Raids",
+      "description": "The Castillo de San Marcos was built specifically in response to pirate and privateer attacks — primarily the shocking 1668 Robert Searles raid that killed 60 people and exposed how defenseless the wooden city was. The star fort was the solution: coquina walls that absorbed cannon fire, a moat, four cannon bastions, and a design that required any attacking force to fight in the open under fire from multiple angles. From the fort's ramparts, you can see the water approaches that every raider used.",
+      "historical_content": "Robert Searles (also known as Davis) was a pirate — not a privateer — when he raided St. Augustine on May 28, 1668. He sailed into the Matanzas Bay with one small ship, pretending to be a friendly vessel. He had no Letter of Marque and no government backing. His crew of approximately 60-70 men caught the city completely by surprise, killing 60 people and stealing everything portable. The city had no fort, no walls, and almost no defenses.\n\nThe Spanish governor immediately sent an urgent report to the crown describing the disaster. The report was taken seriously: within four years, construction had begun on the Castillo de San Marcos. The first shovelful of earth was turned October 2, 1672; the first coquina stone was laid November 9, 1672; the fort was completed in 1695.\n\nThe fort's cannon batteries faced the bay — the approach that all naval raiders used. The northeast bastion (San Pedro) had the best field of fire toward the inlet approach. The fort could mount 70 cannons at maximum armament.\n\nThe Castillo successfully repelled every attack: the 1702 English siege (51 days; fort held), the 1740 Oglethorpe bombardment (27 days; fort held). No raider ever breached the walls. The strategy of building an impregnable stone fort paid off completely — after 1695, St. Augustine was never successfully sacked again.",
+      "lat": 29.9002,
+      "lng": -81.3119,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "pirate_captain",
+      "points": 100,
+      "hint_text": "Walk north on Avenida Menéndez (the bayfront) to the Castillo de San Marcos — the massive coquina star fort. Approach from the south side for the best view of the bay-facing cannon batteries.",
+      "safety_warning": "Stay on marked paths. Do not climb the walls or enter restricted areas.",
+      "metadata_json": {
+        "key_facts": [
+          "Robert Searles (Davis) pirate raid: May 28, 1668 — 60 people killed, treasure stolen, city had no defenses",
+          "The Searles raid directly prompted the Spanish crown to authorize the Castillo's construction",
+          "Construction: ground broken October 2, 1672; first stone November 9, 1672; completed 1695",
+          "Fort mounted up to 70 cannons; cannon batteries faced the bay and water approaches",
+          "Northeast bastion (San Pedro) had best field of fire toward the inlet approach",
+          "Never successfully breached — 1702 siege (51 days) and 1740 bombardment (27 days) both failed",
+          "After the Castillo was completed in 1695, St. Augustine was never successfully sacked again"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "text_answer",
+          "title": "The Raid That Built the Fort",
+          "prompt": "The Castillo de San Marcos was built in direct response to a pirate raid that shocked the Spanish crown. Name the pirate (also known as Davis) who raided St. Augustine in 1668 — killing 60 people with no fort to stop him.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He sailed into the Matanzas Bay under a false pretense, pretending to be a friendly ship. He was operating without any government commission.",
+          "config": {
+            "accepted_answers": ["robert searles", "searles", "davis", "robert searles davis", "searles davis"],
+            "case_sensitive": false,
+            "explanation": "Robert Searles (also known as Davis) raided St. Augustine on May 28, 1668 — sailing in under a false pretense and killing 60 people before the city could respond. Unlike Drake, Searles had no Letter of Marque — he was a pure pirate. The shocking ease of his attack convinced the Spanish crown to authorize the Castillo de San Marcos four years later."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Cannon Balls and Coquina",
+          "prompt": "The pirates and privateers who attacked St. Augustine used cannons to try to breach its defenses. What happened when cannon balls hit the Castillo's coquina walls — a discovery that shocked attackers?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Coquina is made of compressed shell fragments — it's soft and porous. Think about what a soft material does under impact compared to hard stone or brick.",
+          "config": {
+            "options": [
+              "The cannon balls bounced off the hard coquina surface and rolled harmlessly away",
+              "The coquina shattered into sharp fragments that injured the defenders inside",
+              "The cannon balls embedded into the soft coquina rather than shattering it — making the walls nearly impervious to bombardment",
+              "The coquina walls collapsed easily but were rebuilt overnight using stockpiled replacement blocks"
+            ],
+            "correct_index": 2,
+            "explanation": "Cannon balls embedded into the soft, porous coquina rather than shattering the walls. The compressed shell-stone absorbed impact like a sponge. Attackers discovered their cannon fire was essentially useless against coquina — contributing to the failure of both the 1702 siege and the 1740 Oglethorpe bombardment."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Life as a Pirate",
+          "prompt": "Ask the pirate captain about what daily life on a pirate ship was like in the Caribbean in the 1660s-1680s — the era when St. Augustine was most vulnerable to raids. What motivated a man to turn pirate?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about pay, conditions, democratic voting on pirate ships, or what happened to captured pirates.",
+          "config": {
+            "character_id": "pirate_captain",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "City Gate — Compass North: Identify Your Bearing",
+      "description": "Pirates and privateers used nautical navigation — compass bearings, stars, and charts — to find St. Augustine from the sea. The City Gate marks the northern limit of the colonial city. From this spot, you can use the position of the sun and the layout of the streets to orient yourself on the compass. The challenge here is navigational: read the compass, understand the grid, and decode the bearing that led every sailor into the Matanzas Bay.",
+      "historical_content": "St. Augustine sits at approximately 29.9°N latitude — about the same latitude as Cairo, Egypt. The Florida coastline runs roughly north-south at this point, with the Matanzas Inlet (the sea approach) to the southeast. Pirates and privateers approaching from the Caribbean would come from the south or southeast, enter the Matanzas Inlet, and sail northwest up the river toward the city.\n\nA compass bearing is the direction expressed in degrees from north (0°/360°). Due north = 0°. Due east = 90°. Due south = 180°. Due west = 270°. Navigators in the 16th-18th centuries used magnetic compasses, charts (portolan charts, then later more accurate printed charts), and celestial navigation (stars and sun) to find their way.\n\nThe Florida East Coast is notoriously difficult to navigate due to shoals and sandbars. The Matanzas Inlet had a sandbar that required careful piloting. Many ships wrecked trying to enter or leave — contributing to the wrecked French fleet after Menéndez's attacks in 1565.\n\nSt. George Street runs almost perfectly north-south — a navigational artifact of the Spanish colonial grid system that used compass bearings to lay out the town.",
+      "lat": 29.8984,
+      "lng": -81.3131,
+      "gps_radius_meters": 30.0,
+      "ai_character_id": "pirate_captain",
+      "points": 100,
+      "hint_text": "Walk to the City Gate at the north end of St. George Street. Stand between the two coquina pillars facing south — you're looking down the longest straight street in the old colonial grid.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "St. Augustine sits at approximately 29.9°N latitude — same as Cairo, Egypt",
+          "Pirates approaching from Caribbean would come from south/southeast, enter Matanzas Inlet, sail northwest to the city",
+          "Compass bearing: north=0°, east=90°, south=180°, west=270°",
+          "Matanzas Inlet had a treacherous sandbar that required careful piloting",
+          "Wrecked French fleet (1565) partly due to Florida's difficult coastal navigation",
+          "St. George Street runs almost perfectly north-south — a Spanish colonial grid artifact"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Reading the Compass",
+          "prompt": "A privateer approaching St. Augustine from the Caribbean would sail from the southeast toward the Matanzas Inlet. Once inside the inlet, they would need to turn and sail northwest toward the city. What compass bearing is northwest?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "North = 0°, East = 90°, South = 180°, West = 270°. Northwest is between north and west.",
+          "config": {
+            "options": [
+              "45°",
+              "135°",
+              "315°",
+              "225°"
+            ],
+            "correct_index": 2,
+            "explanation": "Northwest is 315° on the compass — between North (0°/360°) and West (270°). A privateer entering the Matanzas Inlet and sailing northwest toward St. Augustine would steer approximately 315°. The four cardinal compass points: North=0°, East=90°, South=180°, West=270°."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Pieces of Eight",
+          "prompt": "Pirates and privateers in the Caribbean were paid in Spanish silver coins. What was the common name for the Spanish silver dollar (the 8-real coin) that was the primary currency of the Caribbean from the 16th through 18th centuries?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The coin was worth 8 of a smaller Spanish coin called a real. Pirates treasured them — you may have seen them in movies or on pirate flags.",
+          "config": {
+            "options": [
+              "Gold doubloons",
+              "Pieces of eight (reales de a ocho)",
+              "Escudos",
+              "Maravedis"
+            ],
+            "correct_index": 1,
+            "explanation": "Pieces of eight — reales de a ocho in Spanish — were the primary currency of the Caribbean and Atlantic world from the 16th through 18th centuries. Worth 8 reales each, these Spanish silver dollars were minted from silver mined in Peru and Bolivia, shipped across the Pacific and Atlantic, and circulated worldwide. They became the basis for the American dollar sign ($) — a stylized '8' with the 'real' abbreviated."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Treasure Fleet",
+          "prompt": "Ask the pirate captain about the Spanish treasure fleet — the flota that carried silver from Mexico and Peru back to Spain using the Gulf Stream. Why was St. Augustine positioned on the route that made it both valuable and vulnerable?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Gulf Stream and why it pushed ships north along the Florida coast, or ask about what happened to treasure fleet ships that wrecked on the Florida reefs.",
+          "config": {
+            "character_id": "pirate_captain",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Matanzas Bay — The Raid Site",
+      "description": "The Matanzas Bay is where the most dramatic events in St. Augustine's pirate history played out. Stand on the bayfront and imagine 2,000 English soldiers arriving by small boats in June 1586 — Drake's raid. Then imagine a single small pirate ship sailing in under a false flag in May 1668 — Searles' raid. Then imagine the English fleet bombarding the Castillo from these waters in November 1702, while 1,500 civilians sheltered inside. Every major attack came from this water. The bay still looks roughly as it did then.",
+      "historical_content": "The sequence of attacks on St. Augustine from the water tells the story of the city's vulnerability and eventual survival:\n\n1565: Pedro Menéndez arrived on August 28 from the sea — the founding itself was a naval operation.\n\n1568: French captain Dominique de Gourgues raided Fort San Mateo (former Fort Caroline) in revenge for the Matanzas Massacre.\n\n1586: Sir Francis Drake (privateer) with approximately 2,000 men — the largest English force sent against a Spanish colonial city to that date. Burned 249 buildings.\n\n1668: Robert Searles (Davis) pirate raid — killed 60 people with a single small ship and no opposition. Directly prompted the Castillo's construction.\n\n1702: English Governor James Moore — 51-day siege. The first real test of the Castillo. Fort held.\n\n1740: British General James Oglethorpe — 27-day bombardment. The Castillo and Fort Mose both held.\n\n1742: Battle of Bloody Marsh (Jekyll Island, Georgia) — Oglethorpe's final defeat ended the English threat to Florida.\n\nAfter 1742, Spain held Florida without major military challenge until the peaceful transfer to Britain in 1763 under the Treaty of Paris.",
+      "lat": 29.8945,
+      "lng": -81.3115,
+      "gps_radius_meters": 70.0,
+      "ai_character_id": "pirate_captain",
+      "points": 100,
+      "hint_text": "Stand on Avenida Menéndez (the bayfront promenade) and face east toward the Matanzas Bay. This is the water that every raider used to approach the city.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "1586: Drake raid — approximately 2,000 men, burned 249 buildings, no inhabitants captured",
+          "1668: Searles pirate raid — 60 killed, no defenses, prompted Castillo construction",
+          "1702: Moore siege — 51 days, fort held, English withdrew",
+          "1740: Oglethorpe bombardment — 27 days, Castillo held, Fort Mose held",
+          "1742: Battle of Bloody Marsh ended the English military threat to Florida",
+          "1763: Florida transferred peacefully to Britain under the Treaty of Paris (end of Seven Years' War)",
+          "The bay is the reason the city exists — and the reason it was repeatedly threatened"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Put the Raids in Order",
+          "prompt": "Four major attacks on St. Augustine from the water occurred in a 154-year span. Put them in the correct chronological order.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what you know: Drake was in the Elizabethan era; the Castillo was built after the 1668 raid; the 1702 siege tested the completed fort.",
+          "config": {
+            "options": [
+              "Drake (1586) → Searles (1668) → Moore/1702 Siege → Oglethorpe/1740 Bombardment",
+              "Searles (1668) → Drake (1586) → Oglethorpe/1740 → Moore/1702 Siege",
+              "Moore/1702 → Drake (1586) → Oglethorpe/1740 → Searles (1668)",
+              "Drake (1586) → Moore/1702 Siege → Searles (1668) → Oglethorpe/1740"
+            ],
+            "correct_index": 0,
+            "explanation": "The correct order is: Drake's privateer raid (1586) → Searles pirate raid (1668, which prompted the Castillo's construction) → Moore's 1702 siege (the Castillo's first major test) → Oglethorpe's 1740 bombardment (the Castillo's second major test). After 1740, the English military threat to St. Augustine effectively ended."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Final Battle",
+          "prompt": "After the 1740 Oglethorpe bombardment of St. Augustine, what battle — fought two years later on a Georgia island — finally ended the English military threat to Florida, allowing St. Augustine to hold Spanish territory without a major challenge?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The battle name comes from a very graphic description of what happened to the British forces. It was fought on Jekyll Island in 1742.",
+          "config": {
+            "accepted_answers": ["battle of bloody marsh", "bloody marsh", "battle of bloody marsh 1742"],
+            "case_sensitive": false,
+            "explanation": "The Battle of Bloody Marsh (July 7, 1742) — fought on Jekyll Island, Georgia — was a decisive Spanish victory that ended British General Oglethorpe's attempts to seize Florida. After Bloody Marsh, St. Augustine held Spanish territory without major English military challenge until the peaceful transfer under the Treaty of Paris in 1763."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Pirate's Code",
+          "prompt": "Ask the pirate captain which raid he considers the most audacious — Drake with 2,000 men and a Letter of Marque, or Searles with a single small ship and no authorization at all? Which took more nerve?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the risk each man took and what he stood to gain or lose if captured.",
+          "config": {
+            "character_id": "pirate_captain",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Nombre de Dios and the Inlet — The First Landing Was Also Naval",
+      "description": "Pedro Menéndez de Avilés arrived at St. Augustine by sea — and his military operation against the French at Fort Caroline was one of the most effective naval and infantry campaigns in early American history. From the Mission Nombre de Dios (where he first landed) to the Matanzas Inlet (where he captured and executed the French survivors), Menéndez's campaign established Spanish dominance of the Atlantic coast. The same water routes that later brought pirates and privateers first brought the founder.",
+      "historical_content": "Pedro Menéndez arrived at St. Augustine with a fleet of 11 vessels and approximately 600 soldiers on August 28, 1565 (sighting). He formally founded the city on September 8, 1565 at the Mission Nombre de Dios site. The landing itself was a military operation: Menéndez was racing to beat the French at Fort Caroline (near modern Jacksonville) to the St. Johns River.\n\nMenéndez executed a forced march through swamps to attack Fort Caroline while the French fleet was out at sea. On September 20, 1565, he attacked Fort Caroline (renaming it Fort San Mateo) and killed most of the garrison. The French fleet, attempting to return, was wrecked by a storm on the Florida reefs. Two groups of shipwrecked French soldiers were captured at Matanzas Inlet — approximately 250 in total — and executed. This is the origin of the name Matanzas (slaughters).\n\nMenéndez's campaign was militarily flawless: in less than two months from landing, he had destroyed the only French colony in what is now the United States, captured the entire French fleet (or waited for the sea to do it), and executed the survivors. The campaign secured Spanish dominance of the Atlantic coast for the next two centuries.\n\nThe irony: Menéndez came to drive out French pirates and privateers — and St. Augustine spent the next 200 years being raided by English ones.",
+      "lat": 29.9025,
+      "lng": -81.3142,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "Walk north on San Marco Avenue to the Mission Nombre de Dios — the shrine with the 208-foot stainless steel cross. This is where Menéndez landed on September 8, 1565.",
+      "safety_warning": "This is an active Catholic shrine. Please be respectful.",
+      "metadata_json": {
+        "key_facts": [
+          "Menéndez arrived with 11 vessels and approximately 600 soldiers; sighted land August 28, 1565; founded city September 8, 1565",
+          "The founding itself was a military operation to counter the French at Fort Caroline",
+          "Fort Caroline attacked and captured September 20, 1565; renamed Fort San Mateo",
+          "French fleet wrecked by storm on Florida reefs; approximately 250 survivors executed at Matanzas Inlet",
+          "Matanzas = slaughters in Spanish — named directly after this event",
+          "Menéndez's campaign eliminated French presence in North America in less than two months",
+          "Irony: Menéndez came to drive out pirates; St. Augustine spent the next 200 years being raided by English ones"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The First Naval Campaign",
+          "prompt": "Menéndez's 1565 campaign was one of the most effective military operations in early American history. How did he defeat the French fleet at Fort Caroline?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He didn't defeat the fleet in a battle at sea — he waited for something else to do the work for him while he attacked the fort on land.",
+          "config": {
+            "options": [
+              "He blockaded the fort's harbor and starved the French garrison into surrender",
+              "He marched overland through swamps to attack Fort Caroline while the French fleet was at sea — then the fleet was wrecked by a storm, stranding the survivors",
+              "He bribed the French commander to surrender the fort without a battle",
+              "He used his superior fleet to sink the French ships in the mouth of the St. Johns River"
+            ],
+            "correct_index": 1,
+            "explanation": "Menéndez attacked Fort Caroline by land while the French fleet was at sea. Then a hurricane wrecked the French fleet on the Florida reefs. The stranded French soldiers were captured in two groups at Matanzas Inlet. Menéndez executed approximately 250 of them — giving the inlet its permanent name: Matanzas."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Renaming of Fort Caroline",
+          "prompt": "When Menéndez captured the French colony at Fort Caroline (near modern Jacksonville) on September 20, 1565, he immediately gave it a new Spanish name. What did he rename it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He renamed it after a saint whose feast day falls on September 20 — the date of the capture.",
+          "config": {
+            "accepted_answers": ["fort san mateo", "san mateo", "fort san mateo de la florida"],
+            "case_sensitive": false,
+            "explanation": "Menéndez renamed Fort Caroline as Fort San Mateo — after Saint Matthew, whose feast day is September 21 (close to the September 20 date of the capture). The Spanish occupation of Fort San Mateo didn't last long; French Dominique de Gourgues recaptured and demolished it in 1568 in revenge for the Matanzas Massacre."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Founder's Regret",
+          "prompt": "Speak with Pedro Menéndez about the Matanzas Massacre — the execution of approximately 250 French prisoners in September 1565. Ask him to explain his decision. What does he say to justify it, and how does the historical record judge him?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Menéndez directly about the prisoners at Matanzas Inlet and what he told them before the executions.",
+          "config": {
+            "character_id": "pedro_menendez",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Pieces of Eight Collected",
+      "description": "You completed the full pirate trail and collected all the digital pieces of eight.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "First Mate",
+      "description": "You visited three stops on the pirate trail.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Quarter Asked",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

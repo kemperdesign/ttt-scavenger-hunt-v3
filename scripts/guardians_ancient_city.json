@@ -1,0 +1,393 @@
+{
+  "adventure": {
+    "title": "Guardians of the Ancient City",
+    "slug": "guardians-ancient-city",
+    "description": "St. Augustine is watched over by stone and bronze sentinels — explorers, priests, founders, and lions that stand at the city's oldest corners. A mysterious collector has erased the identities of the city's historic figures and guardians. Restore each identity by finding statues, monuments, busts, and sculptural details across the bayfront, plaza, and beyond.",
+    "short_description": "Find the statues and monuments that guard the Ancient City.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 75,
+    "start_lat": 29.8944,
+    "start_lng": -81.3123,
+    "total_points": 600,
+    "tags": ["statues", "monuments", "family-friendly", "observation", "bayfront"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "Bridge of Lions — The Marble Guardians",
+      "description": "The twin marble lions at the western approach of the Bridge of Lions are among the most photographed objects in St. Augustine. The bridge connects the historic downtown to Anastasia Island across the Matanzas River. The lions were installed when the bridge opened in 1927 and restored during the bridge's reconstruction in the 2000s. The name of the bridge is itself a tribute — and a pun on the name of the explorer Juan Ponce de León, whose last name means lion.",
+      "historical_content": "The Bridge of Lions opened to traffic on February 26, 1927. Dr. Andrew Anderson, who donated many of St. Augustine's landmarks, gifted the bridge its name and its marble lions. On June 10, 1924, Dr. Anderson requested the city council to name the new bridge either 'Ponce de Leon' or 'Bridge of Lions.' The lion connection is deliberate: Leon = lion in Spanish, linking the bridge to Juan Ponce de León, Florida's first European explorer.\n\nJuan Ponce de León, whose statue stands near the plaza, discovered Florida on March 27, 1513. He gave the territory its name: Pascua de Flores (Land of Flowers) in honor of his Easter arrival. His statue in St. Augustine is a duplicate of the Ponce de León statue in San Juan, Puerto Rico, and was donated by Dr. Andrew Anderson.\n\nThe marble lions on the bridge are Medici lions — a classical style originating in Florence, Italy. Each lion rests its paw on a sphere. The original sculptor of the Medici lion design was Flaminio Vacca in the 16th century; the St. Augustine versions are 20th-century reproductions in that tradition.",
+      "lat": 29.8944,
+      "lng": -81.3123,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the western end of the Bridge of Lions — the drawbridge over the Matanzas River at the foot of Cathedral Place.",
+      "safety_warning": "Stay on the pedestrian walkway. Do not lean over the railing.",
+      "metadata_json": {
+        "statues_here": ["Two marble Medici-style lions on pedestals at the western approach"],
+        "key_facts": [
+          "Bridge of Lions opened February 26, 1927",
+          "Dr. Andrew Anderson donated the name and the lions",
+          "Leon = lion in Spanish, a pun on Juan Ponce de León",
+          "Each lion rests its paw on a sphere",
+          "The bridge connects downtown to Anastasia Island across the Matanzas River"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Does Each Lion Hold?",
+          "prompt": "Each marble lion at the Bridge of Lions rests one paw on an object. What is it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look directly beneath the raised paw of either lion — it's a classic sculptural motif called a Medici lion.",
+          "config": {
+            "options": [
+              "A shield with a coat of arms",
+              "A sphere (ball)",
+              "A sword",
+              "A fish"
+            ],
+            "correct_index": 1,
+            "explanation": "Each lion rests its paw on a sphere — a classic motif of the Medici lion, a sculptural tradition originating in 16th-century Florence. The name of the bridge is a pun on Juan Ponce de León: León means lion in Spanish."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Name Connection",
+          "prompt": "The bridge is named 'Bridge of Lions.' Which Spanish explorer's last name also means 'lion' in Spanish — connecting the bridge's name to Florida's history?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He 'discovered' Florida on March 27, 1513 — his last name literally means lion.",
+          "config": {
+            "accepted_answers": ["ponce de leon", "juan ponce de leon", "ponce de león", "leon", "ponce"],
+            "case_sensitive": false,
+            "explanation": "Juan Ponce de León — León means lion in Spanish. Dr. Andrew Anderson, who donated the lions and the bridge's name, made the connection deliberate. His statue stands near the Plaza de la Constitución."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The City's Guardians",
+          "prompt": "Ask the guide about the Bridge of Lions and the statues that watch over St. Augustine. What do the lions symbolize, and why does St. Augustine have so many monuments?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what Dr. Andrew Anderson contributed to the city, or about the Medici lion tradition.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Plaza de la Constitución — Ponce de León and the Founder",
+      "description": "Two important statues are near this plaza. The statue of Juan Ponce de León stands at the eastern end of the plaza near the Bridge of Lions — he faces the bay he first encountered in 1513. Nearby on the bayfront, the bronze statue of Pedro Menéndez de Avilés commemorates the man who actually founded St. Augustine on September 8, 1565. Find both, read the inscriptions, and figure out what each figure is holding.",
+      "historical_content": "Juan Ponce de León sighted Florida on March 27, 1513 — calling it Pascua de Flores (Land of Flowers) for its Easter timing. He gave Florida its name. His St. Augustine statue is a duplicate of the one in San Juan, Puerto Rico, donated by Dr. Andrew Anderson.\n\nPedro Menéndez de Avilés founded St. Augustine on September 8, 1565 — not to build a city for its own sake, but for three strategic reasons: to counter the French Protestant colony at Fort Caroline (today's Jacksonville), to protect Spanish treasure ships using the Gulf Stream, and to convert the Timucuan people to Catholicism. He sighted Florida from his ship Pearl on August 28, the Feast Day of Saint Augustine — which is how the city received its name.\n\nMenéndez was one of the most ruthless and effective commanders in Spanish imperial history. On September 20, 1565 he captured Fort Caroline and renamed it Fort San Mateo. At Matanzas Inlet, nearly 250 French Protestants were slaughtered — giving the inlet its Spanish name: Matanzas (slaughters).\n\nThe plaza itself has been a public space since the Spanish colonial era. The Constitution Monument in the center was erected in 1813 to honor the Spanish Constitution of 1812. Geronimo Alvarez, the mayor and owner of the Oldest House, refused to allow it to be demolished when Florida was transferred to the United States — making it possibly the only surviving monument honoring that constitution.",
+      "lat": 29.8950,
+      "lng": -81.3128,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "Walk to the Plaza de la Constitución — the open plaza between King Street and Cathedral Place, with the Constitution Monument in its center. The Ponce de León statue is at the east end near the bay.",
+      "safety_warning": null,
+      "metadata_json": {
+        "statues_here": [
+          "Juan Ponce de León — bronze statue at east end of plaza near Bridge of Lions",
+          "Pedro Menéndez de Avilés — bronze statue on the bayfront near the plaza"
+        ],
+        "key_facts": [
+          "Ponce de León statue is a duplicate of the one in San Juan, Puerto Rico; donated by Dr. Andrew Anderson",
+          "Menéndez founded St. Augustine September 8, 1565",
+          "St. Augustine is the oldest continuously occupied European settlement in the United States",
+          "The city's motto is Fiel y Ferme — Faithful and Strong",
+          "Constitution Monument was erected in 1813 and survived the transfer to American rule because Mayor Geronimo Alvarez refused to let it be torn down"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Did Menéndez Found St. Augustine?",
+          "prompt": "Pedro Menéndez de Avilés had three stated goals when he founded St. Augustine in 1565. Which of the following was NOT one of them?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "His three goals were military, economic, and religious — think about what a Spanish conquistador in 1565 would have been trying to accomplish.",
+          "config": {
+            "options": [
+              "To drive out the French Protestant colony at Fort Caroline",
+              "To protect Spanish treasure ships using the Gulf Stream",
+              "To establish a permanent tobacco trading post",
+              "To convert the Timucuan people to the Catholic faith"
+            ],
+            "correct_index": 2,
+            "explanation": "Menéndez had three goals: defeat the French at Fort Caroline, protect Spanish treasure ships traveling the Gulf Stream back to Spain, and convert the Native Americans to Catholicism. Tobacco trade was not among his stated missions."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The City's Name",
+          "prompt": "St. Augustine is named for the Christian bishop and theologian Saint Augustine of Hippo. But why was the city given that particular name on that particular day?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Menéndez sighted land from his ship Pearl on a specific feast day in the Catholic calendar.",
+          "config": {
+            "options": [
+              "Pedro Menéndez was born on Saint Augustine's feast day",
+              "Menéndez sighted Florida on August 28, the Feast Day of Saint Augustine",
+              "The King of Spain ordered all new colonies named for saints",
+              "The first church built was dedicated to Saint Augustine"
+            ],
+            "correct_index": 1,
+            "explanation": "Menéndez sighted land from his ship Pearl on August 28, 1565 — the Feast Day of Saint Augustine of Hippo. When he formally founded the settlement on September 8, 1565, the saint's name was already attached to the site. Saint Augustine is also the patron saint of Aviles, Spain, Menéndez's hometown."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Speak with the Founder",
+          "prompt": "Speak with Pedro Menéndez de Avilés about the founding of St. Augustine. Ask him why he came, what he found, and what he wanted to build.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the French at Fort Caroline, or about his first days after landing on September 8, 1565.",
+          "config": {
+            "character_id": "pedro_menendez",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cathedral Basilica — Father Camps",
+      "description": "The Cathedral Basilica of St. Augustine is the seat of the oldest Catholic parish in the United States, with records dating to a baptism on June 10, 1594. At the entrance stands an 8-foot bronze statue of Father Pedro Camps — the Minorcan priest who held his community together through decades of hardship. The statue was sculpted by Joseph Viladomat of Barcelona and dedicated in 1975. Find it, read the inscription, and learn who the Minorcans were and why their priest stands at this cathedral.",
+      "historical_content": "Father Pedro Camps arrived in Florida in 1768 as the priest of a group of Minorcan, Greek, Italian, and Corsican indentured workers recruited by Dr. Andrew Turnbull for a plantation at New Smyrna Beach. The plantation failed, the workers were mistreated, and by 1777 most had walked to St. Augustine to seek their freedom. The courts freed them from their contracts.\n\nFather Camps was the glue that held the Minorcan community together. He kept the births, deaths, and marriages of the community in a book still known as the Golden Book of the Minorcans. He kept the Catholic faith alive in St. Augustine through the British Period (1763-1783), when there was no official Spanish Catholic presence. November 9, 1777 was the date the last Minorcans left New Smyrna and joined their community in St. Augustine.\n\nThe Cathedral itself was started in 1793 in Spanish mission style. The original architect was Mariano de la Rocque. The contractor was Don Miguel Ysnardy. It was dedicated on December 8, 1797 — the Feast of the Immaculate Conception. Three people are buried inside: Father Camps, Don Miguel Ysnardy, and Father Font. The Cathedral building incorporates stones from three earlier churches that were demolished to build it: Nombre de Dios, Nuestra Senora de Guadalupe de Tolomato, and Nuestra Senora de la Soledad.\n\nBy 1819, an observer noted that the city's population of 5,000 was 'principally Minorcans and natives of the province' — the community Father Camps built.",
+      "lat": 29.8966,
+      "lng": -81.3139,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the Cathedral Basilica on Cathedral Place — the large church with the bell tower facing the plaza. The statue of Father Camps stands near the entrance.",
+      "safety_warning": "Please be respectful. Mass may be in progress. Photography is generally permitted in exterior areas.",
+      "metadata_json": {
+        "statues_here": [
+          "Father Pedro Camps — 8-foot bronze statue near Cathedral entrance, sculpted by Joseph Viladomat of Barcelona, dedicated 1975"
+        ],
+        "key_facts": [
+          "Cathedral represents the oldest Catholic congregation in the United States with records dating to June 10, 1594",
+          "Father Camps statue is nearly 8 feet high and weighs 2,000 lbs",
+          "Three people are buried inside the Cathedral: Father Camps, Don Miguel Ysnardy, and Father Font",
+          "Cathedral started 1793, dedicated December 8, 1797 (Feast of the Immaculate Conception)",
+          "Original architect: Mariano de la Rocque; contractor: Don Miguel Ysnardy",
+          "The Minorcans arrived in St. Augustine in 1777 after walking from failed New Smyrna plantation"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Golden Book",
+          "prompt": "Father Camps kept careful records of the Minorcan community through decades of hardship. What is the name of the book he maintained — which still survives today?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a precious record of births, deaths, and marriages in the Minorcan community — and its name reflects how it's been treasured.",
+          "config": {
+            "options": [
+              "The Silver Register of St. Augustine",
+              "The Golden Book of the Minorcans",
+              "The Camps Parish Journal",
+              "The New Smyrna Ledger"
+            ],
+            "correct_index": 1,
+            "explanation": "Father Camps kept the births, deaths, and marriages of the Minorcan community in what is now called the Golden Book of the Minorcans — a document that survives to this day as one of the earliest community records in Florida."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Inside the Cathedral",
+          "prompt": "Three people are buried inside the Cathedral Basilica itself. Which of the following is NOT one of them?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The three burials are a priest, a building contractor, and another priest who died very young after arriving. Check the historical plaques inside if you're unsure.",
+          "config": {
+            "options": [
+              "Father Pedro Camps",
+              "Don Miguel Ysnardy (the building contractor)",
+              "Father Font",
+              "Pedro Menéndez de Avilés"
+            ],
+            "correct_index": 3,
+            "explanation": "Pedro Menéndez de Avilés is not buried in the Cathedral — he is buried in Spain. The three people buried inside the Cathedral Basilica are Father Pedro Camps, Don Miguel Ysnardy (the building's contractor), and Father Font, who died on January 13, 1793, within a year of his arrival."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Minorcans' Story",
+          "prompt": "Ask the guide about the Minorcans — who they were, how they got to St. Augustine, and why Father Camps' statue stands at this cathedral.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the New Smyrna plantation, or about how the Minorcans changed St. Augustine's character.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Mission Nombre de Dios — Father López and the Great Cross",
+      "description": "The Mission Nombre de Dios on San Marco Avenue marks the spot where Pedro Menéndez de Avilés first landed on September 8, 1565 — the founding moment of St. Augustine. A statue of Father Francisco López de Mendoza Grajales stands here. He was the chaplain who celebrated the first Mass in what would become the United States and kept a diary of the landing. Behind him rises the Great Cross — a 208-foot stainless steel cross erected in 1966 for the 400th anniversary of the city's founding.",
+      "historical_content": "Father Francisco López de Mendoza Grajales was the chaplain aboard Pedro Menéndez's fleet. He celebrated the first Mass in St. Augustine on September 8, 1565, and kept a diary of the landing — one of the most important primary sources for the founding of the city.\n\nThe Mission Nombre de Dios (Mission of the Name of God) was established here by the Franciscans in 1587. By 1678 it was constructed of stone by Governor Hita Salazar. The mission became associated with the Virgin Mary and was called Nuestra Senora de la Leche y Buen Parto (Our Lady of Milk and Good Birth).\n\nOver the course of the Spanish colonial period, more than 300 Franciscan friars baptized approximately 170,000 Native Americans from missions across the Southeast, using St. Augustine as their base.\n\nThe 208-foot stainless steel Great Cross was designed by artist Ivan Mestrovic and erected on October 30, 1966 for the 400th anniversary of the founding. The cross is illuminated at night and visible from much of the surrounding area.",
+      "lat": 29.9025,
+      "lng": -81.3142,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk north on San Marco Avenue to the Mission Nombre de Dios — the shrine with the towering stainless steel cross. The statue of Father López is near the chapel.",
+      "safety_warning": "This is an active Catholic shrine. Please be respectful.",
+      "metadata_json": {
+        "statues_here": [
+          "Father Francisco López de Mendoza Grajales — bronze statue at Mission Nombre de Dios",
+          "The Great Cross — 208-foot stainless steel cross, erected 1966, designed by Ivan Mestrovic"
+        ],
+        "key_facts": [
+          "Mission Nombre de Dios marks the landing spot of Pedro Menéndez on September 8, 1565",
+          "Father López celebrated the first Mass in what would become the United States here",
+          "Father López kept a diary of the landing — a primary historical source",
+          "The mission was built of stone by 1678 under Governor Hita Salazar",
+          "The 208-foot stainless steel cross was erected October 30, 1966 for the 400th anniversary",
+          "Over 300 Franciscan friars baptized approximately 170,000 Native Americans from St. Augustine missions"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The First Mass",
+          "prompt": "Father López celebrated the first Mass at this landing site on September 8, 1565. What document did he keep that gives historians the most detailed account of the founding?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Chaplains often kept written records of voyages — Father López's record of this landing is the primary historical source.",
+          "config": {
+            "options": [
+              "A letter to the Pope in Rome",
+              "A diary of the landing",
+              "A map of the Florida coastline",
+              "A list of cargo from the fleet"
+            ],
+            "correct_index": 1,
+            "explanation": "Father Francisco López de Mendoza Grajales kept a diary of the landing — one of the most important primary sources for the founding of St. Augustine on September 8, 1565."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Great Cross",
+          "prompt": "The towering stainless steel cross at this mission was erected to mark the 400th anniversary of St. Augustine's founding. What year was it erected?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "St. Augustine was founded in 1565. Add 400 years.",
+          "config": {
+            "accepted_answers": ["1966", "october 1966", "october 30 1966"],
+            "case_sensitive": false,
+            "explanation": "The Great Cross was dedicated on October 30, 1966 — the 400th anniversary of the founding of St. Augustine in 1565. It was designed by Croatian-American sculptor Ivan Mestrovic and stands 208 feet tall."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The First Day",
+          "prompt": "Ask the guide about September 8, 1565 — what happened when Menéndez landed here, what the Timucuan people made of it, and what this mission became.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Timucuan village of Seloy, or about the Franciscan missions that spread from this spot across the Southeast.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "City Gate — The Stone Sentinels",
+      "description": "The two white coquina pillars at the north end of St. George Street are the City Gate — the only surviving gateway into the walled Spanish colonial city. Built in 1808 during the Second Spanish Period, these pillars replaced a wooden gate called La Leche Gate that had stood since 1739. Each pillar is 14 feet high, capped with a pomegranate — the symbol of fertility and of the city of Granada, Spain. The gate is also known as the Land Gate, distinguishing it from the sea approach via the harbor.",
+      "historical_content": "The current City Gate was built in 1808 under the engineering supervision of Captain Manuel de Hita, who recommended a masonry replacement for the wooden guard houses. The two four-foot-square coquina pillars frame an opening 12 feet wide. Each pillar is 14 feet high. The twin towers of white masonry were trimmed with red plaster and each roof was capped with a pomegranate — the symbol of fertility and of Granada, Spain.\n\nThe gate was completed in 1818 with the addition of stone guardhouses and pomegranate decorations by Francisco de Cortazar.\n\nThe Cubo Line — the defensive earthwork that connected to the gate — was first built in 1704-05 and rebuilt in 1737. It ran from the Castillo to the San Sebastian River, protecting the northern approach to the city. The area just inside the gate was where the British burned St. Augustine's wooden buildings during the Drake Raid of 1586.\n\nSt. George Street itself is named after King George III — the only British landmark in St. Augustine that almost every tourist experiences today. The street was the main commercial and residential corridor throughout the colonial period.",
+      "lat": 29.8984,
+      "lng": -81.3131,
+      "gps_radius_meters": 30.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the northern end of St. George Street — the pedestrian zone. The City Gate is the pair of white coquina pillars framing the entrance.",
+      "safety_warning": null,
+      "metadata_json": {
+        "statues_here": ["Two coquina pillars — the City Gate, built 1808; each topped with a pomegranate"],
+        "key_facts": [
+          "Current City Gate built 1808, engineer: Captain Manuel de Hita",
+          "Replaced wooden La Leche Gate from 1739",
+          "Pillars are 14 feet high, opening is 12 feet wide, pillars are 4 feet square",
+          "Pomegranate cap = symbol of fertility and of Granada, Spain",
+          "Originally trimmed with red plaster",
+          "St. George Street is named after King George III — the only surviving British-named landmark in the city",
+          "The Cubo Line defensive earthwork connected here, protecting the northern approach"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "text_answer",
+          "title": "The Symbol on Top",
+          "prompt": "Each of the two City Gate pillars is capped with a decorative symbol representing fertility — and also representing the city of Granada, Spain. What fruit tops each pillar?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a fruit with many seeds inside — a classic symbol of fertility and abundance.",
+          "config": {
+            "accepted_answers": ["pomegranate", "a pomegranate"],
+            "case_sensitive": false,
+            "explanation": "A pomegranate caps each pillar. The pomegranate is a symbol of fertility — and of Granada, Spain. The gate was completed in 1818 with these decorations added by Francisco de Cortazar."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Was the Gate Protecting?",
+          "prompt": "The City Gate marks the northern entrance to the walled colonial city. Which defensive line connected to this gate, protecting the land approach to St. Augustine?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "This earthwork line was first built in 1704-05, running from the fort to the San Sebastian River.",
+          "config": {
+            "options": [
+              "The Matanzas Wall",
+              "The Rosario Line",
+              "The Cubo Line",
+              "The Drake Redoubt"
+            ],
+            "correct_index": 2,
+            "explanation": "The Cubo Line — a defensive earthwork first built in 1704-05 and rebuilt in 1737 — ran from the Castillo de San Marcos to the San Sebastian River, protecting the northern land approach. The City Gate was the opening in this defensive perimeter."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Colonial City Limits",
+          "prompt": "Ask the guide what it meant to live inside the walled city — who could enter, what the gate represented, and what defense looked like in colonial St. Augustine.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Drake Raid of 1586 and why the Spanish built walls, or ask what St. George Street looked like in colonial times.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Guardian Restored",
+      "description": "You found all five of the Ancient City's guardians and restored their identities.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Stone Watcher",
+      "description": "You visited three of the city's guardian statues.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "Sharp Eyes",
+      "description": "You answered every required challenge correctly without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

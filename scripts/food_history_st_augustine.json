@@ -1,0 +1,381 @@
+{
+  "adventure": {
+    "title": "St. Augustine Food History",
+    "slug": "food-history-st-augustine",
+    "description": "The flavors of St. Augustine were shaped by 500 years of collision — Spanish settlers, Timucuan harvests, Minorcan immigrants with their datil peppers, British colonial tastes, and the Gilded Age excess of Henry Flagler's hotels. This hunt traces food history from the first mission gardens through the citrus groves, the datil pepper fields, and the grand dining rooms of the Ponce de León Hotel. Taste the city through its history.",
+    "short_description": "Trace 500 years of food history through the Ancient City.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 75,
+    "start_lat": 29.8963,
+    "start_lng": -81.3135,
+    "total_points": 600,
+    "tags": ["food", "history", "minorcan", "datil", "culinary", "walking"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "St. Photios Greek Orthodox National Shrine — The Minorcan Kitchen",
+      "description": "The St. Photios Greek Orthodox National Shrine on St. George Street commemorates the Minorcan, Greek, and Italian immigrants who arrived in Florida in 1768 as indentured workers for Dr. Andrew Turnbull's New Smyrna plantation. The Minorcans are central to St. Augustine's culinary identity: they brought the datil pepper, Minorcan clam chowder, and their Mediterranean food traditions to Florida — traditions that survive in the city's restaurants and home kitchens to this day.",
+      "historical_content": "Dr. Andrew Turnbull recruited 1,255 workers from Minorca, Greece, and Italy to work a plantation at New Smyrna Beach, Florida in 1768. The plantation grew indigo and other cash crops. By 1777, after years of harsh conditions and exploitation, the workers were freed from their contracts by Florida courts, and most walked to St. Augustine.\n\nThe Minorcans who settled in St. Augustine brought their Mediterranean culinary traditions with them — and one crucial ingredient: the datil pepper. The datil (Capsicum chinense) is a small, extremely hot pepper closely related to the habanero, used extensively in Minorcan cooking and now considered one of St. Augustine's signature ingredients. It is grown almost exclusively in St. Johns County, Florida.\n\nMinorcan clam chowder is distinct from both New England (cream-based) and Manhattan (tomato-based) chowder. It uses datil pepper, tomatoes, and local clams — a Mediterranean-influenced recipe adapted to Florida ingredients. Pilau (sometimes spelled perloo or purloo) is another Minorcan staple — a spiced rice dish brought from the Mediterranean and adapted to Florida's pantry.\n\nThe St. Photios Shrine was established in 1982 to honor the Greek and Minorcan immigrants of 1768. It contains frescoes, a chapel, and a museum documenting the New Smyrna colony and the Minorcan community in St. Augustine.",
+      "lat": 29.8963,
+      "lng": -81.3135,
+      "gps_radius_meters": 35.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "The St. Photios Shrine is on St. George Street in the pedestrian zone — look for the Byzantine-style facade and blue and white signage.",
+      "safety_warning": "The shrine is an active religious site. Photography may be restricted inside the chapel.",
+      "metadata_json": {
+        "key_facts": [
+          "1,255 Minorcan, Greek, and Italian workers arrived in Florida in 1768 for the New Smyrna plantation",
+          "Workers freed from contracts in 1777 and walked to St. Augustine",
+          "Datil pepper (Capsicum chinense): hot pepper related to habanero, brought from Minorca, now grown almost exclusively in St. Johns County",
+          "Minorcan clam chowder: tomato-based with datil pepper and local clams — distinct from New England and Manhattan styles",
+          "Pilau: spiced Mediterranean rice dish adapted to Florida ingredients",
+          "St. Photios Shrine established 1982 to honor the 1768 immigrants"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Datil Pepper's Origin",
+          "prompt": "The datil pepper is St. Augustine's signature ingredient — used in Minorcan clam chowder, hot sauces, and local cooking. It is closely related to which other pepper?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's one of the hottest pepper varieties in the world — orange or yellow when ripe, and widely considered among the top 10 hottest peppers.",
+          "config": {
+            "options": [
+              "Jalapeño",
+              "Cayenne",
+              "Habanero",
+              "Poblano"
+            ],
+            "correct_index": 2,
+            "explanation": "The datil pepper (Capsicum chinense) is closely related to the habanero — one of the hottest pepper varieties in the world. Brought to Florida by the Minorcan immigrants in 1768, it is now grown almost exclusively in St. Johns County and is central to St. Augustine's culinary identity."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Minorcan Clam Chowder vs. the Rest",
+          "prompt": "Minorcan clam chowder is considered St. Augustine's signature dish. What makes it different from both New England (cream-based) and Manhattan (simple tomato) clam chowder?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about the Minorcan immigrants' specific culinary contribution — their signature ingredient that goes into everything.",
+          "config": {
+            "options": [
+              "It uses fish instead of clams",
+              "It is served cold, like a Spanish gazpacho",
+              "It uses datil pepper — making it spicier with a Mediterranean-influenced flavor base",
+              "It is thickened with bread rather than cream or roux"
+            ],
+            "correct_index": 2,
+            "explanation": "Minorcan clam chowder uses datil pepper as its signature ingredient — giving it a heat and flavor distinct from both New England and Manhattan styles. The datil pepper is the Minorcans' most enduring culinary contribution to St. Augustine. Many local restaurants still serve the chowder with datil-based hot sauce on the side."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Minorcan Table",
+          "prompt": "Ask the colonial shopkeeper about what the Minorcan community ate in their first years in St. Augustine — adapting their Mediterranean recipes to Florida's ingredients. What did they find familiar, and what was completely new?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about local seafood, citrus, or how Mediterranean recipes were adapted to Florida's pantry.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Old Spanish Quarter — Colonial Gardens and the Mission Kitchen",
+      "description": "The reconstructed Spanish Quarter along St. George Street represents life in 18th-century St. Augustine — including the kitchen gardens and food production methods of the colonial era. The Franciscan missions that extended across Florida were major agricultural operations, cultivating European vegetables alongside Native American staples. The Spanish colonial kitchen used techniques brought from Spain and adapted to subtropical Florida: drying, salting, preserving, and using local herbs and citrus.",
+      "historical_content": "The Franciscan missions that spread from St. Augustine across Florida and Georgia were not just religious establishments — they were agricultural centers that grew wheat, maize, squash, beans, and sweet potatoes. The Timucuan people who worked and lived at the missions were skilled farmers who taught the Spanish colonists which local plants were edible and how to prepare them.\n\nThe Spanish colonial diet in St. Augustine relied heavily on the situado — the annual supply ship from Cuba and the Caribbean that brought wine, olive oil, and preserved foods. Local production supplemented this with fishing, hunting, gardening, and trade with the Timucuan people.\n\nOlive oil was a critical import — used for cooking, lighting, and medicine. Wine was an essential import as well. Without the situado, the city could not have functioned: in years when the supply ship was delayed by storms or pirates, St. Augustine came close to starvation.\n\nCitrus was introduced by the Spanish and grew quickly in Florida's climate. By the Second Spanish Period (1784-1821), citrus groves were common around St. Augustine. The Minorcans' knowledge of Mediterranean citrus cultivation was applied to Florida's wild varieties, establishing the citrus culture that would eventually become one of Florida's primary agricultural industries.",
+      "lat": 29.8972,
+      "lng": -81.3140,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "The Old Spanish Quarter is on St. George Street north of the Cathedral — look for the colonial-era reconstructed buildings with garden areas visible between them.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Franciscan missions were major agricultural operations growing wheat, maize, squash, beans, sweet potatoes",
+          "Timucuan people taught colonists which local plants were edible and how to prepare them",
+          "The situado (annual supply ship from Cuba) brought wine, olive oil, and preserved foods essential for survival",
+          "Without the situado, St. Augustine would starve — years of delay caused near-famine conditions",
+          "Citrus was introduced by the Spanish and cultivated using techniques brought from Spain and the Mediterranean",
+          "Minorcans' knowledge of Mediterranean citrus cultivation helped establish Florida's citrus industry"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Supply Ship That Fed the City",
+          "prompt": "St. Augustine relied on an annual supply ship from Havana and the Caribbean to survive. What was this annual subsidy and supply shipment called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was both a financial subsidy and a supply of essential goods — olive oil, wine, preserved food. The Spanish word describes the situation of being provided for.",
+          "config": {
+            "options": [
+              "The armada",
+              "The situado",
+              "The flota",
+              "The remesa"
+            ],
+            "correct_index": 1,
+            "explanation": "The situado was the annual subsidy and supply shipment from Havana (and ultimately from Mexico City's treasury) that kept St. Augustine alive. It brought wine, olive oil, preserved foods, clothing, and military supplies. In years when it was delayed by storms or pirates, the colony came close to starvation."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Florida's Signature Fruit",
+          "prompt": "The Spanish introduced citrus to Florida, and it grew exceptionally well in the subtropical climate. Citrus cultivation became one of Florida's most important agricultural industries. Name the state that is now the leading U.S. producer of citrus — a legacy of Spanish colonial planting.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "You're standing in it right now.",
+          "config": {
+            "accepted_answers": ["florida", "state of florida"],
+            "case_sensitive": false,
+            "explanation": "Florida is the leading U.S. citrus producer — a direct legacy of the Spanish colonial introduction of citrus trees in the 16th century. The Minorcans' Mediterranean citrus expertise helped cultivate these groves around St. Augustine during the Second Spanish Period (1784-1821)."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Cooking Without Refrigeration",
+          "prompt": "Ask the colonial shopkeeper about food preservation in 18th-century St. Augustine — how did people keep food without refrigeration? What techniques were used for fish, citrus, and other local ingredients?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about salting, smoking, drying, or pickling — all traditional preservation methods used in Spanish colonial cooking.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Matanzas Bay — The Fishing Village's Table",
+      "description": "The Matanzas River and its adjacent marshes have fed St. Augustine for 500 years. The Timucuan people who lived here before 1565 built their diet around the estuary's shellfish, fish, and waterfowl. The Spanish colonists quickly adapted to the same resources. Oysters, clams, blue crabs, shrimp, flounder, and mullet were the everyday proteins of St. Augustine's colonial population — supplemented by the game animals of the interior forests. The bayfront you're looking at is the oldest continuously used fishing ground in what is now the United States.",
+      "historical_content": "The Timucuan people who inhabited the St. Augustine area before 1565 were sophisticated food gatherers and farmers. Archaeological shell middens found around the bay and along the St. Johns River reveal thousands of years of shellfish consumption — primarily oysters, clams, and whelks. The Timucuans also fished with nets, traps, and spears, and farmed maize, beans, and squash.\n\nWhen the Spanish arrived in 1565, they adopted local fishing and shellfish harvesting techniques. Oysters became a staple in the colonial diet — they could be harvested from the bay's oyster beds and eaten raw, roasted, or smoked. Mullet (a fish abundant in Florida's estuaries) was commonly dried and salted for preservation.\n\nThe Minorcans, arriving in 1777 from the Mediterranean coastal town of Ciudadela, were skilled fishermen and shellfish harvesters. They used their Mediterranean techniques (including use of cast nets) on St. Augustine's estuaries and quickly integrated local seafood into their traditional recipes. Minorcan clam chowder emerged from this combination.\n\nSt. Augustine's location on the intercoastal waterway made it a center of commercial fishing from the colonial period through the early 20th century. The shrimp industry was particularly important from the late 19th century through the mid-20th century.",
+      "lat": 29.8940,
+      "lng": -81.3122,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk to the bayfront promenade (Avenida Menéndez) and look out over the Matanzas River — the same estuary that has fed this city for 500 years.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Timucuan shell middens reveal thousands of years of shellfish consumption — oysters, clams, whelks — before European contact",
+          "Timucuans farmed maize, beans, and squash and fished with nets, traps, and spears",
+          "Oysters were a colonial staple — harvested raw, roasted, or smoked",
+          "Mullet was dried and salted for preservation",
+          "Minorcans from Ciudadela (a Mediterranean coastal city) brought cast-net fishing techniques to Florida estuaries",
+          "St. Augustine was a center of commercial shrimp fishing from the late 19th century through the mid-20th century"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Before the Spanish Arrived",
+          "prompt": "The Timucuan people who lived in the St. Augustine area before 1565 had a sophisticated food culture based on the local estuary. What is the primary archaeological evidence for thousands of years of Timucuan shellfish consumption?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a distinctive type of archaeological deposit found around Florida's bays and rivers — the accumulated remnant of thousands of years of meals.",
+          "config": {
+            "options": [
+              "Pottery shards decorated with fish and oyster designs",
+              "Stone fish traps still visible at low tide in the Matanzas River",
+              "Shell middens — large mounds of discarded shells that accumulated over thousands of years",
+              "Pictographs on coastal rocks showing Timucuan fishing techniques"
+            ],
+            "correct_index": 2,
+            "explanation": "Shell middens — large mounds of discarded shells accumulated over thousands of years of shellfish consumption — are the primary archaeological evidence for Timucuan food culture. They have been found throughout the St. Augustine area and across Florida's coastal regions, revealing oysters, clams, and whelks as dietary staples long before European contact."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Minorcans' Mediterranean Skill",
+          "prompt": "The Minorcans came from a coastal Mediterranean city and were skilled fishermen. What fishing tool — common in Mediterranean and tropical coastal fishing — did they bring to St. Augustine's estuaries?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a circular net thrown by hand that spreads in the air and sinks to trap fish — still used in Florida waters today.",
+          "config": {
+            "accepted_answers": ["cast net", "a cast net", "casting net"],
+            "case_sensitive": false,
+            "explanation": "The cast net — a circular net thrown by hand that spreads open in the air and sinks to trap fish — was a Mediterranean fishing technique the Minorcans brought to St. Augustine. It proved highly effective in Florida's shallow estuaries and is still used in the region today."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Oyster Bed Economy",
+          "prompt": "Ask the colonial shopkeeper what the bay looked like as a food resource in the 18th century — the oyster beds, the mullet runs, the crabbing and shrimping. How different was this estuary from what we see today?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the scale of the oyster beds, or about how the shrimp industry changed the bayfront in the late 19th century.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College (Ponce de León Hotel) — The Gilded Age Table",
+      "description": "The Ponce de León Hotel (now Flagler College) opened on January 10, 1888 as Henry Flagler's premier Florida resort — and its dining room set a new standard for luxury in the American South. The hotel's kitchen, run by European-trained chefs, served multi-course meals to guests who arrived on Flagler's Florida East Coast Railway. The Spanish Renaissance Revival dining hall — with its stained glass ceiling and vaulted plaster arches — is still largely intact inside Flagler College.",
+      "historical_content": "Henry Flagler opened the Ponce de León Hotel on January 10, 1888. It was the most expensive hotel in America at the time — costing $2.5 million to build. Thomas Edison installed the hotel's electric lighting system, making it one of the first large buildings in Florida with electric lights.\n\nThe Ponce de León's kitchen employed European-trained chefs and served elaborate multi-course meals modeled on the grand hotels of Paris and New York. Florida's agricultural products — citrus, tropical fruits, seafood — were featured alongside imported European delicacies. Wine lists were extensive. Meals were formal events requiring appropriate attire.\n\nFlagler's railroad (the Florida East Coast Railway) made these culinary imports possible. Fresh produce, oysters, and luxury goods that would have taken weeks to arrive by boat could now reach St. Augustine within days. The hotel era (1888-1930s) transformed St. Augustine's food culture from a provincial colonial backwater to a fashionable resort destination.\n\nThe hotel dining room served 450 guests at a sitting. After becoming Flagler College in 1968, the dining hall was restored and still serves as the college's cafeteria — the stained glass windows, ornate plasterwork, and vaulted ceiling are original.\n\nGuests who visited the Ponce de León Hotel included presidents (Grover Cleveland, Theodore Roosevelt), John D. Rockefeller, Mark Twain, and other Gilded Age luminaries.",
+      "lat": 29.8905,
+      "lng": -81.3135,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Flagler College is at 74 King Street — the ornate Spanish Renaissance Revival building that was the Ponce de León Hotel. The main entrance faces King Street.",
+      "safety_warning": "Flagler College is an active academic institution. Exterior observation is always available. Interior access to the dining hall may be limited to public tours during the academic year.",
+      "metadata_json": {
+        "key_facts": [
+          "Ponce de León Hotel opened January 10, 1888 — most expensive hotel in America at the time ($2.5 million)",
+          "Thomas Edison installed the electric lighting system — one of the first large buildings in Florida with electric lights",
+          "European-trained chefs served multi-course meals to 450 guests at a sitting",
+          "Flagler's railroad allowed fresh produce and luxury food imports to arrive within days rather than weeks",
+          "Notable dining guests: Presidents Cleveland and Roosevelt, John D. Rockefeller, Mark Twain",
+          "Became Flagler College in 1968; dining hall is still the college cafeteria; original stained glass and plasterwork intact"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Electricity and the Dinner Table",
+          "prompt": "When the Ponce de León Hotel opened in 1888, it had a technological feature that very few buildings in Florida could offer — directly changing how guests experienced the dining room. What was it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The inventor who installed this system at the hotel was a personal acquaintance of Henry Flagler and was transforming industries across America at the same time.",
+          "config": {
+            "options": [
+              "Gas-powered central heating, keeping the dining room warm in winter",
+              "Indoor plumbing with hot running water for kitchen use",
+              "Electric lighting, installed by Thomas Edison — making it one of Florida's first electrically lit large buildings",
+              "Mechanical refrigeration, allowing ice cream and cold dishes to be served year-round"
+            ],
+            "correct_index": 2,
+            "explanation": "Thomas Edison installed the electric lighting system at the Ponce de León Hotel — making it one of the first large buildings in Florida with electric lights. The illuminated dining hall was a major attraction, allowing the elaborate multi-course meals to continue well into the evening in dramatic light."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "How Many at Table?",
+          "prompt": "The Ponce de León Hotel's dining room was designed for grand-scale entertaining. At full capacity, how many guests could the dining room seat at a single sitting?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look for this number on the historical marker near the entrance, or think about what a hotel that cost $2.5 million to build would need for a dining room.",
+          "config": {
+            "accepted_answers": ["450", "four hundred fifty", "450 guests"],
+            "case_sensitive": false,
+            "explanation": "The Ponce de León Hotel's dining room seated 450 guests at a single sitting — an enormous operation for 1888 Florida. European-trained chefs prepared elaborate multi-course meals featuring both Florida's local ingredients and imported luxury foods delivered by Flagler's Florida East Coast Railway."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: What Did the Rich Eat?",
+          "prompt": "Ask Henry Flagler about what he served in the Ponce de León Hotel's dining room — the menu, the wine, the service style, and how it compared to what the working-class St. Augustine residents were eating at the same time.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the contrast between Gilded Age hotel dining and the Minorcan fish stews served in the streets outside.",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cathedral Basilica Area — The First Harvest",
+      "description": "The Cathedral Basilica area marks the spiritual and agricultural center of the original Spanish colonial town. The Franciscan friars who served here maintained the first gardens in what is now the continental United States — growing European vegetables, herbs, and fruit trees that would become the foundation of Florida's agricultural identity. The connection between the mission kitchen and the modern datil-pepper-infused cuisine of St. Augustine runs through five centuries of cooking on this same soil.",
+      "historical_content": "The first hospital in America — Nuestra Señora de La Soledad — was established near this area in 1597. Hospitals in the 16th and 17th century maintained herb gardens for medicinal purposes, and St. Augustine's hospital was no exception. The Franciscan missionaries who served the hospital and the church were among the first European gardeners in Florida.\n\nThe Franciscan monastery, construction on which began in 1588, maintained extensive gardens. Spanish colonial gardens in Florida grew cabbage, beans, sweet potatoes, maize (from Native American cultivation), squash, melons, and citrus. European vegetables were combined with Native American staples into a genuinely hybrid cuisine.\n\nBy 1594 — the date of the first recorded baptism in St. Augustine — the city had been continuously inhabited for 29 years and had developed distinct local food traditions. The first baptism record (June 10, 1594) is just one marker of the settled, established community that was producing and eating local food by the late 16th century.\n\nChocolate arrived in St. Augustine via the Caribbean trade routes. Spanish colonists adopted hot chocolate (cacao mixed with water, spices, and sometimes honey) from Mexican tradition. By the 18th century, chocolate was a fashionable luxury in St. Augustine's more affluent households.",
+      "lat": 29.8966,
+      "lng": -81.3139,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the Cathedral Basilica on Cathedral Place — the church facing the plaza. The area around it was the center of the original colonial food production network.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "First hospital in America: Nuestra Señora de La Soledad, established 1597 near this area",
+          "Franciscan monastery gardens (construction began 1588) maintained extensive vegetable and herb gardens",
+          "Spanish colonial gardens grew cabbage, beans, sweet potatoes, maize, squash, melons, and citrus",
+          "First baptism record: June 10, 1594 — the community was established and producing local food by the late 16th century",
+          "Chocolate arrived via Caribbean trade routes; Spanish adopted hot chocolate from Mexican tradition",
+          "St. Augustine's food was genuinely hybrid — combining European vegetables with Native American staples"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The First American Hospital",
+          "prompt": "The first hospital established in what is now the United States was founded near this area in 1597. What was it called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was a Spanish colonial hospital serving the Franciscan mission community — named for a Catholic devotion to the Virgin Mary.",
+          "config": {
+            "options": [
+              "Hospital de San Marcos",
+              "Nuestra Señora de La Soledad",
+              "La Casa de la Misericordia",
+              "Hospital Real de San Felipe"
+            ],
+            "correct_index": 1,
+            "explanation": "Nuestra Señora de La Soledad (Our Lady of Solitude) was established near this area in 1597 — the first hospital in what is now the United States. Hospitals of this era maintained herb gardens, making the Franciscan friars some of the first European gardeners in Florida."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Chocolate in the Colonies",
+          "prompt": "Chocolate arrived in St. Augustine via Caribbean trade routes in the 17th and 18th centuries. How was chocolate typically consumed in Spanish colonial St. Augustine?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "In this era, chocolate had not yet been made into candy bars — it was consumed as a drink, in a tradition that came to Spain from Mexico.",
+          "config": {
+            "options": [
+              "As solid chocolate bars, imported from Madrid",
+              "As a hot drink mixed with water, spices, and sometimes honey — adapted from Mexican tradition",
+              "As a chocolate-based sauce for savory meat dishes",
+              "Chocolate was not available in St. Augustine until the Gilded Age"
+            ],
+            "correct_index": 1,
+            "explanation": "In the Spanish colonial tradition, chocolate was consumed as a hot drink — cacao mixed with water, spices, and sometimes honey, adapted from the Mexican tradition that Hernán Cortés had encountered at the Aztec court. By the 18th century, hot chocolate was a fashionable luxury in St. Augustine's wealthier households."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Five Centuries of Eating",
+          "prompt": "Ask the guide to trace the food history of St. Augustine from the Timucuan kitchen to the Minorcan table to the Flagler hotel menu. What is the one ingredient or flavor that connects all five centuries of cooking here?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about seafood from the estuary, or about the datil pepper's survival from 1777 to today.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Five Centuries of Flavor",
+      "description": "You traced St. Augustine's food history from the first mission gardens to the Gilded Age dining room.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Datil Devotee",
+      "description": "You visited three stops on the food history trail.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Recipe Needed",
+      "description": "You answered every challenge correctly without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

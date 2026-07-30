@@ -1,0 +1,361 @@
+{
+  "adventure": {
+    "title": "Christmas Nights of Lights",
+    "slug": "christmas-nights-of-lights",
+    "description": "St. Augustine's Nights of Lights celebration — one of the largest Christmas light displays in the United States — transforms the historic district from mid-November through late January. The 400-year-old coquina buildings are draped in millions of white lights; the Bridge of Lions, the Cathedral Basilica, Flagler College, and the bayfront all glow with a warm winter magic. This seasonal hunt uses light patterns, hidden ornaments, decorated-window challenges, and merchant codes to guide you through the city at its most beautiful. SEASONAL: This adventure is active November 15 through January 31.",
+    "short_description": "A seasonal adventure through St. Augustine's famous Nights of Lights display.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 75,
+    "start_lat": 29.8984,
+    "start_lng": -81.3131,
+    "total_points": 600,
+    "tags": ["seasonal", "christmas", "lights", "family-friendly", "evening", "winter", "nights of lights"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "City Gate — The Illuminated Entrance",
+      "description": "The City Gate's white coquina pillars are among the most photographed holiday light subjects in St. Augustine — wrapped in warm white lights that glow against the old shell-stone. The illuminated pomegranates on top of each pillar take on a warm amber glow that transforms the colonial gate into something from a fairy tale. This is the traditional starting point for the Nights of Lights walk — begin at the gate when the lights come on at dusk.",
+      "historical_content": "St. Augustine's Nights of Lights celebration began in 1995, inspired by a Spanish colonial tradition. According to Spanish custom, candles were placed in windows during the Christmas season as a welcoming sign — a tradition the celebration's organizers researched and revived as the historical basis for the modern light display.\n\nThe display grew from a modest initial installation to become one of the largest Christmas light displays in the United States, drawing hundreds of thousands of visitors each season from mid-November through late January.\n\nThe white lights — rather than multicolored ones — are used throughout the official Nights of Lights display, creating a unified aesthetic that complements the historic architecture rather than competing with it. The warm white light on coquina stone has a particular quality that has made the City Gate one of the most reproduced holiday images in Florida.\n\nThe City Gate itself (built 1808) has been illuminated during the Nights of Lights since the celebration began — making it the traditional starting point for visitors walking the light trail.",
+      "lat": 29.8984,
+      "lng": -81.3131,
+      "gps_radius_meters": 35.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Begin at the City Gate at dusk — the two white coquina pillars at the north end of St. George Street pedestrian zone. The lights come on at sunset.",
+      "safety_warning": "St. George Street becomes very crowded during peak Nights of Lights periods. Keep your group together, especially with children.",
+      "metadata_json": {
+        "seasonal_notes": "SEASONAL ADVENTURE — Active November 15 through January 31. Best experienced after sunset when the lights are on.",
+        "lights_at_this_stop": [
+          "White lights on both coquina pillars of the City Gate",
+          "Illuminated pomegranate tops glowing warm amber",
+          "String lights along the adjacent fence and nearby trees"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Tradition Behind the Lights",
+          "prompt": "St. Augustine's Nights of Lights celebration was inspired by a Spanish colonial tradition of placing lights in windows at Christmas. What was the original Spanish tradition that inspired the modern display?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The organizers researched a specific Spanish colonial custom for placing lights in windows during the Christmas season. It had a welcoming, symbolic meaning.",
+          "config": {
+            "options": [
+              "Spanish colonial families placed torches outside their gates to guide travelers to shelter at Christmas",
+              "Candles were placed in windows during the Christmas season as a welcoming sign — a Spanish colonial tradition",
+              "St. Augustine was the only city in colonial America that held a candle-lit Christmas parade",
+              "The lights celebrate St. Lucia Day, a Scandinavian tradition brought by Florida settlers"
+            ],
+            "correct_index": 1,
+            "explanation": "The Nights of Lights celebration was inspired by a Spanish colonial tradition of placing candles in windows at Christmas as a welcoming sign — symbolizing a light in the darkness and a welcome to travelers and guests. The modern display uses white lights throughout to reflect this historical tradition and to complement the warm tones of the coquina architecture."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Light Pattern Count",
+          "prompt": "Standing at the City Gate, look at how the lights are arranged on the two coquina pillars. Are the lights on the pillars a solid wrap, alternating patterns, or arranged in a different pattern? In one word, describe the color of the lights on the City Gate pillars.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The Nights of Lights display uses a specific color scheme throughout the historic district — not multicolored, but a specific single color.",
+          "config": {
+            "accepted_answers": ["white", "warm white", "bright white", "pure white", "clear"],
+            "case_sensitive": false,
+            "explanation": "The Nights of Lights display uses white lights throughout the historic district — a deliberate choice to complement the warm tones of the coquina stone rather than competing with them. The white light on the old shell-stone creates the characteristic warm glow that has made St. Augustine's Nights of Lights one of the most distinctive holiday light displays in the United States."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Christmas in Colonial St. Augustine",
+          "prompt": "Ask the colonial shopkeeper what Christmas was like in 18th-century St. Augustine — before electric lights, before the modern holiday season. How did Spanish colonial Catholics celebrate the Christmas season?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Feast of the Immaculate Conception (December 8) or about the Catholic Christmas traditions the Minorcans brought from the Mediterranean.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cathedral Basilica — The Illuminated Landmark",
+      "description": "The Cathedral Basilica at Christmas is arguably the most beautiful sight in St. Augustine — the Spanish colonial mission facade illuminated by warm white lights, the bell tower glowing against the winter night sky. The Cathedral is the focal point of the Nights of Lights display in the plaza area, and the sight of the illuminated facade from across the Plaza de la Constitución is one of the defining images of the celebration. This stop has a Christmas history challenge: what feast day is associated with this cathedral?",
+      "historical_content": "The Cathedral Basilica was dedicated on December 8, 1797 — the Feast of the Immaculate Conception, one of the most important feasts in the Catholic calendar. This connection between the Cathedral and the December holiday season is centuries old: the Feast of the Immaculate Conception marks the beginning of the Christmas season in Catholic tradition and is one of the holy days of obligation in the Catholic Church.\n\nThe Christmas season in colonial St. Augustine was centered on the Cathedral — Midnight Mass on December 25 was the most important service of the year, drawing the entire Catholic community. The Minorcans, arriving from the Mediterranean in 1777, brought Christmas traditions from Menorca: traditional nativity scenes (pesebrismo), the celebration of Three Kings Day (Epiphany, January 6) as the primary gift-giving occasion, and specific foods associated with the season.\n\nThe Cathedral's bell tower — added in the 1887-88 reconstruction — takes on particular significance during the Nights of Lights. The tower is illuminated from below, creating a dramatic nighttime silhouette visible from across the plaza and much of the surrounding area.",
+      "lat": 29.8966,
+      "lng": -81.3139,
+      "gps_radius_meters": 45.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk south on St. George Street to the Cathedral Basilica on Cathedral Place. Stand across the plaza for the best view of the illuminated facade.",
+      "safety_warning": "The Cathedral may have Christmas services in progress during the Nights of Lights season. Please be respectful.",
+      "metadata_json": {
+        "lights_at_this_stop": [
+          "Mission facade illuminated by warm white uplighting",
+          "Bell tower lit from below, visible across the plaza and from the bayfront",
+          "Plaza trees and the Constitution Monument area also illuminated"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Cathedral's Christmas Connection",
+          "prompt": "The Cathedral Basilica was dedicated on a specific feast day in December — creating a permanent connection between the Cathedral and the Christmas season. Which feast day was chosen for the Cathedral's dedication on December 8, 1797?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "December 8 is one of the most important feast days in the Catholic calendar — a holy day of obligation that marks the beginning of the Christmas season in Catholic tradition.",
+          "config": {
+            "options": [
+              "The Feast of Saint Nicholas (December 6)",
+              "The Feast of the Immaculate Conception (December 8)",
+              "The Feast of Saint Augustine (August 28)",
+              "The Feast of the Nativity / Christmas Day (December 25)"
+            ],
+            "correct_index": 1,
+            "explanation": "The Cathedral Basilica was dedicated on December 8, 1797 — the Feast of the Immaculate Conception, one of the most important feasts in the Catholic calendar and a holy day of obligation. This date creates a permanent connection between the Cathedral and the Christmas season — December 8 marks the beginning of the Christmas season in Catholic tradition."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Three Kings Day",
+          "prompt": "The Minorcans who settled in St. Augustine brought Mediterranean Christmas traditions, including the celebration of Three Kings Day as the primary gift-giving occasion. On what date is Three Kings Day (Epiphany) celebrated?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's 12 days after Christmas — the end of the traditional 'Twelve Days of Christmas.'",
+          "config": {
+            "accepted_answers": ["january 6", "6th january", "epiphany", "january 6th", "jan 6", "the 6th of january"],
+            "case_sensitive": false,
+            "explanation": "Three Kings Day (Epiphany) is celebrated on January 6 — twelve days after Christmas, marking the end of the traditional Christmas season. In Spanish and Minorcan tradition, the Three Kings (Los Reyes Magos) deliver gifts to children on the night of January 5-6, making it the primary gift-giving occasion of the Christmas season. This is why the Nights of Lights display in St. Augustine continues through late January."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Christmas Then and Now",
+          "prompt": "Ask the guide about how the Christmas season in St. Augustine has changed from the Spanish colonial period to today. What traditions survived, what was lost, and what was the Minorcan contribution to the city's Christmas character?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Midnight Mass tradition, or about what foods the Minorcans made for the Christmas season.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Bridge of Lions — Illuminated Lions",
+      "description": "The Bridge of Lions at night during Nights of Lights is one of the most magical views in St. Augustine — the marble lions illuminated by warm uplighting, the bridge itself glowing with white lights reflecting in the Matanzas Bay water. The view from the bayfront looking east toward the lit bridge, with the Anastasia Island shore visible beyond, is one of the defining images of the Christmas season in the Ancient City. This stop has a pattern-matching challenge: count the light strands on the nearest lion.",
+      "historical_content": "The Bridge of Lions is one of the focal points of the Nights of Lights display — its linear structure across the Matanzas Bay creates a reflecting light corridor visible from the bayfront promenade and from boats on the water. The two marble lions are uplighted individually.\n\nThe bridge's drawbridge mechanism is still operational — the bridge raises several times daily to allow boat traffic through. During Nights of Lights, the raising of the bridge at night creates a dramatic spectacle as the light-covered draw span rises and opens.\n\nThe Nights of Lights display extends across the Bridge of Lions to Anastasia Island, creating a connected light trail from the historic district to the lighthouse area. The St. Augustine Lighthouse and Maritime Museum also has its own seasonal illumination that can be seen from the bridge.\n\nThe reflection of the Nights of Lights display in the calm Matanzas Bay water on still evenings creates a doubling effect — the lights appear to extend downward into the water as well as upward into the sky. This reflection view from the bayfront promenade is one of the most photographed images of the celebration.",
+      "lat": 29.8944,
+      "lng": -81.3123,
+      "gps_radius_meters": 45.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk to the Bridge of Lions and stand on the bayfront promenade facing east — you'll see the illuminated bridge spanning the Matanzas Bay, with the lions lit up at the western approach.",
+      "safety_warning": "The bayfront promenade can be crowded during peak Nights of Lights evenings. Watch for uneven surfaces near the seawall edge.",
+      "metadata_json": {
+        "lights_at_this_stop": [
+          "Both marble lions individually uplighted",
+          "Bridge span decorated with white lights along the railings",
+          "Reflection of lights in the Matanzas Bay water on still evenings",
+          "View extends across to Anastasia Island lights"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Reflection View",
+          "prompt": "Standing on the bayfront promenade facing east toward the illuminated Bridge of Lions, you may see the lights appearing to extend downward as well as upward on still evenings. What creates this doubling effect?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a basic optical phenomenon — a calm water surface acts like a specific type of surface.",
+          "config": {
+            "options": [
+              "The bridge has underwater lights installed below the waterline",
+              "The calm Matanzas Bay water acts like a mirror, reflecting the bridge lights downward",
+              "The lights on the bayfront promenade itself create a mirrored appearance",
+              "Bioluminescent organisms in the bay water glow in response to the bridge lights above"
+            ],
+            "correct_index": 1,
+            "explanation": "The calm Matanzas Bay water acts like a mirror on still evenings — reflecting the Bridge of Lions lights downward, creating the illusion of a double image. This reflection view is one of the most photographed images of the Nights of Lights celebration. The effect is most dramatic when the water is calm and there is no wind."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Moving Bridge",
+          "prompt": "The Bridge of Lions has a drawbridge span that still raises to let tall boat traffic through. The mechanism was preserved when the bridge was reconstructed in the 2000s. What type of drawbridge mechanism does it use — where the span lifts by rotating around a central pivot point?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "There are several types of drawbridges: bascule (tilts open from one side), swing (rotates horizontally), and lift (rises straight up). The Bridge of Lions uses the type that tilts open.",
+          "config": {
+            "accepted_answers": ["bascule", "bascule bridge", "double bascule", "bascule drawbridge"],
+            "case_sensitive": false,
+            "explanation": "The Bridge of Lions is a double bascule drawbridge — where each half of the draw span tilts upward from the center by rotating around a counterweighted pivot point (bascule means 'seesaw' in French). When the bridge raises, both halves tilt up symmetrically. This is the same type of mechanism as the Tower Bridge in London."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Christmas City",
+          "prompt": "Ask the colonial shopkeeper what they think St. Augustine would look like to a Spanish colonial settler from 1797 if they could see it during the modern Nights of Lights celebration. What would astonish them, and what would feel familiar?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what the settler would make of electric lights, or whether the warm white glow on coquina walls would feel familiar despite the electrical source.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College at Night — The Hotel of Lights",
+      "description": "Flagler College (the former Ponce de León Hotel) at night during Nights of Lights is a transformative experience — the Spanish Renaissance Revival towers rise into the winter sky illuminated from below, the terracotta and concrete facade glowing warm against the dark. Henry Flagler could not have imagined electric lighting when he opened the hotel in 1888 (though Thomas Edison did provide the hotel with electric lights — one of the first large buildings in Florida to have them). This stop challenges you to find a specific decorative detail visible only under artificial light.",
+      "historical_content": "Henry Flagler's decision to have Thomas Edison install the electric lighting system in the Ponce de León Hotel in 1888 was visionary — Edison's light bulb had only been invented nine years earlier (1879), and most buildings still used gas or oil lamps. The hotel was one of the first large buildings in Florida with electric lighting.\n\nThe Nights of Lights illumination of Flagler College uses the same principle Flagler pioneered — that a beautiful building is made more beautiful at night by artificial light. The modern uplighting on the facade was installed by the city and college for the Nights of Lights display.\n\nThe four towers of the Ponce de León Hotel (now Flagler College) take on particular drama at night — the light plays differently on the Spanish Renaissance Revival terracotta and carved stone decorations, revealing details that are hard to see in flat daylight. The large arched window above the main entrance is one of the details to look for.\n\nFlagler College keeps the building exterior illuminated during the Nights of Lights season each year — one of the city's most prominent contributions to the overall display.",
+      "lat": 29.8905,
+      "lng": -81.3135,
+      "gps_radius_meters": 55.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Walk to 74 King Street — Flagler College. Cross to the north side of King Street for the best view of the illuminated facade. The lights are most dramatic after full dark.",
+      "safety_warning": null,
+      "metadata_json": {
+        "lights_at_this_stop": [
+          "Full facade uplighting from the street level",
+          "Four towers illuminated from below, rising into the night sky",
+          "Terracotta decorative details highlighted by the uplighting"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Flagler and Edison",
+          "prompt": "Henry Flagler hired Thomas Edison to install electric lighting in the Ponce de León Hotel when it opened in 1888. This was remarkable because electric lighting was so new. How many years before the hotel opened had Edison invented the incandescent light bulb?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Edison's light bulb was invented in 1879. The hotel opened January 10, 1888.",
+          "config": {
+            "options": [
+              "3 years",
+              "9 years",
+              "15 years",
+              "25 years"
+            ],
+            "correct_index": 1,
+            "explanation": "Edison invented the practical incandescent light bulb in 1879 — nine years before the Ponce de León Hotel opened in January 1888. Flagler was an early adopter of electric lighting for a large building, making the Ponce de León one of the most technologically advanced hotels in the country at that time. Edison himself installed the system."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Light on the Facade",
+          "prompt": "Looking at the illuminated Flagler College facade at night, the uplighting reveals decorative details that are harder to see in daylight. The decorative tile-like material covering the towers and upper facade — made by the Excelsior Terra Cotta Company of New York — has what name?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a fired clay material used for decorative architectural details — the same material used in roof tiles across the Mediterranean world.",
+          "config": {
+            "accepted_answers": ["terracotta", "terra cotta", "terra-cotta", "terracotta tile", "terra cotta tile"],
+            "case_sensitive": false,
+            "explanation": "Terracotta (from the Italian for 'baked earth') is the fired clay material used for the decorative tiles and details on the Ponce de León Hotel's facade. The terracotta decorations were made by the Excelsior Terra Cotta Company of New York and were a major feature of the Spanish Renaissance Revival design by architects Carrère and Hastings."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Flagler in Winter",
+          "prompt": "Ask Henry Flagler about seeing his hotel at night — lit up by Edison's new electric lights in January 1888. What did he imagine when he first saw the Ponce de León illuminated, and does he think the modern Nights of Lights has honored his vision?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the first night the hotel's electric lights came on in January 1888, or about what it was like to see St. Augustine transform into an illuminated winter destination.",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Plaza de la Constitución — The Heart of the Lights",
+      "description": "The Plaza de la Constitución at the center of the Nights of Lights display is the gathering point of the celebration — the open square where families stop to take photographs, where the Constitution Monument glows at its center, and where the view includes the lit Cathedral to the north, Government House to the west, and the bayfront beyond. This is the final stop: find a merchant code word from any participating shop near the plaza, answer the final seasonal challenge, and collect your Nights of Lights badge.",
+      "historical_content": "The Plaza de la Constitución has been the communal gathering space of St. Augustine since the city's founding in 1565 — under Spanish, British, and American rule. Public celebrations, markets, military parades, and political events have all taken place here.\n\nThe Constitution Monument at the center of the plaza was erected in 1813 and survived the transfer to American rule because Mayor Geronimo Alvarez refused to allow it to be demolished. It is the only monument honoring the Spanish Constitution of 1812 still standing in the Western Hemisphere.\n\nDuring the Nights of Lights season, the Plaza becomes a pedestrian gathering place — the seating areas fill with visitors taking photographs, musicians play in the space, and the surrounding commercial buildings are fully illuminated. The combination of the illuminated Cathedral, the Constitution Monument, and the bayfront visible beyond creates the defining image of the celebration.\n\nSt. Augustine's annual Nights of Lights celebration draws between 500,000 and 1 million visitors per season — making it one of the most-attended seasonal events in Florida and one of the most significant tourist events in St. Augustine's economy.",
+      "lat": 29.8954,
+      "lng": -81.3132,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk to the Plaza de la Constitución — the open square between King Street and Cathedral Place. The Constitution Monument is in the center of the plaza.",
+      "safety_warning": "The plaza area is very crowded during peak Nights of Lights evenings, particularly on weekends. Keep your group together.",
+      "metadata_json": {
+        "lights_at_this_stop": [
+          "Constitution Monument illuminated",
+          "Plaza trees with white string lights",
+          "Surrounding buildings on all four sides illuminated",
+          "View of illuminated Cathedral from the plaza",
+          "Bayfront visible beyond — Bridge of Lions illuminated in the distance"
+        ],
+        "merchant_code_stop": true
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "How Many Visitors?",
+          "prompt": "St. Augustine's Nights of Lights celebration has become one of the largest holiday light displays in the United States. Approximately how many visitors does it draw to St. Augustine each season?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's one of the most significant tourist events in Florida — more visitors than the city sees in any comparable non-holiday period.",
+          "config": {
+            "options": [
+              "Approximately 50,000 visitors per season",
+              "Approximately 200,000 visitors per season",
+              "Between 500,000 and 1 million visitors per season",
+              "More than 3 million visitors per season"
+            ],
+            "correct_index": 2,
+            "explanation": "St. Augustine's Nights of Lights draws between 500,000 and 1 million visitors per season — making it one of the most-attended seasonal events in Florida. The display runs from mid-November through late January, drawing visitors throughout the winter season and significantly boosting St. Augustine's off-peak tourism economy."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Center of It All",
+          "prompt": "The Constitution Monument at the center of the Plaza de la Constitución has stood here since 1813. It honors a document from that year. But the monument survived the transfer of Florida to the United States in 1821 because one person refused to let it be destroyed. What was that person's title in the city government of St. Augustine?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He was the head of the city's government — elected by the colonial community. The Spanish title was alcalde.",
+          "config": {
+            "accepted_answers": ["mayor", "alcalde", "mayor alcalde", "the mayor"],
+            "case_sensitive": false,
+            "explanation": "Geronimo Alvarez was the mayor (alcalde) of St. Augustine when Florida transferred to the United States on July 10, 1821. He refused American officials' request to remove the Constitution Monument — preserving it as the only surviving monument honoring the Spanish Constitution of 1812 in the Western Hemisphere. He also owned the González-Alvarez House, the Oldest House."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Lights That Never Were",
+          "prompt": "Ask the colonial shopkeeper what the Plaza looked like on Christmas evening in 1813 — the year the Constitution Monument was erected, long before electric lights. How did the community celebrate the holiday season in this same space 200 years ago?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about candles in windows, bonfires in the plaza, or the Midnight Mass tradition — any of the ways the community marked Christmas before the modern celebration.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Nights of Lights Complete",
+      "description": "You completed the full Christmas Nights of Lights adventure.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Light Trail Walker",
+      "description": "You visited three Nights of Lights stops.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Hints in the Dark",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

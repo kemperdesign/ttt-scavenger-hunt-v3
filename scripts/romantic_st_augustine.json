@@ -1,0 +1,369 @@
+{
+  "adventure": {
+    "title": "Romantic St. Augustine",
+    "slug": "romantic-st-augustine",
+    "description": "St. Augustine has been a destination for couples since the Gilded Age, when Henry Flagler's hotels drew society's elite for romantic winter stays on the bayfront. This hunt is designed for two — partner trivia, a bayfront photograph, a hidden heart, a narrow-lane stroll, and a final date-night recommendation unlocked at the end. No historical expertise required, just each other and a willingness to look closely at a very beautiful city.",
+    "short_description": "A couples' adventure through the most romantic corners of the Ancient City.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 75,
+    "start_lat": 29.8944,
+    "start_lng": -81.3123,
+    "total_points": 600,
+    "tags": ["couples", "romantic", "date night", "photography", "easy", "evening"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "Bridge of Lions at Sunset — The Photograph",
+      "description": "The Bridge of Lions at golden hour is one of the most photographed views in Florida — and for good reason. The twin marble lions, the drawbridge, the Matanzas Bay, and the downtown skyline combine into a scene that has appeared on postcards since the 1920s. This stop has one requirement: a photograph taken together with the lions and the bay behind you. The first partner trivia question follows.",
+      "historical_content": "The Bridge of Lions opened February 26, 1927, replacing a wooden toll bridge that had connected downtown St. Augustine to Anastasia Island since 1895. The marble lions were donated by Dr. Andrew Anderson, who also proposed the bridge's name as a play on Juan Ponce de León's surname.\n\nThe bridge became a social landmark almost immediately — Sunday afternoon drives across the bridge were a popular Gilded Age-into-Jazz Age activity. Couples have been photographed with the lions since the bridge opened.\n\nThe Matanzas Bay at golden hour has a particular quality: the sun sets behind the historic district, backlighting the downtown skyline and the bridge, while the calm bay water reflects the colors. The Spanish colonial architecture visible in this direction — Flagler College's towers, the Cathedral bell tower, the Castillo's ramparts — frames the view.\n\nThe bridge has a working drawbridge span that raises to let tall boats through. When the bridge raises, the lions are momentarily separated from the pedestrian approach — creating an opportunity to observe the mechanism and the bay traffic.",
+      "lat": 29.8944,
+      "lng": -81.3123,
+      "gps_radius_meters": 45.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "Walk to the western end of the Bridge of Lions and stand between or near the two marble lions. Face west toward the downtown skyline for your photograph.",
+      "safety_warning": "Stay on the pedestrian walkway. Do not lean over the railing or sit on the lion pedestals.",
+      "metadata_json": {
+        "photo_challenge": "Take a photo together with at least one marble lion visible — ideally with the bay or downtown skyline in the background",
+        "romantic_details": [
+          "Best light: golden hour (1-2 hours before sunset)",
+          "The bay water often reflects the downtown skyline at low tide",
+          "The drawbridge raises approximately every 30 minutes when boat traffic requires it"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Partner Trivia: Who Donated the Lions?",
+          "prompt": "The marble lions at the Bridge of Lions were donated to the city along with the bridge's name by a notable St. Augustine philanthropist. One of you must answer: who donated the lions and proposed the name?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He was a physician and philanthropist who contributed multiple landmarks to St. Augustine in the early 20th century.",
+          "config": {
+            "options": [
+              "Henry Flagler, the railroad baron who developed St. Augustine as a resort",
+              "Pedro Menéndez de Avilés, the city's Spanish founder",
+              "Dr. Andrew Anderson, a physician and St. Augustine philanthropist",
+              "Otto Lightner, who later donated the former Alcazar Hotel as a museum"
+            ],
+            "correct_index": 2,
+            "explanation": "Dr. Andrew Anderson donated both the marble lions and the bridge's name. He proposed naming it either 'Ponce de Leon Bridge' or 'Bridge of Lions' — the city chose the latter. The lion connection is a pun on Juan Ponce de León's last name: León means lion in Spanish."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Take Your Photo",
+          "prompt": "Take a photo together with at least one lion visible behind or beside you. What year did the Bridge of Lions open to traffic — making it the backdrop for couples' photographs for nearly a century?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The bridge opened in the late 1920s — the same era as jazz, flappers, and Florida's first land boom.",
+          "config": {
+            "accepted_answers": ["1927", "february 1927", "february 26 1927"],
+            "case_sensitive": false,
+            "explanation": "The Bridge of Lions opened on February 26, 1927 — replacing a wooden toll bridge that had served since 1895. The marble lions were installed at the bridge's opening, creating an instantly iconic landmark that has been the backdrop for couple photographs for nearly 100 years."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: First Impressions",
+          "prompt": "Ask the Victorian tourist what impression St. Augustine made on first-time visitors arriving in the Gilded Age — particularly couples on winter honeymoons or society trips. What made the bayfront and the Bridge of Lions area so romantic?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about arriving by Flagler's railroad, or about what the city looked like before automobiles dominated the streets.",
+          "config": {
+            "character_id": "victorian_tourist",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Aviles Street — The Romantic Lane",
+      "description": "Aviles Street — claimed to be the oldest street in the United States — is also the most romantic block in St. Augustine. Narrow, paved with old stone, flanked by overhanging wooden balconies and faded colonial buildings, it has the quality of a European lane that has been lost in most American cities. This stop challenges you to walk the full length of the street slowly, find the hidden heart (a small heart motif somewhere on the block), and answer a question about the street's name.",
+      "historical_content": "Aviles Street is named for Avilés, the hometown of Pedro Menéndez de Avilés — the city's founder — in Asturias, northwestern Spain. It runs parallel to and one block west of St. George Street, connecting Treasury Street to King Street.\n\nThe buildings on Aviles Street reflect multiple construction periods, giving the street its layered character: some coquina ground floors date to the 18th century; the wooden second stories and balconies were added during the British period (1763-1784) or later. The narrow width of the street (regulated by Spanish colonial urban planning) contributes to its intimate character.\n\nThe Ximenez-Fatio House at 20 Aviles Street (c. 1797-98) is the most intact colonial building on the block — a Spanish colonial merchant's home and store that became a fashionable boarding house under Louisa Fatio's management in the 1830s. The house's wide overhanging wooden balcony and green-shuttered windows are among the most photographed details on the street.\n\nAviles Street has been a favorite subject for photographers, painters, and illustrators since the late 19th century — its combination of narrow width, colonial architecture, and lush subtropical vegetation (ferns, palms, climbing vines) creates a quality that art directors call 'old world charm.'",
+      "lat": 29.8927,
+      "lng": -81.3137,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk to Aviles Street — one block west of St. George Street. Enter from the Treasury Street end (north) and walk the full length slowly, looking at both sides.",
+      "safety_warning": null,
+      "metadata_json": {
+        "romantic_details": [
+          "Narrow street with overhanging wooden balconies creating a canopy effect",
+          "Faded colonial colors on shutters and building facades",
+          "The Ximenez-Fatio House balcony at #20 is particularly picturesque",
+          "Climbing vines and subtropical plants add to the romantic texture",
+          "The street is quieter than St. George Street — ideal for a slow walk"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Partner Trivia: Who Was Avilés?",
+          "prompt": "Aviles Street is named for the hometown of the man who founded St. Augustine. Switch roles — the other partner answers this one. Where is Avilés (the city the street is named for) located?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's the hometown of Pedro Menéndez de Avilés, the Spanish conquistador who founded St. Augustine in 1565. It's in the north of Spain.",
+          "config": {
+            "options": [
+              "Andalusia, southern Spain — near Granada and Seville",
+              "Catalonia, northeastern Spain — near Barcelona",
+              "Asturias, northwestern Spain — on the Atlantic coast",
+              "The Canary Islands — Spain's Atlantic island territory"
+            ],
+            "correct_index": 2,
+            "explanation": "Avilés is a coastal city in Asturias, northwestern Spain — on the Atlantic coast. Pedro Menéndez de Avilés was born there in 1519. When he founded St. Augustine on September 8, 1565, he named it for Saint Augustine of Hippo (whose feast day fell on the date he first sighted land, August 28). The street Aviles carries the name of his hometown to this day."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Find the Hidden Heart",
+          "prompt": "Somewhere on Aviles Street, a small heart motif is hidden in the architecture or signage — a detail that most visitors walk past without noticing. Describe where you found it, or describe any heart-shaped detail you found anywhere on this block.",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look carefully at ironwork, tile patterns, wooden carvings, and painted decorations on the buildings as you walk. Hearts appear in unexpected places in colonial architectural decoration.",
+          "config": {
+            "accepted_answers": [
+              "ironwork", "iron", "gate", "door", "tile", "carving", "shutter", "sign", "window", "found it",
+              "yes", "found a heart", "heart in the ironwork", "heart on the gate", "heart on the shutter",
+              "heart on the door", "heart on the wall", "carved heart", "painted heart", "tile heart"
+            ],
+            "case_sensitive": false,
+            "explanation": "Hearts appear throughout colonial architectural decoration in St. Augustine — in ironwork, carved wooden shutters, tile patterns, and painted details. The key is to look slowly and carefully at the texture of every surface. Well done for taking the time to look."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: A Wedding in St. Augustine",
+          "prompt": "Ask the colonial shopkeeper about wedding and romantic traditions in colonial St. Augustine — how couples got married, what the ceremonies were like, and whether the Catholic church's role in the community made romantic life different from modern experience.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about Father Camps keeping wedding records in the Golden Book of the Minorcans, or about what courtship looked like in 18th-century colonial society.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cathedral Basilica — The Wedding Church",
+      "description": "The Cathedral Basilica of St. Augustine has been the center of Catholic life in the oldest city since 1594 — when the first recorded baptism in what is now the United States took place here. It has also been the site of countless weddings across 400 years. The Cathedral's garden and exterior are open at all times; the interior may be accessible depending on service schedules. This stop includes a partner question that requires one of you to look up and the other to look down — at the same architectural detail.",
+      "historical_content": "The Cathedral Basilica was dedicated December 8, 1797 — the Feast of the Immaculate Conception. The first records of Catholic sacraments at this site (baptism, marriage, burial) date to June 10, 1594 — making this the oldest continuously active Catholic parish in the United States.\n\nThe 1887 fire that damaged the Cathedral required reconstruction. The rebuild preserved the original Spanish colonial mission facade but added the distinctive bell tower. The Cathedral's interior was largely restored in a 19th-century Romanesque style.\n\nThe garden area outside the Cathedral is a quiet space with plantings typical of the Spanish colonial tradition: tropical and subtropical trees, flowering plants, and paved walkways. It provides a moment of calm in the commercial bustle of the historic district.\n\nThe Cathedral has a particularly beautiful quality in the late afternoon, when the light catches the mission-style facade from the west. Wedding photographs are taken here regularly — the combination of the oldest parish in America and the architectural beauty of the facade creates an irreplaceable setting.",
+      "lat": 29.8966,
+      "lng": -81.3139,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to the Cathedral Basilica on Cathedral Place — the large church with the bell tower facing the plaza. The garden is accessible from the Cathedral Place side.",
+      "safety_warning": "Please be respectful. Mass or services may be in progress. The garden is generally accessible; the interior has restricted hours.",
+      "metadata_json": {
+        "romantic_details": [
+          "Best light: late afternoon when sun catches the mission facade from the west",
+          "The Cathedral garden is a quiet space for a conversation pause",
+          "The bell tower is particularly beautiful against a sunset sky",
+          "The oldest parish records in the United States are held here — dating to 1594"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Partner Trivia: The First Record",
+          "prompt": "The Cathedral Basilica holds the records of the oldest continuously active Catholic parish in the United States. The first dated entry in these records is a sacramental record. What type of sacrament was recorded on June 10, 1594 — the oldest Catholic sacramental record in what is now the United States?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's one of the seven Catholic sacraments — and the most common one for marking a person's entry into the church community.",
+          "config": {
+            "options": [
+              "Marriage",
+              "Baptism",
+              "Ordination (becoming a priest)",
+              "Burial / Last Rites"
+            ],
+            "correct_index": 1,
+            "explanation": "The first dated entry in the Cathedral's sacramental records is a baptism — recorded on June 10, 1594. This makes it the oldest Catholic baptismal record in what is now the United States. Baptism records are typically the most common in parish archives — every Catholic had to be baptized, but not every Catholic married in a church or was ordained."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Look Up Together",
+          "prompt": "Standing in front of the Cathedral Basilica, look up at the top of the bell tower. What architectural feature crowns the very top of the bell tower — a symbol of the Catholic faith and the Spanish colonial tradition that founded this church?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's the universal symbol of Christianity, visible on every church worldwide.",
+          "config": {
+            "accepted_answers": ["cross", "a cross", "the cross", "crucifix"],
+            "case_sensitive": false,
+            "explanation": "A cross crowns the top of the Cathedral's bell tower — the universal symbol of Christianity. The cross above the Cathedral Basilica is visible from much of the historic district and serves as a landmark. The Cathedral bell tower was added during the 1887-88 reconstruction after the fire; the cross has crowned it since."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Cathedral's Love Stories",
+          "prompt": "Ask the guide about the couples who have been married at the Cathedral Basilica across 400 years of history — from Spanish colonial Minorcan marriages recorded by Father Camps in the Golden Book to modern weddings. What has changed, and what has stayed the same?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about Father Camps and the Golden Book of the Minorcans, or about what a colonial Spanish Catholic wedding in the 1780s would have looked like.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Bayfront — The Golden Hour View",
+      "description": "The Matanzas Bay bayfront at golden hour — Avenida Menéndez running along the water — is St. Augustine's signature romantic view. This is where Gilded Age couples strolled after dinner at the Ponce de León Hotel; where the first automobiles replaced horse carriages on warm evenings; where the city's lights reflect in the calm bay water. This stop's challenge is about the view you share, not the history you know.",
+      "historical_content": "The Matanzas Bay bayfront promenade (Avenida Menéndez) follows the line of the original Spanish colonial seawall. The seawall visible today dates from the late 19th and early 20th centuries, built under American municipal development.\n\nThe bayfront has been a promenade — a place for deliberate, social walking — since the Spanish colonial period. In the colonial era, the bayfront was also a working waterfront: fishing boats, supply vessels, and ferry traffic. The Gilded Age transformed it into a leisure space, with Flagler's hotels backing onto the bayfront on the western side.\n\nThe view across Matanzas Bay to Anastasia Island changes dramatically with the time of day. In the morning, the light comes from behind Anastasia Island. In the afternoon, the light shifts and the bay takes on its golden quality. At sunset, the colors reflected in the water can be spectacular — particularly when there is some cloud cover to catch the color.\n\nThe bayfront is also a wildlife viewing area: brown pelicans, laughing gulls, royal terns, and bottlenose dolphins are commonly seen from the seawall. Dolphins are particularly common in the early morning and late afternoon.",
+      "lat": 29.8940,
+      "lng": -81.3122,
+      "gps_radius_meters": 70.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "Walk to the bayfront promenade (Avenida Menéndez) — the walkway along the Matanzas Bay, west of the water, facing east toward Anastasia Island. Walk toward the Bridge of Lions.",
+      "safety_warning": null,
+      "metadata_json": {
+        "romantic_details": [
+          "Best time: golden hour before sunset; the bay catches the color beautifully",
+          "Dolphins are commonly seen from the seawall in early morning and late afternoon",
+          "The Bridge of Lions is particularly beautiful in silhouette against a sunset sky",
+          "The lights of Anastasia Island reflect in the bay after dark"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Partner Trivia: The Bay's Name",
+          "prompt": "The bay you're looking at is Matanzas Bay. The name Matanzas comes from a Spanish word for a violent event that happened nearby in 1565. What does Matanzas mean in Spanish?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a rather un-romantic word given the setting — named for an event that happened 14 miles south of here in September 1565.",
+          "config": {
+            "options": [
+              "Tides (for the strong tidal currents in the bay)",
+              "Fortifications (for the Spanish forts built along this shore)",
+              "Slaughters (for the execution of French prisoners at the inlet to the south)",
+              "Lions (for the same reason as the Bridge of Lions)"
+            ],
+            "correct_index": 2,
+            "explanation": "Matanzas means 'slaughters' in Spanish — named by Pedro Menéndez de Avilés after he executed approximately 250 French Huguenot prisoners at Matanzas Inlet (14 miles south) on September 20, 1565. The romantic bayfront promenade has one of the more sobering place names in American coastal geography."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Bayfront Dolphin",
+          "prompt": "Bottlenose dolphins are regularly seen in Matanzas Bay from this bayfront walkway. Standing at the seawall and looking east across the bay toward Anastasia Island, what time of day is the best time to spot dolphins — when they are most active in the shallow bay waters?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Dolphins feed when fish are most active — which is at the transitional times of day when light is changing and fish are moving.",
+          "config": {
+            "accepted_answers": [
+              "early morning", "morning", "dawn", "late afternoon", "afternoon", "evening", "sunrise", "sunset",
+              "golden hour", "early morning and late afternoon", "dawn and dusk", "dusk"
+            ],
+            "case_sensitive": false,
+            "explanation": "Bottlenose dolphins are most commonly seen in the Matanzas Bay during early morning and late afternoon — the same golden hours that make the bayfront most beautiful. At these times, fish are most active near the surface, drawing the dolphins in to feed. Watching for dolphins from the seawall at golden hour is one of St. Augustine's best free experiences."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: An Evening in St. Augustine",
+          "prompt": "Ask the Victorian tourist about a perfect evening in St. Augustine in 1890 — arriving from the train station, walking to the hotel, strolling the bayfront in the evening. What were the sounds, smells, and social rituals of a Gilded Age evening in the Ancient City?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what entertainment Flagler's hotels provided in the evening, or about the social expectations for couples in Victorian-era resort life.",
+          "config": {
+            "character_id": "victorian_tourist",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College Courtyard — Date Night Unlocked",
+      "description": "The final stop of the Romantic St. Augustine hunt is the exterior of Flagler College — the former Ponce de León Hotel, the most beautiful building in St. Augustine and the architectural pinnacle of Henry Flagler's Gilded Age vision for the city. Stand in front of the main entrance on King Street, look up at the towers, and answer the final question together. Your date-night recommendation is unlocked when you complete this stop.",
+      "historical_content": "Henry Flagler built the Ponce de León Hotel as the grandest romantic statement a Gilded Age millionaire could make — a $2.5 million resort hotel that transformed St. Augustine from a provincial backwater into one of America's premier winter destinations. He was partly motivated by personal experience: Flagler came to St. Augustine in the winter of 1882-83 and found it beautiful but poorly served by hotels. He decided to fix this himself.\n\nThe hotel opened January 10, 1888, and quickly became the most fashionable address in Florida. Couples — from Gilded Age society figures to honeymooning newlyweds — came to the Ponce de León to be seen, to dance in the grand dining room, and to promenade on the bayfront.\n\nHenry Flagler himself had complicated romantic and family history. His second marriage (to Ida Alice Shourds) ended when she was committed to a mental institution. He lobbied the Florida legislature to pass a law allowing insanity as grounds for divorce — they passed it — and he then married his third wife, Mary Lily Kenan, at Mamaroneck, New York in 1901. Mary Lily eventually inherited Whitehall, Flagler's Palm Beach estate.\n\nFlagler College occupies the building since 1968. The evening light on the Spanish Renaissance Revival towers and turrets of Flagler College is one of the most beautiful views in the American South.",
+      "lat": 29.8905,
+      "lng": -81.3135,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Walk to 74 King Street — Flagler College, the former Ponce de León Hotel. Stand across King Street from the main entrance for the best view of the full facade.",
+      "safety_warning": "Flagler College is an active academic institution. Exterior observation is welcome. Interior tours are offered seasonally.",
+      "metadata_json": {
+        "date_night_recommendation": "Your date-night recommendation: Walk one block north to St. George Street for dinner at a restaurant with outdoor seating, then return to the bayfront for the evening light. Arrive back at the Bridge of Lions after dark — the bridge and lions are illuminated, and the Matanzas Bay reflects the lights of downtown.",
+        "romantic_details": [
+          "Best viewing: evening light from across King Street (facing the facade from the north side of the street)",
+          "The towers are illuminated after dark",
+          "The Flagler College dining hall interior is visible on public tours — the original stained glass ceiling is one of the most beautiful interiors in Florida"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Final Partner Question: Why Did Flagler Come to St. Augustine?",
+          "prompt": "Henry Flagler first visited St. Augustine in the winter of 1882-83. Both of you discuss and agree on an answer: what was his primary reaction that led him to build the Ponce de León Hotel?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He loved the beauty of the city but found something lacking — and decided to fix it himself.",
+          "config": {
+            "options": [
+              "He came to buy land for a railroad and discovered the hotel business was more profitable",
+              "He found the city beautiful but poorly served by hotels, and decided to build a great one himself",
+              "He was commissioned by the State of Florida to develop tourism infrastructure",
+              "He came to retire from business and was persuaded by local merchants to build a hotel"
+            ],
+            "correct_index": 1,
+            "explanation": "Flagler came to St. Augustine in 1882-83 and found it beautiful but poorly served by hotels. Rather than accept the situation, he decided to build a world-class hotel himself. The Ponce de León (1888) was the result — followed by the Alcazar (now the Lightner Museum), the Cordova (now the Casa Monica Hotel), and eventually a chain of hotels down the entire Florida East Coast connected by his railroad."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Final View",
+          "prompt": "You've completed the Romantic St. Augustine hunt. Stand across King Street and look up at the Flagler College/Ponce de León Hotel facade. How many large towers can you count on the building?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Step back to the opposite side of King Street for the best view of the full facade. Count only the large prominent towers, not the smaller secondary ones.",
+          "config": {
+            "accepted_answers": ["2", "two", "4", "four", "2 large towers", "four towers", "two large towers"],
+            "case_sensitive": false,
+            "explanation": "The Ponce de León Hotel has four towers total — two large octagonal corner towers most prominent from King Street, and two smaller secondary towers flanking the main entrance. Looking at the full facade from across King Street, the two large towers frame the building symmetrically. Architects Carrère and Hastings designed them to evoke a Spanish Renaissance castle."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Flagler's Dream",
+          "prompt": "Ask Henry Flagler what he intended when he built the Ponce de León Hotel — was it about money, legacy, romance, or something else? And what does he think about his hotel becoming a college for students rather than a hotel for the wealthy?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Flagler about his vision for St. Augustine as a destination, or about what he hoped visitors would feel when they arrived at the Ponce de León.",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Date Night Complete",
+      "description": "You completed the Romantic St. Augustine adventure together.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Partners in History",
+      "description": "You visited three romantic locations together.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Hints Needed",
+      "description": "You answered every question together without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "adventure": {
+    "title": "Doors Through Time",
+    "slug": "doors-through-time",
+    "description": "A fictional preservationist has lost the records for St. Augustine's most historic homes and buildings. To restore the archive, you must visit each property, study its architecture, read its historical markers, and unlock what the walls still remember. Spanish coquina, British shutters, colonial courtyards — the doors here open onto centuries.",
+    "short_description": "Investigate the oldest surviving homes in North America's oldest city.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 90,
+    "start_lat": 29.8905,
+    "start_lng": -81.3137,
+    "total_points": 600,
+    "tags": ["architecture", "history", "colonial", "houses", "walking"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "González-Alvarez House — The Oldest House",
+      "description": "The González-Alvarez House at 14 St. Francis Street is considered the oldest surviving Spanish colonial structure in the United States — with continuous occupation dating to the early 1700s and possibly earlier. The ground floor is built of coquina stone (the oldest section); the upper floor is British-period wood frame added after 1763. The property has passed through Spanish, British, and American periods and has served as a home, tavern, and military quarters.",
+      "historical_content": "The Oldest House began as a simple one-room coquina structure in the very early 18th century. Archaeological evidence suggests the site was occupied as early as 1650, but the current structure dates from around 1723. Different owners in different periods left their marks: the Spanish ground floor vs. the British-added wood second story is visible from the street.\n\nGeronimo Alvarez owned the house in the Second Spanish Period. As mayor (alcalde), he was the man who refused to allow the Constitution Monument in the Plaza to be torn down when Florida transferred to the United States on July 10, 1821. His defiance preserved the only remaining monument to the Spanish Constitution of 1812 in the Western Hemisphere.\n\nThe house operated as a tavern during the British period, serving soldiers and travelers on St. Francis Street. The Oldest House Museum Complex is operated by the St. Augustine Historical Society, the oldest historical organization in Florida (founded 1883).\n\nCoquina is the local building material — a sedimentary rock composed of tiny shell fragments cemented together. It was quarried from Anastasia Island, across the Matanzas River. The first recorded use of coquina as a building material in St. Augustine dates to 1580. Its unique property: cannon balls embed in the soft stone rather than shattering it, giving the Castillo de San Marcos its near-invincibility against artillery.",
+      "lat": 29.8905,
+      "lng": -81.3137,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk to 14 St. Francis Street — south of the Plaza near the Franciscan monastery ruins. Look for the coquina ground floor and wooden upper story.",
+      "safety_warning": "This is an active museum. Respect operating hours for interior access. Exterior observation is available at any time.",
+      "metadata_json": {
+        "address": "14 St. Francis Street",
+        "key_facts": [
+          "Oldest continuously occupied European structure in the United States",
+          "Coquina ground floor (Spanish, early 1700s) + wood frame upper story (British, after 1763)",
+          "Geronimo Alvarez, the owner who became mayor, saved the Constitution Monument from demolition in 1821",
+          "St. Augustine Historical Society (oldest historical org in Florida) operates the museum",
+          "Operated as a tavern during the British period",
+          "Coquina was first recorded as a St. Augustine building material in 1580"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Two Buildings in One",
+          "prompt": "The Oldest House tells two stories at once in its structure — you can read the history of two colonial periods just by looking at the walls. What is the difference between the ground floor and the upper floor?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look carefully at the building materials — one floor is stone, the other is a different material added a different century.",
+          "config": {
+            "options": [
+              "The ground floor is Spanish coquina stone; the upper floor is British-added wood frame",
+              "The ground floor is British brick; the upper floor is Spanish coquina",
+              "Both floors are coquina, but the upper floor was rebuilt after a hurricane",
+              "The ground floor is tabby concrete; the upper floor is Georgia pine"
+            ],
+            "correct_index": 0,
+            "explanation": "The coquina ground floor dates to the Spanish colonial era (early 1700s). When the British took over Florida in 1763, they added the wood frame upper story — the two building materials together tell the story of the two colonial periods."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Cannon Ball Secret",
+          "prompt": "The coquina stone of Spanish colonial St. Augustine had an unusual military advantage. What happened when cannon balls were fired at coquina walls — unlike at brick or granite walls?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's about what the stone does instead of shattering. Coquina is made of compressed shells — it's soft but resilient.",
+          "config": {
+            "accepted_answers": [
+              "cannon balls embed", "they embed", "balls embedded", "absorbed", "stuck in", "sank in", "got stuck",
+              "the cannon balls embedded rather than shattering the wall", "embedded in the wall"
+            ],
+            "case_sensitive": false,
+            "explanation": "Cannon balls embed into coquina rather than shattering it — the soft, porous shell-stone absorbed the impact. This made the Castillo de San Marcos nearly impervious to artillery bombardment. Attackers discovered their cannon fire was essentially harmless against coquina walls."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Mayor Who Said No",
+          "prompt": "Ask the guide about Geronimo Alvarez — the owner of this house who became mayor and refused to tear down the Constitution Monument. What does that story reveal about St. Augustine's transition from Spanish to American rule?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about July 10, 1821 — the day Florida's flags were exchanged — and what Alvarez protected.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Ximenez-Fatio House — The Boarding House",
+      "description": "The Ximenez-Fatio House at 20 Aviles Street is one of the finest surviving examples of Spanish colonial urban architecture — a two-story coquina building constructed around 1798. It was originally built as a merchant's home and commercial space by Andres Ximenez. Under Louisa Fatio, it became a famous boarding house during the American Territorial period, hosting notable visitors from across the Eastern Seaboard who came to St. Augustine for the warm climate.",
+      "historical_content": "Andres Ximenez built the house around 1797-98 during the final years of the Second Spanish Period. He was a Spanish merchant who ran a store on the ground floor while living above — a common arrangement in colonial commercial buildings. The coquina walls, wide overhanging wooden balcony, and shuttered windows are characteristic Spanish colonial architecture.\n\nAfter Florida became a U.S. territory in 1821, the property passed through several owners before Louisa Fatio and her business partner Margaret Cook purchased it around 1830. They converted it to a boarding house — and quickly made it one of the most fashionable addresses in St. Augustine. The city was becoming a health resort, and wealthy invalids, society figures, and writers came south each winter. Louisa Fatio ran the establishment until the 1870s — nearly 40 years.\n\nAviles Street itself is among the most historically significant in the city — it is said to be the oldest street in the oldest city in the United States.\n\nThe house is operated by the Colonial Dames of America and is open for tours. The balcony, kitchen garden, and interior give a detailed picture of Territorial Period domestic life.",
+      "lat": 29.8927,
+      "lng": -81.3137,
+      "gps_radius_meters": 35.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Walk to 20 Aviles Street — one block west of St. George Street. The house has a wide wooden balcony overhanging the sidewalk.",
+      "safety_warning": null,
+      "metadata_json": {
+        "address": "20 Aviles Street",
+        "key_facts": [
+          "Built c. 1797-1798 by merchant Andres Ximenez during the Second Spanish Period",
+          "Louisa Fatio ran it as a fashionable boarding house from c. 1830 to 1870s",
+          "Coquina walls, wide overhanging balcony, and shuttered windows characterize the style",
+          "Aviles Street is considered the oldest street in the oldest city in the United States",
+          "Operated by the Colonial Dames of America",
+          "St. Augustine was a winter health resort for wealthy Easterners in the 1830s-1870s"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "From Merchant to Inn",
+          "prompt": "The Ximenez-Fatio House has served two very different purposes in its history. What were the two main functions the building has had since it was built in 1797-98?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The first owner was a merchant; the second famous owner was a woman who hosted wealthy visitors.",
+          "config": {
+            "options": [
+              "A church and then a schoolhouse",
+              "A merchant's store and home, then a fashionable boarding house",
+              "A military barracks and then a private residence",
+              "A government office and then a private school"
+            ],
+            "correct_index": 1,
+            "explanation": "Andres Ximenez built it as a merchant's store (ground floor) and home (upper floor) in 1797-98. Under Louisa Fatio's management starting around 1830, it became one of St. Augustine's most fashionable boarding houses — hosting wealthy winter visitors for nearly 40 years."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Oldest Street",
+          "prompt": "The Ximenez-Fatio House stands on what is claimed to be the oldest street in the oldest city in the United States. What is the name of this street?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "You're standing on it right now — it runs parallel to St. George Street, one block to the west.",
+          "config": {
+            "accepted_answers": ["aviles", "aviles street", "avilés", "avilés street"],
+            "case_sensitive": false,
+            "explanation": "Aviles Street — named for the hometown of St. Augustine's founder Pedro Menéndez de Avilés in northwestern Spain. It is considered the oldest street in the oldest continuously occupied European city in the United States."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: A Winter in St. Augustine",
+          "prompt": "Ask the colonial shopkeeper what life was like in St. Augustine as a winter health destination in the 1830s-1850s — before Flagler's railroads brought mass tourism.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what types of visitors came, or what made St. Augustine a destination before the railroad arrived.",
+          "config": {
+            "character_id": "colonial_shopkeeper",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Peña-Peck House — The Government Doctor's Home",
+      "description": "The Peña-Peck House at 143 St. George Street has one of the richest ownership histories in St. Augustine — Spanish government official, British colonial treasurer, and American pioneer physician all called it home. The ground floor was built in the 1740s as the residence of Juan Esteban de Peña, the Royal Treasurer. After the British period it passed through several hands before Dr. Seth Peck purchased it in 1837 and his family occupied it for generations.",
+      "historical_content": "Juan Esteban de Peña, the Spanish Royal Treasurer under Governor Montiano, built the original coquina structure around 1740. As Treasurer, he was one of the most powerful officials in the colonial government — responsible for distributing the situado (the annual subsidy from Mexico City that kept St. Augustine solvent).\n\nDuring the British period (1763-1784), the house was used by colonial officials. After Spain regained Florida in 1784, the house changed hands again before becoming associated with the Peck family. Dr. Seth Peck, a physician from Connecticut who came to St. Augustine for his health and stayed to practice medicine, purchased the house in 1837. The Peck family donated it to the City of St. Augustine in 1931; Anna Gardner Burt, the last Peck to live there, was 95 years old when she left.\n\nThe house is notable for its original late colonial-period furnishings and its fine example of a coquina construction with tabby floors. A formal garden also remains behind the house.",
+      "lat": 29.8957,
+      "lng": -81.3137,
+      "gps_radius_meters": 35.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk north on St. George Street to number 143 — the house with the wooden second-floor addition set back from the street.",
+      "safety_warning": null,
+      "metadata_json": {
+        "address": "143 St. George Street",
+        "key_facts": [
+          "Original coquina structure built c. 1740 by Juan Esteban de Peña, Spanish Royal Treasurer",
+          "De Peña managed the situado — the annual subsidy from Mexico City that financed St. Augustine",
+          "Used by British colonial officials during the British period 1763-1784",
+          "Dr. Seth Peck purchased it in 1837 — he came for his health and stayed to practice medicine",
+          "Anna Gardner Burt (last of the Peck family) left at age 95 when the house was donated to the city in 1931",
+          "Notable for colonial furnishings, tabby floors, and a formal garden"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Royal Treasurer",
+          "prompt": "Juan Esteban de Peña, who built this house in 1740, held one of the most important offices in colonial St. Augustine. What was his title?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He was responsible for the finances of the Spanish colonial government — managing the annual subsidy called the situado.",
+          "config": {
+            "options": [
+              "Royal Governor of Florida",
+              "Commander of the Castillo de San Marcos",
+              "Royal Treasurer (Tesorero Real)",
+              "Superintendent of Indian Affairs"
+            ],
+            "correct_index": 2,
+            "explanation": "Juan Esteban de Peña was the Royal Treasurer — responsible for managing the situado, the annual subsidy from Mexico City that financed St. Augustine. Without the situado, the colonial city could not have survived."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Did the Doctor Come to St. Augustine?",
+          "prompt": "Dr. Seth Peck came to St. Augustine from Connecticut in the 1830s — but his initial reason was not to practice medicine. Why did he come?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "St. Augustine was known in the 1830s for the same reason people go to warm climates today when they're unwell.",
+          "config": {
+            "options": [
+              "He was appointed the city's first American physician by the territorial governor",
+              "He came for his health — St. Augustine was a winter health destination — and then stayed to practice medicine",
+              "He was hired by Henry Flagler to care for railroad workers",
+              "He followed his wife's family who had settled in Florida after the Minorcan migration"
+            ],
+            "correct_index": 1,
+            "explanation": "Dr. Seth Peck came to St. Augustine for his own health — the city's warm winters attracted invalids and convalescents from the cold Northeast. He recovered, stayed, and became a physician to the community. The Peck family lived in this house for nearly a century."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Colonial Finances",
+          "prompt": "Ask the guide about the situado — the annual subsidy from Mexico City — and why it was so important to St. Augustine's survival as a colony. What would have happened without it?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what St. Augustine produced economically, or why Spain had to keep paying to maintain the colony.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Tolomato Cemetery — Doors That Do Not Open",
+      "description": "The Tolomato Cemetery on Cordova Street is the oldest surviving cemetery in St. Augustine still in its original location — and holds the graves of Minorcans, colonial officials, soldiers, and one of the city's most important priests. Its distinctive gates and whitewashed walls enclose centuries of St. Augustine history. The cemetery was established during the British period as a burial ground for the Catholic Minorcan community and became the main cemetery for the Catholic faithful through the Territorial and early American periods.",
+      "historical_content": "The Tolomato Cemetery takes its name from a Guale Indian mission village that once occupied this site. When the Minorcans arrived in St. Augustine in 1777, they needed a burial place — and this site, slightly north of the town center, became their cemetery.\n\nFather Pedro Camps, the priest of the Minorcan community, is buried here — though his statue stands at the Cathedral Basilica. Bishop Augustin Verot, the first Bishop of St. Augustine (and later the first Bishop of Savannah), is also buried here. The cemetery contains graves from the British period through the late 19th century.\n\nThe cemetery contains several interesting architectural elements: the gates are original cast-iron; the whitewashed coquina and tabby walls date to different building periods; and a small chapel within the grounds was used for funeral masses.\n\nImportant: The Tolomato Cemetery is not typically open to general public entry, but the walls, gate, and inscriptions are clearly visible from Cordova Street. All challenges in this stop are designed for exterior observation.",
+      "lat": 29.8978,
+      "lng": -81.3161,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk west to Cordova Street — the cemetery is on the west side of Cordova, north of Orange Street. Observe from the sidewalk through the cast-iron gates.",
+      "safety_warning": "Observe from the public sidewalk only. The cemetery is not typically open for general public entry. Do not attempt to climb the walls or gates.",
+      "metadata_json": {
+        "address": "Cordova Street, north of Orange Street",
+        "key_facts": [
+          "Named for the Tolomato Guale Indian mission village that occupied the site before",
+          "Established during the British period as a Catholic burial ground for the Minorcan community",
+          "Contains graves from the British period through the late 19th century",
+          "Father Pedro Camps (Minorcan priest) is buried here",
+          "Bishop Augustin Verot, first Bishop of St. Augustine, is buried here",
+          "Cast-iron gates and coquina/tabby walls date to different building periods"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Which Community Established This Cemetery?",
+          "prompt": "Tolomato Cemetery was established during the British period (1763-1784) as a burial ground for a specific immigrant community that had walked to St. Augustine from a failed plantation colony. Which community was it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "They came from a Mediterranean island — arriving in Florida in 1768 and walking to St. Augustine in 1777 after escaping their contracts.",
+          "config": {
+            "options": [
+              "French Huguenot settlers from Fort Caroline",
+              "Minorcan (and Greek and Italian) indentured workers freed from the New Smyrna plantation",
+              "Irish Catholic immigrants from British colonies to the north",
+              "Timucuan converts from the Nombre de Dios mission"
+            ],
+            "correct_index": 1,
+            "explanation": "The Minorcans — along with Greek and Italian workers brought by Dr. Andrew Turnbull — arrived in Florida in 1768 to work at a plantation in New Smyrna Beach. After years of hardship, they were freed from their contracts in 1777 and walked to St. Augustine. The Tolomato Cemetery became their burial ground."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Bishop Buried Here",
+          "prompt": "Bishop Augustin Verot — the first Bishop of St. Augustine and later the first Bishop of Savannah — is buried in this cemetery. What religious tradition does that office belong to?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "St. Augustine has been a Catholic city since 1565 — Father Camps was Catholic, the Cathedral Basilica is Catholic.",
+          "config": {
+            "accepted_answers": ["catholic", "roman catholic", "catholic church", "roman catholic church"],
+            "case_sensitive": false,
+            "explanation": "Bishop Augustin Verot was a Roman Catholic bishop — the first Bishop of St. Augustine, the oldest Catholic diocese in the United States. He is one of the most prominent figures buried at Tolomato Cemetery."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Weight of the Dead",
+          "prompt": "Ask the guide about what a cemetery like Tolomato tells historians — who was buried here, what materials were used, and what the different periods of the walls and gates reveal about the city's history.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the mixture of Spanish, British, and American burial traditions here, or about the Minorcan community's connection to this place.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Government House — The Seat of Power",
+      "description": "Government House at the northwest corner of the Plaza de la Constitución has been the seat of governmental power in St. Augustine longer than any other building in the United States — in continuous use for Spanish, British, American territorial, and Florida state government, as well as the post office, federal court, and now a museum. The building you see today mostly dates to a major reconstruction of 1834-1836, but occupation of this site goes back to 1598, when the first Governors' House was built here.",
+      "historical_content": "The site has been occupied by a succession of buildings since 1598. The earliest structures were wood and burned in the Drake Raid of 1586 (before that year's building) and in subsequent fires. A coquina building was constructed in the 1710s. The current building was largely reconstructed in 1834-36 in a Greek Revival style to serve the new U.S. territorial government.\n\nDuring the British period, the building served as the Governor's Palace — Lord Dunmore and other British governors resided here. During the Second Spanish period, it returned to Spanish colonial use. After Florida became a U.S. territory on July 10, 1821, Government House became first the federal courthouse and later the post office, before being adapted for museum use.\n\nA plaque inside the building notes a fascinating British-period connection: Thomas Heyward Jr., Arthur Middleton, and Edward Rutledge — three signers of the Declaration of Independence — were held as prisoners of war in St. Augustine during the Revolutionary War. The plaque is next to the main entrance on the plaza side.\n\nThe Constitution Monument in the adjacent plaza was erected in 1813 by Geronimo Alvarez (then mayor) to honor the Spanish Constitution of 1812, which established constitutional monarchy in Spain. It is the only monument honoring the Spanish Constitution of 1812 still standing in the Western Hemisphere.",
+      "lat": 29.8961,
+      "lng": -81.3131,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Government House faces the Plaza de la Constitución — it's the large building on the north side of King Street, at the plaza's northwest corner.",
+      "safety_warning": null,
+      "metadata_json": {
+        "address": "48 King Street (plaza side)",
+        "key_facts": [
+          "In continuous use as seat of government since 1598 — the longest such record in the United States",
+          "Site has been occupied through Spanish, British, American territorial, and state government periods",
+          "Current building mostly dates to 1834-1836 reconstruction in Greek Revival style",
+          "Three signers of the Declaration of Independence were held here as prisoners of war during the Revolution: Thomas Heyward Jr., Arthur Middleton, Edward Rutledge",
+          "The Constitution Monument (1813) in the adjacent plaza commemorates the Spanish Constitution of 1812 — only surviving such monument in the Western Hemisphere"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Declaration Signers as Prisoners",
+          "prompt": "A plaque at Government House records a remarkable Revolutionary War story. Three signers of the Declaration of Independence were held as prisoners of war in St. Augustine. Which of the following was NOT one of them?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "They were from South Carolina — captured by British forces during the Revolution and held in British-controlled St. Augustine. Find the plaque near the entrance.",
+          "config": {
+            "options": [
+              "Thomas Heyward Jr.",
+              "Arthur Middleton",
+              "Edward Rutledge",
+              "Thomas Lynch Jr."
+            ],
+            "correct_index": 3,
+            "explanation": "Thomas Lynch Jr. signed the Declaration of Independence but was not held in St. Augustine. The three South Carolina signers held as POWs in British St. Augustine were Thomas Heyward Jr., Arthur Middleton, and Edward Rutledge — a remarkable footnote to Revolutionary War history."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Unique Monument Across the Street",
+          "prompt": "The Constitution Monument in the Plaza de la Constitución was erected in 1813 and has a unique distinction in the Western Hemisphere. What document does it commemorate?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was erected by Mayor Geronimo Alvarez and survived the transfer of Florida to the United States because he refused to let it be torn down.",
+          "config": {
+            "accepted_answers": [
+              "spanish constitution", "the spanish constitution", "constitution of 1812", "spanish constitution of 1812",
+              "constitution of cadiz", "cadiz constitution"
+            ],
+            "case_sensitive": false,
+            "explanation": "The monument commemorates the Spanish Constitution of 1812 — a liberal constitutional document that established constitutional monarchy in Spain. It is the only monument honoring this constitution still standing in the Western Hemisphere. Mayor Geronimo Alvarez refused to have it torn down when Florida transferred to the United States on July 10, 1821."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Five Flags Over Government House",
+          "prompt": "Ask the guide about the many nations and governments that have used this building — what changed with each transfer of power, and what stayed the same?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the five flags that have flown over Florida: Spain (twice), Britain, the Confederate States, and the United States.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Preservation Certificate Restored",
+      "description": "You identified all five historic properties and restored the preservationist's lost records.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "House Detective",
+      "description": "You identified three historic properties.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Hints Needed",
+      "description": "You completed every challenge without using a single hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

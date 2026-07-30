@@ -1,0 +1,383 @@
+{
+  "adventure": {
+    "title": "The Lost Lantern",
+    "slug": "the-lost-lantern",
+    "description": "A 19th-century night watchman disappeared while documenting unexplained incidents across the Ancient City. His lantern has been found — but his journal pages remain scattered across the city's most storied sites. Follow the journal, investigate each location, and decide what is history, what is legend, and what was invented to keep you walking in the dark. Best experienced at twilight or after.",
+    "short_description": "Follow a missing watchman's journal through St. Augustine's most haunted sites.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 90,
+    "start_lat": 29.8985,
+    "start_lng": -81.3130,
+    "total_points": 600,
+    "tags": ["ghost tour", "haunted", "evening", "history", "mystery", "adult"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "Huguenot Cemetery — The Journal's First Entry",
+      "description": "The Huguenot Cemetery, across from the City Gate on San Marco Avenue, is one of the most dramatically situated burial grounds in Florida. Established in 1821 as a public cemetery after St. Augustine's transfer to the United States, it was primarily used for non-Catholics during the yellow fever epidemics of the 1820s-1870s. The cemetery is set apart from the Catholic cemeteries (Tolomato, San Lorenzo) by its Protestant association. Local legend places multiple ghost sightings here — but the real history is dramatic enough on its own.",
+      "historical_content": "The Huguenot Cemetery was established in 1821 after Florida became a U.S. territory. Its name is misleading: the French Huguenots were gone from Florida before 1565, when Pedro Menéndez destroyed their Fort Caroline colony. The cemetery is called 'Huguenot' simply because it was a non-Catholic public burial ground — many of the dead were Protestant newcomers from the American states.\n\nYellow fever struck St. Augustine repeatedly from the 1820s through the 1880s. The cemetery filled rapidly during epidemic years. The tall iron fence and gate, the towering old oak trees, and the tightly packed early 19th-century grave markers create the dramatic visual that has made this one of the most photographed spots in the city at night.\n\nThe Judge John B. Stickney legend is the most repeated story about this cemetery — a federal judge whose ghost is said to walk the grounds with a handless clock, having lost his hands to robbers who dug up his corpse for the diamond rings he wore to his grave. Historians have found no documentary evidence for this tale. The cemetery was closed around 1884 and is no longer an active burial ground.",
+      "lat": 29.8985,
+      "lng": -81.3130,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "The Huguenot Cemetery is directly across from the City Gate on San Marco Avenue — the fenced burial ground with tall oaks visible from the street.",
+      "safety_warning": "Observe from the public sidewalk only. The cemetery is closed to entry after hours. Do not enter, climb the fence, or disturb any grave markers.",
+      "metadata_json": {
+        "key_facts": [
+          "Established 1821 after Florida's transfer to the United States",
+          "Despite the name, no Huguenots are buried here — they left Florida in 1565",
+          "Used primarily by non-Catholics during yellow fever epidemics",
+          "Yellow fever struck St. Augustine repeatedly from the 1820s through the 1880s",
+          "Cemetery was closed around 1884",
+          "Judge Stickney ghost story has no documentary historical support"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "History, Legend, or Lie?",
+          "prompt": "Three things are said about the Huguenot Cemetery. Which one is actually supported by historical records?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "One of these is undeniably documented; the other two are legends or inventions.",
+          "config": {
+            "options": [
+              "French Huguenot colonists from Fort Caroline are buried here",
+              "Yellow fever epidemic victims are buried here, primarily non-Catholics who died during the 1820s-1870s",
+              "A judge's hands were stolen by grave-robbers seeking his diamond rings, and his handless ghost still walks the grounds",
+              "A Spanish soldier was buried here alive as punishment for desertion"
+            ],
+            "correct_index": 1,
+            "explanation": "The only documented fact is that the cemetery holds yellow fever epidemic victims — primarily non-Catholics who died in St. Augustine's epidemics from the 1820s through 1870s. The Huguenots were gone from Florida by 1565. The Judge Stickney story (option C) has no documentary support. Option D is invention."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Watchman's First Clue",
+          "prompt": "The watchman's journal says: 'Established the year our flag first flew over this city, this ground holds those who fell to the yellow contagion of summer.' What year was this cemetery established?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Florida's flags were exchanged — transferring the territory from Spain to the United States — on July 10 of a specific year in the early 19th century.",
+          "config": {
+            "accepted_answers": ["1821"],
+            "case_sensitive": false,
+            "explanation": "The Huguenot Cemetery was established in 1821 — the same year Florida was formally transferred from Spain to the United States, with the flags exchanged on July 10, 1821. The cemetery was needed almost immediately as yellow fever began striking the growing American community."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Why Yellow Fever?",
+          "prompt": "Ask the guide why yellow fever was so devastating to St. Augustine in the 1820s-1870s. What conditions in the city made it vulnerable, and how did it shape who is buried here?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about mosquitoes, summer heat, and the problem of swampy land around the city.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Tolomato Cemetery — The Minorcans' Rest",
+      "description": "Tolomato Cemetery, established during the British period as the burial place of the Minorcan community, contains the oldest surviving grave markers in St. Augustine. It is set apart from the street by whitewashed coquina walls and original cast-iron gates — closed now, but visible in detail from Cordova Street. Father Pedro Camps, the priest who held the Minorcan community together through four decades, is buried here. So is Bishop Augustin Verot, the first Bishop of St. Augustine. The watchman's second journal entry describes a light that moved between the markers on a foggy November night.",
+      "historical_content": "Tolomato Cemetery was named for a Guale Indian mission village that occupied the site before it became a burial ground. The Minorcan community — which arrived in St. Augustine in 1777 after fleeing the New Smyrna plantation — used this as their burial ground through the British and Second Spanish periods.\n\nThe cemetery contains graves from the 1770s through the late 19th century. Several famous figures are buried here: Father Pedro Camps (who kept the Golden Book of the Minorcans), Bishop Augustin Verot (first Bishop of St. Augustine, died 1876), and others including soldiers and colonial officials.\n\nThe whitewashed walls show multiple building periods — some sections are old coquina, others are newer tabby. The cast-iron gates are original. A small chapel inside the grounds was used for funeral masses.\n\nThe cemetery is not typically open to the public for general visitation. The watchman's journal entry about a moving light is, of course, fictional — but November nights in Tolomato Cemetery do have a particular quality.",
+      "lat": 29.8978,
+      "lng": -81.3161,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Tolomato Cemetery is on Cordova Street, north of Orange Street — the whitewashed walled cemetery with cast-iron gates. Observe from the sidewalk.",
+      "safety_warning": "Observe from the public sidewalk only. Do not attempt to enter the cemetery, climb the walls, or touch the gates.",
+      "metadata_json": {
+        "key_facts": [
+          "Named for the Tolomato Guale Indian mission village that preceded the cemetery",
+          "Established during the British period as a Minorcan Catholic burial ground",
+          "Contains graves from the 1770s through the late 19th century",
+          "Father Pedro Camps buried here — the Minorcans' priest and keeper of the Golden Book",
+          "Bishop Augustin Verot buried here — first Bishop of St. Augustine (died 1876)",
+          "Cast-iron gates and whitewashed walls are original features"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Two Cemeteries of St. Augustine",
+          "prompt": "St. Augustine has two historic cemeteries near the City Gate: the Huguenot Cemetery and Tolomato Cemetery. What is the key difference between them that reflects the city's religious history?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "One was for Catholics; the other for non-Catholics. St. Augustine has been a Catholic city since 1565.",
+          "config": {
+            "options": [
+              "Huguenot is Spanish colonial, Tolomato is British colonial",
+              "Huguenot was for white residents, Tolomato was for Native American converts",
+              "Huguenot was the non-Catholic public cemetery; Tolomato was the Catholic burial ground (especially for the Minorcan community)",
+              "Huguenot was for civilians, Tolomato was for soldiers"
+            ],
+            "correct_index": 2,
+            "explanation": "Tolomato was the Catholic cemetery — established by the Minorcan community during the British period and used by Catholics through the late 19th century. The Huguenot Cemetery was the non-Catholic public burial ground, established in 1821 for Protestant newcomers during the American Territorial period."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Priest's Precious Record",
+          "prompt": "Father Pedro Camps, buried in this cemetery, kept meticulous records of the Minorcan community through decades of hardship. His record book has a distinctive name that has been passed down through history. What is it called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The name reflects how precious and treasured these records were to the Minorcan community.",
+          "config": {
+            "accepted_answers": ["golden book", "the golden book", "golden book of the minorcans", "the golden book of the minorcans"],
+            "case_sensitive": false,
+            "explanation": "Father Camps kept the Golden Book of the Minorcans — a record of births, deaths, and marriages in the Minorcan community. It is one of the most important community records in early Florida history and still survives today."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Minorcans in the Dark",
+          "prompt": "Ask the guide what the Minorcan community experienced in their first years in St. Augustine — arriving in 1777 after walking from New Smyrna, with no money and no connections. How did they survive and eventually thrive?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Minorcan language, their food traditions, or their datil pepper — all of which survived from the Mediterranean to Florida.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Old Jail — Where Justice Was Ungentle",
+      "description": "The Old St. Johns County Jail at 167 San Marco Avenue operated from 1891 to 1953 — housing notorious criminals, ordinary inmates, and some who were simply in the wrong place at the wrong time. Sheriff Charles Joseph Perry ran the facility for over three decades. The building is now a popular attraction that leans heavily into its haunted reputation, but the real history of incarceration here — including chain gangs, harsh conditions, and the racial inequities of the Jim Crow era — is both documented and sobering.",
+      "historical_content": "The Old Jail was designed by Henry Flagler's architects and built in 1891 — the same period as the Ponce de León Hotel and the Alcazar. It operated as the St. Johns County jail until 1953. The red brick building was designed to look like a hotel from the outside, so as not to offend the sensibilities of Flagler's wealthy guests.\n\nSheriff Charles Joseph Perry, who served from 1908 to 1945 — the longest-serving sheriff in Florida history at that time — ran the facility. Conditions were harsh; the building was not designed for the number of inmates it eventually housed.\n\nDuring the Jim Crow era, the jail held Black prisoners in separate, significantly worse conditions than white prisoners. Chain gangs composed largely of Black men worked county roads under armed guard. This history is less prominently featured in ghost tour programming than the rumored paranormal activity, but it is the more significant historical record.\n\nThe building operated as a jail until 1953 — a total of 62 years. It has been a tourist attraction since the 1970s.",
+      "lat": 29.9003,
+      "lng": -81.3112,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "The Old Jail is at 167 San Marco Avenue — north of the City Gate, a red brick building designed to look like a hotel.",
+      "safety_warning": null,
+      "metadata_json": {
+        "address": "167 San Marco Avenue",
+        "key_facts": [
+          "Operated as St. Johns County Jail from 1891 to 1953 — 62 years",
+          "Designed by Henry Flagler's architects to look like a hotel from outside",
+          "Sheriff Charles Joseph Perry served 1908-1945 — longest-serving Florida sheriff at the time",
+          "The building's hotel-like exterior was deliberate — to avoid disturbing Flagler's wealthy hotel guests",
+          "Jim Crow-era conditions inside were racially segregated, with Black prisoners in significantly worse quarters",
+          "Chain gangs composed largely of Black men worked county roads under armed guard"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Hotel-Jail",
+          "prompt": "The Old Jail was designed by Henry Flagler's architects in 1891 to look like a hotel from the outside. Why was this design decision made?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about who Flagler's neighboring buildings served and what those guests might find unpleasant.",
+          "config": {
+            "options": [
+              "Flagler believed criminals deserved dignified surroundings for rehabilitation",
+              "It was cheaper to use the same architectural plans as the nearby hotels",
+              "The hotel-like exterior was designed to avoid disturbing wealthy tourists staying at Flagler's nearby hotels",
+              "County law at the time required all civic buildings to match the style of nearby commercial architecture"
+            ],
+            "correct_index": 2,
+            "explanation": "The Old Jail was designed to look like a hotel so it would not disturb the wealthy guests at Henry Flagler's nearby hotels. The Ponce de León Hotel (now Flagler College) and the Alcazar (now the Lightner Museum) were Flagler's premier properties, and a visible jail was considered bad for business."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "History vs. Legend",
+          "prompt": "The Old Jail is heavily marketed as a haunted location. Which of the following is a documented historical fact about the jail — not a ghost story?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "One of these can be verified in historical records. The others belong in ghost tours.",
+          "config": {
+            "options": [
+              "A prisoner escaped by tunneling through the coquina wall, never to be found",
+              "A former sheriff's ghost still locks cell doors in the night",
+              "During the Jim Crow era, Black prisoners were held in racially segregated conditions significantly worse than those for white prisoners",
+              "Every prisoner who was executed here still roams the upper floor"
+            ],
+            "correct_index": 2,
+            "explanation": "The documented historical fact is the Jim Crow-era racial segregation of the facility — Black prisoners were held in significantly worse conditions than white prisoners, and chain gangs composed largely of Black men performed forced labor. This history is less prominently featured in ghost tour marketing but is the more significant historical record."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: History vs. Haunting",
+          "prompt": "Ask the guide a direct question: what is the difference between the documented history of this jail and the ghost stories told about it? Which stories have historical evidence behind them?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about chain gangs, Jim Crow conditions, or Sheriff Perry's tenure — then compare with the supernatural claims made on ghost tours.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Castillo de San Marcos at Dusk — The Fort at the Edge of Night",
+      "description": "No structure in St. Augustine commands the night like the Castillo de San Marcos — the 350-year-old coquina star fort that has never been taken in battle. At dusk, the massive walls reflect the last light off the Matanzas Bay; the moat fills with shadow; and the history of everyone who ever sheltered here or died trying to breach these walls becomes somehow more immediate. The watchman's journal has its most urgent entry here: 'November 19, 1702. Seven weeks. The English are still outside. The walls hold.'",
+      "historical_content": "Construction on the Castillo de San Marcos began on October 2, 1672, when Governor Francisco de la Guerra y la Vega broke ground for the new masonry fortification. The first stone was laid November 9, 1672. The fort took 23 years to complete, finishing in 1695. It replaced a succession of nine wooden forts, all of which had been burned or destroyed.\n\nThe Castillo's most famous test came in November-December 1702, when Governor James Moore of South Carolina besieged it with 500 English soldiers and 300 Native American allies. The entire civilian population of St. Augustine — some 1,500 people — sheltered inside the fort for 51 days while Moore's forces burned the city outside. The fort held; Moore's naval relief was destroyed; he withdrew. The city was rebuilt.\n\nThe coquina walls proved invulnerable to cannon fire — cannon balls embedded in the soft shell-stone rather than shattering it. This unique property saved the city multiple times. The Castillo never fell in battle in its entire history — a record still intact after more than 350 years.\n\nOther notable events: British Governor James Grant used the fort during the British period (1763-1784). During the Second Seminole War (1835-1842), Osceola, the Seminole resistance leader, was imprisoned here after being captured under a flag of truce — he died in captivity at Fort Moultrie, South Carolina. During the Civil War, the fort (then called Fort Marion) was briefly used by Confederate forces before Union troops took it without a fight in March 1862.",
+      "lat": 29.9002,
+      "lng": -81.3119,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Walk east on Castillo Drive to the Castillo de San Marcos — the massive coquina star fort on the bayfront north of the City Gate.",
+      "safety_warning": "The fort's grounds are open after hours; the interior closes at park hours. Be cautious on wet stone surfaces near the moat and walls after dark.",
+      "metadata_json": {
+        "key_facts": [
+          "Construction began October 2, 1672 (groundbreaking) and November 9, 1672 (first stone); completed 1695",
+          "Replaced nine previous wooden forts — all of which burned or were destroyed",
+          "1702 Siege: English Governor Moore besieged the fort for 51 days; 1,500 civilians sheltered inside; the fort held",
+          "Never fell in battle in over 350 years of history",
+          "Cannon balls embedded in coquina walls rather than shattering them — the key to the fort's invulnerability",
+          "Osceola (Seminole leader) was imprisoned here after capture under a flag of truce in 1837",
+          "Designated a National Monument on October 15, 1924"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The 51-Day Siege",
+          "prompt": "In November 1702, English Governor James Moore besieged the Castillo de San Marcos with 500 soldiers and 300 Native American allies. Who else sheltered inside the fort during the 51-day siege?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The fort was the last refuge for the entire settlement. All of St. Augustine was outside those walls being burned.",
+          "config": {
+            "options": [
+              "Only soldiers; civilians were evacuated by ship before the siege began",
+              "The entire civilian population of St. Augustine — approximately 1,500 people",
+              "Spanish soldiers and their families only; Minorcan settlers were left outside",
+              "Only women and children; all men fought in the field"
+            ],
+            "correct_index": 1,
+            "explanation": "The entire civilian population of St. Augustine — approximately 1,500 people — sheltered inside the Castillo for 51 days while Governor Moore's English forces burned the city outside. The fort held, Moore's naval relief was destroyed, and he withdrew. The city was rebuilt after his retreat."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Fort That Never Fell",
+          "prompt": "The Castillo de San Marcos has a unique military distinction. In over 350 years of history, it has never been taken by force. What word describes a fortification or position that has never been captured by an enemy?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "This is the term for something that has never been breached or captured. Think of a word that means it cannot be beaten.",
+          "config": {
+            "accepted_answers": ["impregnable", "unconquered", "never captured", "never fallen", "never fell", "undefeated", "invincible", "inviolable"],
+            "case_sensitive": false,
+            "explanation": "The Castillo de San Marcos is often described as impregnable — it was never taken by force in over 350 years. The coquina walls, which absorbed cannon fire rather than shattering, were the key to this record. It remains the oldest masonry fortification of its type in the continental United States."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Osceola's Imprisonment",
+          "prompt": "Ask the guide about Osceola, the Seminole leader who was imprisoned in this fort in 1837 — captured under a flag of truce. What does that story reveal about the relationship between the U.S. government and the Seminole people?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Second Seminole War, or about what happened to Osceola after his imprisonment here.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. Augustine Lighthouse — The Watchman's Last Entry",
+      "description": "The St. Augustine Lighthouse stands 162 feet above Anastasia Island on the south side of the Matanzas River. The current lighthouse, completed in 1874, replaced an earlier 1673 lighthouse that had monitored the harbor since the first Spanish colonial period. The black-and-white spiral-striped tower is one of the most recognizable structures in Florida — and one of the most genuinely haunted-feeling, with its isolated location, keeper's cottage, and the documented history of deaths on the island. The watchman's journal ends here.",
+      "historical_content": "The first lighthouse at St. Augustine was built in 1673 — a watchtower erected on the north tip of Anastasia Island to monitor the harbor entrance. Florida's governor approved the lighthouse concept in 1673, and a structure was in place by 1737 at the latest. The current 162-foot lighthouse was designed by Paul Pelz (who later co-designed the Library of Congress) and was completed in 1874 to replace the original tower, which had deteriorated.\n\nThe lighthouse was critical to navigation: the Gulf Stream, just offshore, carries treasure-laden Spanish ships north — and the treacherous sandbar at the inlet has wrecked ships for centuries. The Lighthouse Board keeper records document a series of deaths associated with the light station: Mary and Eliza Pittee, daughters of lighthouse contractor Hezekiah Pittee, drowned in 1873 when a dock cart fell into the Matanzas River. Local ghost tour companies feature their story prominently.\n\nThe lighthouse was decommissioned for a period and restored by the Junior Service League beginning in 1974. It is now operated by the St. Augustine Lighthouse and Maritime Museum. The keeper's cottage and associated buildings are also open.\n\nThe lighthouse grounds close after dark, but the tower and outer fence are visible from Lighthouse Avenue. The current light is a third-order Fresnel lens that continues to function as an active aid to navigation.",
+      "lat": 29.8767,
+      "lng": -81.2965,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Cross the Bridge of Lions to Anastasia Island and follow Lighthouse Avenue south to the lighthouse. It's approximately 1.2 miles from the bridge — walkable or driveable.",
+      "safety_warning": "The lighthouse grounds close at dusk. Observe the lighthouse from the public street. Do not attempt to enter a closed facility. If driving, parking is available on Lighthouse Avenue.",
+      "metadata_json": {
+        "key_facts": [
+          "First lighthouse at this location: 1673 watchtower on north tip of Anastasia Island",
+          "Current 162-foot lighthouse completed 1874; designed by Paul Pelz (later co-designed Library of Congress)",
+          "Mary and Eliza Pittee drowned 1873 when a dock cart fell into the Matanzas River — the most repeated ghost story here",
+          "The treacherous sandbar at the St. Augustine inlet has wrecked ships for centuries",
+          "Active aid to navigation with a third-order Fresnel lens",
+          "Restored by the Junior Service League beginning 1974; now the St. Augustine Lighthouse and Maritime Museum"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "How Tall Is the Tower?",
+          "prompt": "The current St. Augustine Lighthouse was completed in 1874. How tall is the lighthouse tower — making it one of the tallest structures in Florida when it was built?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Look at the tower from the street. The number is also on the historical marker near the entrance.",
+          "config": {
+            "options": [
+              "112 feet",
+              "162 feet",
+              "198 feet",
+              "213 feet"
+            ],
+            "correct_index": 1,
+            "explanation": "The St. Augustine Lighthouse stands 162 feet tall — making it the tallest structure in the area when it was completed in 1874. It was designed by Paul Pelz, who later co-designed the Library of Congress in Washington, D.C."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Watchman's Last Clue",
+          "prompt": "The watchman's final journal entry reads: 'The first of these towers was raised to guard the harbor in the year of Our Lord 1673. Tonight I write beside the one that replaced it, two centuries younger and one hundred sixty-two feet tall.' What year did the first lighthouse at this location appear?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The clue is in the journal entry — it says the current tower is 'two centuries younger.' The current tower was completed in 1874.",
+          "config": {
+            "options": [
+              "1621",
+              "1673",
+              "1737",
+              "1801"
+            ],
+            "correct_index": 1,
+            "explanation": "The first lighthouse at St. Augustine was built in 1673 — a watchtower on the north tip of Anastasia Island to monitor the harbor entrance. The current 162-foot lighthouse was built in 1874 to replace the deteriorating original structure."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Watchman Returns",
+          "prompt": "The watchman's journal ends here. Ask the guide what you should conclude from following the journal — what is the difference between the documented history of St. Augustine's spookiest sites and the ghost tour versions? And what does that tell you about how history becomes legend?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about one of the sites you visited tonight and how the documented history differs from the marketed ghost story.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Journal Completed",
+      "description": "You recovered all five of the watchman's journal pages and solved the Lost Lantern mystery.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Night Walker",
+      "description": "You followed the watchman's trail to three locations.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "History Over Legend",
+      "description": "You answered every challenge correctly — separating fact from fiction without a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

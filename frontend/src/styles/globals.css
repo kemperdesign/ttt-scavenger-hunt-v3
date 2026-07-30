@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --color-amber: #c9973a;
-  --color-amber-light: #e8b86d;
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-border: #334155;
-  --color-text: #f1f5f9;
-  --color-muted: #94a3b8;
+  --color-bg:      #EDE4D3;
+  --color-surface: #F4EEE1;
+  --color-border:  #E4D8C2;
+  --color-border2: #DCD0B8;
+  --color-text:    #241C14;
+  --color-body:    #5B5044;
+  --color-muted:   #8A7D6B;
+  --color-teal:    #1B4A4A;
+  --color-terra:   #C1531A;
+  --color-terra-tint: #FBEADF;
 }
 
 * {
@@ -21,9 +24,15 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-work-sans), system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 /* Minimum touch target size */
@@ -39,7 +48,66 @@ textarea {
 
 /* Focus ring */
 :focus-visible {
-  outline: 3px solid var(--color-amber);
+  outline: 3px solid var(--color-terra);
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* ── Global theme overrides: replace dark-slate classes with cream/teal/terra ── */
+
+/* Page backgrounds */
+.bg-slate-950, .bg-slate-900 { background-color: var(--color-bg) !important; }
+.bg-slate-800               { background-color: var(--color-surface) !important; }
+.bg-slate-700               { background-color: var(--color-cream-200, #EDE4D3) !important; }
+
+/* Borders */
+.border-slate-700, .border-slate-800 { border-color: var(--color-border) !important; }
+.border-slate-600                    { border-color: var(--color-border2) !important; }
+
+/* Text */
+.text-white  { color: var(--color-text) !important; }
+.text-slate-100, .text-slate-200, .text-slate-300 { color: var(--color-body) !important; }
+.text-slate-400, .text-slate-500, .text-slate-600 { color: var(--color-muted) !important; }
+
+/* Amber → terracotta */
+.text-amber-400, .text-amber-300, .text-amber-200, .text-amber-500 { color: var(--color-terra) !important; }
+.bg-amber-500   { background-color: var(--color-terra) !important; }
+.bg-amber-400   { background-color: #D96830 !important; }
+.hover\:bg-amber-400:hover { background-color: #D96830 !important; }
+
+/* Amber tinted backgrounds → terra tint */
+.bg-amber-900\/25, .bg-amber-900\/30, .bg-amber-900\/40, .bg-amber-900\/50 {
+  background-color: var(--color-terra-tint) !important;
+}
+.border-amber-800\/40, .border-amber-800\/50 { border-color: #C1531A44 !important; }
+.text-amber-100, .text-amber-700 { color: var(--color-terra) !important; }
+.text-amber-300\/70 { color: #C1531Abb !important; }
+
+/* Amber text on dark bg (like dark CTA text on amber button) */
+.text-slate-900 { color: #ffffff !important; }
+
+/* Hover states for cards */
+.hover\:bg-slate-700:hover { background-color: #EDE4D3 !important; }
+.hover\:bg-slate-600:hover { background-color: #E4D8C2 !important; }
+.hover\:border-amber-700:hover { border-color: var(--color-terra) !important; }
+
+/* Difficulty badges */
+.bg-amber-900\/50 { background-color: var(--color-terra-tint) !important; }
+.bg-green-900\/50 { background-color: #DFFAF0 !important; }
+.bg-red-900\/50   { background-color: #FFEDED !important; }
+.text-green-400   { color: #1A6B42 !important; }
+.text-red-400     { color: #8B1A1A !important; }
+
+/* Dividers */
+.bg-slate-800.h-px, .h-px.bg-slate-800 { background-color: var(--color-border) !important; }
+
+/* Input fields */
+input, textarea, select {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border2) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--color-muted) !important; }
+
+/* Time-of-day banner stays decorative */
+.tod-banner { opacity: 0.6; }

@@ -9,13 +9,17 @@ export function AppFooter() {
 
   return (
     <>
-      <footer className="py-4 px-4 border-t border-slate-800 text-center text-xs text-slate-500 space-y-2">
+      <footer
+        className="py-4 px-4 text-center text-xs space-y-2 border-t"
+        style={{ borderColor: "var(--color-border)", color: "var(--color-muted)" }}
+      >
         <nav aria-label="Footer navigation">
           <ul className="flex justify-center gap-4 flex-wrap">
             <li>
               <Link
                 href="/privacy"
-                className="hover:text-slate-300 focus-visible:outline-amber-500 min-h-[44px] inline-flex items-center"
+                className="hover:underline min-h-[44px] inline-flex items-center"
+                style={{ color: "var(--color-muted)" }}
               >
                 Privacy Policy
               </Link>
@@ -23,7 +27,8 @@ export function AppFooter() {
             <li>
               <Link
                 href="/terms"
-                className="hover:text-slate-300 focus-visible:outline-amber-500 min-h-[44px] inline-flex items-center"
+                className="hover:underline min-h-[44px] inline-flex items-center"
+                style={{ color: "var(--color-muted)" }}
               >
                 Terms of Service
               </Link>
@@ -31,7 +36,8 @@ export function AppFooter() {
             <li>
               <button
                 onClick={() => setShowA11y(true)}
-                className="hover:text-slate-300 focus-visible:outline-amber-500 min-h-[44px] inline-flex items-center"
+                className="hover:underline min-h-[44px] inline-flex items-center"
+                style={{ color: "var(--color-muted)" }}
                 aria-label="Accessibility settings"
               >
                 ♿ Accessibility

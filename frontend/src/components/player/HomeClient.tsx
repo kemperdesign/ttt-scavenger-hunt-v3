@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { HamburgerMenu } from "@/components/player/HamburgerMenu";
 
 type Adventure = {
   id: string;
@@ -77,19 +78,22 @@ export function HomeClient({ adventures }: { adventures: Adventure[] }) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30" />
         
         {/* Top Navbar */}
-        <div className="absolute top-0 left-0 right-0 p-4 pt-12 flex items-center gap-4 z-10">
+        <div className="absolute top-0 left-0 right-0 p-4 pt-12 flex items-center gap-3 z-10">
           <div className="flex-1 bg-white/20 backdrop-blur-md border border-white/40 rounded-xl px-4 py-2.5 flex items-center gap-2 shadow-sm text-white">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
             </svg>
             <span className="text-sm font-medium opacity-90">Find an adventure</span>
           </div>
-          <div className="flex items-center gap-1.5 text-white font-bold text-xl drop-shadow-md">
+          
+          <div className="flex items-center gap-1.5 text-white font-bold text-xl drop-shadow-md pr-1">
             <span>0</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="opacity-90 mt-0.5">
               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
             </svg>
           </div>
+
+          <HamburgerMenu />
         </div>
 
         {/* Hero Card */}

@@ -1,0 +1,260 @@
+{
+  "adventure": {
+    "title": "Craft Beer St. Augustine",
+    "description": "St. Augustine's craft beer scene is small but serious — local breweries tucked into historic buildings, taprooms pouring Florida-inspired ales, and bartenders who know their hops. This tour hits the best local breweries in the Ancient City.",
+    "short_description": "Tour the local craft breweries of America's oldest city.",
+    "category": "food_drink",
+    "difficulty": "easy",
+    "duration_minutes": 180,
+    "distance_km": 2.5,
+    "city": "St. Augustine",
+    "state": "FL",
+    "country": "US",
+    "is_published": true,
+    "is_featured": false,
+    "tags": ["beer", "craft brewery", "taproom", "21+", "food_drink"],
+    "cover_image_url": null
+  },
+  "stops": [
+    {
+      "title": "St. Augustine Brewing Company",
+      "description": "The flagship local craft brewery, founded in 1996 and one of Florida's oldest craft breweries. Their Ponte Vedra Pale Ale and Ancient City Red are St. Augustine staples. The taproom on Riberia Street is a laid-back spot with a full lineup of house-brewed beers.",
+      "order": 1,
+      "latitude": 29.8952,
+      "longitude": -81.3142,
+      "address": "1 King Street, St. Augustine, FL 32084",
+      "hint_text": "Head to Riberia Street near the historic district — look for the brewery sign.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "Founding Year",
+          "question": "St. Augustine Brewing Company is one of Florida's oldest craft breweries. Approximately when was it founded?",
+          "options": ["1982", "1996", "2005", "2012"],
+          "correct_index": 1,
+          "explanation": "Founded in 1996, St. Augustine Brewing Company helped pioneer the Florida craft beer movement long before the current boom."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "Flagship Beer",
+          "question": "Look at the tap list. What color is their flagship Red Ale named after? (Hint: it references the city's ancient identity.)",
+          "accepted_answers": ["ancient city red", "ancient city", "red", "ancient"],
+          "case_sensitive": false,
+          "explanation": "Ancient City Red is named for St. Augustine's identity as America's oldest city. It's a malt-forward red ale and one of the brewery's signature beers."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to the Colonial Shopkeeper",
+          "question": "The colonial shopkeeper has seen every trade come and go in this city. Ask them about the history of brewing and drinking in colonial St. Augustine.",
+          "character_id": "colonial_shopkeeper",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Bog Brewing Company",
+      "description": "Bog Brewing is a beloved local taproom known for its approachable, well-crafted ales and lagers. The name nods to Florida's wetlands and the brewers' commitment to local character. Small-batch and seasonal releases keep regulars coming back.",
+      "order": 2,
+      "latitude": 29.8927,
+      "longitude": -81.3125,
+      "address": "790 Anastasia Blvd, St. Augustine, FL 32080",
+      "hint_text": "Cross over to the island side — Anastasia Boulevard near the Bridge of Lions area.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "The Name",
+          "question": "What does the name 'Bog' reference in the Florida context?",
+          "options": ["A type of barrel fermentation", "Florida wetlands and natural landscapes", "The founder's last name", "A style of English pub"],
+          "correct_index": 1,
+          "explanation": "The name nods to Florida's bogs, marshes, and wetland ecosystems — a nod to the natural environment that surrounds the Ancient City."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "On Tap",
+          "question": "Check the chalkboard or tap list. How many beers are currently on tap? (Write the number.)",
+          "accepted_answers": ["4", "5", "6", "7", "8", "9", "10", "11", "12", "varies"],
+          "case_sensitive": false,
+          "explanation": "Small taprooms like Bog rotate their taps frequently — the exact count changes with the season and what the brewers are most excited about that week."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to the Colonial Shopkeeper",
+          "question": "Ask the shopkeeper about the role of local taverns and ale houses in colonial St. Augustine — were they social institutions or just places to drink?",
+          "character_id": "colonial_shopkeeper",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Old Coast Ales",
+      "description": "Old Coast Ales brings a nod to St. Augustine's maritime and Spanish colonial heritage into its beer names and label art. The taproom is a neighborhood favorite for locals who want something more intimate than a packed tourist bar.",
+      "order": 3,
+      "latitude": 29.8960,
+      "longitude": -81.3115,
+      "address": "118 Riberia Street, St. Augustine, FL 32084",
+      "hint_text": "Stay in the Riberia Street corridor — the taproom is in a converted historic building.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "Local Identity",
+          "question": "Old Coast Ales draws its brand identity from St. Augustine's past. Which era does the name most directly evoke?",
+          "options": ["The Gilded Age of Henry Flagler", "Spanish colonial and maritime heritage", "The Civil War era", "1920s Prohibition"],
+          "correct_index": 1,
+          "explanation": "The 'Old Coast' name evokes the Spanish colonial era and the ancient coastline that made St. Augustine a strategic port city for centuries."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "Style Spotting",
+          "question": "Look at the tap list or menu. Name one beer style you see that has a Spanish or colonial-sounding name.",
+          "accepted_answers": ["any", "varies", "any answer"],
+          "case_sensitive": false,
+          "explanation": "Old Coast rotates beers with names inspired by local history — from Spanish galleons to colonial trade routes. Whatever you found, it's a taste of the city's identity."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to Pedro Menendez",
+          "question": "Ask Don Pedro de Menéndez de Avilés what he thinks of people naming beers after his era — and whether Spanish sailors actually drank well at sea.",
+          "character_id": "pedro_menendez",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Ancient City Brewing",
+      "description": "Ancient City Brewing leans into the history of St. Augustine with beer names and artwork that celebrate the city's layered past. The taproom is an inviting space where flights are the move — try as many styles as you can.",
+      "order": 4,
+      "latitude": 29.8944,
+      "longitude": -81.3128,
+      "address": "40 Charlotte Street, St. Augustine, FL 32084",
+      "hint_text": "Walk toward Charlotte Street in the historic district center.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "Beer Flights",
+          "question": "A 'flight' at a brewery refers to what?",
+          "options": ["A beer aged in wine barrels", "A small sample of multiple beers served together", "A seasonal beer available only in winter", "A hop-forward IPA style"],
+          "correct_index": 1,
+          "explanation": "A flight is a set of small pours — usually 4 to 6 — that let you sample a range of styles side by side. It's the best way to explore a new taproom."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "Style of the Day",
+          "question": "Order a flight or look at the menu. What's one beer style you see that you've never tried before? (Or write your favorite if you know them all.)",
+          "accepted_answers": ["any", "varies", "any answer"],
+          "case_sensitive": false,
+          "explanation": "Craft beer styles range from crisp lagers to funky sours to thick stouts — the variety at a good taproom is part of the education."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to the Colonial Shopkeeper",
+          "question": "Ask the shopkeeper about the ancient city's relationship with trade — what goods moved through the port of St. Augustine, and was alcohol part of the colonial economy?",
+          "character_id": "colonial_shopkeeper",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Milltop Tavern — Final Pour",
+      "description": "End the craft beer tour at Milltop Tavern, a St. Augustine institution perched above the old mill site with a covered balcony overlooking the historic district. Live music most nights, a long beer list, and one of the best views in the city make this the perfect final stop.",
+      "order": 5,
+      "latitude": 29.8990,
+      "longitude": -81.3134,
+      "address": "19½ St. George Street, St. Augustine, FL 32084",
+      "hint_text": "Head to the upper end of St. George Street — look for the stairs up to the balcony overlooking the street.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "What's a Tavern?",
+          "question": "Milltop calls itself a tavern rather than a bar or pub. Historically, what made a tavern different from other drinking establishments?",
+          "options": ["Taverns only served wine", "Taverns provided food, lodging, and drink — a full hospitality operation", "Taverns were exclusively for military officers", "Taverns were licensed to sell spirits but not beer"],
+          "correct_index": 1,
+          "explanation": "A tavern historically served as a full hospitality stop — food, drink, and sometimes a room for the night. In colonial America, taverns were community hubs where news, politics, and business all intersected."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 200,
+          "title": "Best of the Tour",
+          "question": "You've hit the local craft breweries of St. Augustine. Which stop was your favorite and why? (Write anything — this is a reflection question.)",
+          "accepted_answers": ["any", "varies", "any answer"],
+          "case_sensitive": false,
+          "explanation": "St. Augustine's craft beer scene is small but genuine — local brewers making beers that reflect the place. Every taproom has a different vibe and a different take on what Florida beer should taste like."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to the Colonial Shopkeeper",
+          "question": "Ask the colonial shopkeeper what this street corner looked like 300 years ago — and whether they think the modern tavern is a worthy heir to the ancient tradition.",
+          "character_id": "colonial_shopkeeper",
+          "min_exchanges": 3
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Hop Head",
+      "description": "You visited every craft brewery on the tour without missing a tap.",
+      "criteria": "complete_all_stops",
+      "criteria_data": {}
+    },
+    {
+      "title": "Flight Club",
+      "description": "You sampled your way through St. Augustine's local brewing scene.",
+      "criteria": "complete_percentage",
+      "criteria_data": { "percentage": 60 }
+    },
+    {
+      "title": "Ancient City Ale",
+      "description": "You raised a glass in America's oldest city. The Spanish colonists would have approved.",
+      "criteria": "complete_percentage",
+      "criteria_data": { "percentage": 40 }
+    }
+  ]
+}

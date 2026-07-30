@@ -1,0 +1,260 @@
+{
+  "adventure": {
+    "title": "Cigars & Bourbon in the Ancient City",
+    "description": "St. Augustine has a refined side — upscale hotel bars pouring deep whiskey lists, a world-class distillery producing American single malts, and cigar lounges where time slows down. This tour is for the bourbon lover, the cigar enthusiast, and anyone who enjoys the finer things at a leisurely pace.",
+    "short_description": "Bourbon bars, a world-class distillery, and cigar lounges in historic St. Augustine.",
+    "category": "food_drink",
+    "difficulty": "easy",
+    "duration_minutes": 180,
+    "distance_km": 1.8,
+    "city": "St. Augustine",
+    "state": "FL",
+    "country": "US",
+    "is_published": true,
+    "is_featured": false,
+    "tags": ["bourbon", "whiskey", "cigars", "21+", "upscale", "food_drink"],
+    "cover_image_url": null
+  },
+  "stops": [
+    {
+      "title": "St. Augustine Distillery",
+      "description": "The St. Augustine Distillery operates out of the fully restored 1908 Florida Ice & Farm Company building — one of the most architecturally significant historic buildings in the city. Their New World Florida Straight Bourbon Whiskey is made with local grains and aged in the subtropical Florida heat, which accelerates maturation. The free tour explains every step of the distilling process.",
+      "order": 1,
+      "latitude": 29.8967,
+      "longitude": -81.3148,
+      "address": "112 Riberia Street, St. Augustine, FL 32084",
+      "hint_text": "Head to Riberia Street — the distillery is inside a beautifully restored 1908 building near the historic district core.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "Florida Aging",
+          "question": "Why does bourbon age faster in Florida than in Kentucky?",
+          "options": ["Florida uses smaller barrels", "The subtropical heat causes faster expansion and contraction of the wood, accelerating flavor extraction", "Florida distillers add sugar to speed up the process", "The humidity prevents the 'angel's share' evaporation"],
+          "correct_index": 1,
+          "explanation": "Florida's extreme heat causes the whiskey to push deeper into the charred oak barrel and pull back more times per year than in cooler climates — extracting more color, flavor, and complexity faster. What takes 4–5 years in Kentucky might take 2–3 in Florida."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "The Building",
+          "question": "The distillery operates in a restored historic building. What was this building originally used for?",
+          "accepted_answers": ["ice", "ice plant", "ice factory", "florida ice", "florida ice and farm", "ice company", "ice farm"],
+          "case_sensitive": false,
+          "explanation": "The 1908 Florida Ice & Farm Company building was an ice manufacturing plant — a critical piece of infrastructure in pre-refrigeration Florida. The St. Augustine Distillery restored it into one of the most striking craft distilleries in the South."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to Henry Flagler",
+          "question": "Ask Henry Flagler about the role of ice in Florida's development — in the 1880s and 90s, ice was a luxury that transformed how Floridians ate, drank, and entertained. What does he think of this building's transformation?",
+          "character_id": "henry_flagler",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Casa Monica Hotel — Cobalt Lounge",
+      "description": "The Casa Monica Hotel was built in 1888 by Franklin Smith and purchased by Henry Flagler the same year. Its Moorish Revival architecture — with horseshoe arches, turrets, and ornate tilework — makes it one of the most striking hotel interiors in Florida. The Cobalt Lounge inside offers an extensive bourbon and whiskey list in a setting that would have impressed Flagler's most affluent guests.",
+      "order": 2,
+      "latitude": 29.8975,
+      "longitude": -81.3142,
+      "address": "95 Cordova Street, St. Augustine, FL 32084",
+      "hint_text": "The Casa Monica Hotel is on Cordova Street, one block from the Lightner Museum. Look for the Moorish towers.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "The Builder",
+          "question": "The Casa Monica was originally built in 1888 by Franklin Smith, then immediately purchased by Henry Flagler. What was Flagler's likely motive?",
+          "options": ["He disliked Smith's architecture and wanted to control it", "He wanted to control the quality of accommodations near his Ponce de Leon Hotel", "He needed a backup hotel when the Ponce was full", "He planned to demolish it and build something larger"],
+          "correct_index": 1,
+          "explanation": "Flagler was obsessive about the visitor experience in St. Augustine. He purchased the Hotel Cordova (now Casa Monica) to ensure that every major accommodation near his flagship Ponce de Leon Hotel met his standards — protecting the brand he was building for the entire city."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "Architectural Style",
+          "question": "What architectural style is the Casa Monica Hotel built in?",
+          "accepted_answers": ["moorish", "moorish revival", "moorish revivalist", "spanish moorish", "moorish renaissance", "spanish renaissance moorish"],
+          "case_sensitive": false,
+          "explanation": "The Casa Monica is Moorish Revival — an architectural style inspired by the Islamic architecture of medieval Spain, particularly the Alhambra palace in Granada. Franklin Smith was obsessed with this style and designed several Moorish Revival buildings in the United States."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to Henry Flagler",
+          "question": "Ask Henry Flagler what it was like to build a luxury empire in a sleepy Florida village — and whether he thought the Casa Monica hotel lived up to his standards.",
+          "character_id": "henry_flagler",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Preserved Restaurant & Bar",
+      "description": "Preserved is named for St. Augustine's role as the oldest preserved city in the United States. The bar program is one of the most sophisticated in town — carefully sourced spirits, house-made syrups, and a whiskey list that rewards exploration. It has a speakeasy-adjacent feel: low light, good ice, and bartenders who take their craft seriously.",
+      "order": 3,
+      "latitude": 29.8962,
+      "longitude": -81.3132,
+      "address": "102 Bridge Street, St. Augustine, FL 32084",
+      "hint_text": "Walk toward the waterfront — Preserved is near the bay on Bridge Street.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "What Is Bourbon?",
+          "question": "For a whiskey to legally be called Bourbon in the United States, it must be made from a grain mash that is at least what percentage corn?",
+          "options": ["25%", "51%", "75%", "100%"],
+          "correct_index": 1,
+          "explanation": "By law, bourbon must be made from a mash of at least 51% corn, distilled to no more than 160 proof, aged in new charred oak barrels, and bottled at no less than 80 proof. These regulations make bourbon a distinctly American product."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "The Name",
+          "question": "What does the name 'Preserved' refer to in the context of St. Augustine?",
+          "accepted_answers": ["oldest city", "preserved city", "historic preservation", "america's oldest city", "oldest preserved city", "history", "preservation", "preserved history"],
+          "case_sensitive": false,
+          "explanation": "St. Augustine is the oldest continuously occupied European-established settlement in the continental United States — and the name 'Preserved' is a tribute to the city's historic preservation, both of its buildings and its identity."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to the Victorian Tourist",
+          "question": "Ask the Victorian-era tourist about drinking culture in the 1880s and 90s — what spirits were fashionable, what was considered proper or improper, and what they make of today's cocktail scene.",
+          "character_id": "victorian_tourist",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "St. Augustine Cigar Company",
+      "description": "A cigar lounge is one of the oldest hospitality traditions in Florida, and St. Augustine's cigar scene reflects the state's long connection to Cuban tobacco culture. The St. Augustine Cigar Company offers hand-rolled cigars, a walk-in humidor, and a comfortable lounge where you can pair a proper smoke with your bourbon of choice.",
+      "order": 4,
+      "latitude": 29.8958,
+      "longitude": -81.3120,
+      "address": "St. Augustine, FL 32084",
+      "hint_text": "Look for a cigar shop in the historic district — ask a local or check the hotel concierge if you need directions.",
+      "location_radius_meters": 120,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "Florida and Tobacco",
+          "question": "Florida has a deep historic connection to cigar manufacturing. Which Florida city was once called the 'Cigar Capital of the World'?",
+          "options": ["Miami", "Jacksonville", "Tampa (Ybor City)", "Key West"],
+          "correct_index": 2,
+          "explanation": "Tampa's Ybor City district was home to hundreds of cigar factories in the late 1800s and early 1900s, producing tens of millions of hand-rolled cigars per year. Cuban immigrants brought their tobacco expertise to Florida, transforming it into a global center of premium cigar production."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 150,
+          "title": "The Vitola",
+          "question": "What is the term for the shape and size of a cigar?",
+          "accepted_answers": ["vitola", "size", "format", "shape", "ring gauge", "gauge"],
+          "case_sensitive": false,
+          "explanation": "A vitola refers to the specific shape and size of a cigar — length, ring gauge (diameter), and shape (parejo for straight-sided, figurado for tapered). Common vitolas include the Corona, Robusto, Churchill, and Torpedo."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to the Victorian Tourist",
+          "question": "Ask the Victorian tourist about the social rituals of cigar smoking in their era — who smoked, when, and what it meant socially.",
+          "character_id": "victorian_tourist",
+          "min_exchanges": 3
+        }
+      ]
+    },
+    {
+      "title": "Ice Plant Bar — Final Nightcap",
+      "description": "The Ice Plant Bar occupies the second floor of the historic 1927 ice plant building on King Street. The exposed machinery, corrugated metal, and industrial aesthetic make it one of the most visually distinctive bars in Florida. Their cocktail program is serious, and the whiskey selection — especially American single malts and rye — is extensive enough to make this the ideal last stop on a bourbon and cigar tour.",
+      "order": 5,
+      "latitude": 29.8958,
+      "longitude": -81.3148,
+      "address": "110 Riberia Street, St. Augustine, FL 32084",
+      "hint_text": "Return toward Riberia Street — the Ice Plant is in the 1927 industrial building with the old machinery still on display.",
+      "location_radius_meters": 80,
+      "challenges": [
+        {
+          "type": "multiple_choice",
+          "order": 1,
+          "is_required": true,
+          "points": 100,
+          "title": "The Building",
+          "question": "The Ice Plant Bar is housed in a 1927 building that once manufactured ice. Why was ice manufacturing so important in 1920s Florida?",
+          "options": ["Ice was exported to Europe as a luxury product", "Ice was essential for food preservation and cooling before mechanical refrigeration was widespread", "Ice was used in early air conditioning systems for tourist hotels", "Ice was required by law in all public establishments"],
+          "correct_index": 1,
+          "explanation": "Before household refrigerators became common in the 1930s and 40s, ice plants were critical infrastructure. Ice kept food safe, made hospitals functional, and allowed hotels to serve cold drinks — an enormous advantage in Florida's brutal summers."
+        },
+        {
+          "type": "text_answer",
+          "order": 2,
+          "is_required": true,
+          "points": 200,
+          "title": "Reflection",
+          "question": "You've toured bourbon bars, a distillery, and a cigar lounge in one of America's oldest cities. What surprised you most about this tour? (Write anything.)",
+          "accepted_answers": ["any", "varies", "any answer"],
+          "case_sensitive": false,
+          "explanation": "The intersection of history and hospitality in St. Augustine is unusually rich — places that have been serving travelers for centuries, now serving craft cocktails in restored historic buildings."
+        },
+        {
+          "type": "ai_conversation",
+          "order": 3,
+          "is_required": false,
+          "points": 75,
+          "title": "Talk to Henry Flagler",
+          "question": "Ask Henry Flagler what he imagined St. Augustine becoming — and whether he thinks the city has lived up to his vision after more than a century.",
+          "character_id": "henry_flagler",
+          "min_exchanges": 3
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Bourbon & Smoke",
+      "description": "You completed the full cigar and bourbon tour of the Ancient City.",
+      "criteria": "complete_all_stops",
+      "criteria_data": {}
+    },
+    {
+      "title": "Single Malt Scholar",
+      "description": "You explored three or more stops and learned the language of whiskey.",
+      "criteria": "complete_percentage",
+      "criteria_data": { "percentage": 60 }
+    },
+    {
+      "title": "First Pour",
+      "description": "You started the journey into St. Augustine's refined drinking culture.",
+      "criteria": "complete_percentage",
+      "criteria_data": { "percentage": 40 }
+    }
+  ]
+}

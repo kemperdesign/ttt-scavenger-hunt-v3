@@ -11,7 +11,7 @@
  * are retried when connectivity is restored.
  */
 
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const STATIC_CACHE = `tq-static-${CACHE_VERSION}`;
 const TILE_CACHE = `tq-tiles-${CACHE_VERSION}`;
 const API_CACHE = `tq-api-${CACHE_VERSION}`;

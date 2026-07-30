@@ -30,7 +30,7 @@ from app.db.session import get_db
 from app.models.session import GameSession
 from app.models.adventure import Adventure
 from app.models.user import User
-from app.auth.deps import get_current_user
+from app.auth.deps import get_current_user, get_optional_user
 from app.core.config import settings
 
 router = APIRouter()
@@ -239,22 +239,18 @@ class CorporateActivateRequest(BaseModel):
 async def corporate_activate(
     body: CorporateActivateRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
     """
-    Activate a session using a pre-issued corporate code.
-    Corporate codes live in settings as a comma-separated list
-    (CORPORATE_CODES=abc123,xyz789). Admin creates them manually.
+    Activate a session using a pre-issued corporate or promo code.
+    No auth required — the session_id is the secret.
+    Codes live in CORPORATE_CODES env var as a comma-separated list.
     """
     valid_codes = [c.strip() for c in settings.CORPORATE_CODES.split(",") if c.strip()]
     if body.corporate_code not in valid_codes:
         raise HTTPException(status_code=403, detail="Invalid corporate code")
 
     sess_result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == uuid.UUID(body.session_id),
-            GameSession.user_id == current_user.id,
-        )
+        select(GameSession).where(GameSession.id == uuid.UUID(body.session_id))
     )
     session = sess_result.scalar_one_or_none()
     if not session:

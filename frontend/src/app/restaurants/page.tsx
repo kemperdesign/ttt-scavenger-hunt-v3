@@ -3,6 +3,8 @@ import Link from "next/link";
 
 export const runtime = "edge";
 
+export const runtime = "edge";
+
 const RESTAURANTS = [
   // Fine dining / upscale
   {

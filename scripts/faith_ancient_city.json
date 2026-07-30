@@ -1,0 +1,389 @@
+{
+  "adventure": {
+    "title": "Faith and the Ancient City",
+    "slug": "faith-ancient-city",
+    "description": "St. Augustine's churches span six centuries and six denominations — from the 1565 founding mission on the Matanzas shoreline to the Memorial Presbyterian Church Henry Flagler built as a monument to his daughter. This tour visits the city's most significant houses of worship: Catholic, Methodist, Episcopal, Baptist, and Presbyterian. Together they tell the story of religion in a city that has been Catholic, Protestant, and everything in between — where a founding bishop and a Gilded Age industrialist both built magnificent churches, and where a small Baptist congregation became a headquarters of the civil rights movement.",
+    "short_description": "Visit six centuries of faith across St. Augustine's most historic churches.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 90,
+    "start_lat": 29.9025,
+    "start_lng": -81.3142,
+    "total_points": 600,
+    "tags": ["churches", "religion", "history", "architecture", "walking", "spiritual"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "Mission Nombre de Dios — Where It Began",
+      "description": "On September 8, 1565 — the Feast of the Birth of the Virgin Mary — Pedro Menéndez de Avilés landed on the shore of the Matanzas River with 800 settlers and soldiers. A cross was planted, a Mass was celebrated, and the first permanent European settlement in what would become the United States was founded. The small Shrine of Our Lady of La Leche and the towering steel cross that marks the landing site today stand on the exact ground where that first Mass was said. This is the birthplace of Christianity in the continental United States.",
+      "historical_content": "The Mission Nombre de Dios (Name of God) was established at the landing site in 1565. It is the oldest continuously documented mission in the United States.\n\nThe Franciscan friars who staffed the mission beginning in the 1570s were among the most significant forces in Spanish Florida — not just for religious conversion, but as the primary points of contact between the Spanish colonial government and the indigenous Timucua and Apalachee peoples.\n\nThe mission system extended throughout Spanish Florida by the mid-17th century, with dozens of missions serving indigenous communities from the Atlantic coast to the Apalachicola River. At its peak, the Florida mission system had converted an estimated 26,000 indigenous people.\n\nThe destruction of the mission system — by the Creek confederacy and their English allies from the Carolinas in the raids of 1702-1704 — was one of the most devastating events in Spanish Florida's history. Most of the missions were burned, and most of the Apalachee converts were killed or enslaved.\n\nThe current shrine and grounds are operated by the Diocese of St. Augustine. The Great Cross — a 208-foot stainless steel structure — was erected in 1966 to mark the 400th anniversary of the landing.\n\nThe small Prince of Peace Chapel (Shrine of Our Lady of La Leche) is a reconstruction of the earliest permanent shrine in the United States, built on the site of the original.",
+      "lat": 29.9025,
+      "lng": -81.3142,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "Mission Nombre de Dios is on Old Mission Avenue, north of the historic district — look for the towering stainless steel Great Cross visible from across the bayfront.",
+      "safety_warning": "This is an active Catholic shrine. Please dress respectfully and observe quiet near the chapel during services.",
+      "metadata_json": {
+        "denomination": "Roman Catholic",
+        "founded": "1565",
+        "key_facts": [
+          "Landing site of Pedro Menéndez de Avilés, September 8, 1565",
+          "First Mass celebrated in the continental United States",
+          "Oldest continuously documented Christian mission in the United States",
+          "Franciscan friars converted an estimated 26,000 indigenous people across the Florida mission system",
+          "Mission system destroyed by Creek/English raids 1702-1704",
+          "The Great Cross (208 feet, stainless steel) erected 1966 for 400th anniversary"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The First Mass",
+          "prompt": "Pedro Menéndez de Avilés landed on this shore on September 8, 1565 and immediately celebrated a Mass — establishing both a settlement and a mission on the same day. What Catholic feast day was September 8, which made this date significant to Menéndez?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The date was not chosen at random — Menéndez was a deeply religious man who named the settlement for the feast day on which he first sighted the coast.",
+          "config": {
+            "options": [
+              "The Feast of St. Augustine of Hippo",
+              "The Feast of the Birth of the Virgin Mary (Nativity of Mary)",
+              "The Feast of St. Francis of Assisi",
+              "The Feast of Corpus Christi"
+            ],
+            "correct_index": 1,
+            "explanation": "September 8 is the Feast of the Nativity of the Virgin Mary (Birth of the Virgin Mary) in the Catholic liturgical calendar. Menéndez first sighted land on August 28 — the Feast of St. Augustine — and named the city for that saint. He landed and celebrated the first Mass on September 8, dedicating the mission to Our Lady (the Virgin Mary). The shrine of Our Lady of La Leche (Our Lady of the Milk) on this site reflects this Marian dedication."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Great Cross",
+          "prompt": "The towering stainless steel cross at Mission Nombre de Dios was erected in 1966 to mark a specific anniversary. How tall is the Great Cross, and what anniversary did it commemorate?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "1966 was exactly 400 years after the 1565 founding. The cross's height was chosen to be visible from across the harbor.",
+          "config": {
+            "accepted_answers": ["208 feet 400th anniversary", "208 400", "two hundred eight feet four hundredth", "208 ft 400 years", "400th anniversary 208"],
+            "case_sensitive": false,
+            "explanation": "The Great Cross is 208 feet tall and was erected in 1966 to mark the 400th anniversary of the founding of St. Augustine in 1565. Made of stainless steel, it is visible from across Matanzas Bay and from much of the downtown historic district. It remains one of the largest crosses in the United States."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The First Day",
+          "prompt": "Ask Pedro Menéndez about September 8, 1565 — what the landing felt like after months at sea, what he saw when he came ashore, and what his intentions were for this mission and settlement.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Menéndez about the indigenous Timucua people who were already living on this shore, or about the religious purpose he saw in founding the settlement.",
+          "config": {
+            "character_id": "pedro_menendez",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cathedral Basilica — America's Oldest Catholic Parish",
+      "description": "The Cathedral Basilica of St. Augustine, on the north side of the Plaza de la Constitución, stands on the site of the first parish established in the United States — parish records here date to 1594. The current building dates primarily from 1797, making it the oldest Catholic church structure in the country. Its bell tower, added in 1887, holds the oldest bells in the United States. The Cathedral survived British occupation, two major fires, and 450 years of Florida weather. It is the mother church of the Diocese of St. Augustine — and the most historically significant Catholic building in America.",
+      "historical_content": "The Parish of St. Augustine was established at this location by 1594 — making it the oldest Catholic parish in the continental United States. Parish records dating to that year survive and are preserved in the Diocesan archives.\n\nThe current building was constructed in 1793-1797 under Spanish Governor Juan Nepomuceno de Quesada, following a fire that destroyed the previous church in 1793. The architectural style is Spanish colonial — simple exterior, thick coquina walls, minimal ornamentation — reflecting the pragmatic building tradition of the Spanish colonial period.\n\nThe Cathedral was damaged by fire again in 1887. During the reconstruction, the bell tower was added (1887-1888) and new bells were installed — the oldest bells in the United States, cast in Spain and brought to St. Augustine.\n\nThe interior contains significant artistic elements:\n- The apse murals (painted during the 1887-1888 restoration) depict scenes from the life of St. Augustine of Hippo\n- The carved wooden altar reredos\n- Stained glass windows installed in various periods\n\nPope John Paul II designated the Cathedral a Minor Basilica in 1976, recognizing its historical significance. The designation 'Basilica' is an honorary title given by the Pope to churches of particular historical, liturgical, or architectural importance.\n\nThe Cathedral is an active parish of the Diocese of St. Augustine, which was established in 1870 as the first Catholic diocese in Florida.",
+      "lat": 29.8966,
+      "lng": -81.3139,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "The Cathedral Basilica is on the north side of the Plaza de la Constitución — the large church facing the central square, with the distinctive bell tower.",
+      "safety_warning": "This is an active parish church. Please dress respectfully and observe quiet during Mass. Check the posted schedule for Mass times.",
+      "metadata_json": {
+        "denomination": "Roman Catholic",
+        "parish_records_from": "1594",
+        "current_building": "1793-1797",
+        "key_facts": [
+          "Oldest Catholic parish in the continental United States — records from 1594",
+          "Current building 1793-1797 — oldest Catholic church structure in the country",
+          "Bell tower added 1887 — holds the oldest bells in the United States",
+          "Designated Minor Basilica by Pope John Paul II in 1976",
+          "Survived British occupation, two major fires, and 450 years of Florida weather",
+          "Mother church of the Diocese of St. Augustine (established 1870)"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Minor Basilica",
+          "prompt": "Pope John Paul II designated the Cathedral of St. Augustine a 'Minor Basilica' in 1976. What does this designation mean?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "A 'basilica' in architecture is a specific building type, but in Catholic usage the title 'basilica' is an honorary designation given by the Pope.",
+          "config": {
+            "options": [
+              "It means the building is smaller than a Major Basilica but larger than a standard cathedral",
+              "It is an honorary title granted by the Pope to churches of particular historical, liturgical, or architectural significance",
+              "It means the church has been granted permission to celebrate the full range of Catholic sacraments",
+              "It designates the church as the seat of a bishop — equivalent to 'cathedral' in other denominations"
+            ],
+            "correct_index": 1,
+            "explanation": "In Catholic usage, 'basilica' is an honorary title granted by the Pope to churches of particular historical, liturgical, or architectural significance — distinct from the architectural term 'basilica' (a rectangular building plan). There are four Major Basilicas in Rome and approximately 1,800 Minor Basilicas worldwide. The Cathedral of St. Augustine received this designation in 1976, recognizing its status as the oldest Catholic parish in the continental United States."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Parish Records",
+          "prompt": "The Cathedral Basilica's claim as the oldest Catholic parish in the continental United States rests on surviving parish records. From what year do the oldest surviving parish records at St. Augustine date?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The parish was established before 1600 — just a few decades after the city's founding in 1565.",
+          "config": {
+            "accepted_answers": ["1594", "fifteen ninety four"],
+            "case_sensitive": false,
+            "explanation": "The oldest surviving parish records at the Cathedral Basilica of St. Augustine date to 1594 — 29 years after the city's founding. These records of baptisms, marriages, and deaths make this the oldest continuously documented Catholic parish in the continental United States. The records are preserved in the Diocese of St. Augustine archives and have been microfilmed for preservation."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Church Through the Ages",
+          "prompt": "Ask the guide about how the Cathedral changed during the British Colonial period (1763-1783) — when St. Augustine was Anglican — and what happened to the Catholic parish during those 20 years.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Catholics who left St. Augustine when the British took over in 1763, or about the transition back to Catholic worship when Spain regained Florida in 1783.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Grace United Methodist — Florida's Oldest Protestant Congregation",
+      "description": "Grace United Methodist Church, on Cordova Street, is the home of the oldest Protestant congregation in Florida — established in 1830, just nine years after Florida became a U.S. territory. The current sanctuary (1887) is a Victorian Gothic structure in brick and stone, in striking contrast to the coquina and Spanish Revival buildings that surround it. Grace Methodist's history spans the antebellum period, the Civil War, Reconstruction, and the civil rights era — the full arc of American history since Florida entered the Union.",
+      "historical_content": "The Methodist congregation in St. Augustine was established in 1830 by circuit rider Joshua N. Glenn — one of the traveling Methodist preachers who evangelized the early American frontier. Methodism was the fastest-growing Protestant denomination in early 19th-century America, particularly on the frontier.\n\nThe congregation worshipped in various locations through the antebellum period. The current building at Cordova Street was constructed in 1887 — the same year the Flagler-era building boom was transforming St. Augustine. The Victorian Gothic style — pointed arches, stained glass windows, brick construction — was the dominant style for Protestant churches in the late 19th century.\n\nThe congregation navigated the complex social history of St. Augustine:\n- **Antebellum period**: the congregation included enslaved and free Black members who worshipped in segregated sections\n- **Civil War**: Union occupation of St. Augustine (1862-1865) brought Northern Methodist missionaries who established separate Black congregations\n- **Reconstruction**: the congregation split along racial lines, as Black members founded independent churches in Lincolnville\n- **Jim Crow era**: the congregation remained white under the segregated social structure of the city\n- **Civil rights era**: the 1964 demonstrations included protests at downtown churches including Methodist congregations\n\nGrace United Methodist is now a diverse congregation within the United Methodist Church.",
+      "lat": 29.8956,
+      "lng": -81.3148,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "Grace United Methodist Church is on Cordova Street in the historic district — the Victorian Gothic brick church near the Flagler College area.",
+      "safety_warning": "This is an active church. Please respect services and community events.",
+      "metadata_json": {
+        "denomination": "United Methodist",
+        "founded": "1830",
+        "current_building": "1887",
+        "key_facts": [
+          "Oldest Protestant congregation in Florida — established 1830",
+          "Founded by circuit rider Joshua N. Glenn, nine years after Florida became U.S. territory",
+          "Current Victorian Gothic sanctuary built 1887",
+          "Congregation navigated antebellum slavery, Civil War, Reconstruction, and Jim Crow",
+          "Methodism was the fastest-growing Protestant denomination on the early American frontier"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Circuit Riders",
+          "prompt": "Grace Methodist was established in 1830 by a 'circuit rider' — one of the traveling Methodist preachers who evangelized early America. What was a circuit rider?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about the early American frontier, where settlements were small and scattered. A church that stayed in one place couldn't reach everyone.",
+          "config": {
+            "options": [
+              "A Methodist preacher who traveled by horseback on a regular route through scattered frontier settlements, preaching wherever people gathered",
+              "A Methodist official who supervised a 'circuit' of established churches within a city",
+              "A racetrack chaplain who provided spiritual services to horse racing communities",
+              "A traveling salesman who sold circuit boards for early telegraph systems while preaching on the side"
+            ],
+            "correct_index": 0,
+            "explanation": "Circuit riders were itinerant Methodist preachers who traveled on horseback through a regular 'circuit' of frontier settlements — preaching in homes, barns, and clearings wherever people could gather. Because settlements were too small and scattered to support a full-time resident preacher, circuit riders brought the church to the people. They were central to Methodism's explosive growth in early 19th-century America and to the evangelization of the frontier, including early Florida."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Victorian Gothic Churches",
+          "prompt": "Grace Methodist's 1887 sanctuary uses the Victorian Gothic style — pointed arches, stained glass, brick construction. Why was Gothic Revival the dominant style for Protestant churches in the late 19th century?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Gothic architecture was originally associated with medieval Catholic cathedrals. Protestant denominations reclaimed it in the Victorian era for specific reasons.",
+          "config": {
+            "options": [
+              "The Gothic style was cheaper to build than classical alternatives because pointed arches require less stone",
+              "Victorian Protestants associated Gothic architecture with the pre-Reformation English church — representing an idealized Christian past that transcended denominational divisions",
+              "Gothic Revival was required by law for all religious buildings in Florida after 1880",
+              "The pointed arches and vertical emphasis of Gothic were believed to literally direct worshippers' attention upward toward God"
+            ],
+            "correct_index": 1,
+            "explanation": "Victorian Protestants embraced Gothic Revival architecture partly because they associated it with the pre-Reformation English church — a specifically English Christian tradition that preceded the Catholic/Protestant split. Writers like John Ruskin and architects like Augustus Pugin argued that Gothic architecture embodied Christian values in its very structure. The pointed arch, the soaring nave, and the stained glass light became the visual vocabulary of Protestant seriousness in the Victorian era."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Methodist Frontier",
+          "prompt": "Ask the Victorian tourist guide about what religious life looked like in early territorial Florida (1821-1840) — how a new American community organized its churches, and what role religion played in the daily life of a frontier settlement.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the relationship between Methodism and the temperance movement, or about how the Methodist congregation coexisted with the much older Catholic community in St. Augustine.",
+          "config": {
+            "character_id": "victorian_tourist",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Memorial Presbyterian — Flagler's Church, His Daughter's Memorial",
+      "description": "Memorial Presbyterian Church, on Sevilla Street just south of Flagler College, was built by Henry Flagler in 1889-1890 as both a house of worship and a memorial to his daughter Jennie Louise Benedict, who died in 1889 at age 34, shortly after giving birth to her second child. Flagler buried Jennie Louise in the church's mausoleum, then added his own resting place — and eventually his third wife's. The church is Venetian Renaissance Revival — a departure from the Spanish style of the hotels — and is considered one of the finest examples of the style in the United States.",
+      "historical_content": "Henry Flagler's relationship with Memorial Presbyterian is deeply personal, unlike his hotels which were business ventures. His daughter Jennie Louise Benedict died on March 25, 1889, of complications following childbirth. Flagler, who was deeply religious despite his ruthless business reputation, commissioned the church immediately.\n\nThe architectural firm was Carrère & Hastings — the same architects as the hotels — but Flagler specified Venetian Renaissance Revival, not Spanish. The style draws on the Renaissance churches of Venice: terracotta domes, arched windows, rich material surfaces, and a sense of refined elegance rather than dramatic scale.\n\nThe church was completed in 1890. Key features:\n- The copper dome, modeled on St. Mark's Basilica in Venice\n- The Tiffany stained glass windows (Louis Comfort Tiffany, as in the Ponce de León)\n- The Memoria in Aeterna mausoleum, where Flagler, his daughter Jennie Louise, and his third wife Mary Lily Kenan Flagler are entombed\n- The Kenan Memorial Carillon, added in 1924 by Mary Lily's family\n\nFlagler himself is buried in the Memoria in Aeterna mausoleum beneath the church's chancel. He died in 1913 after falling down the marble stairs at Whitehall (his Palm Beach mansion) and breaking his hip.\n\nThe church is still an active Presbyterian congregation. The mausoleum is open to visitors during certain hours.",
+      "lat": 29.8898,
+      "lng": -81.3133,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Memorial Presbyterian Church is on Sevilla Street, half a block south of Flagler College — look for the copper dome and Venetian Renaissance facade.",
+      "safety_warning": "Active Presbyterian congregation. The mausoleum is open to visitors during posted hours — please check the church schedule.",
+      "metadata_json": {
+        "denomination": "Presbyterian",
+        "built": "1889-1890",
+        "architect": "Carrère & Hastings",
+        "style": "Venetian Renaissance Revival",
+        "key_facts": [
+          "Built by Henry Flagler 1889-1890 as a memorial to his daughter Jennie Louise Benedict",
+          "Jennie Louise died March 25, 1889, from childbirth complications at age 34",
+          "Venetian Renaissance Revival style — copper dome modeled on St. Mark's Basilica",
+          "Tiffany stained glass windows",
+          "Memoria in Aeterna mausoleum contains Flagler, his daughter, and his third wife Mary Lily",
+          "Flagler died 1913 — is buried here"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "A Father's Memorial",
+          "prompt": "Henry Flagler built Memorial Presbyterian Church in 1889-1890, but the motivation was deeply personal, not just civic. What event prompted Flagler to commission this church?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The church's name includes the word 'Memorial' — it was built to memorialize a specific person who died in 1889.",
+          "config": {
+            "options": [
+              "Flagler built the church to fulfill a vow he made during a near-fatal illness in 1888",
+              "Flagler's daughter Jennie Louise Benedict died in 1889 at age 34 from complications after childbirth — the church was built as her memorial",
+              "Flagler built the church to attract Presbyterian tourists from the Northeast who had no church in St. Augustine",
+              "The church was built to memorialize Flagler's first wife, Mary Harkness, who had died in 1881"
+            ],
+            "correct_index": 1,
+            "explanation": "Jennie Louise Benedict, Flagler's daughter from his first marriage, died on March 25, 1889, at age 34, from complications following the birth of her second child. Flagler commissioned Memorial Presbyterian Church immediately — building it as both a house of worship and a memorial to Jennie Louise. She is entombed in the Memoria in Aeterna mausoleum beneath the church's chancel, alongside Flagler himself (died 1913) and his third wife Mary Lily Kenan Flagler."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Dome's Model",
+          "prompt": "Memorial Presbyterian's copper dome was modeled on a specific famous church in Venice. What Venetian basilica inspired the dome's design?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's the most famous church in Venice — a Byzantine-influenced basilica on the Piazza San Marco that has been the Doge's private chapel and later the cathedral of Venice.",
+          "config": {
+            "accepted_answers": ["st marks", "st mark's", "st. mark's", "san marco", "basilica of san marco", "st mark's basilica", "basilica di san marco"],
+            "case_sensitive": false,
+            "explanation": "The copper dome of Memorial Presbyterian was modeled on the Basilica di San Marco (St. Mark's Basilica) in Venice — the famous Byzantine-influenced church on the Piazza San Marco. The Venetian Renaissance Revival style chosen for the church drew more broadly on the Renaissance architecture of Venice rather than Spain, a deliberate contrast to the Spanish Renaissance Revival of Flagler's hotels just a block away."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Man Behind the Magnate",
+          "prompt": "Ask Henry Flagler about Jennie Louise — what she was like, what her death meant to him, and how building this church helped him grieve. You're talking to the businessman, but this question is about the father.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Flagler about the difference between the church and the hotels — one was business, one was personal. What did faith mean to a man who was simultaneously building a commercial empire and burying his daughter?",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. Mary's Missionary Baptist — Faith and the Movement",
+      "description": "St. Mary's Missionary Baptist Church in Lincolnville, founded in 1867 by freed enslaved people, became in 1963-64 the spiritual and organizational center of the St. Augustine civil rights movement. When Dr. Robert Hayling organized sit-ins and demonstrations, when Martin Luther King Jr. came to St. Augustine, when night marchers set out down St. George Street — they all left from St. Mary's. This is where faith and freedom converged most urgently in St. Augustine's history. The church represents both the first act of a free community and the last great act of the civil rights era.",
+      "historical_content": "St. Mary's Missionary Baptist Church was founded in 1867 — two years after the end of the Civil War — by members of St. Augustine's newly freed African American community. It was among the first institutions the freed community established, reflecting the central role of the church in post-emancipation Black community life.\n\nFor nearly 100 years, St. Mary's served as the spiritual and community center of Lincolnville — operating in parallel with the white churches of the historic district just a few blocks north, across the King Street boundary.\n\nIn 1963, when Dr. Robert Hayling began organizing the St. Augustine Movement, St. Mary's became the hub of operations:\n\n- **Mass meetings**: Hundreds gathered at St. Mary's for prayer, organizing, and strategic planning before demonstrations\n- **Training in nonviolence**: Participants were trained in nonviolent direct action techniques at the church\n- **Martin Luther King Jr.**: King preached at St. Mary's on multiple visits, including his May-June 1964 stay\n- **Launching point**: Night marches to the Old Slave Market and downtown restaurants began from St. Mary's\n- **Refuge**: Demonstrators beaten by segregationists returned to St. Mary's for medical care and support\n\nThe civil rights use of Black churches was not coincidental. The church was the one institution in segregated communities that was beyond white economic control — clergy were not dependent on white employers, church property was owned by the congregation, and the tradition of the mass meeting had deep roots in Black Christian worship.\n\nSt. Mary's today continues as an active Baptist congregation in Lincolnville.",
+      "lat": 29.8875,
+      "lng": -81.3163,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "St. Mary's Missionary Baptist Church is on Washington Street in Lincolnville, south of King Street. Walk south from the historic district into the neighborhood.",
+      "safety_warning": "Active church and community space. Please be respectful of services and the neighborhood.",
+      "metadata_json": {
+        "denomination": "Baptist (Missionary Baptist)",
+        "founded": "1867",
+        "key_facts": [
+          "Founded 1867 by freed enslaved people — one of the first institutions of Lincolnville",
+          "Spiritual and organizational center of the 1963-64 St. Augustine civil rights movement",
+          "Mass meetings, nonviolence training, and demonstration launches all from St. Mary's",
+          "Martin Luther King Jr. preached here during his 1964 visit",
+          "Night marches to the Old Slave Market began from this church",
+          "The church's independence from white economic control made it an ideal civil rights base"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why the Church?",
+          "prompt": "The civil rights movement consistently organized from Black churches — not just in St. Augustine but across the South. What made the Black church the ideal organizational base for civil rights demonstrations?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about economic independence, physical space, community trust, and the tradition of mass meetings in Black Christian worship.",
+          "config": {
+            "options": [
+              "Federal law protected churches from police raids, making them legally safer than secular organizations",
+              "The Black church was beyond white economic control — clergy weren't dependent on white employers, property was congregation-owned, and mass meetings were a deep tradition in Black Christian worship",
+              "Black churches had connections to international media that secular organizations lacked",
+              "The civil rights movement was primarily a religious movement with no secular political goals"
+            ],
+            "correct_index": 1,
+            "explanation": "The Black church was the ideal organizing base for the civil rights movement because it was beyond white economic control — unlike Black employees who could be fired, or Black businesses that could lose white suppliers, Black clergy were economically independent, and church property was owned by the congregation. Additionally, the tradition of mass meetings was deeply embedded in Black Christian worship, providing both the physical space and the cultural framework for organizing demonstrations."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Movement's Doctor",
+          "prompt": "The St. Augustine civil rights movement was organized by a local professional who lived and worked in Lincolnville. He invited the SCLC to St. Augustine and persuaded Martin Luther King Jr. to come. What was his name and profession?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He was a healthcare professional with a practice in Lincolnville — a young veteran who organized the first sustained civil rights campaign in Florida in 1963.",
+          "config": {
+            "accepted_answers": ["robert hayling", "dr hayling", "dr. hayling", "robert b hayling", "dr robert hayling", "hayling", "dr. robert hayling dentist", "robert hayling dentist"],
+            "case_sensitive": false,
+            "explanation": "Dr. Robert B. Hayling was a dentist with a practice in Lincolnville. A graduate of Florida A&M University and Meharry Medical College, he organized the St. Augustine Movement beginning in 1963 — the first sustained civil rights campaign in Florida. He invited the Southern Christian Leadership Conference (SCLC) to St. Augustine and personally persuaded Martin Luther King Jr. to visit. His work from Lincolnville's churches contributed directly to the passage of the Civil Rights Act of 1964."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Night Marches",
+          "prompt": "Ask the civil rights guide about what it was like to leave St. Mary's on a night march in 1963-64 — the prayer before the march, the route down St. George Street to the Old Slave Market, and what demonstrators faced when they arrived downtown.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the nonviolent discipline the marchers maintained despite attacks, or about Martin Luther King Jr.'s presence at St. Mary's during his visits.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Pilgrim of the Ancient City",
+      "description": "You visited six centuries of faith across St. Augustine's most historic churches.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "House of Worship",
+      "description": "You visited three of St. Augustine's historic churches.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "Faithful Observer",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

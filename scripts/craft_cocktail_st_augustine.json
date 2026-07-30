@@ -1,0 +1,320 @@
+{
+  "adventure": {
+    "title": "Craft Cocktail St. Augustine",
+    "slug": "craft-cocktail-st-augustine",
+    "description": "St. Augustine's craft cocktail scene is built on extraordinary raw material: a working distillery in a 1906 ice plant, a bar in the actual 1927 industrial ice plant that cooled the city for a generation, a speakeasy-style bar in a 19th-century building, and Gilded Age hotel bars where Flagler's guests once drank. This is an evening tour for adults who want their drinks with history. 21+ only at each stop. Drink responsibly — this is a walking tour.",
+    "short_description": "An evening bar crawl through St. Augustine's best craft cocktail spots, each with a story.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 120,
+    "start_lat": 29.8938,
+    "start_lng": -81.3198,
+    "total_points": 500,
+    "tags": ["21+", "cocktails", "evening", "bar crawl", "adults only", "nightlife", "distillery"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "St. Augustine Distillery — The Source",
+      "description": "Start where the spirits begin. The St. Augustine Distillery at 112 Riberia Street produces craft bourbon, gin, vodka, and rum in the restored 1906 Florida Ice & Fuel Company plant. Their tasting room pours flights and cocktails made with house-made spirits. Order the bourbon — Florida's heat-accelerated aging produces a spirit with more barrel character in fewer years than Kentucky's cooler climate allows. The building itself is worth your time: the original industrial bones of the ice plant survive, and the copper pot stills glow amber under the tasting room lights.",
+      "historical_content": "The Florida Ice & Fuel Company plant (1906) was built to manufacture ice — before mechanical refrigeration, the essential commodity that kept St. Augustine's hotels, restaurants, and fish markets operating. The plant served the city for decades until commercial refrigeration made manufactured ice delivery obsolete.\n\nThe St. Augustine Distillery opened in the restored building in 2014, part of the craft spirits revival that has produced hundreds of small distilleries across the United States since the early 2000s.\n\nThe distillery produces:\n- **Florida Sunshine Vodka**: made from Florida-grown corn\n- **New World Gin**: botanicals including Florida orange peel and locally sourced herbs\n- **Florida Double Cask Rum**: aged in American oak barrels\n- **Florida Straight Bourbon**: aged in new American oak in the Florida heat — the heat cycle (warm days, cooler nights) drives the spirit deeper into the wood than Kentucky's climate, producing a distinctively Florida bourbon character\n\nFree self-guided tours of the production floor run throughout the day. The tasting room is open evenings and offers flights, cocktails, and food pairings.",
+      "lat": 29.8938,
+      "lng": -81.3198,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "St. Augustine Distillery is at 112 Riberia Street — the restored brick industrial building with the distillery sign. Park in the lot; the tasting room is at the front of the building.",
+      "safety_warning": "21+ for all alcohol. Please drink responsibly — this is the first of five stops on a walking tour.",
+      "metadata_json": {
+        "drink_recommendation": "Florida Straight Bourbon or house cocktail",
+        "key_facts": [
+          "Craft distillery in restored 1906 Florida Ice & Fuel Company plant",
+          "Produces bourbon, gin, vodka, and rum from Florida ingredients",
+          "Florida heat-accelerated aging: more barrel character in fewer years",
+          "Free production floor tours; tasting room open evenings",
+          "Copper pot stills visible through viewing windows"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Makes Bourbon, Bourbon?",
+          "prompt": "The St. Augustine Distillery produces Florida Straight Bourbon. To legally be called 'bourbon' in the United States, a whiskey must meet several requirements. Which of the following is a genuine legal requirement for bourbon?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Bourbon's legal definition is set by U.S. federal law — there are specific requirements for grain content, barrel type, and entry proof. One of these below is real.",
+          "config": {
+            "options": [
+              "Bourbon must be made in Kentucky — production anywhere else disqualifies it",
+              "Bourbon must be made from a grain mixture of at least 51% corn and aged in new, charred oak containers",
+              "Bourbon must be aged for a minimum of four years to earn the straight designation",
+              "Bourbon must be distilled to no higher than 80% ABV (160 proof) and bottled at no lower than 40% ABV"
+            ],
+            "correct_index": 1,
+            "explanation": "To legally be called bourbon, a whiskey must: be made from at least 51% corn; be distilled to no more than 80% ABV (160 proof); be entered into the barrel at no more than 62.5% ABV; be aged in new, charred oak containers; and contain no additives except water. Bourbon does NOT have to be made in Kentucky — bourbon can legally be made anywhere in the United States. Florida bourbon is genuine bourbon."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Before the Distillery",
+          "prompt": "Before the St. Augustine Distillery opened in 2014, what was the 1906 building at 112 Riberia Street used for?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Before mechanical refrigeration, cities needed a way to keep food cold and drinks chilled. The answer is in the company name: Florida Ice & Fuel.",
+          "config": {
+            "accepted_answers": ["ice plant", "ice manufacturing", "ice factory", "manufactured ice", "florida ice and fuel", "ice and fuel company", "ice production"],
+            "case_sensitive": false,
+            "explanation": "The building was the Florida Ice & Fuel Company plant — a commercial ice manufacturing facility. Before mechanical refrigeration became widespread in the 1920s-30s, commercial ice plants manufactured large blocks of ice that were delivered to homes, hotels, restaurants, and businesses for use in iceboxes and commercial coolers. St. Augustine's tourist economy — with its Flagler-era hotels and seafood trade — depended on reliable ice supply."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Ice Plant Bar — Drinking in the Cold Room",
+      "description": "The Ice Plant Bar at 110 Riberia Street — next door to the distillery and in the same 1927 expanded facility — is one of the best craft cocktail bars in Northeast Florida. The name is literal: this is the actual ice plant that manufactured ice for St. Augustine's homes, hotels, and restaurants for a generation. The interior preserves the industrial character of the original building: exposed brick, high ceilings, and the cool, vaulted atmosphere of what was once a cold storage room. The cocktail program features house-made syrups, fresh-pressed juices, and ice cut in-house.",
+      "historical_content": "The Ice Plant Bar occupies the 1927 expansion of the Florida Ice & Fuel Company facility — built as the original 1906 plant was expanded to meet growing demand for manufactured ice in St. Augustine.\n\nThe building operated as an ice manufacturing facility until commercial refrigeration made delivered ice obsolete — sometime in the mid-20th century. After decades of various uses, the building was restored and opened as The Ice Plant Bar in 2012, two years before the adjacent distillery opened.\n\nThe cocktail program at the Ice Plant reflects the craft cocktail movement's emphasis on:\n- **House-made ingredients**: syrups, tinctures, and sodas made in-house from fresh ingredients\n- **Ice as craft**: large-format ice, hand-cut ice blocks, and specialty ice shapes that melt slowly and don't dilute the drink as fast as commercial ice\n- **Seasonal menus**: cocktails that change with available local ingredients\n- **Classic technique**: Proper stirring, shaking, and dilution technique from the golden age of American bartending (1870s-1920s)\n\nThe combination of house-distilled spirits next door and house-made ingredients at the bar creates a short supply chain unusual even in the craft cocktail world: the spirits in your glass may have been distilled 50 feet away.\n\nThe building's original cold storage character — the thick insulated walls, the high ceilings, the heavy doors — gives the Ice Plant Bar an atmosphere that can't be manufactured in a new construction.",
+      "lat": 29.8936,
+      "lng": -81.3196,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "The Ice Plant Bar is at 110 Riberia Street — next door to the distillery. Look for the restored brick building with the 'Ice Plant' sign. Walk-ins welcome; reservations recommended on weekends.",
+      "safety_warning": "21+ for all alcohol. Pace yourself — this is stop two of five.",
+      "metadata_json": {
+        "drink_recommendation": "Seasonal house cocktail or anything with the house soda",
+        "key_facts": [
+          "1927 ice manufacturing facility — original cold storage building",
+          "One of the best craft cocktail bars in Northeast Florida",
+          "House-made syrups, sodas, and fresh-pressed juices",
+          "Hand-cut ice — a craft element rarely seen outside top-tier cocktail bars",
+          "Next door to the St. Augustine Distillery — spirits from 50 feet away"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Does Ice Matter?",
+          "prompt": "The Ice Plant Bar takes ice seriously — hand-cutting large ice blocks for use in cocktails. Why does the format and quality of ice matter in a craft cocktail?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Ice in a drink does two things: it chills the drink and it melts (adding water). The size and density of the ice affects both.",
+          "config": {
+            "options": [
+              "Large-format ice is purely aesthetic — it makes the drink look better in photos but has no effect on flavor",
+              "Larger, denser ice melts more slowly, chilling the drink without over-diluting it — small commercial ice melts fast and can water down a carefully balanced cocktail",
+              "Hand-cut ice is filtered through stone, removing minerals that affect flavor",
+              "Large ice blocks contain more dissolved oxygen, which opens up the aromatics of spirits"
+            ],
+            "correct_index": 1,
+            "explanation": "Ice is an active ingredient in a cocktail, not just a cooling mechanism. Larger, denser ice melts more slowly — chilling the drink to the correct temperature without adding excess water. Small commercial ice has a high surface-area-to-volume ratio and melts quickly, potentially over-diluting a carefully balanced drink. For stirred cocktails like Manhattans and Negronis, proper dilution (controlled by ice quality and stirring time) is as important as the spirit and vermouth ratio."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Golden Age",
+          "prompt": "The craft cocktail movement draws heavily on techniques from what bartenders call 'the golden age of American bartending.' What era does this phrase refer to?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It ended abruptly in 1920. Think about what happened that year and what it would have done to the cocktail industry.",
+          "config": {
+            "accepted_answers": [
+              "pre-prohibition", "pre prohibition", "1870s to 1920s", "before prohibition",
+              "gilded age", "victorian era", "1880s to 1910s", "late 1800s early 1900s"
+            ],
+            "case_sensitive": false,
+            "explanation": "The 'golden age of American bartending' refers to the pre-Prohibition era — roughly the 1870s through 1919, when Prohibition took effect in 1920. Bartenders of this era — codified in books like Jerry Thomas's 1862 'Bar-Tender's Guide' — developed the canonical cocktail techniques (stirring vs. shaking, proper dilution, house-made syrups and bitters) that the modern craft cocktail movement has revived. Prohibition disrupted the continuity of American bartending culture for 13 years."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Preserved — Speakeasy Style on Bridge Street",
+      "description": "Preserved at 102 Bridge Street is a craft cocktail bar in a 19th-century building near the Bridge of Lions — atmospheric, dim, and serious about drinks. The seasonal cocktail menu changes with locally available fruits, herbs, and florals. The vibe is speakeasy-adjacent: low lighting, exposed brick, and bartenders who know their craft. Order whatever's seasonal — the house program rewards adventurousness.",
+      "historical_content": "The speakeasy aesthetic that defines many craft cocktail bars — dim lighting, intimate seating, serious bartenders, no-menu improvisation — draws on the culture of illegal bars during Prohibition (1920-1933).\n\nProhibition was enacted by the 18th Amendment to the U.S. Constitution, effective January 17, 1920. It prohibited the manufacture, sale, and transportation of intoxicating liquors. The 21st Amendment repealed Prohibition on December 5, 1933.\n\nSpeakeasies — illegal bars that operated by keeping quiet (you had to 'speak easy' about them) — proliferated during Prohibition. By some estimates, New York City had over 30,000 speakeasies during Prohibition, compared to 15,000 legal saloons before.\n\nProhibition had complex effects on American drinking culture:\n- **Cocktails became more complex**: Bartenders mixed spirits with juice, sugar, and other ingredients to mask the taste of lower-quality bootleg liquor\n- **Women in bars**: The speakeasy was less formally segregated than the pre-Prohibition saloon, bringing women into drinking establishments in significant numbers for the first time\n- **Cocktail culture went underground then re-emerged**: The cocktail knowledge that survived Prohibition was preserved in bars in Cuba, Europe, and by expatriate American bartenders — the craft cocktail revival of the 2000s drew on these traditions\n\nSt. Augustine, like most American cities, had active speakeasy culture during Prohibition — the city's established tourist economy and distance from federal enforcement centers made it accommodating to illegal drinking.",
+      "lat": 29.8921,
+      "lng": -81.3144,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Preserved is near the Bridge of Lions on Bridge Street — look for the unmarked or subtly signed entrance. Check their Instagram for current hours as they sometimes have limited seatings.",
+      "safety_warning": "21+ only. Pace responsibly — stop three of five.",
+      "metadata_json": {
+        "drink_recommendation": "Order whatever is seasonal and ask the bartender for a recommendation",
+        "key_facts": [
+          "Craft cocktail bar in 19th-century building near the Bridge of Lions",
+          "Seasonal menu using locally available ingredients",
+          "Speakeasy aesthetic draws on Prohibition-era illegal bar culture",
+          "Prohibition 1920-1933 — 18th Amendment enacted, 21st Amendment repealed",
+          "Cocktail culture went underground during Prohibition, preserved by expatriate bartenders abroad"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Is a Speakeasy?",
+          "prompt": "Many craft cocktail bars adopt a 'speakeasy' aesthetic — dim lighting, intimate seating, unmarked entrances. What was an actual speakeasy during Prohibition (1920-1933)?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The name comes from how you were supposed to behave when asking about or approaching one of these establishments.",
+          "config": {
+            "options": [
+              "A legitimate bar that specialized in very quiet, subdued atmosphere for contemplative drinking",
+              "An illegal bar during Prohibition — you had to 'speak easy' (quietly) about its existence to avoid alerting law enforcement",
+              "A private members-only club that operated legally by requiring membership fees instead of drink charges",
+              "A bar that required patrons to whisper their orders so competitors couldn't learn what cocktails were popular"
+            ],
+            "correct_index": 1,
+            "explanation": "A speakeasy was an illegal bar that operated during Prohibition (1920-1933). The name comes from the need to 'speak easy' — quietly, discreetly — about its existence, since advertising an illegal drinking establishment would attract law enforcement. Speakeasies ranged from basement rooms with a few bottles to elaborate nightclubs with jazz bands and celebrity clientele. By some estimates, New York City alone had over 30,000 speakeasies during Prohibition."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Amendment That Ended It",
+          "prompt": "Prohibition was enacted by the 18th Amendment to the U.S. Constitution in 1920. It was repealed by the 21st Amendment. The 21st Amendment holds a unique distinction in U.S. constitutional history. What is it?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what a constitutional amendment that repeals another amendment means about how the U.S. Constitution changes over time.",
+          "config": {
+            "options": [
+              "The 21st Amendment is the only amendment that was ratified by state legislatures rather than state conventions",
+              "The 21st Amendment is the only amendment to the U.S. Constitution that repeals another amendment",
+              "The 21st Amendment is the only amendment that was passed by a national popular vote rather than by Congress",
+              "The 21st Amendment is the only amendment that specifically names a private industry (alcohol) that may be regulated"
+            ],
+            "correct_index": 1,
+            "explanation": "The 21st Amendment (1933), which repealed Prohibition, is the only amendment to the U.S. Constitution that repeals another amendment — specifically the 18th Amendment. Constitutional amendments can be superseded by later legislation, but the 21st Amendment is unique in explicitly repealing a prior amendment by number. It was also the only amendment ratified by state conventions rather than state legislatures — the convention method was used to ensure the ratification process itself was decided by popular vote."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Casa Monica Hotel Bar — A Gilded Age Drink",
+      "description": "The Casa Monica Hotel on Cordova Street is the third of St. Augustine's original Flagler-era hotels — originally the Hotel Cordova, built in 1888 by Franklin Smith (the same man who built Zorayda Castle) and purchased by Flagler. The bar in the hotel lobby takes full advantage of its Moorish Revival architecture: horseshoe arches, elaborate tilework, and soaring ceilings that make a cocktail feel like an occasion. Order something classic — a Negroni, a Manhattan, an Old Fashioned — and pretend you're a Gilded Age industrialist taking the waters in Florida.",
+      "historical_content": "The Casa Monica Hotel began as the Hotel Cordova — built in 1888 by Franklin Webster Smith, the same builder who erected Zorayda Castle five years earlier. Smith envisioned a luxury hotel to complement his Moorish Castle — built in the same Moorish Revival style, with horseshoe arches, elaborate tilework, and the eclectic ornamental vocabulary of 19th-century romantic Orientalism.\n\nHenry Flagler purchased the Hotel Cordova shortly after it opened and renamed it the Hotel Alcazar — not to be confused with the building that is now the Lightner Museum (also called the Alcazar Hotel). Flagler later sold the building, and it operated under various names through the 20th century before a restoration and reopening as the Casa Monica Hotel in 1999.\n\nThe hotel is now part of the Kessler Collection and operates as a full-service luxury hotel. The Spanish-Moorish interior — restored to its 1888 character — features:\n- Horseshoe arches in the Spanish-Moorish style\n- Elaborate tilework on floors and walls\n- Original ornamental plasterwork\n- The Cobalt Lounge, the hotel bar, with a curated cocktail program\n\nThe Casa Monica shares the Cordova Street corridor with Flagler College (Ponce de León Hotel) and the Lightner Museum (Alcazar Hotel) — making this block one of the most concentrated Gilded Age architectural ensembles in the United States.\n\nOrder a classic cocktail and appreciate that this bar has been in operation, in some form, since 1888.",
+      "lat": 29.8917,
+      "lng": -81.3147,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "The Casa Monica Hotel is at 95 Cordova Street — across from the Lightner Museum. The bar is in the lobby; walk in from the Cordova Street entrance.",
+      "safety_warning": "Hotel bar — 21+ for alcohol. Smart casual dress; the Casa Monica is a full-service luxury hotel. This is stop four of five.",
+      "metadata_json": {
+        "drink_recommendation": "Classic cocktail — Negroni, Manhattan, or Old Fashioned",
+        "key_facts": [
+          "Former Hotel Cordova (1888), built by Franklin Smith (Zorayda Castle's builder)",
+          "Purchased by Flagler shortly after opening",
+          "Spanish-Moorish architecture: horseshoe arches, elaborate tilework",
+          "Restored and reopened as Casa Monica Hotel in 1999",
+          "Part of the Kessler Collection",
+          "Bar has been operating, in some form, since 1888"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Three Hotels on One Block",
+          "prompt": "The Cordova Street corridor between King Street and Cathedral Place contains three original Gilded Age hotels from 1888: Flagler College (Ponce de León), the Lightner Museum (Alcazar), and the Casa Monica (Hotel Cordova). What makes this concentration unusual in American architectural history?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what 1888 means: the Gilded Age, the transformation of American luxury travel, and the survival rate of 19th-century buildings.",
+          "config": {
+            "options": [
+              "It is unusual because all three buildings were designed by the same architect in the same year",
+              "Very few American cities have three large Gilded Age luxury hotels from the same year surviving in their original architectural character on the same block",
+              "All three buildings are on the National Register of Historic Places, which is required for any building over 100 years old in a historic district",
+              "The three hotels represent the three competing oil companies — Standard Oil, Pennsylvania Oil, and Ohio Oil — whose owners all wintered in St. Augustine"
+            ],
+            "correct_index": 1,
+            "explanation": "The survival of three large Gilded Age luxury hotels from 1888 in their original architectural character on a single block is extraordinarily rare. Most 19th-century resort hotels were demolished in the 20th century as they aged and became economically unviable. St. Augustine preserved all three through conversion to different uses — a college, a museum, and a restored hotel — while retaining the original architectural fabric. The result is one of the most intact Gilded Age resort corridors in the United States."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Who Built It",
+          "prompt": "The Casa Monica Hotel was built in 1888 as the Hotel Cordova by the same man who built Zorayda Castle five years earlier. What was his name?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He was a Boston hardware merchant with a passion for Moorish architecture — he built Zorayda Castle in 1883 and the Hotel Cordova in 1888.",
+          "config": {
+            "accepted_answers": ["franklin smith", "franklin webster smith", "f.w. smith", "fw smith"],
+            "case_sensitive": false,
+            "explanation": "Franklin Webster Smith — a Boston hardware merchant and amateur architect — built both Zorayda Castle (1883) and the Hotel Cordova (1888). Both buildings use Moorish Revival architectural elements: horseshoe arches, elaborate tilework, and decorative plasterwork. Smith was a significant figure in early St. Augustine's architectural development, pioneering the exotic historical styles that Flagler would later adopt and industrialize on a much larger scale."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Milltop Tavern — Oldest Bar on St. George Street",
+      "description": "End the night at Milltop Tavern, upstairs at 19½ St. George Street — in an 18th-century building overlooking the pedestrian street below. Milltop is the opposite of a craft cocktail bar: it's a proper dive with live music (often bluegrass, folk, or blues), cold beer, and a tiny balcony where you can watch St. George Street foot traffic below. The building has been in continuous use since the Spanish colonial period. The bar has been here long enough to have its own character. Order a beer, find a spot on the balcony, and close the night right.",
+      "historical_content": "The Milltop Tavern occupies an 18th-century building on St. George Street — one of the oldest commercial buildings still in active use on the historic pedestrian mall. St. George Street has been St. Augustine's primary commercial thoroughfare for more than 400 years.\n\nThe 'mill' in Milltop refers to the original use of the building or its neighbors as a grist mill site — though the exact history varies depending on the source. What is clear is that the building is old by any American standard and that the location has been commercial in nature for as long as the street has existed.\n\nMilltop Tavern is notable as one of St. Augustine's most authentic dive bars — a counter to the tourist-polished nature of much of St. George Street. Live music, cold beer, and a balcony overlooking the street are its three main attractions.\n\nThe contrast with the first four stops on this tour — a modern craft distillery, a sleek craft cocktail bar, a speakeasy-aesthetic cocktail program, and a Gilded Age hotel bar — is deliberate. A complete St. Augustine cocktail evening includes at least one bar that doesn't take itself too seriously.\n\nSt. Augustine's bar scene spans the full range: from the most historically conscious craft program to the simplest cold-beer-and-live-music dive. Both are authentic to the city.",
+      "lat": 29.8975,
+      "lng": -81.3145,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Milltop Tavern is at 19½ St. George Street — go up the exterior stairs to the second floor. It overlooks St. George Street from above. Look for the live music sign.",
+      "safety_warning": "21+ for all alcohol. This is the final stop — arrange your transportation home before you arrive.",
+      "metadata_json": {
+        "drink_recommendation": "Cold beer — whatever's on tap",
+        "key_facts": [
+          "Upstairs bar in an 18th-century building on St. George Street",
+          "One of the oldest bars on the historic pedestrian mall",
+          "Live music nightly — bluegrass, folk, blues",
+          "Balcony overlooking St. George Street foot traffic",
+          "Classic St. Augustine dive bar — no pretense, cold beer, good music"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "400 Years of Commerce",
+          "prompt": "Looking down from the Milltop balcony at St. George Street, you're seeing a pedestrian commercial street that has operated continuously for more than 400 years. What event in St. Augustine's history established the current street grid that St. George Street follows?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The street grid is Spanish colonial — but which specific event prompted the rebuilding that established the current layout?",
+          "config": {
+            "options": [
+              "The original 1565 founding established the street grid that has remained unchanged",
+              "The 1702 British raid burned most of the city's wooden structures; the Spanish rebuilt in coquina on the same grid, establishing the pattern that survives today",
+              "Henry Flagler redesigned the street grid in 1885 to accommodate tourist traffic from his hotels",
+              "The 1821 American acquisition of Florida prompted a complete street redesign along American grid principles"
+            ],
+            "correct_index": 1,
+            "explanation": "The 1702 British raid under Governor James Moore of South Carolina burned most of St. Augustine's wooden structures. The Spanish rebuilding in the early 1700s — in coquina rather than wood — established the street pattern that still exists. The current St. George Street layout is essentially the early 18th-century Spanish colonial grid, maintained through British occupation, second Spanish period, and American territorial/statehood periods. Standing on St. George Street means standing in the same commercial corridor that Spanish colonial merchants used 300 years ago."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Night's Final Lesson",
+          "prompt": "Looking back at the five stops on this cocktail tour — distillery, ice plant bar, speakeasy-style bar, Gilded Age hotel bar, colonial-era dive — what single material connects the St. Augustine Distillery and the Ice Plant Bar?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Both buildings were originally in the same industry. Before mechanical refrigeration, every hotel, restaurant, and household in St. Augustine needed it.",
+          "config": {
+            "accepted_answers": ["ice", "manufactured ice", "commercial ice"],
+            "case_sensitive": false,
+            "explanation": "Both the St. Augustine Distillery (the 1906 Florida Ice & Fuel Company plant) and the Ice Plant Bar (the 1927 expansion of the same facility) were originally ice manufacturing buildings. The same complex that once manufactured and stored the ice that kept St. Augustine's Gilded Age hotels and restaurants cold now produces craft spirits and serves cocktails. The irony is complete: what was once the source of refrigeration is now the source of things you need refrigeration to properly enjoy."
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Craft Connoisseur",
+      "description": "You completed the full craft cocktail tour of St. Augustine.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Happy Hour Hero",
+      "description": "You visited three craft cocktail stops in the Ancient City.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "On the Rocks",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "adventure": {
+    "title": "Styles of the Ancient City",
+    "slug": "styles-ancient-city",
+    "description": "St. Augustine has been continuously occupied since 1565, and every era left its mark in stone, wood, brick, and coquina. This tour is about WHY buildings look the way they do — the colonial powers, economic forces, architects, and cultural ambitions that shaped the city's built environment across five centuries. From the improbable engineering of a coquina fortress to the theatrical Spanish Renaissance Revival of Henry Flagler's hotels, the Ancient City is an open-air architecture textbook.",
+    "short_description": "Trace five centuries of architectural styles from Spanish Colonial to Gilded Age.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 75,
+    "start_lat": 29.9002,
+    "start_lng": -81.3119,
+    "total_points": 600,
+    "tags": ["architecture", "history", "walking", "design", "spanish colonial", "gilded age"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "Castillo de San Marcos — Spanish Military Engineering",
+      "description": "The Castillo de San Marcos (1672-1695) is the oldest masonry fort in the continental United States — and its construction material, coquina, is the key to understanding Spanish colonial building in St. Augustine. Coquina is a sedimentary rock made of compressed coquina shells found in deposits on Anastasia Island. The Spanish discovered that coquina's soft, spongy nature made it an ideal fort material: British cannonballs sank into the walls rather than shattering them. The fort is a textbook example of 17th-century European military engineering: the bastion plan, the glacis, the moat, the ravelin.",
+      "historical_content": "The Spanish built nine wooden forts in St. Augustine before constructing the Castillo — each burned or rotted within a few decades. The 1668 raid by English privateer Robert Searles, which killed 60 residents and destroyed the previous wooden fort, convinced the Spanish Crown to fund a permanent masonry structure.\n\nConstruction began in 1672 using coquina quarried from Anastasia Island, across the Matanzas River. The quarry is still visible today. Construction took 23 years (completed 1695) and employed indigenous Timucua and Apalachee laborers, enslaved Africans, and Spanish soldiers.\n\nThe bastion plan — the star-shaped or diamond-shaped fort layout common in 17th-century European military engineering — maximized defensive coverage by eliminating blind spots. Each diamond-shaped bastion allowed defenders to fire along the adjacent walls, ensuring no attacker could approach unseen.\n\nThe Castillo never fell in battle. The British laid siege twice (1702 and 1740) but could not breach the walls. Coquina's unique property — absorbing rather than shattering under cannon impact — made the fort essentially impregnable with the technology of the era.\n\nThe fort changed flags four times: Spanish (1695-1763), British (1763-1783), Spanish again (1783-1821), and American (1821-present). The Americans renamed it Fort Marion; the original name was restored in 1942.",
+      "lat": 29.9002,
+      "lng": -81.3119,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "The Castillo de San Marcos is on the bayfront at Castillo Drive — the large coquina stone fort facing Matanzas Bay.",
+      "safety_warning": null,
+      "metadata_json": {
+        "style": "Spanish Colonial Military",
+        "period": "1672-1695",
+        "material": "Coquina (compressed shell sedimentary rock)",
+        "key_facts": [
+          "Oldest masonry fort in the continental United States",
+          "Built 1672-1695 after nine previous wooden forts burned or rotted",
+          "Coquina from Anastasia Island quarry — absorbs rather than shatters under cannon impact",
+          "Bastion plan (diamond-shaped projections) eliminates defensive blind spots",
+          "Never fell in battle — withstood two British sieges",
+          "Changed flags four times: Spanish, British, Spanish, American"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Secret of Coquina",
+          "prompt": "British forces attacked the Castillo twice (1702 and 1740) with cannon fire but could never breach the walls. The key was the building material, coquina. Why did coquina make such an effective fort material against cannon attack?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what happens when a cannonball hits a hard, brittle material like brick vs. a soft, spongy material like compressed shells.",
+          "config": {
+            "options": [
+              "Coquina is extremely hard — harder than brick — so cannonballs bounced off harmlessly",
+              "Coquina is soft and spongy — cannonballs sank into the walls rather than shattering them, and could often be dug out and reused",
+              "Coquina contains salt crystals that chemically neutralized the iron in cannonballs",
+              "The Spanish coated the coquina walls with a secret lime plaster formula from Spain"
+            ],
+            "correct_index": 1,
+            "explanation": "Coquina's softness was its strength as a fort material. Unlike brick or stone, which shatter and spray deadly shrapnel when hit by a cannonball, coquina absorbed the impact — the cannonball would bury itself in the wall, often stopping just feet inside. The Spanish sometimes dug out the lodged cannonballs and reused them. This property made the Castillo essentially impregnable with 17th and 18th century artillery."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Fort's Shape",
+          "prompt": "The Castillo uses a specific fort design — common in 17th-century European military engineering — where diamond-shaped projections at each corner allow defenders to fire along the adjacent walls, eliminating blind spots. What is this design called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about the shape of the projections at each corner of the fort. They look like geometric points or bastions.",
+          "config": {
+            "accepted_answers": ["bastion plan", "bastion fort", "bastion system", "trace italienne", "star fort", "bastion"],
+            "case_sensitive": false,
+            "explanation": "The bastion plan (also called the trace italienne) was the dominant European fort design from the 16th-18th centuries. Diamond-shaped bastions at each corner allow defenders to cover the adjacent walls with flanking fire, eliminating blind spots where attackers could advance unseen. The Castillo's four bastions — named Bravo, San Pedro, San Agustín, and San Carlos — made it defensible with a relatively small garrison."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Building the Impossible Fort",
+          "prompt": "Ask Pedro Menéndez (or the fort's ghost) about the engineering challenges of building the Castillo — the labor force, the coquina quarry, and how a fort that took 23 years to build was designed to last forever.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about who actually quarried and cut the coquina, or about the relationship between the fort's construction and the indigenous Timucua and Apalachee peoples.",
+          "config": {
+            "character_id": "pedro_menendez",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Oldest House — Spanish Colonial Domestic Architecture",
+      "description": "The González-Alvarez House at 14 St. Francis Street is the oldest surviving residential structure in the continental United States — with portions dating to the early 1700s. It is the best surviving example of Spanish Colonial domestic architecture in St. Augustine: coquina walls, a flat or very low-pitched roof, deep window reveals (to keep out heat), and no ornamentation. This was not a wealthy household's showpiece — it was a practical house built for a hot, hurricane-prone subtropical climate by people who had learned from indigenous building traditions.",
+      "historical_content": "The site has been continuously occupied since at least the early 1600s. The current coquina structure dates to approximately 1702-1727, built after the British burned St. Augustine's wooden structures in the 1702 raid.\n\nSpanish Colonial domestic architecture in St. Augustine reflects the constraints of the environment and available materials:\n\n- **Coquina walls**: thick (18-24 inches) to provide thermal mass, keeping interiors cooler in summer\n- **Small windows with deep reveals**: minimizing solar heat gain while allowing ventilation\n- **Low rooflines**: reducing wind exposure in hurricanes\n- **Interior courtyards** (in larger houses): allowing cross-ventilation while providing private outdoor space\n- **Tabby floors**: a concrete-like material made from oyster shells, lime, sand, and water\n\nThe house grew over time — a British Colonial addition (1763-1783) added the second story and Georgian-influenced symmetrical facade, and an American Territorial addition (post-1821) added further rooms. The layered construction makes it an accidental architectural history of St. Augustine in miniature.\n\nThe house is now operated by the St. Augustine Historical Society as a museum.",
+      "lat": 29.8905,
+      "lng": -81.3137,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "The González-Alvarez House (Oldest House) is at 14 St. Francis Street — look for the low coquina building with the historic marker at the south end of the historic district.",
+      "safety_warning": null,
+      "metadata_json": {
+        "style": "Spanish Colonial Domestic",
+        "period": "c. 1702-1727 (original coquina structure)",
+        "material": "Coquina, tabby, wood",
+        "key_facts": [
+          "Oldest surviving residential structure in the continental United States",
+          "Coquina walls 18-24 inches thick for thermal mass",
+          "Small windows with deep reveals to minimize heat gain",
+          "Second story added during British Colonial period (1763-1783)",
+          "Tabby floors — oyster shells, lime, sand, and water",
+          "Operated by the St. Augustine Historical Society"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Building for the Climate",
+          "prompt": "Spanish Colonial domestic architecture in St. Augustine made specific choices for a hot, hurricane-prone subtropical climate. Looking at the Oldest House, which combination of features reflects climate-adaptive design?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about heat, ventilation, and hurricane winds. Which features address each of those three challenges?",
+          "config": {
+            "options": [
+              "Tall ceilings, large glass windows, and a steep pitched roof for rain runoff",
+              "Thick coquina walls (thermal mass), small windows with deep reveals (minimizing heat gain), and low rooflines (hurricane resistance)",
+              "White-painted exterior (heat reflection), wide overhanging eaves, and raised floor (flood protection)",
+              "Open floor plans, central fireplaces, and north-facing orientation to minimize sun exposure"
+            ],
+            "correct_index": 1,
+            "explanation": "Spanish Colonial domestic architecture combined thick coquina walls (thermal mass — absorbing heat during the day and releasing it at night, keeping interiors cooler), small windows with deep reveals (allowing ventilation while minimizing direct solar heat gain), and low rooflines (reducing wind exposure during hurricanes). These were not decorative choices — they were practical responses to the Florida climate learned over generations."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Tabby",
+          "prompt": "The floors of Spanish Colonial buildings in St. Augustine were often made from a concrete-like material composed of oyster shells, lime, sand, and water. This material was also used for walls, foundations, and even fort construction throughout the colonial Southeast. What is this material called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a single word — a building material made from locally abundant oyster shells that was used widely throughout the colonial American South and Caribbean.",
+          "config": {
+            "accepted_answers": ["tabby", "tabby concrete", "oyster tabby"],
+            "case_sensitive": false,
+            "explanation": "Tabby is a concrete-like building material made from equal parts oyster shells, lime (burned from oyster shells), sand, and water. Oyster shells were abundant throughout the coastal Southeast, making tabby an economical local alternative to imported brick. It was used for floors, walls, foundations, and fortifications throughout Spanish Florida, the colonial Carolina coast, and the Caribbean. The name may derive from a West African word."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Life in the Colonial House",
+          "prompt": "Ask the Spanish colonial guide what daily life looked like in a house like this in 18th-century St. Augustine — who lived here, how the rooms were used, and how the house changed as the city changed flags.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the González or Alvarez families who gave the house its name, or about how the British Colonial addition changed the building's character.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Government House — American Territorial Greek Revival",
+      "description": "When Florida became a U.S. territory in 1821, the Americans needed a government headquarters that looked like America — not Spain. Government House, at the west side of the Plaza de la Constitución, was rebuilt in the 1830s in the Greek Revival style: the clean columns, symmetrical facades, and classical proportions that Americans of the early republic associated with democracy and the ancient world. It sits on the same site as Spanish colonial government buildings dating to the 1600s — the same ground, utterly different architectural vocabulary.",
+      "historical_content": "The site of Government House at the Plaza de la Constitución has been the center of civil government in St. Augustine since the Spanish colonial period. A succession of Spanish government buildings occupied the site from the early 1600s through the First Spanish Period.\n\nAfter Florida became a U.S. territory in 1821, the American government rebuilt and remodeled the structure in the emerging Greek Revival style. The current facade — with its colonnade and classical proportions — dates primarily from the 1834-1840 reconstruction.\n\nGreek Revival was the dominant architectural style for American public buildings in the 1820s-1850s. Architects and politicians associated classical Greek forms with democracy and republican government — the young American republic was consciously styling itself as heir to ancient Athens. Courthouses, banks, state capitols, and federal buildings across the country adopted the vocabulary: columns (Doric, Ionic, or Corinthian), pediments, symmetrical facades, and white or light-colored exteriors.\n\nThe transformation of the Government House site from Spanish colonial to American Greek Revival embodies the transition of 1821 in architectural form: the same location, the same government function, but a completely different cultural identity.\n\nGovernment House now houses the Government House Museum and offices of St. Johns County.",
+      "lat": 29.8961,
+      "lng": -81.3131,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "spanish_colonial_guide",
+      "points": 100,
+      "hint_text": "Government House is on the west side of the Plaza de la Constitución (the central public square) — look for the columned facade facing the Plaza.",
+      "safety_warning": null,
+      "metadata_json": {
+        "style": "American Territorial Greek Revival",
+        "period": "1834-1840 (current facade)",
+        "key_facts": [
+          "Site has been center of civil government since the Spanish colonial period",
+          "Rebuilt in Greek Revival style after Florida became U.S. territory in 1821",
+          "Greek Revival associated democracy with ancient Athens — dominant style for U.S. public buildings 1820s-1850s",
+          "Clean columns, symmetrical facade, classical proportions",
+          "Same site as 1600s Spanish colonial government buildings",
+          "Now houses the Government House Museum"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Greek Revival?",
+          "prompt": "When Americans rebuilt Government House in the 1830s, they chose the Greek Revival style — columns, classical proportions, symmetrical facade. Why did early American architects and politicians favor this style for public buildings?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what the young American republic was trying to say about itself through its architecture — what political ideals did ancient Greece represent to early Americans?",
+          "config": {
+            "options": [
+              "Greek materials (marble and limestone) were cheaper to import than British brick",
+              "Americans associated classical Greek forms with democracy and republican government — the new republic was consciously styling itself as heir to ancient Athens",
+              "President Andrew Jackson personally required all federal buildings to use the Greek Revival style",
+              "Greek Revival was the only style that Florida's subtropical climate could support structurally"
+            ],
+            "correct_index": 1,
+            "explanation": "Early American architects and politicians consciously associated classical Greek forms — columns, pediments, symmetrical facades — with democracy and republican government. Ancient Athens was seen as the birthplace of democracy, and the young American republic styled itself as its heir. From the 1820s through the 1850s, Greek Revival was the dominant style for American courthouses, banks, state capitols, and federal buildings. It was an architectural argument about what America was."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Architectural Transition of 1821",
+          "prompt": "In 1821, Florida was transferred from Spain to the United States. Government House was rebuilt in a completely different architectural style. What does this architectural shift — from Spanish Colonial to American Greek Revival on the same site — represent?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Consider what architecture communicates about power, identity, and the character of a government.",
+          "config": {
+            "options": [
+              "The Americans discovered that Spanish Colonial buildings were structurally unsound and had to be rebuilt for safety",
+              "Architecture as a tool of cultural transition — the new government physically replacing Spanish colonial identity with an American one, on the same ground",
+              "American architects simply preferred columns and found the Spanish Colonial style aesthetically inferior",
+              "The 1821 transfer required all Spanish buildings to be demolished under the terms of the treaty"
+            ],
+            "correct_index": 1,
+            "explanation": "Architecture carries cultural and political identity. When the Americans rebuilt Government House in Greek Revival style on the same site as the Spanish colonial government buildings, they were making a visible argument: this is now an American city with American institutions and American values — embodied in the architectural vocabulary of the young republic. The transformation was cultural as much as physical."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Same Ground, Five Centuries",
+          "prompt": "Ask the guide about the long history of this site — what stood here during the Spanish colonial period, how the site changed under the British, and what the American territorial period meant for the Spanish-speaking residents who were already here.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the Spanish residents who stayed in St. Augustine after 1821, or about what the original Spanish colonial Government House looked like before the American rebuilding.",
+          "config": {
+            "character_id": "spanish_colonial_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College — Gilded Age Spanish Renaissance Revival",
+      "description": "In 1885, Henry Flagler began construction of the Ponce de León Hotel — now Flagler College — on what had been a field south of the Plaza. He hired the New York firm of Carrère & Hastings (their first major commission) and told them to design something unlike anything in America. What they produced was a Spanish Renaissance Revival extravaganza: towers, turrets, loggias, terracotta ornament, and a rotunda whose stained glass ceiling took Louis Comfort Tiffany's team two years to install. The Ponce de León was the most technically advanced hotel in the world when it opened in 1888 — and it defined the architectural character of Gilded Age St. Augustine.",
+      "historical_content": "The Ponce de León Hotel (1888) was a collaboration of extraordinary talents:\n\n**Carrère & Hastings**: John Carrère and Thomas Hastings had just left McKim, Mead & White when Flagler hired them. The Ponce was their breakthrough commission. They went on to design the New York Public Library, the Senate and House office buildings in Washington, and dozens of other landmark structures.\n\n**Louis Comfort Tiffany**: Tiffany designed the interior — stained glass windows, decorative tiles, light fixtures. The stained glass ceiling of the dining room is among his most ambitious non-ecclesiastical works. Tiffany's work was largely hidden or removed during the hotel's later years; restoration has uncovered much of it since Flagler College took over the building in 1968.\n\n**Edison's electrical system**: The Ponce de León was among the first hotels in the world to be fully wired for electric light, using a system designed by Thomas Edison. Flagler, who knew Edison personally, had the electrical plant built on-site.\n\n**Spanish Renaissance Revival**: The style draws on 16th-century Spanish Renaissance architecture — the Plateresque style of intricate surface decoration combined with Renaissance proportions. Flagler and his architects chose it to evoke the romance of the Spanish colonial era while delivering modern luxury. The irony was not lost on contemporaries: a New York oil baron building a fantasy Spanish fortress to attract wealthy Northern tourists to the city Spanish colonizers had founded three centuries earlier.\n\nThe hotel operated until 1967. Flagler College opened in the building in 1968.",
+      "lat": 29.8905,
+      "lng": -81.3135,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Flagler College (the former Ponce de León Hotel) occupies the block bounded by King Street, Cordova Street, Granada Street, and Sevilla Street — the building with the distinctive twin towers.",
+      "safety_warning": "The building is an active college campus. Public access is limited to the lobby/rotunda and scheduled tours. Please respect campus guidelines.",
+      "metadata_json": {
+        "style": "Spanish Renaissance Revival (Plateresque)",
+        "period": "1885-1888 (construction)",
+        "architects": "Carrère & Hastings",
+        "interior": "Louis Comfort Tiffany",
+        "key_facts": [
+          "First major commission for Carrère & Hastings",
+          "Opened 1888 as the Ponce de León Hotel",
+          "Spanish Renaissance Revival — drawing on 16th-century Spanish Plateresque style",
+          "Louis Comfort Tiffany designed interiors including stained glass ceiling",
+          "One of the first hotels fully wired for electric light (Edison system)",
+          "Flagler College since 1968"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The First Commission",
+          "prompt": "Flagler hired a young New York architectural firm — fresh from McKim, Mead & White — to design the Ponce de León Hotel. The Ponce became their breakthrough commission, launching a career that produced some of America's most important buildings. What was this firm?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Their later work includes the New York Public Library (the one with the lions) and the Senate and House office buildings in Washington, D.C.",
+          "config": {
+            "options": [
+              "McKim, Mead & White",
+              "Carrère & Hastings",
+              "Daniel Burnham & Company",
+              "Adler & Sullivan"
+            ],
+            "correct_index": 1,
+            "explanation": "Carrère & Hastings — John Carrère and Thomas Hastings — had just left McKim, Mead & White when Flagler hired them for the Ponce de León in 1885. It was their first major independent commission. They went on to design the New York Public Library, the Senate and House office buildings in Washington, the Manhattan Bridge, and dozens of other landmark structures. The Ponce de León launched one of the most important American architectural firms of the Gilded Age."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Interior Designer",
+          "prompt": "Henry Flagler hired a legendary American designer to create the Ponce de León's interiors — including the stained glass windows, decorative tiles, and the spectacular stained glass ceiling of the dining room. Who designed these interiors?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "His name is synonymous with American Art Nouveau stained glass — and his most famous lamps are in museum collections around the world.",
+          "config": {
+            "accepted_answers": ["tiffany", "louis comfort tiffany", "louis tiffany", "l.c. tiffany", "lc tiffany"],
+            "case_sensitive": false,
+            "explanation": "Louis Comfort Tiffany (1848-1933) designed the interior decorations of the Ponce de León Hotel, including stained glass windows and the elaborate stained glass ceiling of the dining room — among his most ambitious non-ecclesiastical works. Much of Tiffany's work was hidden or removed during the hotel's later decades; Flagler College's restoration efforts have uncovered and restored significant portions since 1968."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Flagler's Vision",
+          "prompt": "Ask Henry Flagler directly about his decision to build the Ponce de León — why Spanish Renaissance Revival for a Florida hotel, what he was trying to create, and whether he thought about the irony of a New York industrialist building a fantasy Spanish palace in the city Spain had founded three centuries earlier.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Flagler about his relationship with the architects, or about what he was competing with — what were the great hotels of the era, and how did he want the Ponce to compare?",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lightner Museum — The Alcazar Hotel and the Gilded Age's Other Vision",
+      "description": "Directly across Cordova Street from Flagler College stands the Lightner Museum — the former Alcazar Hotel, also built by Henry Flagler, also designed by Carrère & Hastings, and opened the same year as the Ponce de León (1888). Where the Ponce was grand and palatial, the Alcazar was recreational: it contained the world's largest indoor swimming pool, a Turkish bath, a casino (in the 19th-century sense: a social hall), tennis courts, and a gymnasium. Together, the Ponce and the Alcazar defined a new kind of American resort — and a new phase of St. Augustine's identity as a tourist destination.",
+      "historical_content": "The Alcazar Hotel (1888) and the Ponce de León Hotel (1888) were conceived together as a resort complex. Where the Ponce was the luxury residence — the hotel where Flagler's wealthy guests slept and dined in splendor — the Alcazar was the amenity building: the place where they swam, bathed, gambled (at cards and roulette, in the 19th-century casino), danced, and socialized.\n\nThe Alcazar's indoor swimming pool was the world's largest when it opened — 120 feet long, 50 feet wide, and 15 feet deep at its deepest. The pool was heated and featured diving platforms, water slides, and a spectator gallery. The Turkish baths offered steam rooms, hot and cold plunge pools, and massage services.\n\nBoth the Ponce and the Alcazar used the same Spanish Renaissance Revival vocabulary — Carrère & Hastings designed them as a matched pair. The shared Cordova Street streetscape remains one of the most intact Gilded Age resort environments in the United States.\n\nThe Alcazar Hotel closed in 1931 during the Great Depression. Chicago publisher Otto Lightner purchased the building in 1947 to house his collection of Gilded Age decorative arts — glass, ceramics, furniture, and curiosities. The Lightner Museum opened in 1948. The former swimming pool is now used as a café and antiques mall; the original tile work is still visible.\n\nThe city of St. Augustine purchased the building in 1972 and continues to operate it as a museum.",
+      "lat": 29.8913,
+      "lng": -81.3148,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "The Lightner Museum is at 75 King Street — directly across Cordova Street from Flagler College. Look for the matching Spanish Revival towers.",
+      "safety_warning": null,
+      "metadata_json": {
+        "style": "Spanish Renaissance Revival",
+        "period": "1888 (construction)",
+        "architects": "Carrère & Hastings",
+        "current_use": "Lightner Museum (since 1948)",
+        "key_facts": [
+          "Former Alcazar Hotel — built same year as Ponce de León (1888)",
+          "Designed by Carrère & Hastings as a companion building to the Ponce",
+          "Contained world's largest indoor swimming pool when opened — 120 x 50 feet",
+          "Turkish baths, casino (social hall), tennis courts, gymnasium",
+          "Closed 1931 during Great Depression",
+          "Purchased 1947 by Otto Lightner for his Gilded Age decorative arts collection",
+          "Former pool is now a café — original tile work still visible"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Pool That Was",
+          "prompt": "The Alcazar Hotel's most famous feature was its indoor swimming pool — the world's largest when it opened in 1888. If you visit the Lightner Museum today, what has become of the former swimming pool?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The pool was too large and too well-built to demolish when the hotel was converted to a museum. It found a new life as something more practical.",
+          "config": {
+            "options": [
+              "It was filled with concrete and is now a solid floor beneath the main gallery",
+              "It became a café and antiques mall — visitors can eat and browse where Gilded Age guests once swam, with the original tile work still visible",
+              "It was converted to a koi pond and water garden",
+              "It was drained and turned into a sunken theater for museum events"
+            ],
+            "correct_index": 1,
+            "explanation": "The former swimming pool — 120 feet long, 50 feet wide, and 15 feet deep — is now a café and antiques mall on the ground floor of the Lightner Museum. The original Victorian tile work is still visible on the walls and floor. It's one of the more surreal dining experiences in St. Augustine: eating lunch in what was once the world's largest indoor swimming pool."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Casino — Then and Now",
+          "prompt": "The Alcazar Hotel featured a 'casino' as one of its main amenities. In 19th-century usage, 'casino' meant something different from what the word means today. What was the Alcazar's casino?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The Italian word 'casino' comes from 'casa' (house) and referred to a type of social building. The gambling connotation came later.",
+          "config": {
+            "options": [
+              "A room with slot machines and card tables for high-stakes gambling",
+              "A social hall for dancing, music, and entertainment — the 19th-century meaning of 'casino' was a gathering place, not primarily a gambling venue",
+              "A private dining room reserved for the wealthiest guests",
+              "A covered outdoor promenade for evening strolls"
+            ],
+            "correct_index": 1,
+            "explanation": "In 19th-century usage, 'casino' (from the Italian 'casa,' meaning house) referred to a social hall for music, dancing, and entertainment — not primarily gambling. Flagler's Alcazar casino was a large social room where guests danced, attended concerts, and socialized. The association of 'casino' with gambling came later, as Monte Carlo and American gambling establishments borrowed the term. The Alcazar's casino was an entertainment venue in the older sense."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Two Hotels, One Vision",
+          "prompt": "Ask Henry Flagler about the relationship between the Ponce de León and the Alcazar — why build two matching hotels, what was the logic of the resort complex, and who he was trying to attract to St. Augustine in 1888.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask Flagler about the wealthy guests he was courting — what they expected in a resort, where they had been going before, and how St. Augustine compared to Newport or Saratoga Springs.",
+          "config": {
+            "character_id": "henry_flagler",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Architectural Historian",
+      "description": "You traced five centuries of St. Augustine's built environment from coquina to Carrère & Hastings.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Style Spotter",
+      "description": "You identified three distinct architectural styles in the Ancient City.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "Building the Case",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

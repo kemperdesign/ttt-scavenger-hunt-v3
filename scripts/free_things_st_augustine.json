@@ -1,0 +1,321 @@
+{
+  "adventure": {
+    "title": "Free St. Augustine",
+    "slug": "free-things-st-augustine",
+    "description": "Some of the best experiences in St. Augustine cost nothing. This tour hits the city's top free stops: a craft distillery offering free self-guided tours, a winery with complimentary tastings, the historic Flagler College lobby and courtyard, the pedestrian gem of St. George Street, and the 1565 landing site of the city's founder. No admission. No tickets. Just the Ancient City at its most accessible.",
+    "short_description": "Hit St. Augustine's best free spots — distillery, winery, historic college, and more.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 60,
+    "start_lat": 29.8938,
+    "start_lng": -81.3198,
+    "total_points": 500,
+    "tags": ["free", "budget", "walking", "distillery", "winery", "family", "all ages"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "St. Augustine Distillery — Free Self-Guided Tour",
+      "description": "The St. Augustine Distillery at 112 Riberia Street offers free self-guided tours of their craft spirits operation — and the building is as interesting as the bourbon. This is the restored 1906 Florida Ice & Fuel Company plant, one of the oldest surviving industrial buildings in St. Augustine. Grab a map at the entrance and walk the production floor to see the copper pot stills, the barrel aging room, and the bottling line. The tasting room at the end offers samples (21+ for spirits; non-alcoholic options available).",
+      "historical_content": "The Florida Ice & Fuel Company plant at 112 Riberia Street was built in 1906 to manufacture ice — an essential commodity in pre-refrigeration Florida. Before mechanical refrigeration became widespread in the 1920s and 1930s, manufactured ice was how food was preserved, drinks were chilled, and fish were shipped. The plant served St. Augustine's hotels, restaurants, and households.\n\nThe building is a rare surviving example of early 20th-century industrial architecture in St. Augustine: brick construction, tall ceilings for heat dissipation, large windows for ventilation, and the robust structural framing needed for heavy industrial equipment.\n\nThe St. Augustine Distillery opened in the restored building in 2014. They produce Florida-made bourbon, gin, vodka, and rum — using Florida-grown grains and sugarcane where possible. Their bourbon is aged in the Florida heat, which accelerates the interaction between spirit and barrel that would take years in a cooler climate.\n\nThe distillery is one of several craft spirits producers that have opened in St. Augustine as part of the broader American craft spirits movement that began in the early 2000s.",
+      "lat": 29.8938,
+      "lng": -81.3198,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "The St. Augustine Distillery is at 112 Riberia Street — look for the restored brick industrial building with the distillery sign. Free parking nearby.",
+      "safety_warning": "Free self-guided tour of the production floor. Tastings are complimentary but alcohol is 21+ only. Non-alcoholic options available for all ages.",
+      "metadata_json": {
+        "cost": "Free",
+        "building_date": "1906",
+        "original_use": "Florida Ice & Fuel Company — ice manufacturing plant",
+        "key_facts": [
+          "Restored 1906 Florida Ice & Fuel Company plant",
+          "Free self-guided tours of the production floor",
+          "Copper pot stills, barrel aging room, bottling line",
+          "Florida-made bourbon, gin, vodka, rum",
+          "Florida heat accelerates bourbon barrel aging",
+          "Opened 2014 as part of the American craft spirits movement"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why an Ice Plant?",
+          "prompt": "Before mechanical refrigeration, the 1906 Florida Ice & Fuel Company plant manufactured ice for St. Augustine's hotels, restaurants, and households. Why was manufactured ice so essential in pre-refrigeration Florida?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about everything that refrigeration does today that was otherwise impossible in a hot climate before mechanical cooling.",
+          "config": {
+            "options": [
+              "Ice was primarily used to cool drinking water, which was otherwise too warm to drink safely",
+              "Manufactured ice was how food was preserved, drinks were chilled, fish were shipped, and hotel rooms were cooled before mechanical refrigeration",
+              "Ice was used to cool the engines of early automobiles that overheated in the Florida heat",
+              "Florida law required all hotels to provide ice for fire suppression before modern sprinkler systems"
+            ],
+            "correct_index": 1,
+            "explanation": "Before mechanical refrigeration became widespread in the 1920s-30s, manufactured ice was essential to nearly every aspect of food service and hospitality: preserving perishable foods, chilling beverages, icing fish for shipping, and cooling hotel rooms with ice-and-fan systems. For a city like St. Augustine — full of hotels serving wealthy Northern tourists who expected fresh food and cold drinks — the ice plant was critical infrastructure."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Florida Bourbon",
+          "prompt": "The St. Augustine Distillery ages their bourbon in the Florida climate. How does Florida's heat affect the bourbon aging process compared to cooler climates like Kentucky?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Heat accelerates chemical reactions. What happens to bourbon during aging is a chemical reaction between the spirit and the oak barrel.",
+          "config": {
+            "accepted_answers": [
+              "faster aging", "accelerates aging", "speeds up aging", "ages faster",
+              "heat accelerates", "quicker aging", "faster interaction", "accelerates the process"
+            ],
+            "case_sensitive": false,
+            "explanation": "Florida's heat accelerates the interaction between the spirit and the oak barrel — the process that gives bourbon its color, flavor, and complexity. In Kentucky, bourbon typically ages 4-12 years. In Florida's heat, spirits can reach a similar level of development in fewer years because the heat drives the spirit deeper into the wood grain and back out more rapidly with each cycle. Florida distilleries sometimes call this 'accelerated aging' — though some argue it produces a different flavor profile, not just a faster version of the same one."
+          }
+        }
+      ]
+    },
+    {
+      "title": "San Sebastian Winery — Free Tastings on the Roof",
+      "description": "San Sebastian Winery at 157 King Street offers free tours of their production facility and complimentary wine tastings — all in a historic former Coca-Cola bottling plant. Take the self-guided tour through the barrel room and production floor, then head to the rooftop Upstairs at San Sebastian for a glass with a view of the Matanzas River. San Sebastian produces muscadine, scuppernong, and hybrid grape wines from Florida-grown fruit — a style of winemaking specific to the Southeast that dates to the earliest European settlers.",
+      "historical_content": "San Sebastian Winery occupies the former Coca-Cola Bottling Company building on King Street — built in the 1930s for the St. Augustine bottling plant. Like the distillery, it's an example of early 20th-century industrial architecture repurposed for hospitality and food production.\n\nThe winery was founded in 1996 by the Ximenez family — a St. Augustine family with historical roots in the Spanish colonial period. The Ximenez-Fatio House on Aviles Street (now a historic house museum) was built by members of the same extended family.\n\nSan Sebastian's wines are made primarily from muscadine and scuppernong grapes — varieties native to the American Southeast that were the first grapes the earliest European settlers encountered. Spanish missionaries planted these grapes at Florida missions as early as the 1560s-1570s. The muscadine vine is the most cold-hardy and disease-resistant grape in the South, thriving in conditions that would kill European vinifera varieties.\n\nSan Sebastian also produces wines from hybrid grape varieties developed for the Southeast's humid climate — a wine tradition specific to the region, distinct from the vinifera wines of California or Europe.",
+      "lat": 29.8903,
+      "lng": -81.3185,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "San Sebastian Winery is at 157 King Street — the large building with the winery sign, near the San Sebastian River bridge. Free parking in the lot.",
+      "safety_warning": "Free self-guided tours and tastings. Wine tastings are 21+ only. Non-alcoholic grape juice options available.",
+      "metadata_json": {
+        "cost": "Free tours and tastings",
+        "building": "Former Coca-Cola Bottling Company building, 1930s",
+        "key_facts": [
+          "Free production facility tours and wine tastings",
+          "Rooftop bar with Matanzas River views",
+          "Muscadine and scuppernong grapes — native to the American Southeast",
+          "Spanish missionaries planted muscadine grapes at Florida missions as early as the 1560s",
+          "Founded 1996 by the Ximenez family — historical roots in Spanish colonial period",
+          "Former Coca-Cola Bottling Company building"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The First Florida Grape",
+          "prompt": "San Sebastian's wines are made primarily from muscadine and scuppernong grapes — varieties native to the American Southeast. What is significant about these grapes in the context of Florida's history?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Spanish missionaries arrived in Florida in the 1560s-1570s. They planted grapes. Which grapes were available in Florida?",
+          "config": {
+            "options": [
+              "Muscadine grapes were imported from Spain by the Franciscan missionaries who planted the first vineyards in America",
+              "Muscadine and scuppernong grapes are native to the American Southeast — Spanish missionaries planted them at Florida missions as early as the 1560s, making Florida's wine history among the oldest in North America",
+              "Muscadine grapes were developed by University of Florida agricultural scientists in the 1950s for Florida's climate",
+              "Scuppernong grapes were brought to Florida by French Huguenot settlers who arrived before the Spanish"
+            ],
+            "correct_index": 1,
+            "explanation": "Muscadine and scuppernong grapes are native to the American Southeast — they were growing here when the first Europeans arrived. Spanish missionaries planted vineyards at Florida missions as early as the 1560s-1570s, using locally available muscadine grapes to produce sacramental wine. This makes Florida's winemaking history among the oldest in North America — predating California by more than two centuries."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Building Before",
+          "prompt": "San Sebastian Winery operates in a building constructed in the 1930s for a different beverage company. What was the building originally used for?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was a bottling plant for one of the most famous beverage brands in American history — a soft drink company.",
+          "config": {
+            "accepted_answers": ["coca cola", "coca-cola", "coke", "coca cola bottling", "coca-cola bottling", "bottling plant"],
+            "case_sensitive": false,
+            "explanation": "The San Sebastian Winery building was originally the Coca-Cola Bottling Company plant for St. Augustine — built in the 1930s when the soft drink industry was expanding rapidly across America. Like the St. Augustine Distillery's former ice plant, it's an example of the city's industrial heritage being preserved and repurposed for food and beverage production. The building's tall ceilings and robust construction — designed for industrial bottling equipment — now serve wine production."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Flagler College — Free Rotunda Access",
+      "description": "Flagler College, the former Ponce de León Hotel (1888), opens its historic Rotunda and main courtyard to the public free of charge during daytime hours. The Rotunda's stained glass ceiling — designed by Louis Comfort Tiffany — is one of the great interior spaces in American architecture. Seventy-nine original Tiffany windows surround the dining hall. Four three-story caryatids hold up the ceiling. Standing in the Rotunda, you are in the most technically advanced hotel in the world as of 1888 — now a working college campus.",
+      "historical_content": "The public has free access to the Ponce de León Hotel's main Rotunda during regular college hours — a remarkable opportunity to stand in one of the finest Gilded Age interiors in the United States.\n\nThe Rotunda was the grand entrance hall of the hotel: where guests checked in, where they gathered before dinner, where they read the morning papers in leather chairs beneath stained glass. Tiffany's stained glass ceiling is a masterwork of American decorative art — 79 windows depicting figures from classical mythology, including the Four Seasons and the Four Elements.\n\nThe four caryatids (female figures used as architectural columns) supporting the rotunda ceiling are three stories tall and made of staff — a mixture of plaster and fiber that allowed elaborate sculptural details at a fraction of the weight and cost of stone.\n\nFlagged as the most technically advanced hotel in the world when it opened in 1888, the Ponce de León featured:\n- Full electric lighting via an on-site Edison generator (among the first hotels in the world)\n- Steam heating\n- Indoor plumbing with hot and cold running water in every room\n- An electric elevator (a novelty in 1888)\n\nFlagler College purchased the building in 1967 and opened as a liberal arts college in 1968. Admission to the Rotunda and courtyard is free; guided tours of additional spaces are available for a fee.",
+      "lat": 29.8905,
+      "lng": -81.3135,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "Flagler College main entrance is on King Street — enter through the main gate and ask at the information desk about free Rotunda access. The college is open to the public during daytime hours.",
+      "safety_warning": "This is an active college campus. Please be respectful of students and staff. The Rotunda is free to visit; some additional spaces require a paid tour ticket.",
+      "metadata_json": {
+        "cost": "Free (Rotunda and courtyard)",
+        "key_facts": [
+          "Louis Comfort Tiffany stained glass ceiling — 79 original windows",
+          "Four three-story caryatids supporting the rotunda ceiling",
+          "Ponce de León Hotel opened 1888 — most technically advanced hotel in the world at the time",
+          "Among first hotels fully wired for electric light (Edison system)",
+          "Flagler College since 1968 — free Rotunda access during daytime hours",
+          "Guided tours of additional spaces available for a fee"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Tiffany's Ceiling",
+          "prompt": "The Flagler College Rotunda features a stained glass ceiling designed by Louis Comfort Tiffany. Looking up at the ceiling, approximately how many Tiffany stained glass windows surround the space?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Count the windows around the perimeter of the rotunda — or recall the number from the stop description.",
+          "config": {
+            "options": [
+              "12 windows — one for each month of the year",
+              "36 windows — three per panel across 12 panels",
+              "79 windows",
+              "144 windows — 12 rows of 12"
+            ],
+            "correct_index": 2,
+            "explanation": "The Flagler College Rotunda features 79 original Tiffany stained glass windows surrounding the dining hall ceiling — depicting figures from classical mythology including the Four Seasons and the Four Elements. Much of Tiffany's work was covered or removed during the hotel's later operating years; Flagler College's restoration has uncovered and restored the original decorative program. It is among Tiffany's largest and most ambitious non-ecclesiastical commissions."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "First in Technology",
+          "prompt": "The Ponce de León Hotel was among the first hotels in the world to be fully wired for electric light when it opened in 1888. The electrical system was designed by a famous American inventor who was a personal acquaintance of Henry Flagler. Who designed the hotel's electrical system?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "He's the inventor most closely associated with the commercialization of electric light in the late 19th century — and he had business connections to Standard Oil men like Flagler.",
+          "config": {
+            "accepted_answers": ["thomas edison", "edison", "thomas a edison", "thomas alva edison"],
+            "case_sensitive": false,
+            "explanation": "Thomas Edison designed the electrical system for the Ponce de León Hotel — one of the first hotels in the world to be fully wired for electric light. Flagler knew Edison personally through their shared connections in New York business and industrial circles. Edison's involvement reflected the cutting-edge technology the Ponce de León was designed to showcase: when the hotel opened in January 1888, its electric lights were a marvel that Northern tourists could not experience at home."
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. George Street — America's Most Historic Pedestrian Mall",
+      "description": "St. George Street, the main pedestrian thoroughfare of St. Augustine's historic district, has been the city's primary commercial street for more than 400 years. Closed to vehicles and lined with historic buildings, shops, and restaurants, it runs from the Plaza de la Constitución north to the City Gate — the original entrance to the walled colonial city. Walking St. George Street is free; the shops cost money. The architecture, the history, and the oldest commercial street in the continental United States are yours at no charge.",
+      "historical_content": "St. George Street follows the original grid laid out by Spanish colonial engineers after the 1702 British raid destroyed most of the city's wooden structures. The rebuilding in the early 1700s established the street pattern that still exists today.\n\nThe City Gate at the north end of St. George Street (at Orange Street) is one of the most significant surviving elements of St. Augustine's colonial fortification system. Built in 1739, it was the main entrance through the Cubo defensive line — a wall of earth and wood (later rebuilt in coquina) that stretched across the city's northern boundary from the Matanzas River to the San Sebastian River.\n\nThe gate's two coquina pillars are original — among the oldest surviving examples of coquina construction in the city. The original wooden gate that hung between the pillars has not survived, but the pillars themselves stand as they were built in 1739.\n\nThe street contains numerous historically significant buildings:\n- The Oldest Wooden Schoolhouse (early 1700s)\n- The Spanish Quarter Living History Museum (reconstructed 18th-century Spanish Colonial buildings)\n- The Peña-Peck House (1750s, colonial period)\n- Numerous 18th and 19th-century commercial buildings\n\nSt. George Street was closed to vehicle traffic in the 1970s as part of historic district restoration efforts.",
+      "lat": 29.8993,
+      "lng": -81.3145,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "St. George Street runs north-south through the historic district. Start at the City Gate (the two coquina pillars at the north end, near Orange Street) and walk south toward the Plaza.",
+      "safety_warning": null,
+      "metadata_json": {
+        "cost": "Free (street is public; individual shops and museums charge admission)",
+        "key_facts": [
+          "Primary commercial street of St. Augustine for more than 400 years",
+          "City Gate (1739) at north end — two original coquina pillars from the Cubo defensive line",
+          "Oldest Wooden Schoolhouse (early 1700s), Spanish Quarter Living History Museum, Peña-Peck House",
+          "Street layout dates to post-1702 rebuilding",
+          "Closed to vehicle traffic in the 1970s"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The City Gate",
+          "prompt": "The City Gate at the north end of St. George Street was built in 1739. What was its purpose in the colonial city's defense system?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about a walled colonial city. The gate is where the wall is interrupted — the controlled point of entry.",
+          "config": {
+            "options": [
+              "It was a toll gate where merchants paid taxes on goods entering the city",
+              "It was the main entrance through the Cubo Line — a defensive wall that stretched across the northern boundary of the city from river to river",
+              "It marked the boundary between the Spanish and British sections of the city during joint occupation",
+              "It was a ceremonial gate used only for the arrival of important visitors and officials"
+            ],
+            "correct_index": 1,
+            "explanation": "The City Gate was the main controlled entrance through the Cubo Line — a defensive earthwork (later rebuilt in coquina) that stretched across St. Augustine's northern boundary from the Matanzas River to the San Sebastian River, protecting the city from land attack from the north. The two original coquina pillars that survive today are among the oldest standing examples of coquina construction in the city, built in 1739 during the Spanish colonial period."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Cubo Line",
+          "prompt": "The City Gate was the entrance through a colonial defensive line that protected St. Augustine's northern approach. What was this defensive earthwork called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's the Spanish name for the defensive line — named for a geometric shape that appears in the engineering plans.",
+          "config": {
+            "accepted_answers": ["cubo line", "the cubo line", "cubo", "línea del cubo", "linea del cubo"],
+            "case_sensitive": false,
+            "explanation": "The Cubo Line (Línea del Cubo) was the colonial-era defensive earthwork that stretched across St. Augustine's northern boundary, with the City Gate as its main controlled entrance. Originally an earthwork reinforced with wooden palisades, it was rebuilt in coquina in the early 18th century. The Cubo Line, combined with the Castillo de San Marcos on the bayfront, formed the primary defense system of the colonial city. The Castillo defended against naval attack from the sea; the Cubo Line and its gate controlled the land approach from the north."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Mission Nombre de Dios — Free Grounds and the Great Cross",
+      "description": "The grounds of Mission Nombre de Dios — the 1565 founding site of St. Augustine — are free and open to visitors year-round. Walk the shoreline path to the 208-foot Great Cross that marks the landing site, visit the small Prince of Peace Chapel (Shrine of Our Lady of La Leche), and look across the Matanzas River to Anastasia Island. This is the oldest continually occupied European settlement in the continental United States, and standing at the water's edge here is standing at the beginning of American history.",
+      "historical_content": "The grounds of Mission Nombre de Dios along the Matanzas River shoreline are maintained by the Diocese of St. Augustine and are open to visitors at no charge. The site includes:\n\n**The Great Cross**: A 208-foot stainless steel cross erected in 1966 for the 400th anniversary of the landing. Visible from across the harbor. It marks the spot where Pedro Menéndez de Avilés landed on September 8, 1565, and celebrated the first Mass in the continental United States.\n\n**The Shrine of Our Lady of La Leche (Prince of Peace Chapel)**: A small reconstructed chapel on the site of the earliest permanent shrine in the United States, originally established in 1620. The current structure is a reconstruction, but it sits on the original site. The Shrine of Our Lady of La Leche — Our Lady of the Milk — was a devotion brought to Florida by the Spanish colonists.\n\n**The shoreline path**: Following the western shore of the Matanzas River, the path provides views of the river, the inlet, and Anastasia Island — the source of the coquina stone used to build the Castillo de San Marcos and the city's colonial buildings.\n\nThe site is among the most historically significant ground in the United States — the oldest continually documented European settlement in North America — and it is freely accessible to all visitors.",
+      "lat": 29.9025,
+      "lng": -81.3142,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "Mission Nombre de Dios is on Old Mission Avenue north of the Bridge of Lions — follow the signs to the Great Cross visible above the tree line. Free parking on site.",
+      "safety_warning": "Active Catholic shrine. Please dress respectfully near the chapel. The grounds are peaceful — observe the quiet.",
+      "metadata_json": {
+        "cost": "Free",
+        "key_facts": [
+          "Grounds free and open year-round",
+          "1565 landing site of Pedro Menéndez de Avilés — founding of St. Augustine",
+          "Great Cross: 208 feet tall, stainless steel, erected 1966",
+          "Shrine of Our Lady of La Leche — devotion established 1620, reconstructed chapel",
+          "Views across Matanzas River to Anastasia Island (source of coquina stone)",
+          "Oldest continually documented European settlement in North America"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Oldest Settlement",
+          "prompt": "St. Augustine is often called the oldest continuously occupied European settlement in the continental United States. What does 'continuously occupied' mean in this context, and why does it matter?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Other European settlements were founded before 1565 — but what happened to them? St. Augustine's distinction is not just that it was founded early, but something else.",
+          "config": {
+            "options": [
+              "St. Augustine was the first European settlement founded anywhere in North America",
+              "St. Augustine has been continuously occupied since 1565 — never abandoned, never destroyed and resettled — giving it an unbroken chain of habitation that other early settlements lack",
+              "'Continuously occupied' means the Spanish flag has flown over St. Augustine without interruption since 1565",
+              "St. Augustine was the first settlement where European settlers had children born in North America"
+            ],
+            "correct_index": 1,
+            "explanation": "St. Augustine's distinction is not just its age but its continuity — it has been continuously occupied since 1565, never abandoned and resettled. Other European settlements predated it (the Spanish had settlements in the Caribbean from the 1490s; the French briefly settled in Florida in 1562-65), but those were either abandoned or destroyed. St. Augustine has had people living in it, on the same ground, without interruption for over 450 years — the longest such record in the continental United States."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Across the River",
+          "prompt": "Looking east from the Mission Nombre de Dios grounds across the Matanzas River, you can see Anastasia Island. What historically significant building material was quarried from Anastasia Island and used to construct the Castillo de San Marcos and most of the city's colonial buildings?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a sedimentary rock made of compressed shells — soft enough to carve with hand tools but hard enough to build a fort that never fell in battle.",
+          "config": {
+            "accepted_answers": ["coquina", "coquina stone", "coquina rock"],
+            "case_sensitive": false,
+            "explanation": "Coquina — a sedimentary rock made of compressed coquina shells — was quarried from Anastasia Island and used to build the Castillo de San Marcos, the City Gate, the Cathedral Basilica, and most of St. Augustine's colonial-era buildings. The quarry on Anastasia Island is still visible today. Coquina's unique properties — soft enough to cut with hand tools when freshly quarried, hardening as it dries, and absorbing rather than shattering under cannon impact — made it ideal for both construction and military defense."
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Free Explorer",
+      "description": "You experienced the best of St. Augustine without spending a cent on admission.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Budget Traveler",
+      "description": "You visited three free stops in the Ancient City.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "On the House",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

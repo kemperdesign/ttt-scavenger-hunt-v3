@@ -1,0 +1,388 @@
+{
+  "adventure": {
+    "title": "Lincolnville — Freedom's First Neighborhood",
+    "slug": "lincolnville-freedom-neighborhood",
+    "description": "One block south of the Plaza de la Constitución — the oldest public square in the United States — lies Lincolnville, the neighborhood founded by freed African Americans after the Civil War. Named for Abraham Lincoln, built by people who had been enslaved, Lincolnville became a self-sustaining Black community with its own churches, schools, businesses, and professionals. This is the story of what freedom looked like when people had to build it themselves — and how the community they built made the civil rights movement of 1963-64 possible.",
+    "short_description": "Explore the historic Black neighborhood founded by freed slaves after the Civil War.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 80,
+    "start_lat": 29.8875,
+    "start_lng": -81.3163,
+    "total_points": 600,
+    "tags": ["history", "civil rights", "african american", "architecture", "lincolnville", "community"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "St. Mary's Missionary Baptist Church — The Community's Foundation",
+      "description": "St. Mary's Missionary Baptist Church on Washington Street is one of the oldest African American churches in St. Augustine — founded in 1867, just two years after the end of the Civil War. In a community with no established institutions, no schools, and no political representation, the church was the first and most essential structure that freed people built. St. Mary's became the organizational heart of Lincolnville for over 150 years — and in 1963-64, it became the primary meeting place and launching point for the civil rights demonstrations that changed national history.",
+      "historical_content": "The end of the Civil War in April 1865 found approximately 700-900 enslaved people in St. Augustine. The Freedmen's Bureau — the federal agency established to assist formerly enslaved people — set up operations in the city, helping with employment contracts, legal disputes, and the establishment of schools and churches.\n\nThe African American community in St. Augustine founded several churches in the late 1860s and early 1870s. St. Mary's Missionary Baptist Church (1867) was among the first — established at a time when Black congregations had previously been required to worship under white supervision in segregated sections of white churches.\n\nThe church's founding reflected a central truth of post-emancipation Black community life: the church was the one institution that the community controlled completely. It was the meeting hall, the school before formal schools were built, the community bank through charitable giving, the social center, and the political organization all in one.\n\nIn 1963, when Dr. Robert Hayling organized the St. Augustine Movement and invited the Southern Christian Leadership Conference (SCLC) to bring Martin Luther King Jr. to the city, St. Mary's was the primary gathering place. Night marches, wade-ins at the beach, and sit-ins at downtown lunch counters all began with meetings at St. Mary's.",
+      "lat": 29.8875,
+      "lng": -81.3163,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "St. Mary's Missionary Baptist Church is on Washington Street in Lincolnville — walk south from King Street into the neighborhood.",
+      "safety_warning": "This is an active church. Please be respectful of services and community events.",
+      "metadata_json": {
+        "key_facts": [
+          "Founded 1867 — two years after the end of the Civil War",
+          "One of the oldest African American churches in St. Augustine",
+          "Founded as freed people established institutions they fully controlled",
+          "The Freedmen's Bureau assisted with legal and practical matters after emancipation",
+          "St. Mary's was the primary meeting place for the 1963-64 civil rights movement in St. Augustine",
+          "Night marches and demonstrations were organized from this church"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why the Church First?",
+          "prompt": "When freed people in Lincolnville established their community after 1865, the church was typically the first institution they built — before schools, before businesses, before civic organizations. What made the church the essential first building?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what the church provided that no other institution could — especially in a community that had been denied access to education, political participation, and legal protection.",
+          "config": {
+            "options": [
+              "Federal law required freed people to build a church before they could own other property",
+              "The church served simultaneously as meeting hall, school, community bank, social center, and political organization — the one institution the community fully controlled",
+              "White city officials permitted churches but not schools or businesses in Black neighborhoods",
+              "The Freedmen's Bureau provided construction materials only for religious buildings"
+            ],
+            "correct_index": 1,
+            "explanation": "The church was the one institution that the freed community controlled completely — serving simultaneously as meeting hall, school before formal schools were built, community mutual aid society, social center, and political organization. Under slavery, Black congregations had been required to worship under white supervision; founding their own church was one of the first acts of freedom."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Federal Agency",
+          "prompt": "The federal government established a specific agency after the Civil War to assist formerly enslaved people with employment, legal disputes, schools, and churches. What was this agency called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was established in 1865 and operated until 1872. Its name describes its mission: helping people who had been freed.",
+          "config": {
+            "accepted_answers": [
+              "freedmens bureau", "freedmen's bureau", "the freedmen's bureau",
+              "bureau of refugees freedmen and abandoned lands", "bureau of refugees"
+            ],
+            "case_sensitive": false,
+            "explanation": "The Freedmen's Bureau (formally the Bureau of Refugees, Freedmen, and Abandoned Lands) was established by Congress in March 1865 — one month before the Civil War ended. It operated until 1872, assisting formerly enslaved people with employment contracts, legal disputes, food relief, medical care, and the establishment of schools and churches in cities across the South, including St. Augustine."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The First Year of Freedom",
+          "prompt": "Ask the civil rights guide what the first year of freedom looked like in St. Augustine — what challenges did the freed community face, and what did they build first?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what 'freedom' meant practically in 1865 — what legal rights, economic opportunities, and social structures existed for the newly freed community.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Excelsior School — The Right to Learn",
+      "description": "The Excelsior School was one of the first schools established for Black children in St. Augustine — founded during the Reconstruction era with support from northern philanthropists and the Freedmen's Bureau. Education was perhaps the most radical act of the post-emancipation period: teaching enslaved people to read had been illegal in Florida before the Civil War, punishable by fine or imprisonment. The establishment of Black schools in St. Augustine was a direct reversal of one of slavery's most fundamental tools of control.",
+      "historical_content": "Florida law before the Civil War made it illegal to teach enslaved people to read or write — a crime punishable by fine and imprisonment. Literacy was understood by the slave system as a tool of resistance and freedom; denying it was essential to maintaining the institution of slavery.\n\nAfter emancipation, the establishment of schools was one of the freed community's highest priorities. The American Missionary Association (AMA) — a northern abolitionist organization — sent teachers to St. Augustine as early as 1865 to establish schools for the freed population. These teachers, mostly white women from New England, often faced hostility from white St. Augustine residents.\n\nThe Excelsior School emerged from these early Reconstruction-era efforts. By the 1880s and 1890s, Lincolnville had its own school system — segregated from the white schools but fully operational, staffed increasingly by Black teachers who had themselves received an education.\n\nThe school building reflects the broader story of Jim Crow-era St. Augustine: a dual system of institutions — separate Black schools, Black churches, Black businesses — that was simultaneously a product of racial oppression and a remarkable achievement of community self-determination under severe constraints.",
+      "lat": 29.8860,
+      "lng": -81.3158,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "The Excelsior School site is in the heart of Lincolnville — walk the neighborhood streets and look for historical markers referencing the school and early education in the community.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Teaching enslaved people to read was illegal in Florida before the Civil War — a fine and imprisonable offense",
+          "American Missionary Association (AMA) sent northern teachers to St. Augustine as early as 1865",
+          "The Excelsior School was among the first formal schools for Black children in the city",
+          "Jim Crow-era St. Augustine maintained fully separate school systems",
+          "Black teachers who had been educated themselves staffed the schools by the 1880s-90s",
+          "The dual institutional system was both the product of racial oppression and a community achievement under severe constraints"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why Literacy Was Illegal",
+          "prompt": "Before the Civil War, Florida law made it illegal to teach enslaved people to read or write. What was the slave system's reasoning for this law?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what literacy enables — communication, access to information, legal knowledge, coordination. All of these were threats to the slave system.",
+          "config": {
+            "options": [
+              "Slaveholders believed Black people were biologically incapable of learning to read",
+              "Literacy was understood as a tool of resistance — it enabled communication, access to legal documents, and coordination that threatened the slave system's control",
+              "The law was designed to protect the printing industry by limiting competition for jobs",
+              "Religious leaders argued that literacy led to questioning of the Bible's support for slavery"
+            ],
+            "correct_index": 1,
+            "explanation": "Literacy was understood by the slave system as a direct threat to its control — literate enslaved people could read legal documents, communicate across distances by letter, access abolitionist literature, and coordinate resistance. Denying literacy was one of slavery's most fundamental tools of control. After emancipation, the freed community's rush to establish schools was a direct reversal of this systematic denial."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Who Taught the First Schools?",
+          "prompt": "The first schools for freed people in St. Augustine were established with support from a northern abolitionist organization that sent teachers south after 1865. What was this organization called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was a religious abolitionist organization established in 1846 — its name describes both its mission (missionary work) and its goal (ending slavery).",
+          "config": {
+            "options": [
+              "The American Missionary Association (AMA)",
+              "The National Education Association (NEA)",
+              "The Freedmen's Aid Society of New York",
+              "The Society of Friends (Quakers) Southern Mission"
+            ],
+            "correct_index": 0,
+            "explanation": "The American Missionary Association (AMA) — a northern abolitionist organization founded in 1846 — sent teachers to St. Augustine as early as 1865. These teachers, mostly white women from New England, established some of the first schools for the freed community despite often facing hostility from white St. Augustine residents. The AMA eventually founded dozens of historically Black colleges and universities across the South."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Radical Act of Reading",
+          "prompt": "Ask the civil rights guide about the experience of the first generation of Lincolnville children who went to school — what it meant to their parents who had been denied education, and what opportunities literacy opened for the community.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about what professions Lincolnville residents entered as education became available, or about how the first Black teachers in St. Augustine came to hold their positions.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lincolnville's Shotgun Houses — Architecture of Freedom",
+      "description": "Walking the residential streets of Lincolnville — particularly Washington Street, Central Avenue, and the blocks around them — reveals one of the finest surviving collections of shotgun houses and vernacular Victorian cottages in Florida. These small, narrow houses (one room wide, several rooms deep) were the primary housing form of working-class Black communities across the American South from the 1870s through the 1930s. In Lincolnville, they represent the physical expression of freedom: land owned, homes built, families housed on their own terms.",
+      "historical_content": "The shotgun house is the most common house type in Lincolnville. The name comes from the layout: a shotgun blast fired through the front door would travel straight through all rooms and exit the back. The houses are one room wide and two to five rooms deep, typically with a front porch, a central hallway, and rooms arranged in a single file.\n\nThe form likely originated in West African and Haitian architectural traditions, brought to the American South through New Orleans and spreading across the region in the post-Civil War period. It was an economical form — cheap to build, efficient to heat, and adaptable to narrow urban lots.\n\nIn Lincolnville, the shotgun houses date primarily from the 1880s through the 1920s. Many are built of heart pine (longleaf pine) — a dense, durable wood from Florida's original pine forests that is nearly impervious to insects and rot. Heart pine was the construction material of choice in the region before the old-growth forests were logged out in the early 20th century.\n\nLincolnville was listed on the National Register of Historic Places as a historic district — recognizing both the architectural significance of its vernacular housing stock and its historical importance as a post-emancipation African American community.\n\nThe neighborhood's character — tight lots, front porches that encourage community interaction, mature tree canopy — reflects a design tradition built around community life rather than automobile access.",
+      "lat": 29.8855,
+      "lng": -81.3172,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "Walk the residential blocks of Lincolnville — Washington Street, Central Avenue, and the surrounding streets. You're looking for the narrow one-story houses with front porches and side yards.",
+      "safety_warning": "These are active residential properties. Observe from the public sidewalk only. Do not enter yards or photograph residents without permission.",
+      "metadata_json": {
+        "key_facts": [
+          "Shotgun house: one room wide, several rooms deep, front porch — named for the straight-through layout",
+          "Form likely originates in West African and Haitian architectural traditions via New Orleans",
+          "Lincolnville shotgun houses date primarily from the 1880s-1920s",
+          "Built of heart pine (longleaf pine) — a dense, durable wood nearly impervious to insects and rot",
+          "Lincolnville listed on the National Register of Historic Places as a historic district",
+          "Front porch design reflects a community-oriented domestic culture"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Is a Shotgun House?",
+          "prompt": "The shotgun house is the predominant housing form in Lincolnville. Which description best identifies a shotgun house as you walk the neighborhood?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The name comes from the layout. Think about what a shotgun blast through the front door would do to a house arranged in a specific way.",
+          "config": {
+            "options": [
+              "A wide two-story house with rooms arranged on either side of a central staircase",
+              "A one-room-wide house with rooms arranged in a single file from front to back, typically with a front porch",
+              "A house built entirely from shotgun shells compressed into building blocks",
+              "A circular house design used by West African communities to deflect wind"
+            ],
+            "correct_index": 1,
+            "explanation": "A shotgun house is one room wide with rooms arranged in a single file from front to back — so a shotgun blast through the front door would travel straight through all rooms and exit the back. This economical form was cheap to build, fit narrow urban lots, and was efficient to ventilate in a hot climate. The form likely originated in West African and Haitian architectural traditions."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Building Material",
+          "prompt": "Many of Lincolnville's historic houses were built from a specific type of pine wood — extremely dense, durable, and nearly impervious to insects and rot — harvested from Florida's original old-growth forests. What is this wood called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It comes from the longleaf pine tree. The name refers to the wood's color and density.",
+          "config": {
+            "accepted_answers": ["heart pine", "heartpine", "longleaf pine", "heart pine wood", "old growth pine"],
+            "case_sensitive": false,
+            "explanation": "Heart pine — the dense, resin-saturated heartwood of old-growth longleaf pine trees — was the primary building material for Lincolnville's historic houses. So dense that nails are difficult to drive without pre-drilling, heart pine is nearly impervious to insects and rot. The old-growth longleaf pine forests that produced it were logged out in the early 20th century, making surviving heart pine structures irreplaceable."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: Home Ownership and Freedom",
+          "prompt": "Ask the civil rights guide about the significance of home ownership in Lincolnville — what it meant for a formerly enslaved person or their child to own the land and house they lived in, and how property ownership connected to citizenship and civil rights.",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the connection between property ownership and voting rights, or about what 'forty acres and a mule' represented as a promise that was largely broken.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Dr. Robert Hayling's Lincolnville — The Movement's Birthplace",
+      "description": "Dr. Robert B. Hayling was a dentist who lived and practiced in Lincolnville in the early 1960s. In 1963 he organized the St. Augustine Movement — the first sustained civil rights campaign in Florida. He invited the Southern Christian Leadership Conference to St. Augustine and personally persuaded Martin Luther King Jr. to come. The confrontations here — night marches down St. George Street, wade-ins at segregated Anastasia Beach — helped push Congress toward passing the Civil Rights Act of 1964. Hayling's Lincolnville was the base of operations for all of it.",
+      "historical_content": "Robert B. Hayling was born in Tallahassee in 1929, educated at Florida A&M University and Meharry Medical College (dentistry), and established his dental practice in Lincolnville in the early 1960s. He was a young veteran and professional who had grown up navigating the full machinery of Jim Crow.\n\nIn 1963, Hayling organized the St. Augustine Movement — beginning with student sit-ins at downtown lunch counters in the spring of 1963. The demonstrations escalated through 1963 and into 1964, with increasingly violent responses from white segregationists including members of the Ku Klux Klan.\n\nHayling invited the SCLC to St. Augustine in late 1963. Martin Luther King Jr. arrived in late May 1964. The demonstrations he led — night marches down St. George Street past the slave market, wade-ins at segregated Anastasia Beach, sit-ins at the Monson Motor Lodge's segregated pool and dining room — generated national news coverage.\n\nThe Monson Motor Lodge incident (June 18, 1964) — when the motel manager poured muriatic acid into the pool to drive out Black swimmers — was photographed and broadcast nationally, helping create the political pressure that passed the Civil Rights Act of 1964, signed by President Lyndon Johnson on July 2, 1964.\n\nDr. Hayling later moved to Fort Lauderdale, where he continued his dental practice. He returned to St. Augustine for the 50th anniversary commemorations in 2014.",
+      "lat": 29.8858,
+      "lng": -81.3178,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "Walk the residential streets of western Lincolnville — the neighborhood where Dr. Hayling lived and practiced dentistry in the early 1960s. Look for historical markers referencing the St. Augustine Movement.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "Dr. Robert B. Hayling (born 1929) organized the St. Augustine Movement beginning in 1963",
+          "A dentist who lived and practiced in Lincolnville — the movement's organizer and Lincolnville's most prominent civil rights leader",
+          "Hayling invited the SCLC to St. Augustine and persuaded Martin Luther King Jr. to come",
+          "Martin Luther King Jr. arrived in St. Augustine in late May 1964",
+          "The Monson Motor Lodge incident (June 18, 1964) — muriatic acid poured in pool — was photographed and broadcast nationally",
+          "Civil Rights Act of 1964 signed July 2, 1964 — St. Augustine demonstrations contributed to its passage",
+          "Hayling returned to St. Augustine for the 50th anniversary commemorations in 2014"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Acid in the Pool",
+          "prompt": "On June 18, 1964, the manager of the Monson Motor Lodge poured a chemical into his motel pool to drive out Black and white swimmers who had entered it as part of a civil rights demonstration. The incident was photographed and broadcast nationally. What chemical did he use?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a strong acid commonly used for cleaning concrete and masonry — its misuse in the pool became one of the most iconic images of the civil rights era.",
+          "config": {
+            "options": [
+              "Chlorine bleach",
+              "Muriatic acid (hydrochloric acid)",
+              "Sulfuric acid",
+              "Ammonia"
+            ],
+            "correct_index": 1,
+            "explanation": "Motel manager James Brock poured muriatic acid (hydrochloric acid — commonly used to clean concrete and masonry) into the Monson Motor Lodge pool on June 18, 1964. The image of the acid being poured on demonstrators in the pool was photographed by AP photographer James Kerlin and broadcast worldwide, generating outrage that contributed to the passage of the Civil Rights Act of 1964, signed 14 days later on July 2."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Law That Followed",
+          "prompt": "The St. Augustine demonstrations of 1963-64, organized from Lincolnville, contributed to the passage of a landmark federal law that banned racial discrimination in public accommodations — hotels, restaurants, theaters, and other public places. What is this law called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It was signed by President Lyndon Johnson on July 2, 1964 — just 14 days after the Monson Motor Lodge incident.",
+          "config": {
+            "accepted_answers": [
+              "civil rights act", "civil rights act of 1964", "the civil rights act",
+              "civil rights act 1964", "1964 civil rights act"
+            ],
+            "case_sensitive": false,
+            "explanation": "The Civil Rights Act of 1964 — signed by President Lyndon Johnson on July 2, 1964 — banned racial discrimination in public accommodations, employment, and federally assisted programs. The St. Augustine demonstrations, along with the Birmingham campaign and the March on Washington, were among the direct pressures that moved Congress to pass the bill. Dr. Hayling's St. Augustine Movement played a specific and documented role in its passage."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Doctor Who Led the Movement",
+          "prompt": "Ask the civil rights guide about Dr. Robert Hayling — what motivated a young professional dentist with a practice and a family to organize demonstrations that put him in direct danger from the Ku Klux Klan? What was he risking, and what did he believe?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about the personal risks Dr. Hayling faced, or about the relationship between his professional status and his civil rights activism.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lincolnville's King Street Border — Two Cities, One Block Apart",
+      "description": "King Street marks the northern boundary of Lincolnville — and for much of the 20th century, it was one of the most significant dividing lines in St. Augustine. North of King Street: the historic district, the tourist economy, the Spanish colonial buildings open to all white visitors. South of King Street: Lincolnville, its own economy, its own institutions, its own world. Yet the two communities were never entirely separate — Black workers built and maintained the historic district; Black musicians played in its hotels; Black labor was essential to every aspect of the white economy. This stop is about the border and what it meant.",
+      "historical_content": "The geography of Jim Crow in St. Augustine reflected the broader pattern of American racial segregation: physical proximity combined with social and legal separation. Lincolnville was less than a five-minute walk from the Cathedral Basilica, the Ponce de León Hotel, and the Plaza de la Constitución — but the legal and social barriers between the two communities were absolute.\n\nBlack workers were essential to the tourist economy: they cooked in the hotels, cleaned the rooms, maintained the grounds, drove the carriages, and played music in the lobbies. They entered through service entrances and could not eat in the dining rooms they served.\n\nLincolnville had its own commercial district — small businesses, a pharmacy, a movie theater (segregated), a barbershop, a medical office, a dentist (Dr. Hayling). These businesses served the Black community precisely because the white-owned businesses downtown would not.\n\nThe civil rights demonstrations of 1963-64 specifically targeted the businesses and public spaces north of this border — demanding the right to enter the same restaurants, hotels, beaches, and public accommodations that were open to white residents and tourists.\n\nAfter the Civil Rights Act of 1964, the legal barriers fell — but the economic and social geography of the two communities changed more slowly.",
+      "lat": 29.8868,
+      "lng": -81.3160,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "Stand at the intersection of Washington Street and King Street — the northern boundary of Lincolnville. Look north toward the historic district tourist zone and south into the residential neighborhood.",
+      "safety_warning": null,
+      "metadata_json": {
+        "key_facts": [
+          "King Street marks the traditional northern boundary of Lincolnville",
+          "Jim Crow St. Augustine maintained total social and legal separation despite physical proximity",
+          "Black workers were essential to the tourist economy but could not access its spaces as customers",
+          "Lincolnville had its own parallel economy: businesses, pharmacy, movie theater, professional offices",
+          "Civil rights demonstrations specifically targeted the downtown businesses north of this border",
+          "The Civil Rights Act of 1964 removed legal barriers — economic geography changed more slowly"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Invisible Line",
+          "prompt": "Standing at the King Street boundary between Lincolnville and the historic district, you are looking at one of Jim Crow's most fundamental features. Which of the following best describes the relationship between the Black and white communities in St. Augustine under Jim Crow?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Jim Crow was not about keeping Black and white people completely separate in space — it was about a specific kind of enforced hierarchy in shared spaces.",
+          "config": {
+            "options": [
+              "Complete physical separation — Black and white St. Augustine residents lived in entirely different parts of the city with no interaction",
+              "Physical proximity combined with total social and legal inequality — Black workers built and served the white economy but could not access its spaces as customers or citizens",
+              "A partnership system where Black and white business owners shared profits equally",
+              "A gradual integration process that was largely complete by the 1950s before the formal civil rights movement"
+            ],
+            "correct_index": 1,
+            "explanation": "Jim Crow maintained physical proximity with absolute social and legal inequality. Black workers cooked in white hotels, cleaned white rooms, maintained white grounds — but entered through service entrances and could not eat in the dining rooms they served. The civil rights movement specifically targeted this arrangement: demonstrators demanded the right to enter the same spaces their labor helped maintain."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Lincolnville's Own Economy",
+          "prompt": "Under Jim Crow, Lincolnville developed its own parallel commercial district — businesses serving the Black community that white-owned downtown businesses would not serve. Which of the following was NOT typically part of a Jim Crow-era Black commercial district?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what essential services a community needed — and which ones the larger white economy would never provide to Black customers in the Jim Crow South.",
+          "config": {
+            "options": [
+              "A Black-owned pharmacy and medical office",
+              "A Black barbershop and beauty salon",
+              "A Black-owned and operated railroad terminal",
+              "A Black movie theater showing films for Black audiences"
+            ],
+            "correct_index": 2,
+            "explanation": "Railroads were not typically Black-owned in the Jim Crow South — they were major corporate enterprises. Black commercial districts typically included pharmacies, medical and dental offices, barbershops, beauty salons, movie theaters (with segregated seating or all-Black theaters), grocery stores, and restaurants. Dr. Hayling's dental practice in Lincolnville was part of this pattern of professional services that the Black community provided for itself."
+          }
+        },
+        {
+          "challenge_type": "ai_conversation",
+          "title": "Bonus: The Border Today",
+          "prompt": "Ask the civil rights guide what the King Street boundary between Lincolnville and the historic district looks and feels like today compared to the Jim Crow era — what has changed since 1964, and what hasn't?",
+          "points": 50,
+          "is_required": false,
+          "hint_text": "Ask about gentrification in Lincolnville, or about the economic status of the neighborhood compared to the tourist district to the north.",
+          "config": {
+            "character_id": "civil_rights_guide",
+            "min_exchanges": 2
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Freedom Builder",
+      "description": "You walked the full story of Lincolnville — from emancipation to the Civil Rights Act.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Neighborhood Witness",
+      "description": "You visited three stops in Freedom's First Neighborhood.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Shortcuts",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

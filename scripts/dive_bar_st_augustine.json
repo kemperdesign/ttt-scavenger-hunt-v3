@@ -1,0 +1,319 @@
+{
+  "adventure": {
+    "title": "Dive Bars of the Ancient City",
+    "slug": "dive-bars-ancient-city",
+    "description": "Forget the tourist-polished cocktail bars. St. Augustine's dive bars are the real deal: Tradewinds, where everybody knows your name and the Budweiser is always cold; St. George Tavern, the dark cave on the pedestrian mall; White Lion, the oldest public house in Florida; Milltop, the upstairs joint with live music over the street; and the A-Frame, the biker bar that doesn't advertise. This is a tour for people who like their history without the presentation. 21+ only. Drink responsibly.",
+    "short_description": "The Ancient City's legendary dive bars — cold beer, no pretense, all character.",
+    "difficulty": "easy",
+    "estimated_duration_minutes": 120,
+    "start_lat": 29.8968,
+    "start_lng": -81.3133,
+    "total_points": 500,
+    "tags": ["21+", "dive bars", "nightlife", "evening", "adults only", "local", "bar crawl"],
+    "is_published": true,
+    "is_featured": false
+  },
+  "stops": [
+    {
+      "title": "Tradewinds Lounge — The Locals' Bar",
+      "description": "Tradewinds Lounge at 124 Charlotte Street is the kind of bar St. Augustine actually runs on when the tourists go home. No craft cocktail menu. No interior design concept. Just cold beer, a jukebox, and people who have been coming here for years. Tradewinds has been a fixture of downtown St. Augustine long enough that it has earned the status of institution — the bar that locals name first when someone asks where they actually go. Walk in, order a beer, and start a conversation.",
+      "historical_content": "Charlotte Street is one of the original streets of the Spanish colonial grid — named for Charlotte of Mecklenburg-Strelitz, Queen Consort of King George III, during the British Colonial period (1763-1783). The street ran parallel to St. George Street as part of the colonial city's commercial and residential fabric.\n\nThe Tradewinds Lounge has occupied its spot on Charlotte Street for decades — long enough to have seen the neighborhood around it change from primarily residential and commercial to tourist-oriented retail, while remaining stubbornly itself.\n\nThe 'tradewinds' in the name refer to the prevailing winds that drove Spanish ships from the Canary Islands across the Atlantic to the Caribbean and Florida — the same winds that brought the first settlers to St. Augustine in 1565. The Spanish flota (fleet) system depended on the tradewinds' reliability: a ship leaving Spain could count on following winds across to the New World.\n\nFor St. Augustine, the tradewinds meant everything: the supply ships that brought goods, the treasure fleet that exported New World silver, and the communication lifeline to Spain that kept the colonial outpost connected to empire. The name connects a corner dive bar to 500 years of maritime history.",
+      "lat": 29.8968,
+      "lng": -81.3133,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Tradewinds Lounge is at 124 Charlotte Street — the street parallel to St. George Street, one block east. Look for the bar sign; it's not trying to attract your attention.",
+      "safety_warning": "21+ for all alcohol. This is a local bar — be a good guest.",
+      "metadata_json": {
+        "drink_recommendation": "Whatever's on draft — cold beer is the point",
+        "key_facts": [
+          "Longtime locals' bar on Charlotte Street",
+          "Charlotte Street named during British Colonial period (1763-1783) for Queen Charlotte",
+          "Tradewinds: the winds that drove Spanish ships from Canary Islands to the New World",
+          "Spanish flota system depended on tradewind reliability for transatlantic crossings",
+          "The name connects a dive bar to 500 years of maritime history"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Spanish Flota",
+          "prompt": "The tradewinds were essential to Spain's colonial empire in the Americas. The Spanish organized their transatlantic shipping into a convoy system to protect against piracy and storms. What was this convoy system called?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a Spanish word — the same root as the English word 'flotilla.' The Spanish organized their treasure ships into large protected convoys.",
+          "config": {
+            "options": [
+              "The Armada system",
+              "The flota (fleet) system",
+              "The galleon route",
+              "The Manila convoy"
+            ],
+            "correct_index": 1,
+            "explanation": "The Spanish flota (fleet) system organized transatlantic shipping into large, heavily armed convoys to protect against pirates and privateers. The system ran twice yearly: the New Spain flota to Veracruz and the Tierra Firme flota to Cartagena and Portobelo. Both convoys assembled at Havana for the return trip, following the Gulf Stream and tradewinds north past Florida before turning east across the Atlantic to Spain. St. Augustine's location on this route made it strategically essential — and made it a target for privateers."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Street Name Origin",
+          "prompt": "Charlotte Street — where Tradewinds Lounge stands — was named during the British Colonial period (1763-1783). Who was it named for?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "She was the queen of England during the British Colonial period — the consort of King George III.",
+          "config": {
+            "accepted_answers": [
+              "queen charlotte", "charlotte of mecklenburg", "charlotte of mecklenburg-strelitz",
+              "queen charlotte of mecklenburg", "king george iii wife", "george iii queen"
+            ],
+            "case_sensitive": false,
+            "explanation": "Charlotte Street was named for Charlotte of Mecklenburg-Strelitz — Queen Consort of King George III — during the British Colonial period (1763-1783). When Britain acquired Florida from Spain in 1763, the colonial government renamed many streets to reflect British royalty and culture. The British period lasted only 20 years; Spain regained Florida in 1783. Many British-era street names survived, including Charlotte Street."
+          }
+        }
+      ]
+    },
+    {
+      "title": "White Lion Pub — Florida's Oldest Public House",
+      "description": "The White Lion Pub on King Street traces its lineage as a public house back to the colonial era — the site has served drinks longer than the United States has existed. The current bar retains the feel of an English public house: dark wood, low ceilings, and a straightforward approach to beer and whiskey. The name refers to the heraldic white lion — a symbol used in British colonial coats of arms — appropriate for a bar that operated during the British period. Order a pint of whatever's on tap and raise it to 260 years of continuous pouring.",
+      "historical_content": "The site of the White Lion Pub on King Street has a documented history as a public house or tavern dating to the British Colonial period (1763-1783) — when Florida was a British colony following Spain's cession of the territory at the end of the Seven Years' War.\n\nTaverns and public houses were essential institutions of colonial life — serving not just as drinking establishments but as community meeting places, news exchanges, lodging houses, and the social centers of colonial towns. In the absence of hotels, taverns housed travelers. In the absence of newspapers, taverns were where news was read aloud and discussed.\n\nThe British brought the public house tradition to St. Augustine when they took over in 1763. The Spanish colonists who returned in 1783 adapted these establishments to Spanish tastes — a cultural negotiation that reflects the mixed nature of colonial St. Augustine.\n\nThe white lion is a heraldic symbol used in British coats of arms — appearing in the arms of various noble families and in the royal arms of England (which include both golden lions and a white or silver lion). The name White Lion was common for British colonial taverns and inns, invoking loyalty to the Crown and the heraldic tradition.\n\nThe current pub maintains the public house tradition while acknowledging its colonial history — a bar that has been, in some form, on this site longer than the United States has existed.",
+      "lat": 29.8896,
+      "lng": -81.3153,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "The White Lion Pub is on King Street in the historic district — look for the pub sign. It's not far from the Flagler-era hotels.",
+      "safety_warning": "21+ for alcohol.",
+      "metadata_json": {
+        "drink_recommendation": "Pint of whatever's on tap",
+        "key_facts": [
+          "Traces lineage as public house to British Colonial period (1763-1783)",
+          "Colonial taverns served as meeting places, news exchanges, and lodging in addition to drinking",
+          "White lion: heraldic symbol from British coats of arms — common colonial tavern name",
+          "Britain acquired Florida from Spain in 1763 at end of Seven Years' War",
+          "Spain regained Florida in 1783; British tavern tradition remained"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Colonial Tavern",
+          "prompt": "Colonial-era taverns served many functions beyond selling drinks. Which of the following was a genuine function of a colonial tavern in 18th-century America?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about what colonial towns lacked that we take for granted: hotels, newspapers delivered to homes, post offices, community meeting halls.",
+          "config": {
+            "options": [
+              "Taverns served only as drinking establishments — other community functions were handled by the church and courthouse",
+              "Taverns served as lodging houses, news exchanges (where newspapers were read aloud), community meeting places, and often as post offices and courts",
+              "Taverns in colonial America were exclusively for men — women had separate establishments called 'tea rooms'",
+              "Colonial taverns were licensed to conduct legal marriages and baptisms in areas without permanent clergy"
+            ],
+            "correct_index": 1,
+            "explanation": "Colonial taverns were multi-purpose community institutions: they housed travelers in the absence of hotels, served as news exchanges where newspapers and letters were read aloud to the assembled crowd, provided meeting spaces for community organizations and government functions (courts sometimes met in taverns), and functioned as the primary social center of colonial towns. The Stamp Act, the Boston Tea Party, and the beginnings of the American Revolution were all discussed and planned in taverns."
+          }
+        },
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Seven Years' War",
+          "prompt": "Britain acquired Florida from Spain in 1763 through the Treaty of Paris that ended the Seven Years' War. Why did Spain give up Florida — a territory it had held for nearly 200 years?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Spain lost something more valuable than Florida in the Seven Years' War and traded Florida to Britain to get it back.",
+          "config": {
+            "options": [
+              "Spain was bankrupt after the Seven Years' War and sold Florida to Britain for £1 million",
+              "Britain captured Havana, Cuba, during the war — Spain traded Florida to Britain to get Havana back, valuing Cuba's strategic and economic importance over Florida",
+              "Spain voluntarily ceded Florida because it had become too expensive to defend against British colonial expansion from the Carolinas and Georgia",
+              "The Treaty of Paris required all European powers to cede their North American territories north of Mexico to Britain"
+            ],
+            "correct_index": 1,
+            "explanation": "Britain captured Havana, Cuba, during the Seven Years' War — an enormous strategic and economic loss for Spain. Havana was the hub of Spain's Caribbean trade and the assembly point for the treasure fleets. To get Havana back, Spain agreed to cede Florida to Britain in the 1763 Treaty of Paris. Spain valued Cuba far more than Florida: Cuba was the economic engine of the Caribbean; Florida was a strategic buffer that had cost far more to maintain than it produced. Twenty years later, Spain got Florida back in the 1783 Treaty of Paris that ended the American Revolution."
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. George Tavern — The Dark Cave",
+      "description": "St. George Tavern, somewhere on the lower end of St. George Street, is the dark cave that everyone walks past without quite knowing what it is. Low lighting, pool table, no natural light, no intention of changing. It's the counterpoint to every polished tourist establishment on the pedestrian mall — a genuine dive bar in the middle of the most-visited commercial street in the oldest city in America. Order something simple. Stay a while.",
+      "historical_content": "St. George Street has been St. Augustine's primary commercial street for more than 400 years — since the Spanish rebuilding of the early 1700s established the coquina-construction city that replaced the wooden structures burned by the British in 1702.\n\nFor most of those 400 years, the street contained a mix of commercial establishments: merchants, craftsmen, taverns, boarding houses, and residences. The tourist economy that now dominates the pedestrian mall is a 20th-century development — St. George Street was closed to vehicles in the 1970s as part of a historic district restoration effort.\n\nA tavern on St. George Street is historically appropriate: the street has contained drinking establishments in various forms throughout its history. The Spanish colonial city had taverns; the British colonial city expanded the tavern culture; the American territorial and statehood periods continued it.\n\nThe 'cave' quality of a good dive bar — low light, enclosed space, removal from the outside world — has a long history in drinking establishments. Medieval English alehouses were often dark, low-ceilinged rooms attached to private homes. Colonial taverns were typically small and intimate. The dive bar continues this tradition of the drinking establishment as refuge from the social performance of the outside world.\n\nSt. George Tavern is the oldest-feeling bar on the oldest commercial street in the oldest city in the continental United States. That's worth something.",
+      "lat": 29.8960,
+      "lng": -81.3142,
+      "gps_radius_meters": 60.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "St. George Tavern is on the lower (southern) end of St. George Street — look for the dark interior and the neon beer signs. It's easy to walk past.",
+      "safety_warning": "21+ for alcohol.",
+      "metadata_json": {
+        "drink_recommendation": "Cold beer, whatever they have",
+        "key_facts": [
+          "Dive bar on St. George Street — the 400-year-old commercial street",
+          "St. George Street established in post-1702 Spanish colonial rebuilding",
+          "Pedestrian mall since the 1970s historic district restoration",
+          "Low light, pool table, no pretense",
+          "The oldest-feeling bar on the oldest commercial street in the oldest city"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Why St. George Street?",
+          "prompt": "St. George Street is named for the patron saint of England — an appropriate name for the British Colonial period. But the street's layout predates the British. What established the current street grid that St. George Street follows?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The Spanish built it; the British named it. Think about the rebuilding event that established the coquina-construction city.",
+          "config": {
+            "options": [
+              "Henry Flagler redesigned the street grid in 1885 to optimize tourist access to his hotels",
+              "The 1702 British raid burned the wooden city; the Spanish rebuilt in coquina on the same grid in the early 1700s, establishing the pattern that the British later named",
+              "Spanish engineers designed the street grid from scratch in 1565 when the city was founded",
+              "American engineers redesigned the colonial street grid after Florida became a U.S. territory in 1821"
+            ],
+            "correct_index": 1,
+            "explanation": "The 1702 British raid under Governor James Moore of South Carolina burned most of St. Augustine's wooden structures. The Spanish rebuilding in the early 1700s — switching from wood to coquina — established the street pattern that survives today. When the British took over in 1763, they kept the existing streets but renamed them: St. George Street was named for the patron saint of England. The Spanish had different names for the same streets; the British Colonial names mostly stuck."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The 1702 Raid",
+          "prompt": "The 1702 British raid on St. Augustine, which burned the city's wooden structures and precipitated the construction of the coquina city, was led by the colonial governor of a neighboring British colony. Which colony did he govern?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The British colonies closest to St. Augustine were to the north — the Carolinas and Georgia (though Georgia wasn't founded until 1733). The 1702 raid came from the most established of these.",
+          "config": {
+            "accepted_answers": ["south carolina", "carolina", "the carolinas", "province of carolina"],
+            "case_sensitive": false,
+            "explanation": "James Moore, the Governor of the Province of Carolina (South Carolina), led the 1702 raid on St. Augustine. Moore commanded a combined force of English colonists and Creek allies. They burned most of St. Augustine's wooden structures but could not breach the Castillo de San Marcos — the Spanish garrison held out until a relief fleet from Havana forced Moore to withdraw, burning his own boats and retreating overland. The raid demonstrated both the Castillo's value and the vulnerability of wooden construction, leading to the coquina rebuilding of the city."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Milltop Tavern — Live Music Over St. George Street",
+      "description": "Milltop Tavern at 19½ St. George Street is the only bar in St. Augustine with a balcony over the pedestrian mall — and one of the only bars where you can hear live bluegrass, folk, or blues while watching tourist foot traffic below. Go up the exterior stairs to the second floor, find a spot on the balcony, order a beer, and let the music explain what kind of bar this is. Milltop doesn't need to say much. The music does it.",
+      "historical_content": "The building at 19½ St. George Street dates to the 18th century — one of the older commercial structures still in active use on the historic pedestrian mall. The 'mill' in Milltop refers to the grinding mills that were a feature of colonial St. Augustine — the site or its neighbors had a connection to milling operations in the colonial period.\n\nLive music has been a feature of St. Augustine's public life since the colonial period. Spanish colonial festivals included music; the British colonial period brought English tavern music traditions; the American territorial and statehood periods brought the full range of folk, country, and popular music traditions of the American South.\n\nBluegrass — the live music most associated with Milltop — is a distinctly American genre with roots in the Appalachian folk music tradition, developed and codified in the 1940s by Bill Monroe and his Blue Grass Boys. The genre draws on Scots-Irish ballad traditions, African American blues and jazz influences, and the string band traditions of the American South.\n\nThe combination of an 18th-century building, a second-floor balcony over a 400-year-old street, and live music with deep American folk roots makes Milltop one of the more culturally layered bars in the Ancient City — even if it doesn't advertise that fact.\n\nOrder a cold beer, find the balcony, and stay for the music.",
+      "lat": 29.8975,
+      "lng": -81.3145,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "colonial_shopkeeper",
+      "points": 100,
+      "hint_text": "Milltop Tavern is at 19½ St. George Street — go up the exterior stairs on the side of the building to reach the second-floor entrance. Look for the live music sign.",
+      "safety_warning": "21+ for alcohol. The balcony can get crowded on weekends.",
+      "metadata_json": {
+        "drink_recommendation": "Cold beer; whatever's on draft",
+        "key_facts": [
+          "18th-century building at 19½ St. George Street",
+          "Only bar in St. Augustine with a balcony over the pedestrian mall",
+          "Live music nightly — bluegrass, folk, blues",
+          "Bluegrass roots: Bill Monroe, 1940s, Appalachian folk + African American music traditions",
+          "Second-floor bar in one of the oldest commercial buildings on the historic mall"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "What Is Bluegrass?",
+          "prompt": "Milltop regularly features live bluegrass music. Bluegrass is a distinctly American genre — but its roots are a combination of several older traditions. Which combination best describes bluegrass's musical ancestry?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about who settled Appalachia (where bluegrass developed) and what music traditions they brought with them.",
+          "config": {
+            "options": [
+              "Bluegrass is derived exclusively from African American blues and gospel traditions",
+              "Bluegrass combines Scots-Irish Appalachian folk music, African American blues and jazz influences, and the string band traditions of the American South — codified by Bill Monroe in the 1940s",
+              "Bluegrass was developed by German immigrant communities in Pennsylvania and spread south through Appalachia",
+              "Bluegrass is a modern genre developed in Nashville studios in the 1970s to market country music to younger audiences"
+            ],
+            "correct_index": 1,
+            "explanation": "Bluegrass is a synthesis: Scots-Irish settlers brought their ballad and fiddle traditions to Appalachia; African American blues and jazz contributed syncopation, improvisation, and the influence of the banjo (itself of African origin); and Southern string band traditions tied it together. Bill Monroe and his Blue Grass Boys codified the genre in the 1940s, but its roots go back much further. Bluegrass is one of the most distinctly American musical forms — made from immigrant and indigenous traditions that collided in the American South."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Father of Bluegrass",
+          "prompt": "Bluegrass music takes its name from the band that defined the genre in the 1940s. Who was the musician considered the 'Father of Bluegrass' who led that band?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "His band was named for the state he came from, which is famous for its blue-tinted grass. He was a mandolin virtuoso.",
+          "config": {
+            "accepted_answers": ["bill monroe", "william smith monroe", "william monroe"],
+            "case_sensitive": false,
+            "explanation": "Bill Monroe (1911-1996) — the Kentucky mandolin player and vocalist — is considered the Father of Bluegrass. His band, the Blue Grass Boys (named for Kentucky, the Bluegrass State), codified the genre in the 1940s with a distinctive sound: tight vocal harmonies, fast tempos, virtuosic acoustic instrumentation (mandolin, banjo, fiddle, acoustic guitar, upright bass), and a combination of folk ballads, gospel, and blues-influenced improvisation. Monroe played at the Grand Ole Opry for over 50 years."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Old City Dispensary — The Last One Standing",
+      "description": "End the dive bar tour wherever the night takes you on the south end of the historic district — the cluster of local bars and neighborhood spots that don't need to advertise to tourists. St. Augustine has a genuine local bar culture that operates parallel to the tourist economy: the spots where people go after work, after the tourist crowds have thinned, after the historic sites have closed. Find one. Order a drink. You've earned it.",
+      "historical_content": "Every tourist city has two economies: the one visitors see and the one that keeps the city running when visitors aren't there. St. Augustine is no exception. The tourist economy — the historic sites, the upscale restaurants, the craft cocktail bars — is the visible layer. Underneath it is the economy of the people who work those jobs, live in the surrounding neighborhoods, and have their own bars, restaurants, and community spaces.\n\nLincolnville, directly south of the historic district, has its own bar culture. The neighborhoods west of US-1 have their own establishments. The working waterfront on the San Sebastian River has its own character.\n\nSt. Augustine's history as a continuously occupied city — 460 years without being abandoned, rebuilt as a tourist destination, or starting over — means it has genuine layering. The Spanish colonial buildings and the craft cocktail bars are real. So are the neighborhood bars, the family restaurants, the places locals go.\n\nA complete St. Augustine dive bar tour ends when you find the bar that doesn't quite fit the tourist circuit — the one where the bartender doesn't deliver a historical interpretation with your beer, where the regulars aren't tourists comparing notes about the Castillo, where the city is just a place people live.\n\nThat bar exists. Go find it.",
+      "lat": 29.8868,
+      "lng": -81.3165,
+      "gps_radius_meters": 200.0,
+      "ai_character_id": "civil_rights_guide",
+      "points": 100,
+      "hint_text": "The final stop is wherever the night takes you south of King Street — Lincolnville and the surrounding neighborhoods have local bars that don't appear on tourist maps. Explore.",
+      "safety_warning": "21+ for alcohol. This is the final stop — arrange transportation home before you go out. Walk or rideshare; don't drive.",
+      "metadata_json": {
+        "drink_recommendation": "Whatever the locals are having",
+        "key_facts": [
+          "St. Augustine has a local bar culture that operates parallel to the tourist economy",
+          "Lincolnville has its own neighborhood establishments",
+          "Every tourist city has two economies — find the one locals use",
+          "St. Augustine's 460 years of continuous occupation means genuine community layering",
+          "The best dive bar is the one you discover yourself"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Two St. Augustines",
+          "prompt": "Every tourist city has two economies — the one visitors see and the one locals live in. In St. Augustine, these two economies have been layered for most of the city's history. Which of the following best describes how the tourist economy affected the local economy in Gilded Age St. Augustine (1880s-1910s)?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about who built Flagler's hotels, who staffed them, who cooked and cleaned and drove — and where those people lived and spent their wages.",
+          "config": {
+            "options": [
+              "Flagler's hotels replaced the local economy entirely — local businesses were driven out by the Gilded Age tourist industry",
+              "The tourist economy created service jobs (hotel work, construction, food service) that supported a local economy in Lincolnville and surrounding neighborhoods — including the Black-owned businesses that served workers excluded from white establishments",
+              "The tourist economy and local economy operated in completely separate geographic zones with no economic interaction",
+              "Flagler paid wages exclusively in company scrip that could only be used at Flagler-owned stores and services"
+            ],
+            "correct_index": 1,
+            "explanation": "The Gilded Age tourist economy created service jobs that supported a local working economy. The Black workers who built and staffed Flagler's hotels lived primarily in Lincolnville — and their wages supported a parallel Black economy: Black-owned businesses, churches, and professional services that existed because white-owned downtown establishments refused to serve Black customers. The tourist economy and the local economy were economically connected while being socially separated by Jim Crow."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Oldest City",
+          "prompt": "St. Augustine's claim to fame is being the oldest continuously occupied European settlement in the continental United States. In what year was it founded?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Pedro Menéndez de Avilés landed on the Feast of the Birth of the Virgin Mary. What year was that?",
+          "config": {
+            "accepted_answers": ["1565", "fifteen sixty five"],
+            "case_sensitive": false,
+            "explanation": "St. Augustine was founded on September 8, 1565, when Pedro Menéndez de Avilés landed on the shore of the Matanzas River with 800 settlers and soldiers, celebrated a Mass, and established the settlement. It has been continuously occupied since — making it over 460 years old as of 2025, and the oldest continuously occupied European settlement in the continental United States. You've spent the night drinking in bars in the oldest city in the country. Cheers."
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Dive Bar Legend",
+      "description": "You completed the full dive bar crawl of the Ancient City.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Regular",
+      "description": "You visited three dive bars in St. Augustine.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "Bar Trivia Champion",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

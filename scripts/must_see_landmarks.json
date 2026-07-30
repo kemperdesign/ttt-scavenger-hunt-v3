@@ -1,0 +1,387 @@
+{
+  "adventure": {
+    "title": "Must-See St. Augustine",
+    "slug": "must-see-landmarks",
+    "description": "St. Augustine's bucket-list landmarks in one tour: the oldest fort in the continental US, a 1874 lighthouse with a working light, the Lightner Museum in a Gilded Age hotel, Ripley's in a 1888 castle, the Zorayda Castle's Moorish interior, and the St. Augustine Alligator Farm — one of the oldest zoological attractions in the US. This tour is free to play. Each site charges its own admission — plan to pay at the door.",
+    "short_description": "The top six can't-miss landmarks in St. Augustine — one tour covers them all.",
+    "difficulty": "moderate",
+    "estimated_duration_minutes": 120,
+    "start_lat": 29.9002,
+    "start_lng": -81.3119,
+    "total_points": 650,
+    "tags": ["landmarks", "must-see", "family", "sightseeing", "lighthouse", "fort", "alligator farm"],
+    "is_published": true,
+    "is_featured": true
+  },
+  "stops": [
+    {
+      "title": "Castillo de San Marcos — The Fort That Never Fell",
+      "description": "The Castillo de San Marcos (1672-1695) is the oldest masonry fort in the continental United States — built from coquina shell stone quarried on Anastasia Island, designed by Spanish military engineers in the star-shaped bastion plan, and never conquered in battle. The British besieged it twice (1702 and 1740) and couldn't breach the walls. The fort changed flags four times — Spanish, British, Spanish again, American — but the coquina walls stood through all of it. This is the most significant surviving military structure in the United States. Admission charged by the National Park Service.",
+      "historical_content": "Nine wooden forts preceded the Castillo — each burned or rotted within a few decades of construction. After the 1668 raid by English privateer Robert Searles killed 60 residents and destroyed the previous fort, Spain committed to a permanent masonry structure.\n\nConstruction ran from 1672 to 1695 — 23 years, using coquina from the Anastasia Island quarry. The workforce included indigenous Timucua and Apalachee laborers, enslaved Africans, and Spanish soldiers.\n\nThe star-shaped bastion plan (trace italienne) eliminated defensive blind spots by placing diamond-shaped bastions at each corner — allowing defenders to fire along adjacent walls. The Castillo's four bastions are named Bravo, San Pedro, San Agustín, and San Carlos.\n\nThe fort's most famous property: coquina absorbs cannon fire rather than shattering. British cannonballs buried themselves in the walls. The Spanish sometimes dug them out and reused them.\n\nThe fort is now a National Monument administered by the National Park Service. Admission: $15 per adult (price subject to change); National Parks Pass accepted.",
+      "lat": 29.9002,
+      "lng": -81.3119,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "pedro_menendez",
+      "points": 100,
+      "hint_text": "The Castillo de San Marcos is on the bayfront at Castillo Drive — the large coquina fort facing Matanzas Bay. Admission charged at the gate.",
+      "safety_warning": "National Park Service site — admission required. Check nps.gov/casa for current hours and pricing.",
+      "metadata_json": {
+        "admission": "Charged — National Park Service",
+        "key_facts": [
+          "Oldest masonry fort in the continental United States",
+          "Built 1672-1695 from coquina shell stone",
+          "Never conquered in battle — withstood two British sieges",
+          "Changed flags four times: Spanish, British, Spanish, American",
+          "National Monument administered by the National Park Service",
+          "Bastion plan: four diamond-shaped bastions — Bravo, San Pedro, San Agustín, San Carlos"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Never Conquered",
+          "prompt": "The Castillo de San Marcos withstood two British sieges — in 1702 and 1740 — and was never taken by force. What combination of factors made it impregnable?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about the building material's unique property AND the fort's geometric design. Both contributed to its invincibility.",
+          "config": {
+            "options": [
+              "Superior Spanish musketry and a larger garrison than the British could field",
+              "Coquina walls that absorbed rather than shattered under cannon fire, combined with a bastion plan that eliminated defensive blind spots",
+              "A secret tunnel system that allowed supplies to enter the fort even during siege",
+              "The British cannon technology of the era was simply too primitive to damage any masonry fort"
+            ],
+            "correct_index": 1,
+            "explanation": "Two factors combined to make the Castillo impregnable: coquina's unique property (cannonballs buried themselves in the soft shell rock rather than shattering it, as they would brick or stone) and the bastion plan's elimination of defensive blind spots (diamond-shaped bastions at each corner allowed defenders to cover all approaches with flanking fire). No attacker could find a position from which they could both fire safely and have their fire be effective."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "How Many Flags",
+          "prompt": "How many different national flags have flown over the Castillo de San Marcos since its completion in 1695?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The fort was built by Spain. Florida changed hands to Britain in 1763, back to Spain in 1783, and to the United States in 1821.",
+          "config": {
+            "accepted_answers": ["four", "4"],
+            "case_sensitive": false,
+            "explanation": "Four flags have flown over the Castillo: Spain (1695-1763), Great Britain (1763-1783), Spain again (1783-1821), and the United States (1821-present). The fort was renamed Fort Marion by the Americans but the original name was restored in 1942. The fort itself was never redesigned or rebuilt for any of these transitions — the same coquina walls have stood through all four periods of occupation."
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. Augustine Lighthouse — Climb 219 Steps to 1874",
+      "description": "The St. Augustine Lighthouse on Anastasia Island — visible from miles away with its distinctive black-and-white spiral stripe — is the oldest surviving lighthouse in Florida and one of the finest examples of Victorian lighthouse architecture in the United States. Built in 1874, the tower is 165 feet tall; climbing its 219 iron steps to the lantern room rewards you with a 360-degree view across Matanzas Inlet, Anastasia Island, and the historic district. The lighthouse is still an active aid to navigation. Admission charged.",
+      "historical_content": "A lighthouse has stood on or near this site since at least 1824 — when the federal government built a wooden lighthouse on the northern tip of Anastasia Island to guide ships into the Matanzas Inlet. That early lighthouse eroded into the sea as the shoreline retreated.\n\nThe current lighthouse was built 1871-1874, replacing the earlier structure before erosion claimed it. The architect was Paul Pelz (who also designed the Library of Congress building in Washington). The tower is built from red brick — unusually durable for a coastal environment — and stands 165 feet above sea level.\n\nThe distinctive black-and-white spiral stripe pattern (called the 'daymark') identifies the St. Augustine lighthouse to mariners during daylight when the light is not visible. Each lighthouse on the Atlantic coast has a unique daymark pattern for identification.\n\nThe Fresnel lens installed in 1874 concentrated the lamp's light into a powerful beam visible at sea. The original third-order Fresnel lens is preserved in the lighthouse museum.\n\nThe lighthouse was automated in 1955, when the last lighthouse keeper left. The St. Augustine Lighthouse & Maritime Museum (an independent nonprofit) has operated the site since 1988.\n\nThe lighthouse is still an active aid to navigation, maintained by the U.S. Coast Guard. Its light flashes white every 30 seconds and is visible 19 miles at sea.",
+      "lat": 29.8781,
+      "lng": -81.2986,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "The St. Augustine Lighthouse is on Anastasia Island — cross the Bridge of Lions and follow A1A south to Lighthouse Avenue. The black-and-white spiral tower is visible from a distance.",
+      "safety_warning": "Admission charged. The 219-step climb is not accessible for all visitors; there is no elevator. The lighthouse gift shop and museum at the base are accessible without climbing.",
+      "metadata_json": {
+        "admission": "Charged — St. Augustine Lighthouse & Maritime Museum",
+        "built": "1871-1874",
+        "architect": "Paul Pelz",
+        "height": "165 feet, 219 steps",
+        "key_facts": [
+          "Oldest surviving lighthouse in Florida",
+          "Built 1871-1874 by architect Paul Pelz (Library of Congress co-architect)",
+          "165 feet tall, 219 iron steps to the lantern room",
+          "Black-and-white spiral daymark — unique identification pattern for mariners",
+          "Still an active aid to navigation — light flashes white every 30 seconds, visible 19 miles",
+          "Automated 1955; nonprofit museum since 1988"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Daymark",
+          "prompt": "The St. Augustine Lighthouse's distinctive black-and-white spiral stripe pattern is called a 'daymark.' What is the purpose of a daymark?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "A lighthouse's light works at night. But mariners also navigate during the day, when the light isn't visible. How do they identify which lighthouse they're looking at?",
+          "config": {
+            "options": [
+              "The daymark pattern is used only for decoration — each lighthouse keeper historically chose their own pattern",
+              "The daymark gives each lighthouse a unique visual identity visible during daylight — allowing mariners to identify their position when the light is not flashing",
+              "The black-and-white pattern improves visibility in fog by creating high contrast against the sky",
+              "The spiral pattern indicates the lighthouse's flash pattern — one spiral stripe per flash per minute"
+            ],
+            "correct_index": 1,
+            "explanation": "A daymark gives each lighthouse a unique visual identity that allows mariners to identify it during daylight hours when the light is not visible. Just as each lighthouse has a unique light pattern (flash interval, color, sequence) for nighttime identification, each has a unique paint pattern for daytime identification. Seeing a black-and-white spiral tower tells a mariner they are looking at the St. Augustine lighthouse — a specific position on the chart."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Steps",
+          "prompt": "How many iron steps must you climb to reach the lantern room at the top of the St. Augustine Lighthouse?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It's a Victorian-era lighthouse — the stairs spiral up through 165 feet of brick tower. Think about how many steps that requires.",
+          "config": {
+            "accepted_answers": ["219", "two hundred nineteen", "219 steps"],
+            "case_sensitive": false,
+            "explanation": "The St. Augustine Lighthouse has 219 iron steps spiraling up the interior of the 165-foot brick tower to the lantern room. The climb takes most visitors about 15-20 minutes going up. At the top, the view extends across Matanzas Inlet to the north, Anastasia Island to the east, the Matanzas River to the west, and the historic district of St. Augustine to the northwest."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Lightner Museum — Gilded Age in the Old Alcazar Hotel",
+      "description": "The Lightner Museum occupies the former Alcazar Hotel (1888) — Henry Flagler's companion building to the Ponce de León, designed by Carrère & Hastings as a recreational resort with the world's largest indoor swimming pool. The museum now houses Otto Lightner's extraordinary collection of Gilded Age decorative arts: art glass, Victorian furniture, antique musical instruments, a complete Victorian barbershop, and curiosities ranging from mounted insects to shrunken heads. The former swimming pool — the world's largest indoor pool in 1888 — is now a café. Admission charged.",
+      "historical_content": "The Alcazar Hotel opened in January 1888, the same week as the Ponce de León across Cordova Street. Where the Ponce was the luxury residential hotel, the Alcazar was the amenity building: it contained the world's largest indoor swimming pool (120 by 50 feet, 15 feet deep), Turkish baths, a casino (19th-century meaning: social hall for dancing and entertainment), gymnasium, and tennis courts.\n\nThe Alcazar closed in 1931 during the Great Depression. The building sat largely unused for over a decade.\n\nIn 1947, Chicago publisher and collector Otto C. Lightner purchased the Alcazar to house his collection of Gilded Age antiques and decorative arts. Lightner had spent decades acquiring Victorian-era glass, furniture, ceramics, and curiosities — the material culture of the Gilded Age that was then considered old-fashioned and was being discarded rather than preserved.\n\nThe Lightner Museum opened in 1948. Key collection highlights:\n- Art glass: Tiffany, Steuben, Quezal, Loetz, and Victorian pressed glass\n- Victorian furniture in period room settings\n- Antique mechanical musical instruments (played on concert days)\n- A complete Victorian barbershop\n- Natural history curiosities\n- The former swimming pool, now a café with original tile work visible\n\nThe city of St. Augustine purchased the building in 1972. The museum is now operated by the City of St. Augustine.",
+      "lat": 29.8913,
+      "lng": -81.3148,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "henry_flagler",
+      "points": 100,
+      "hint_text": "The Lightner Museum is at 75 King Street — directly across Cordova Street from Flagler College. Admission charged at the entrance.",
+      "safety_warning": "Admission charged. Check lightnermuseum.org for current hours and pricing.",
+      "metadata_json": {
+        "admission": "Charged",
+        "building": "Former Alcazar Hotel (1888), Carrère & Hastings",
+        "museum_opened": "1948",
+        "key_facts": [
+          "Former Alcazar Hotel (1888) — Flagler's companion building to the Ponce de León",
+          "World's largest indoor swimming pool in 1888 (120 x 50 feet) — now a café",
+          "Gilded Age decorative arts: Tiffany glass, Victorian furniture, mechanical instruments",
+          "Complete Victorian barbershop",
+          "Purchased by Otto Lightner in 1947; museum opened 1948",
+          "City of St. Augustine has owned building since 1972"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "The Pool Under Your Feet",
+          "prompt": "The Lightner Museum's ground floor café occupies the former Alcazar Hotel swimming pool — once the world's largest indoor pool. What survived from the original 1888 pool that visitors can still see in the café today?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The pool was too large and well-built to demolish when the building was converted to a museum. Look down when you visit.",
+          "config": {
+            "options": [
+              "The original diving boards and water slides, now repurposed as decorative elements",
+              "The original Victorian tile work on the walls and floor of the former pool",
+              "The original pumping equipment, now displayed as industrial art",
+              "The original changing cabanas, now converted to private dining booths"
+            ],
+            "correct_index": 1,
+            "explanation": "The original Victorian tile work — on the walls and floor of what was once the world's largest indoor swimming pool — is still visible in the Lightner Museum's ground-floor café. The pool was 120 feet long, 50 feet wide, and 15 feet deep; rather than demolish or fill this massive space, the museum converted it to a café and antiques mall. Dining there, surrounded by the original 1888 tile, is one of the more surreal experiences in St. Augustine."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Collector",
+          "prompt": "The Lightner Museum was founded to house the collection of a Chicago publisher who spent decades acquiring Victorian-era decorative arts that were then being discarded as out of fashion. What was his name?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "His name is on the museum. He purchased the former Alcazar Hotel in 1947.",
+          "config": {
+            "accepted_answers": ["otto lightner", "otto c lightner", "otto c. lightner", "lightner"],
+            "case_sensitive": false,
+            "explanation": "Otto C. Lightner was a Chicago publisher who spent decades collecting Gilded Age decorative arts — art glass, Victorian furniture, ceramics, and curiosities — at a time when the Victorian era was considered unfashionable and its material culture was being discarded. He purchased the former Alcazar Hotel in 1947 specifically to house his collection, and the Lightner Museum opened in 1948. The city of St. Augustine purchased the building in 1972 and continues to operate the museum."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Zorayda Castle — A Moorish Dream in Florida",
+      "description": "Zorayda Castle at 83 King Street is one of the strangest buildings in Florida: a one-tenth-scale replica of the Court of the Lions in the Alhambra palace in Granada, Spain, built in 1883 by Franklin Webster Smith — five years before Henry Flagler broke ground on the Ponce de León. Smith used a concrete composite material he called 'Moorish-concrete' to recreate Moorish architectural ornament: horseshoe arches, intricate geometric tilework, carved plaster screens, and a rooftop with views across the historic district. Admission charged.",
+      "historical_content": "Franklin Webster Smith was a Boston hardware merchant and amateur architect who fell in love with Moorish architecture during travels in Spain. In 1883 — two years before Flagler arrived in St. Augustine — he built Zorayda Castle as his winter home, taking as his model the Court of the Lions in the Alhambra palace in Granada.\n\nThe Alhambra is the greatest surviving example of Islamic architecture in Western Europe — a 14th-century palace complex built by the Nasrid sultans of Granada. The Court of the Lions, with its famous lion fountain and surrounding arcade, is the Alhambra's most celebrated space.\n\nSmith's building is deliberately a reduced-scale interpretation rather than an exact replica. He developed a patented construction method using a mixture of Portland cement, sand, and seashells that he called 'Moorish-concrete' — which allowed him to cast the intricate geometric ornament of Moorish architecture at a fraction of the cost of carved stone.\n\nZorayda Castle predates Flagler's Spanish Renaissance Revival hotels by five years. Some architectural historians argue that Smith's building helped create the appetite for exotic historical styles in St. Augustine — pioneering the market that Flagler would exploit on a massive scale.\n\nSmith later sold the building. It changed hands several times and was operated as a tourist attraction, an antique shop, and a restaurant at various points in the 20th century. It is currently operated as a museum with a collection of Egyptian and other antiquities assembled by Smith's successors.\n\n'Zorayda' is a Romanticized Spanish name based on 'Zorah' or 'Zuhra' — an Arabic name. The name evokes the romantic Orientalism of 19th-century European imagination of the Moorish world.",
+      "lat": 29.8915,
+      "lng": -81.3138,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "Zorayda Castle is at 83 King Street in the historic district — the small building with Moorish horseshoe arches on King Street, near the Lightner Museum.",
+      "safety_warning": "Admission charged. Check zoryadacastle.com for current hours.",
+      "metadata_json": {
+        "admission": "Charged",
+        "built": "1883",
+        "builder": "Franklin Webster Smith",
+        "model": "Court of the Lions, Alhambra palace, Granada, Spain",
+        "key_facts": [
+          "Built 1883 by Franklin Webster Smith — predates Flagler's hotels by 5 years",
+          "One-tenth scale interpretation of the Court of the Lions, Alhambra, Granada",
+          "Smith's 'Moorish-concrete' method: Portland cement, sand, and seashells",
+          "One of the earliest examples of reinforced concrete ornamental construction in the US",
+          "Now a museum with Egyptian and other antiquities",
+          "Horseshoe arches, geometric tilework, carved plaster screens"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Before Flagler",
+          "prompt": "Zorayda Castle was built in 1883 — five years before Henry Flagler began construction on the Ponce de León Hotel. What is historically significant about Smith's building in the context of St. Augustine's architectural development?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Think about who came first and what effect that might have had on the much larger and better-known buildings that followed.",
+          "config": {
+            "options": [
+              "Zorayda Castle was the first building in Florida to use electric lighting, which inspired Flagler to wire his hotels with electricity",
+              "Smith's Moorish-style building may have helped establish St. Augustine's appetite for exotic historical architecture — pioneering the market that Flagler exploited on a massive scale five years later",
+              "Smith sold Zorayda Castle to Flagler, who used it as his office while the Ponce de León was under construction",
+              "Zorayda Castle was the first concrete building in Florida, proving the material could withstand the subtropical climate"
+            ],
+            "correct_index": 1,
+            "explanation": "Zorayda Castle predated Flagler's Spanish Renaissance Revival hotels by five years. Some architectural historians argue that Smith's exotic Moorish building helped create the taste for historical pastiche and romantic architecture in St. Augustine — establishing an appetite for unusual historical styles that Flagler's architects then fulfilled on a massive, luxurious scale. Smith was the pioneer; Flagler was the industrial-scale version of the same impulse."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "The Original",
+          "prompt": "Zorayda Castle is a one-tenth scale interpretation of a specific space in the most famous Islamic palace in Western Europe. What is the name of both the palace and the specific courtyard it replicates?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "The palace is in Granada, Spain — built by the Nasrid sultans in the 14th century. The specific courtyard is named for a fountain with stone animals.",
+          "config": {
+            "accepted_answers": [
+              "alhambra court of the lions", "the alhambra court of the lions",
+              "alhambra", "court of the lions alhambra",
+              "court of the lions", "patio de los leones"
+            ],
+            "case_sensitive": false,
+            "explanation": "Zorayda Castle replicates the Court of the Lions (Patio de los Leones) in the Alhambra palace in Granada, Spain. The Alhambra is the greatest surviving example of Islamic architecture in Western Europe — a 14th-century palace complex built by the Nasrid sultans. The Court of the Lions, with its famous fountain supported by 12 stone lions and surrounding arcade of carved columns and plaster screens, is the most celebrated space in the Alhambra and one of the most famous architectural spaces in the world."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Ripley's Believe It or Not! — The Castle on San Marco Avenue",
+      "description": "Ripley's Believe It or Not! St. Augustine occupies Warden Castle — a castle-like mansion built in 1887 by William Warden, a Standard Oil partner of Henry Flagler. The building's architectural style is another flavor of Flagler-era fantasy: Moorish-influenced towers and arched windows in the same neighborhood as the Ponce de León and Alcazar. Robert Ripley purchased the building in 1941 as his personal winter home; after his death in 1949 it became one of the first Ripley's Odditoriums. Admission charged.",
+      "historical_content": "Warden Castle was built in 1887 by William Warden — a partner of Henry Flagler in Standard Oil of Ohio, and one of Flagler's wealthy friends who followed him to St. Augustine for the winter season.\n\nThe building's architectural style — often called 'Moorish Revival' or simply eclectic — reflects the same romantic historical pastiche that characterized St. Augustine in the Flagler era: towers, arched windows, decorative turrets, and a general atmosphere of 19th-century fantasy.\n\nRobert Ripley (1890-1949) was the creator of the 'Believe It or Not!' franchise — syndicated newspaper cartoons and later radio programs, films, and museums built around strange facts, human oddities, and records of human achievement and foolishness. He traveled the world collecting artifacts and stories.\n\nRipley purchased Warden Castle in 1941 as his personal winter home — he was attracted to St. Augustine by its antiquity and its eccentric architectural character. He died of a heart attack in 1949, while on the set of his radio program in New York.\n\nFollowing Ripley's death, the castle was converted into one of the first permanent Ripley's Odditoriums — a physical exhibition of the curiosities and artifacts Ripley had collected. There are now over 100 Ripley's attractions worldwide.\n\nThe St. Augustine location retains the Warden Castle building and tells Ripley's connection to the city as part of its exhibits.",
+      "lat": 29.8929,
+      "lng": -81.3122,
+      "gps_radius_meters": 40.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "Ripley's Believe It or Not! is at 19 San Marco Avenue, just north of the historic district — the distinctive castle-like building with towers on San Marco. Admission charged.",
+      "safety_warning": "Admission charged. Check ripleys.com/staugustine for current pricing and hours.",
+      "metadata_json": {
+        "admission": "Charged",
+        "building": "Warden Castle (1887)",
+        "builder": "William Warden — Standard Oil partner",
+        "key_facts": [
+          "Warden Castle built 1887 by Standard Oil partner William Warden",
+          "Moorish Revival eclectic style — towers, arched windows",
+          "Robert Ripley purchased as personal winter home in 1941",
+          "Ripley died 1949; castle converted to one of first permanent Ripley's Odditoriums",
+          "Over 100 Ripley's attractions worldwide today",
+          "St. Augustine location is the original Odditorium"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "Standard Oil and St. Augustine",
+          "prompt": "Warden Castle was built by William Warden — a partner of Henry Flagler in Standard Oil. This pattern — wealthy Standard Oil executives following Flagler to St. Augustine for the winter — was common in the 1880s. What does this reveal about St. Augustine's Gilded Age development?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Flagler wasn't just building hotels — he was creating a destination for a specific class of people. Who were they, and why did they follow him?",
+          "config": {
+            "options": [
+              "Standard Oil executives were required by John D. Rockefeller to winter in St. Augustine as a condition of partnership",
+              "St. Augustine in the 1880s was a network destination — Flagler's hotels attracted the wealthy elite who knew each other from business and society, creating a self-reinforcing winter social scene",
+              "William Warden built Warden Castle as a Standard Oil corporate retreat, not a personal residence",
+              "The Standard Oil partners wintered in St. Augustine to avoid Ohio income taxes, which did not apply to Florida residents"
+            ],
+            "correct_index": 1,
+            "explanation": "St. Augustine in the 1880s was a network destination — Flagler's Ponce de León and Alcazar hotels attracted the wealthy elite who knew each other from New York and Ohio business and society. William Warden, like Flagler's other Standard Oil partners and associates, followed the social network. The result was a winter colony of extraordinary wealth concentrated in St. Augustine, building private homes like Warden Castle in addition to staying in Flagler's hotels."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "Believe It or Not",
+          "prompt": "Robert Ripley created the 'Believe It or Not!' franchise based on a specific type of content — strange facts, human records, and oddities from around the world. In what medium did Ripley originally publish his 'Believe It or Not!' content?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "Ripley started in the early 20th century, before radio, television, or the internet. His first medium was a visual one.",
+          "config": {
+            "accepted_answers": ["newspaper", "newspaper cartoon", "syndicated cartoon", "cartoon", "comics", "newspaper comics", "syndicated newspaper cartoon"],
+            "case_sensitive": false,
+            "explanation": "Robert Ripley's 'Believe It or Not!' began as a syndicated newspaper cartoon — illustrated panels featuring strange facts, human records, and oddities from around the world. First published in 1918 in the New York Globe, the feature was eventually syndicated to newspapers worldwide and read by an estimated 80 million people daily at the height of its popularity. Ripley later expanded to radio, newsreels, and books before the physical Odditorium exhibitions."
+          }
+        }
+      ]
+    },
+    {
+      "title": "St. Augustine Alligator Farm — Florida's Original Attraction",
+      "description": "The St. Augustine Alligator Farm Zoological Park on Anastasia Island is one of the oldest continuously operating zoological attractions in the United States — open since 1893. It houses the world's only complete collection of all 24 species of crocodilians: alligators, crocodiles, caimans, and gharials. The Florida marsh boardwalk runs over hundreds of wild and captive alligators. The resident population includes Maximo — one of the largest saltwater crocodiles in the United States. Admission charged.",
+      "historical_content": "The St. Augustine Alligator Farm opened in 1893 — just five years after Flagler's hotels transformed St. Augustine into a Gilded Age resort. Its founders, Felix Fire and George Reddington, recognized that wealthy Northern tourists who had never seen alligators in the wild would pay to see them safely contained.\n\nThe original attraction featured a small collection of alligators in a roadside setting. Over 130 years it evolved into one of the most respected zoological institutions in the American Southeast.\n\nThe Alligator Farm is notable for several distinctions:\n- **The world's only complete collection of all 24 crocodilian species**: including American alligator, American crocodile, spectacled caiman, Nile crocodile, Chinese alligator (critically endangered), saltwater crocodile, and all other living crocodilian species\n- **Conservation leadership**: The Alligator Farm has participated in breeding programs for endangered crocodilian species, including the Chinese alligator and Cuban crocodile\n- **The Florida marsh**: A raised boardwalk over a natural Florida marsh habitat, where wild alligators and wading birds coexist with the captive collection\n- **Maximo**: A resident male saltwater crocodile (Crocodylus porosus) — the world's largest living reptile species — measuring approximately 15 feet and weighing over 1,000 pounds\n\nThe Alligator Farm is accredited by the Association of Zoos and Aquariums (AZA). It has been continuously family-owned and operated since its founding.",
+      "lat": 29.8737,
+      "lng": -81.2975,
+      "gps_radius_meters": 50.0,
+      "ai_character_id": "victorian_tourist",
+      "points": 100,
+      "hint_text": "The St. Augustine Alligator Farm is on Anastasia Island — cross the Bridge of Lions, follow A1A south past the lighthouse turnoff, and look for the signs. Admission charged.",
+      "safety_warning": "Admission charged. Stay on the boardwalks and behind barriers at all times — the animals are wild and powerful. Check alligatorfarm.com for hours and pricing.",
+      "metadata_json": {
+        "admission": "Charged",
+        "founded": "1893",
+        "key_facts": [
+          "Open since 1893 — one of the oldest continuously operating zoological attractions in the US",
+          "World's only complete collection of all 24 crocodilian species",
+          "Raised boardwalk over Florida marsh with hundreds of wild and captive alligators",
+          "Maximo: resident saltwater crocodile, approximately 15 feet, 1,000+ lbs",
+          "AZA-accredited; conservation programs for endangered species",
+          "Continuously family-owned since founding"
+        ]
+      },
+      "challenges": [
+        {
+          "challenge_type": "multiple_choice",
+          "title": "All 24 Species",
+          "prompt": "The St. Augustine Alligator Farm claims the world's only complete collection of all 24 species of crocodilians. What are the four main groups that make up the order Crocodilia?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "You probably know two of them from common names. The other two are less well known outside of their home regions.",
+          "config": {
+            "options": [
+              "Alligators, crocodiles, lizards, and snakes",
+              "Alligators, crocodiles, caimans, and gharials (gavials)",
+              "Alligators, crocodiles, skinks, and tuataras",
+              "American alligators, American crocodiles, salt water crocodiles, and Nile crocodiles"
+            ],
+            "correct_index": 1,
+            "explanation": "The order Crocodilia contains four main families: true alligators (family Alligatoridae — including American and Chinese alligators), caimans (also Alligatoridae — found in Central and South America), true crocodiles (family Crocodylidae — including Nile, saltwater, and American crocodiles), and gharials (family Gavialidae — the long-snouted fish-eating crocodilians of South Asia). All 24 species are represented in the Alligator Farm's collection."
+          }
+        },
+        {
+          "challenge_type": "text_answer",
+          "title": "When It Started",
+          "prompt": "The St. Augustine Alligator Farm has been continuously operating since what year?",
+          "points": 50,
+          "is_required": true,
+          "hint_text": "It opened just five years after Flagler's Ponce de León and Alcazar hotels transformed St. Augustine into a major tourist destination in 1888.",
+          "config": {
+            "accepted_answers": ["1893", "eighteen ninety three"],
+            "case_sensitive": false,
+            "explanation": "The St. Augustine Alligator Farm opened in 1893 — five years after Flagler's hotels made St. Augustine a major tourist destination. Founders Felix Fire and George Reddington recognized that wealthy Northern visitors who had never seen alligators would pay to see them contained safely. Over 130 years of continuous operation, it has evolved from a roadside curiosity into one of the most respected crocodilian collections in the world."
+          }
+        }
+      ]
+    }
+  ],
+  "badges": [
+    {
+      "title": "Landmark Champion",
+      "description": "You hit every must-see landmark in St. Augustine.",
+      "criteria": "complete_adventure"
+    },
+    {
+      "title": "Sightseer",
+      "description": "You visited three of St. Augustine's top landmarks.",
+      "criteria": "visit_stops",
+      "criteria_data": {"stop_count": 3}
+    },
+    {
+      "title": "No Map Needed",
+      "description": "You answered every challenge without using a hint.",
+      "criteria": "no_hints_all_correct"
+    }
+  ]
+}

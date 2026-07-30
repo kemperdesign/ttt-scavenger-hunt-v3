@@ -61,7 +61,7 @@ export function HomeClient({ adventures }: { adventures: Adventure[] }) {
   });
 
   const featured = adventures.filter((a) => a.is_featured);
-  const display = filtered.length > 0 ? filtered : adventures;
+  const display = filtered;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F3ED] text-[#2c3327]" style={{ paddingBottom: "100px" }}>
@@ -291,7 +291,14 @@ function AdventureCard({ adventure }: { adventure: Adventure }) {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="opacity-90">
               <circle cx="12" cy="12" r="10"/><path d="M16 8l-3.5 8.5L9 16l3.5-8.5 3.5-8.5z"/>
             </svg>
-            <span>Scavenger Hunt</span>
+            <span>
+              {tags.some(t => t.includes("bar") || t.includes("beer")) ? "Bar Crawl" : 
+               tags.some(t => t.includes("ghost") || t.includes("haunt")) ? "Ghost Tour" : 
+               tags.some(t => t.includes("art")) ? "Art Walk" : 
+               tags.some(t => t.includes("escape")) ? "Escape Room" :
+               tags.some(t => t.includes("zoo")) ? "Zoo Hunt" :
+               "Scavenger Hunt"}
+            </span>
           </div>
           <div className="flex items-center gap-1 text-[#d2753b]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

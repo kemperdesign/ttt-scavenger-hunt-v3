@@ -17,8 +17,8 @@ const MAPTILER_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY ?? "";
 
 // MapTiler style URLs
 const MAP_STYLES = {
-  day: `https://api.maptiler.com/maps/outdoor-v2/style.json?key=${MAPTILER_KEY}`,
-  night: `https://api.maptiler.com/maps/dataviz-dark/style.json?key=${MAPTILER_KEY}`,
+  day: `https://api.maptiler.com/maps/streets-v2/style.json?key=${MAPTILER_KEY}`,
+  night: `https://api.maptiler.com/maps/streets-v2-dark/style.json?key=${MAPTILER_KEY}`,
 };
 
 export default function AdventureMap({
@@ -102,8 +102,8 @@ export default function AdventureMap({
           closeButton: true,
           maxWidth: "200px",
         }).setHTML(`
-          <div style="font-family: sans-serif; padding: 4px;">
-            <strong style="font-size: 13px;">${stop.title}</strong>
+          <div style="font-family: sans-serif; padding: 6px 8px; background:#1e293b; border-radius:6px;">
+            <strong style="font-size: 13px; color:#f1f5f9;">${stop.title}</strong>
             ${isCompleted ? '<br><span style="color:#22c55e; font-size:12px;">✓ Completed</span>' : ""}
             ${isCurrent ? '<br><span style="color:#f59e0b; font-size:12px;">← Current stop</span>' : ""}
           </div>

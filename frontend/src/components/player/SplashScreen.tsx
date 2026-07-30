@@ -10,16 +10,16 @@ export function SplashScreen() {
     // Prevent scrolling while splash screen is visible
     document.body.style.overflow = "hidden";
 
-    // Show for 2.5 seconds, then fade out
+    // Show for 5 seconds, then fade out
     const fadeOutTimer = setTimeout(() => {
       setIsFadingOut(true);
-    }, 2500); 
+    }, 5000); 
 
-    // Remove from DOM completely after fade out (3 seconds total)
+    // Remove from DOM completely after fade out (5.5 seconds total)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
       document.body.style.overflow = "";
-    }, 3000); 
+    }, 5500); 
 
     return () => {
       clearTimeout(fadeOutTimer);

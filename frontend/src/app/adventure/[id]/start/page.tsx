@@ -334,12 +334,11 @@ function AdventurePageInner() {
     );
   }
 
-  // Payment wall: show when player tries to move past stop 1 without paying.
-  // Preview sessions and already-paid sessions bypass this entirely.
+  // Payment wall: show as soon as a session exists and payment hasn't been made.
+  // Preview sessions and already-paid/corporate sessions bypass this entirely.
   const needsPayment =
     !isPreview &&
     paymentStatus === "free" &&
-    currentStopIndex >= 1 &&
     session !== null;
 
   if (needsPayment) {

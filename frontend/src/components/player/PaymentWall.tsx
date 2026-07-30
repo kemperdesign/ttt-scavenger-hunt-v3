@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createCheckout, activateCorporateCode } from "@/lib/api";
 
 interface PaymentWallProps {
@@ -10,10 +11,12 @@ interface PaymentWallProps {
 }
 
 export function PaymentWall({ sessionId, adventureTitle, onUnlocked }: PaymentWallProps) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showCorpForm, setShowCorpForm] = useState(false);
-  const [corpCode, setCorpCode] = useState("");
+  const [promoCode, setPromoCode] = useState("");
+  const [promoLoading, setPromoLoading] = useState(false);
+  const [promoError, setPromoError] = useState<string | null>(null);
 
   async function handlePay() {
     setLoading(true);
@@ -28,27 +31,72 @@ export function PaymentWall({ sessionId, adventureTitle, onUnlocked }: PaymentWa
     }
   }
 
-  async function handleCorporate(e: React.FormEvent) {
+  async function handlePromo(e: React.FormEvent) {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
+    const code = promoCode.trim().toUpperCase();
+    if (!code) return;
+    setPromoLoading(true);
+    setPromoError(null);
     try {
-      await activateCorporateCode(sessionId, corpCode.trim().toUpperCase());
+      await activateCorporateCode(sessionId, code);
       onUnlocked();
     } catch {
-      setError("Invalid corporate code. Check with your group organizer.");
-      setLoading(false);
+      setPromoError("Invalid promo code. Check the code and try again.");
+      setPromoLoading(false);
     }
   }
 
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
       <div className="max-w-sm w-full bg-slate-900 rounded-2xl p-8 shadow-2xl border border-slate-800">
+        {/* Back button */}
+        <button
+          onClick={() => router.push("/")}
+          className="text-slate-500 hover:text-slate-300 text-sm mb-6 inline-flex items-center gap-1 focus-visible:outline-amber-500"
+        >
+          ← Back
+        </button>
+
         {/* Icon */}
         <div className="text-center mb-6">
           <div className="text-5xl mb-3">🏛️</div>
-          <h1 className="text-xl font-bold text-amber-400">Unlock Full Adventure</h1>
+          <h1 className="text-xl font-bold text-amber-400">Unlock Adventure</h1>
           <p className="text-slate-400 text-sm mt-1">{adventureTitle}</p>
+        </div>
+
+        {/* Promo code — shown first and prominently */}
+        <div className="mb-6">
+          <p className="text-slate-400 text-xs font-medium uppercase tracking-wider mb-2">
+            Have a promo or group code?
+          </p>
+          <form onSubmit={handlePromo} className="flex gap-2">
+            <input
+              type="text"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
+              placeholder="ENTER CODE"
+              maxLength={20}
+              className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-center tracking-widest text-amber-300 placeholder-slate-600 focus:outline-none focus:border-amber-500 min-h-[44px]"
+              aria-label="Promo or group code"
+            />
+            <button
+              type="submit"
+              disabled={promoLoading || !promoCode.trim()}
+              className="bg-slate-700 hover:bg-slate-600 disabled:opacity-50 text-slate-200 font-medium px-4 rounded-lg text-sm transition-colors min-h-[44px] shrink-0 focus-visible:outline-amber-500"
+            >
+              {promoLoading ? "…" : "Apply"}
+            </button>
+          </form>
+          {promoError && (
+            <p className="mt-1.5 text-xs text-red-400">{promoError}</p>
+          )}
+        </div>
+
+        {/* Divider */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex-1 h-px bg-slate-800" />
+          <span className="text-slate-600 text-xs">or purchase</span>
+          <div className="flex-1 h-px bg-slate-800" />
         </div>
 
         {/* What you get */}
@@ -71,7 +119,7 @@ export function PaymentWall({ sessionId, adventureTitle, onUnlocked }: PaymentWa
         <button
           onClick={handlePay}
           disabled={loading}
-          className="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-900 font-bold py-3 rounded-xl text-lg transition-colors"
+          className="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-900 font-bold py-3 rounded-xl text-lg transition-colors focus-visible:outline-amber-500 min-h-[52px]"
         >
           {loading ? "Loading…" : "Continue — $7.99"}
         </button>
@@ -82,34 +130,6 @@ export function PaymentWall({ sessionId, adventureTitle, onUnlocked }: PaymentWa
 
         {error && (
           <p className="mt-3 text-center text-sm text-red-400">{error}</p>
-        )}
-
-        {/* Corporate code */}
-        {!showCorpForm ? (
-          <button
-            onClick={() => setShowCorpForm(true)}
-            className="mt-6 w-full text-xs text-slate-500 hover:text-slate-300 transition-colors"
-          >
-            Have a group or corporate code?
-          </button>
-        ) : (
-          <form onSubmit={handleCorporate} className="mt-5 space-y-2">
-            <input
-              type="text"
-              value={corpCode}
-              onChange={(e) => setCorpCode(e.target.value.toUpperCase())}
-              placeholder="ENTER CODE"
-              maxLength={20}
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-center tracking-widest text-amber-300 placeholder-slate-600 focus:outline-none focus:border-amber-500"
-            />
-            <button
-              type="submit"
-              disabled={loading || !corpCode.trim()}
-              className="w-full bg-slate-700 hover:bg-slate-600 disabled:opacity-50 text-slate-200 font-medium py-2 rounded-lg text-sm transition-colors"
-            >
-              {loading ? "Checking…" : "Activate"}
-            </button>
-          </form>
         )}
       </div>
     </div>

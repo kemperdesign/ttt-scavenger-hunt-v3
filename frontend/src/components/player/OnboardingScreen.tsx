@@ -31,9 +31,24 @@ const SLIDES = [
         </svg>
       </div>
     ),
-    title: "Discover local gems",
-    body: "To guide you to the coolest nearby places and customize your experience, we'll need access to your location.",
-    buttonText: "Enable location access"
+    title: "Location Access Needed",
+    body: (
+      <div className="text-left space-y-3 bg-black/40 backdrop-blur-sm rounded-xl p-4 text-sm text-white/90">
+        <div className="flex items-start gap-3">
+          <span aria-hidden="true" className="shrink-0 mt-0.5">✅</span>
+          <span>Your location is used <strong>only</strong> to check whether you're near each stop — it is never stored continuously or shared.</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <span aria-hidden="true" className="shrink-0 mt-0.5">✅</span>
+          <span>We record only the check-in result (yes/no) and the time — not your movement path.</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <span aria-hidden="true" className="shrink-0 mt-0.5">✅</span>
+          <span>You can revoke access in your browser settings at any time.</span>
+        </div>
+      </div>
+    ),
+    buttonText: "Allow Location Access"
   },
   {
     bgImage: "/images/onboarding_bg_3.jpg",

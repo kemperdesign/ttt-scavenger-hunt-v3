@@ -7,6 +7,12 @@ export function SplashScreen() {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
+    // Only show once per session
+    if (sessionStorage.getItem("hasSeenSplash") === "true") {
+      setIsVisible(false);
+      return;
+    }
+
     // Prevent scrolling while splash screen is visible
     document.body.style.overflow = "hidden";
 
@@ -18,6 +24,7 @@ export function SplashScreen() {
     // Remove from DOM completely after fade out (5.5 seconds total)
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
+      sessionStorage.setItem("hasSeenSplash", "true");
       document.body.style.overflow = "";
     }, 5500); 
 

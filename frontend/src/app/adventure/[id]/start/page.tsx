@@ -32,7 +32,6 @@ import { SimulatedGPS } from "@/components/debug/SimulatedGPS";
 import { AppFooter } from "@/components/player/AppFooter";
 import { TeamSetup } from "@/components/player/TeamSetup";
 import { ChallengeRenderer } from "@/components/player/ChallengeRenderer";
-import { LocationPermissionNotice } from "@/components/player/LocationPermissionNotice";
 import { PaymentWall } from "@/components/player/PaymentWall";
 
 const AdventureMap = dynamic(() => import("@/components/map/AdventureMap"), { ssr: false });
@@ -103,15 +102,9 @@ function AdventurePageInner() {
   const [checkedIn, setCheckedIn] = useState(false);
   const [stopChallenges, setStopChallenges] = useState<Challenge[]>([]);
   const [completedChallengeIds, setCompletedChallengeIds] = useState<Set<string>>(new Set());
-  const [locationNoticeAcknowledged, setLocationNoticeAcknowledged] = useState(() => {
-    if (typeof window !== "undefined") {
-      return sessionStorage.getItem("locationGranted") === "1";
-    }
-    return false;
-  });
   const [paymentStatus, setPaymentStatus] = useState<"free" | "paid" | "corporate">("free");
 
-  const { location, error: gpsError, simulateLocation, startTracking } = usePlayerLocation(simulated, !locationNoticeAcknowledged);
+  const { location, error: gpsError, simulateLocation, startTracking } = usePlayerLocation(simulated, false);
   const { set: dbSet, get: dbGet } = useIndexedDB();
 
   const currentStop = stops[currentStopIndex] ?? null;
@@ -319,19 +312,6 @@ function AdventurePageInner() {
 
   if (needsTeamSetup) {
     return <TeamSetup adventureId={id} onDone={handleTeamSetupDone} />;
-  }
-
-  if (!locationNoticeAcknowledged && !simulated) {
-    return (
-      <LocationPermissionNotice
-        adventureTitle={adventure?.title ?? "Adventure"}
-        onGrant={() => {
-          setLocationNoticeAcknowledged(true);
-          sessionStorage.setItem("locationGranted", "1");
-          startTracking();
-        }}
-      />
-    );
   }
 
   // Payment wall: show as soon as a session exists and payment hasn't been made.

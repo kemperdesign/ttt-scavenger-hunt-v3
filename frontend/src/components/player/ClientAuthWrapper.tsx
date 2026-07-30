@@ -27,6 +27,13 @@ export function ClientAuthWrapper({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  // Scroll to top whenever the flow transitions to a new screen
+  useEffect(() => {
+    if (flowState !== "loading") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [flowState]);
+
   if (flowState === "loading") {
     // Prevent Hydration mismatch by returning nothing or a loading state until client mount
     return (

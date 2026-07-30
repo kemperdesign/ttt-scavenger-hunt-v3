@@ -3,6 +3,7 @@ import { Playfair_Display, Work_Sans } from "next/font/google";
 import { AccessibilityProvider } from "@/context/AccessibilityContext";
 import { BottomNav } from "@/components/player/BottomNav";
 import { ClientAuthWrapper } from "@/components/player/ClientAuthWrapper";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "@/styles/globals.css";
 import "@/styles/accessibility.css";
 import "@/styles/map-themes.css";
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to main content
         </a>
         <AccessibilityProvider>
+          <ScrollToTop />
           <ClientAuthWrapper>
             <main id="main-content">{children}</main>
             <BottomNav />

@@ -199,12 +199,31 @@ function AdventureCard({ adventure }: { adventure: Adventure }) {
   const tags = (adventure.tags || []).map(t => t.toLowerCase());
   let fallbackImage = "/images/onboarding_bg.jpg"; // Default
   
+  // Custom fallback images for specific categories
   if (tags.some(t => t.includes("bar") || t.includes("beer"))) {
     fallbackImage = "/images/onboarding_bg_3.jpg";
   } else if (tags.some(t => t.includes("scavenger"))) {
     fallbackImage = "/images/onboarding_bg_2.jpg";
+  } else if (tags.some(t => t.includes("ghost") || t.includes("haunt") || t.includes("spooky"))) {
+    fallbackImage = "/images/ghost_tour_bg.png";
+  } else if (tags.some(t => t.includes("zoo") || t.includes("animal"))) {
+    fallbackImage = "/images/zoo_hunt_bg.png";
+  } else if (tags.some(t => t.includes("escape"))) {
+    fallbackImage = "/images/escape_room_bg.png";
+  } else if (tags.some(t => t.includes("christmas") || t.includes("lights") || t.includes("holiday"))) {
+    fallbackImage = "/images/christmas_lights_bg.png";
+  } else if (tags.some(t => t.includes("audio") || t.includes("podcast"))) {
+    fallbackImage = "/images/audio_tour_bg.png";
+  } else if (tags.some(t => t.includes("home") || t.includes("indoor") || t.includes("virtual"))) {
+    fallbackImage = "/images/in_home_bg.png";
   } else if (tags.some(t => t.includes("art") || t.includes("history"))) {
     fallbackImage = "/images/onboarding_bg.jpg"; // Art/history looks good with bg 1
+  } else {
+    // If it's a completely unknown category and we just don't have a cover image, check the title too
+    const title = adventure.title.toLowerCase();
+    if (title.includes("lights") || title.includes("christmas")) {
+      fallbackImage = "/images/christmas_lights_bg.png";
+    }
   }
 
   const coverImage = adventure.cover_image_url || fallbackImage;

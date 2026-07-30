@@ -5,19 +5,11 @@ import Image from "next/image";
 
 const MARQUEE_WORDS = ["The Tasting Tours", "Eat", "Drink", "Experience", "Explore"];
 
-export function AuthScreen() {
-  const [isVisible, setIsVisible] = useState(false);
+export function AuthScreen({ onComplete }: { onComplete: () => void }) {
   const [currentWord, setCurrentWord] = useState(0);
 
   useEffect(() => {
-    // Only run on client
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn !== "true") {
-      setIsVisible(true);
-      // We don't lock scrolling here because OnboardingScreen might be doing it,
-      // but let's ensure we lock it if this screen is visible
-      document.body.style.overflow = "hidden";
-    }
+    document.body.style.overflow = "hidden";
 
     // Marquee interval
     const interval = setInterval(() => {
@@ -28,12 +20,9 @@ export function AuthScreen() {
   }, []);
 
   const handleSkip = () => {
-    localStorage.setItem("isLoggedIn", "true");
-    setIsVisible(false);
     document.body.style.overflow = "";
+    onComplete();
   };
-
-  if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 z-[80] bg-black flex flex-col overflow-hidden">

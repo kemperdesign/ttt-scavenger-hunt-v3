@@ -2,17 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-export function SplashScreen() {
-  const [isVisible, setIsVisible] = useState(true);
+export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
-    // Only show once per session
-    if (sessionStorage.getItem("hasSeenSplash") === "true") {
-      setIsVisible(false);
-      return;
-    }
-
     // Prevent scrolling while splash screen is visible
     document.body.style.overflow = "hidden";
 
@@ -21,11 +14,10 @@ export function SplashScreen() {
       setIsFadingOut(true);
     }, 5000); 
 
-    // Remove from DOM completely after fade out (5.5 seconds total)
+    // Complete after fade out (5.5 seconds total)
     const removeTimer = setTimeout(() => {
-      setIsVisible(false);
-      sessionStorage.setItem("hasSeenSplash", "true");
       document.body.style.overflow = "";
+      onComplete();
     }, 5500); 
 
     return () => {
@@ -33,9 +25,7 @@ export function SplashScreen() {
       clearTimeout(removeTimer);
       document.body.style.overflow = "";
     };
-  }, []);
-
-  if (!isVisible) return null;
+  }, [onComplete]);
 
   return (
     <div

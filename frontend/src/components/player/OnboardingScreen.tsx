@@ -66,37 +66,23 @@ const SLIDES = [
   }
 ];
 
-export function OnboardingScreen() {
-  const [isVisible, setIsVisible] = useState(false);
+export function OnboardingScreen({ onComplete }: { onComplete: () => void }) {
   const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
-    // Only run on client
-    const hasSeen = localStorage.getItem("hasSeenOnboarding");
-    if (hasSeen !== "true") {
-      setIsVisible(true);
-      // Prevent scrolling while onboarding is active
-      document.body.style.overflow = "hidden";
-    }
+    // Prevent scrolling while onboarding is active
+    document.body.style.overflow = "hidden";
   }, []);
 
   const handleNext = () => {
-    if (currentStep === 1) {
-      // In a real app, request geolocation here before moving on
-      // navigator.geolocation.getCurrentPosition(...)
-    }
-
     if (currentStep < SLIDES.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {
       // Finish onboarding
-      localStorage.setItem("hasSeenOnboarding", "true");
-      setIsVisible(false);
       document.body.style.overflow = "";
+      onComplete();
     }
   };
-
-  if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 z-[90] bg-black">

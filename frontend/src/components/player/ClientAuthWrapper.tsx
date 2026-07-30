@@ -11,17 +11,16 @@ export function ClientAuthWrapper({ children }: { children: React.ReactNode }) {
   const [flowState, setFlowState] = useState<FlowState>("loading");
 
   useEffect(() => {
-    // Determine initial state based on storage
+    // Only preserve login state across reloads.
+    // Force splash and onboarding every time the app loads.
     const isLoggedIn = localStorage.getItem("isLoggedIn");
-    const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
-    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
 
     if (isLoggedIn === "true") {
-      setFlowState("app");
-    } else if (hasSeenOnboarding === "true") {
-      setFlowState("auth");
-    } else if (hasSeenSplash === "true") {
-      setFlowState("onboarding");
+      // Actually, wait, if they are logged in, does the user still want to see the splash and onboarding?
+      // "EVERYTIME I REFESH THE APP HOME PAGE I WANT TO SEE THE SPLASH SCREEN AGAIN AND ENABLE NOTIFICATIONS AND LOCATION"
+      // If we jump straight to "app" when logged in, they WON'T see splash/onboarding when they refresh.
+      // So we MUST start at "splash" unconditionally!
+      setFlowState("splash");
     } else {
       setFlowState("splash");
     }
@@ -50,8 +49,11 @@ export function ClientAuthWrapper({ children }: { children: React.ReactNode }) {
 
   if (flowState === "onboarding") {
     return <OnboardingScreen onComplete={() => {
-      localStorage.setItem("hasSeenOnboarding", "true");
-      setFlowState("auth");
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        setFlowState("app");
+      } else {
+        setFlowState("auth");
+      }
     }} />;
   }
 

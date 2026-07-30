@@ -145,7 +145,16 @@ async def import_adventure(data: dict, force: bool) -> None:
                 challenge_count += 1
 
         for badge_data in data.get("badges", []):
-            db.add(Badge(adventure_id=adventure.id, **badge_data))
+            badge_fields = dict(badge_data)
+            # normalize title -> name
+            if "title" in badge_fields and "name" not in badge_fields:
+                badge_fields["name"] = badge_fields.pop("title")
+            # normalize criteria -> trigger_condition
+            criteria = badge_fields.pop("criteria", None)
+            criteria_data = badge_fields.pop("criteria_data", {})
+            if criteria and "trigger_condition" not in badge_fields:
+                badge_fields["trigger_condition"] = {"type": criteria, **criteria_data}
+            db.add(Badge(adventure_id=adventure.id, **badge_fields))
 
         await db.commit()
         print(

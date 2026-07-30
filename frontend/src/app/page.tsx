@@ -37,11 +37,30 @@ export default async function HomePage() {
       </header>
 
       <main id="main-content" className="flex-1 px-4 pb-8">
-        {/* Quick-access utility buttons */}
-        <div className="flex gap-3 mb-6">
+        {/* Quick-access utility buttons — row 1 */}
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            href="/featured"
+            className="flex flex-col items-center gap-1.5 bg-amber-900/30 hover:bg-amber-900/50 border border-amber-800/50 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
+            aria-label="Featured things to do in St. Augustine"
+          >
+            <span className="text-2xl" aria-hidden="true">⭐</span>
+            <span className="text-amber-200 text-xs font-medium leading-tight">Featured<br />Things to Do</span>
+          </Link>
+          <Link
+            href="/map"
+            className="flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
+            aria-label="Interactive map of St. Augustine"
+          >
+            <span className="text-2xl" aria-hidden="true">🗺️</span>
+            <span className="text-white text-xs font-medium leading-tight">Map of<br />St. Augustine</span>
+          </Link>
+        </div>
+        {/* Quick-access utility buttons — row 2 */}
+        <div className="grid grid-cols-2 gap-3 mb-6">
           <Link
             href="/parking"
-            className="flex-1 flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
+            className="flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
             aria-label="Parking and shuttle information"
           >
             <span className="text-2xl" aria-hidden="true">🅿️</span>
@@ -49,7 +68,7 @@ export default async function HomePage() {
           </Link>
           <Link
             href="/restrooms"
-            className="flex-1 flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
+            className="flex flex-col items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl py-4 text-center transition-colors focus-visible:outline-amber-500"
             aria-label="Public restroom locations"
           >
             <span className="text-2xl" aria-hidden="true">🚻</span>

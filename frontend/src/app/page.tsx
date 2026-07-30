@@ -56,6 +56,21 @@ export default async function HomePage() {
             <span className="text-white text-xs font-medium leading-tight">Map of<br />St. Augustine</span>
           </Link>
         </div>
+        {/* Restaurants — full-width */}
+        <div className="mb-3">
+          <Link
+            href="/restaurants"
+            className="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl px-5 py-4 transition-colors focus-visible:outline-amber-500"
+            aria-label="Restaurants in St. Augustine"
+          >
+            <span className="text-2xl" aria-hidden="true">🍽️</span>
+            <div>
+              <p className="text-white text-sm font-semibold">Restaurants</p>
+              <p className="text-slate-400 text-xs">Seafood, dive bars, fine dining & more</p>
+            </div>
+            <span className="ml-auto text-slate-600 text-lg" aria-hidden="true">›</span>
+          </Link>
+        </div>
         {/* Quick-access utility buttons — row 2 */}
         <div className="grid grid-cols-2 gap-3 mb-6">
           <Link

@@ -113,6 +113,18 @@ const FEATURED = [
     adventureHint: "Part of the 'Faith and the Ancient City' adventure.",
   },
   {
+    name: "St. Augustine Amphitheatre",
+    emoji: "🎶",
+    tagline: "The Amp — one of Florida's best outdoor concert venues",
+    description:
+      "The St. Augustine Amphitheatre is a 4,100-capacity outdoor venue on Anastasia Island, consistently ranked among the best live music venues in Florida. Originally built in the 1960s as a site for the outdoor drama 'Cross and Sword,' it now hosts major national touring acts across every genre. The natural bowl setting, Spanish-moss canopy, and intimate sight lines make even big shows feel close.",
+    address: "1340 A1A South, St. Augustine, FL 32080",
+    admissionNote: "Ticket prices vary by show",
+    hours: "Show nights only — check schedule at theamp.net",
+    tags: ["Music", "Outdoors", "Nightlife"],
+    adventureHint: null,
+  },
+  {
     name: "Zorayda Castle",
     emoji: "🕌",
     tagline: "A one-tenth scale replica of Spain's Alhambra Palace",
@@ -140,6 +152,8 @@ const TAG_COLORS: Record<string, string> = {
   Outdoors: "bg-teal-900/40 text-teal-300",
   Unique: "bg-violet-900/40 text-violet-300",
   Spiritual: "bg-indigo-900/40 text-indigo-300",
+  Music: "bg-fuchsia-900/40 text-fuchsia-300",
+  Nightlife: "bg-pink-900/40 text-pink-300",
 };
 
 export default function FeaturedPage() {

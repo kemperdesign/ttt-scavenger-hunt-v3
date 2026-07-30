@@ -53,6 +53,10 @@ textarea {
   border-radius: 2px;
 }
 
+/* Hide scrollbar for filter chips */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
 /* ── Global theme overrides: replace dark-slate classes with cream/teal/terra ── */
 
 /* Page backgrounds */

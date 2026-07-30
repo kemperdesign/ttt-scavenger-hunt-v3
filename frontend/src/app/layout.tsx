@@ -3,6 +3,8 @@ import { Playfair_Display, Work_Sans } from "next/font/google";
 import { AccessibilityProvider } from "@/context/AccessibilityContext";
 import { BottomNav } from "@/components/player/BottomNav";
 import { SplashScreen } from "@/components/player/SplashScreen";
+import { OnboardingScreen } from "@/components/player/OnboardingScreen";
+import { AuthScreen } from "@/components/player/AuthScreen";
 import "@/styles/globals.css";
 import "@/styles/accessibility.css";
 import "@/styles/map-themes.css";
@@ -80,6 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <AccessibilityProvider>
           <SplashScreen />
+          <OnboardingScreen />
+          <AuthScreen />
           <main id="main-content">{children}</main>
           <BottomNav />
         </AccessibilityProvider>

@@ -11,29 +11,23 @@ export function BottomNav() {
       href: "/",
       label: "Activities",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
         </svg>
       ),
     },
     {
-      href: "/featured",
-      label: "Featured",
+      href: "/missions",
+      label: "Missions",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-      ),
-    },
-    {
-      href: "/map",
-      label: "Map",
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
-          <line x1="8" y1="2" x2="8" y2="18"/>
-          <line x1="16" y1="6" x2="16" y2="22"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+          <path d="M4 22h16"/>
+          <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+          <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+          <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
         </svg>
       ),
     },
@@ -41,9 +35,20 @@ export function BottomNav() {
       href: "/admin/login",
       label: "Log In",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
           <circle cx="12" cy="7" r="4"/>
+        </svg>
+      ),
+    },
+    {
+      href: "/join",
+      label: "Join",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 3h6v6"/>
+          <path d="M10 14L21 3"/>
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
         </svg>
       ),
     },
@@ -51,8 +56,8 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 flex items-center border-t"
-      style={{ background: "var(--color-surface)", borderColor: "var(--color-border)", paddingBottom: "env(safe-area-inset-bottom, 0px)", zIndex: 50 }}
+      className="fixed bottom-0 left-0 right-0 flex items-center bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-gray-100"
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)", zIndex: 50 }}
       aria-label="Main navigation"
     >
       {tabs.map((tab) => {
@@ -61,11 +66,11 @@ export function BottomNav() {
           <Link
             key={tab.href}
             href={tab.href}
-            className="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 min-h-[56px] text-xs font-medium transition-colors"
-            style={{ color: isActive ? "var(--color-terra)" : "var(--color-muted)" }}
+            className="flex-1 flex flex-col items-center justify-center py-3 min-h-[64px] text-[11px] font-bold transition-colors gap-1"
+            style={{ color: isActive ? "#d2753b" : "#6b7280" }}
             aria-current={isActive ? "page" : undefined}
           >
-            <span style={{ color: isActive ? "var(--color-terra)" : "var(--color-muted)" }}>{tab.icon}</span>
+            <span>{tab.icon}</span>
             <span>{tab.label}</span>
           </Link>
         );

@@ -33,11 +33,30 @@ export function HomeClient({ adventures }: { adventures: Adventure[] }) {
 
   const filtered = adventures.filter((a) => {
     if (activeFilter === "All") return true;
-    if (activeFilter === "Scavenger Hunts") return !a.tags?.includes("bar") && !a.tags?.includes("art");
-    if (activeFilter === "Bar Crawls") return a.tags?.some(t => t.toLowerCase().includes("bar") || t.toLowerCase().includes("beer") || t.toLowerCase().includes("bourbon"));
-    if (activeFilter === "Art Walks") return a.tags?.some(t => t.toLowerCase().includes("art"));
-    if (activeFilter === "History") return a.tags?.some(t => t.toLowerCase().includes("history") || t.toLowerCase().includes("historic"));
-    return true;
+    
+    const tgs = (a.tags || []).map(t => t.toLowerCase());
+    const hasTag = (tag: string) => tgs.some(t => t.includes(tag));
+
+    switch (activeFilter) {
+      case "Scavenger Hunts":
+        return hasTag("scavenger") || (!hasTag("bar") && !hasTag("art") && !hasTag("ghost") && !hasTag("zoo") && !hasTag("escape") && !hasTag("audio") && !hasTag("home"));
+      case "Bar Crawls":
+        return hasTag("bar") || hasTag("beer") || hasTag("pub") || hasTag("drink") || hasTag("wine");
+      case "Art Walks":
+        return hasTag("art");
+      case "Ghost Tours":
+        return hasTag("ghost") || hasTag("haunt") || hasTag("spooky");
+      case "Zoo Hunts":
+        return hasTag("zoo") || hasTag("animal");
+      case "Outdoor Escape Room":
+        return hasTag("escape");
+      case "Audio Tours":
+        return hasTag("audio") || hasTag("podcast");
+      case "In-Home":
+        return hasTag("home") || hasTag("indoor") || hasTag("virtual");
+      default:
+        return false;
+    }
   });
 
   const featured = adventures.filter((a) => a.is_featured);

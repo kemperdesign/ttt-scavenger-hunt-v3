@@ -201,9 +201,21 @@ function AdventurePageInner() {
   }, [id, dbSet]);
 
   const handleSkipStop = useCallback(() => {
-    setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
-    setFeedback(null);
-  }, [stops.length]);
+    if (!session) return;
+    const isLastStop = currentStopIndex >= stops.length - 1;
+    if (isLastStop) {
+      (async () => {
+        try {
+          await completeSession(session.id);
+        } finally {
+          router.push(`/adventure/${id}/complete`);
+        }
+      })();
+    } else {
+      setCurrentStopIndex((i) => Math.min(i + 1, stops.length - 1));
+      setFeedback(null);
+    }
+  }, [session, currentStopIndex, stops.length, id, router]);
 
   const advanceOrComplete = useCallback(() => {
     if (!session) return;
@@ -548,6 +560,15 @@ function AdventurePageInner() {
               setSimulated(true);
               simulateLocation(lat, lng);
             }} />
+
+            <div className="pt-8 flex justify-center pb-4">
+              <button
+                onClick={handleSkipStop}
+                className="text-slate-500 hover:text-slate-300 text-sm font-medium underline underline-offset-4"
+              >
+                Skip Stop (No Points)
+              </button>
+            </div>
           </>
         ) : (
           <div className="text-center py-12">

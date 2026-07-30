@@ -134,6 +134,7 @@ export interface Session {
   completed_at?: string;
   metadata: Record<string, unknown>;
   is_preview?: boolean;
+  payment_status?: "free" | "paid" | "corporate";
 }
 
 // Alias — the player pages import this name; it's the same shape as Session.
@@ -773,6 +774,25 @@ export function listAuditLogs(options?: { action?: string; limit?: number }) {
   if (options?.limit) params.set("limit", String(options.limit));
   const qs = params.toString() ? `?${params.toString()}` : "";
   return apiRequest<AuditLogEntry[]>(`/api/v1/admin/audit${qs}`);
+}
+
+// ── Payments ──────────────────────────────────────────────────────────────────
+
+export function createCheckout(sessionId: string, redirectUrl: string) {
+  return apiRequest<{ payment_link_url: string; order_id: string }>(
+    "/api/v1/payments/checkout",
+    {
+      method: "POST",
+      body: JSON.stringify({ session_id: sessionId, redirect_url: redirectUrl }),
+    }
+  );
+}
+
+export function activateCorporateCode(sessionId: string, corporateCode: string) {
+  return apiRequest<{ status: string }>("/api/v1/payments/corporate-activate", {
+    method: "POST",
+    body: JSON.stringify({ session_id: sessionId, corporate_code: corporateCode }),
+  });
 }
 
 // ── Account ───────────────────────────────────────────────────────────────────

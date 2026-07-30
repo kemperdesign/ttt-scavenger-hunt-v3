@@ -21,6 +21,9 @@ class GameSession(Base):
     hints_used: Mapped[int] = mapped_column(Integer, default=0)
     is_complete: Mapped[bool] = mapped_column(Boolean, default=False)
     is_preview: Mapped[bool] = mapped_column(Boolean, default=False)
+    # payment_status: "free" (demo, stop 1 only) | "paid" | "corporate"
+    payment_status: Mapped[str] = mapped_column(String(20), default="free")
+    square_payment_id: Mapped[str] = mapped_column(String(200), nullable=True)
     completed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=True)
     started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

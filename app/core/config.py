@@ -55,6 +55,14 @@ class Settings(BaseSettings):
     # ── RAG ───────────────────────────────────────────────────────────────────
     RAG_UNCERTAINTY_THRESHOLD: float = 0.65
 
+    # ── Square payments ───────────────────────────────────────────────────────
+    SQUARE_ACCESS_TOKEN: str = ""
+    SQUARE_LOCATION_ID: str = ""
+    SQUARE_WEBHOOK_SIGNATURE_KEY: str = ""
+    SQUARE_ENVIRONMENT: str = "sandbox"  # "sandbox" or "production"
+    ADVENTURE_PRICE_CENTS: int = 799  # $7.99 per person
+    CORPORATE_CODES: str = ""  # comma-separated pre-issued codes, e.g. "ABC123,XYZ789"
+
     # ── Error monitoring ──────────────────────────────────────────────────────
     SENTRY_DSN: str = ""  # leave empty to disable
 

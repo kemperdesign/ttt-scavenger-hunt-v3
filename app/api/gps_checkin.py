@@ -73,6 +73,15 @@ async def gps_checkin(
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
+    # Payment gate — stop index ≥ 1 requires a paid or corporate session
+    # (preview sessions bypass payment so admins can walk through freely)
+    if stop.order_index >= 1 and not session.is_preview:
+        if session.payment_status not in ("paid", "corporate"):
+            raise HTTPException(
+                status_code=402,
+                detail="payment_required",
+            )
+
     distance = haversine(body.lat, body.lng, stop.lat, stop.lng)
     radius = stop.gps_radius_meters or settings.DEFAULT_GPS_RADIUS_METERS
 

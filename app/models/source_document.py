@@ -27,6 +27,8 @@ class SourceDocument(Base):
     )  # pending | approved | rejected
     reviewer: Mapped[str | None] = mapped_column(String(200), nullable=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
-    ingested: Mapped[bool] = mapped_column(default=False)  # True once run through ingest pipeline
+    ingested: Mapped[bool] = mapped_column(default=False)
+    minio_key: Mapped[str | None] = mapped_column(String(500), nullable=True)   # object key in MinIO bucket
+    chunk_count: Mapped[int | None] = mapped_column(nullable=True)              # chunks written to Qdrant
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

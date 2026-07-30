@@ -2,7 +2,7 @@
   "adventure": {
     "title": "Founding St. Augustine: 1565",
     "slug": "founding-st-augustine-1565",
-    "description": "Follow Pedro Menéndez de Avilés from the moment his ships entered Matanzas Bay to the founding ceremony on September 8, 1565. Visit the sites where the first permanent European settlement in the continental United States took root.",
+    "description": "Follow Pedro Menéndez de Avilés from the moment his ships entered Matanzas Bay to the founding ceremony on September 8, 1565. Visit the sites where the first permanent European settlement in the continental United States took root — a fort that never fell to cannon fire, gates that survived three colonial empires, a Gilded Age palace wired by Edison himself, the very ground where the founding Mass was said, and the neighborhood where the Civil Rights Act was born.",
     "short_description": "Trace the founding of America's oldest city on foot.",
     "difficulty": "moderate",
     "estimated_duration_minutes": 90,
@@ -16,8 +16,8 @@
   "stops": [
     {
       "title": "Castillo de San Marcos",
-      "description": "The oldest masonry fort in the continental United States, built of coquina between 1672 and 1695.",
-      "historical_content": "The Castillo's coquina walls never fell to cannon fire. When English forces bombarded it during the 1702 siege, cannonballs sank into the soft shell-stone instead of shattering it. Doña Isabella Reyes, our colonial guide, took shelter here during the 1740 siege.",
+      "description": "Standing at the edge of Matanzas Bay since 1695, the Castillo de San Marcos is the oldest masonry fort in the continental United States — and one of the best-preserved examples of Spanish colonial military architecture anywhere in the Americas. Built from locally quarried coquina, a soft shell-stone that proved impervious to cannon fire, the star-shaped fort protected St. Augustine through sieges, occupations, and three changes of imperial flag. It was never taken by force. Today it is a National Monument administered by the National Park Service, and its diamond-shaped bastions and salt-air-weathered walls look almost exactly as they did when English cannon fire bounced harmlessly off them in 1702.",
+      "historical_content": "Spain had been defending St. Augustine with wooden forts since 1565, but nine wooden structures burned or rotted before colonial authorities finally committed to stone. Construction of the current Castillo began on October 2, 1672 under Governor Don Manuel de Cendoya, using Timucua and enslaved African laborers alongside Spanish soldiers. The coquina was quarried from Anastasia Island, just across the bay, and the project took 23 years to complete — finished in 1695, just in time for its first major test.\n\nIn 1702, English forces under South Carolina Governor James Moore besieged the fort for 50 days. The English brought cannon; the coquina absorbed them. Rather than shattering like brick or stone, the soft shell-limestone compressed on impact, swallowing cannonballs whole. Moore burned the town but could not breach the walls, and eventually withdrew when a Spanish relief fleet arrived from Havana.\n\nA second English siege came in 1740, led by Georgia Governor James Oglethorpe. Again the fort held. The 1,500 Spanish colonists and allied Yamassee warriors who sheltered inside endured a 27-day bombardment without the walls failing. Oglethorpe ran low on supplies and retreated, and St. Augustine remained Spanish.\n\nThe fort changed flags without bloodshed twice more: to Britain in 1763 (when Spain ceded Florida in exchange for Cuba, returned by Britain after the American Revolution) and to the United States in 1821. During the Second Seminole War it served as a prison for Osceola and other Seminole leaders. During the Civil War it was briefly seized by Confederate forces before Union troops retook it without a fight.\n\nThe star shape — four diamond bastions projecting from a square central structure — is a design called a trace italienne, developed in 16th-century Europe specifically to withstand artillery. Cannon fire aimed at one bastion would be caught in a crossfire from adjacent bastions. The moat, drawbridge, and portcullis at the main gate completed a layered defense that, combined with coquina's unique properties, made the Castillo essentially invulnerable to the technology of its era.\n\nThe fort's interior casemates (vaulted storage rooms) held prisoners, gunpowder, food, and, during the 1702 and 1740 sieges, the entire civilian population of the town.",
       "lat": 29.8981,
       "lng": -81.3120,
       "gps_radius_meters": 50.0,
@@ -25,6 +25,38 @@
       "points": 100,
       "hint_text": "Look for the star-shaped fort with coquina walls on the waterfront.",
       "safety_warning": "The walkway along the waterfront seawall can be narrow. Watch your step and keep children close to the wall side.",
+      "metadata_json": {
+        "key_dates": [
+          "1672 — Construction begins under Governor Don Manuel de Cendoya (October 2); first coquina stone laid November 9",
+          "1696 — Last stone laid; construction complete after 24 years",
+          "1702 — English siege under Governor James Moore; fort holds for 50 days",
+          "1740 — English siege under James Oglethorpe; fort holds for 27 days",
+          "1763 — Spain cedes Florida to Britain; fort renamed Fort St. Mark",
+          "1783 — Britain returns Florida to Spain; fort renamed Castillo de San Marcos again",
+          "1821 — Florida becomes U.S. territory; fort renamed Fort Marion",
+          "1924 — Designated a National Monument",
+          "1942 — Name officially restored to Castillo de San Marcos"
+        ],
+        "key_people": [
+          "Don Manuel de Cendoya — Governor who ordered and began construction in 1672",
+          "James Moore — English Governor of South Carolina who led the 1702 siege",
+          "James Oglethorpe — English Governor of Georgia who led the 1740 siege",
+          "Osceola — Seminole leader imprisoned here in 1837"
+        ],
+        "documented_facts": [
+          "Only Spanish colonial masonry fort still standing in the continental U.S.",
+          "Built of coquina (Anastasia Island shell limestone) — the only such fort material in North America",
+          "Never taken by force in its entire military history",
+          "The walls are 12 feet thick at their base",
+          "The moat was originally tidal, connected to the bay"
+        ],
+        "common_myths": [
+          "MYTH: Ponce de León built the Castillo. FACT: Ponce de León visited Florida in 1513 and 1521 — 150 years before the Castillo was built.",
+          "MYTH: The fort is made of coral. FACT: Coquina is compressed shell fragments (coquina clams), not coral.",
+          "MYTH: There are secret tunnels under the fort connecting to the town. FACT: No evidence of tunnels has been found; this is a persistent local legend with no archaeological support.",
+          "MYTH: A room was sealed with skeletons inside. FACT: In 1833 a bricked-up room was found with two skeletons and iron shackles — this is documented. The legend embellishes the real discovery."
+        ]
+      },
       "challenges": [
         {
           "challenge_type": "multiple_choice",
@@ -73,8 +105,8 @@
     },
     {
       "title": "City Gates of St. Augustine",
-      "description": "The original northern boundary of the colonial city, rebuilt in 1808 on foundations dating to 1739.",
-      "historical_content": "These gates marked the entrance to the colonial town along the Old King's Highway. During the British period (1763–1783), Scottish merchant Thomas Dunbar would have passed through here regularly on his way to trade with loyalist refugees.",
+      "description": "The two white coquina pillars flanking the north end of St. George Street are the City Gates of St. Augustine — the last surviving remnant of an earthen defensive wall and moat that once ringed the entire colonial town. The wall was ordered built in 1704, the year after English forces from Carolina burned St. Augustine to the ground, and its gates controlled the only land approach to the city. The current stone pillars date to 1808, but they sit on foundations from 1739 and stand exactly where every person entering St. Augustine on foot — Spanish colonists, British soldiers, Loyalist refugees, and free Black residents — would have passed for over two centuries.",
+      "historical_content": "For most of its history, St. Augustine had no northern wall. The town relied on the Castillo to the east and the bay to the west, with the land approach simply undefended. That changed violently in November 1702, when English Governor James Moore of South Carolina arrived with 50 ships and 1,200 men — a mix of English colonists and allied Creek warriors. The population retreated to the Castillo; Moore burned the town. He couldn't breach the fort and eventually left, but the lesson was clear: the land approach needed closing.\n\nGovernor José de Zúñiga y Cerda ordered construction of the Cubo Line in 1704: an earthen rampart running from the Castillo west to the San Sebastian River, cutting off the northern approach entirely. A dry moat fronted the wall, and a single opening — the City Gate — controlled who entered. The wall and its pallisade were rebuilt multiple times, and the stone pillars visible today were erected in 1808 during the final Spanish period.\n\nThe gates witnessed every chapter of St. Augustine's remarkable imperial history. Under Spain (1565–1763), they controlled entry to the most important colonial outpost in the Southeast. Under Britain (1763–1783), they admitted Loyalist refugees fleeing the American Revolution — over 11,000 people poured into East Florida as the revolution spread, temporarily tripling the population. Under Spain again (1783–1821), the city absorbed free Black settlers and formerly enslaved people who had fled to Florida under its sanctuary policies. Under the United States (1821–present), the gates became a tourist landmark as St. Augustine reinvented itself as a winter resort.\n\nThe road beyond the gates — St. George Street — follows the route of the old Camino Real, the royal road that connected St. Augustine to the Spanish mission network stretching north into Georgia and west to Tallahassee. Traveling merchants, priests, soldiers, and Native converts all used this road. Thomas Dunbar, a Scottish merchant who arrived during the British period, kept a shop on St. George Street and traded everything from rum and dry goods to the news of the day with a remarkably mixed clientele.\n\nThe 1808 gate pillars carry no inscription, but they have watched more of American history pass through them than almost any other landmark in the country.",
       "lat": 29.8937,
       "lng": -81.3131,
       "gps_radius_meters": 30.0,
@@ -82,23 +114,51 @@
       "points": 100,
       "hint_text": "Two white pillars flanking the entrance to St. George Street.",
       "safety_warning": "St. George Street is a pedestrian zone past the gates, but the approach on Orange Street has active traffic. Cross at the marked crosswalk.",
+      "metadata_json": {
+        "key_dates": [
+          "1702 — English forces burn St. Augustine; land approach left undefended",
+          "1704 — Cubo Line earthen wall and original City Gate constructed",
+          "1740 — Wall reinforced before Oglethorpe's siege",
+          "1763 — Britain takes Florida; Loyalist refugees begin arriving",
+          "1783 — Spain regains Florida; free Black settlers arrive under sanctuary policies",
+          "1808 — Current stone pillars constructed during final Spanish period",
+          "1821 — Florida becomes U.S. territory"
+        ],
+        "key_people": [
+          "James Moore — English Governor whose 1702 raid prompted construction of the wall",
+          "José de Zúñiga y Cerda — Spanish Governor who ordered the Cubo Line built in 1704",
+          "James Oglethorpe — English General whose 1740 siege was repelled partly by the Cubo Line defenses"
+        ],
+        "documented_facts": [
+          "The current pillars date to 1808; foundations date to 1739",
+          "The Cubo Line ran from the Castillo to the San Sebastian River — roughly the line of modern Orange Street",
+          "During the British period (1763–1783), over 11,000 Loyalist refugees entered through these gates",
+          "St. George Street follows the route of the original Camino Real (Royal Road)",
+          "The gate is the only surviving element of the Cubo Line"
+        ],
+        "common_myths": [
+          "MYTH: The current stone pillars are from the 1700s. FACT: They date to 1808 — the last decade of Spanish rule.",
+          "MYTH: The gate was primarily a customs checkpoint. FACT: Its primary purpose was military defense, not taxation.",
+          "MYTH: The wall fully enclosed the city. FACT: The Cubo Line only blocked the northern land approach; the bay, the Castillo, and the San Sebastian River protected the other sides."
+        ]
+      },
       "challenges": [
         {
           "challenge_type": "multiple_choice",
-          "title": "Which Walls?",
-          "prompt": "The earthen defensive wall that the City Gates once anchored was built in 1704 to protect against a specific threat. What was it?",
+          "title": "Old Stone, New Stone",
+          "prompt": "The two coquina pillars you're standing between look ancient — but they're not the originals. What year were these specific stone pillars actually built?",
           "points": 50,
           "is_required": true,
-          "hint_text": "Think about who St. Augustine's neighbors to the north were in 1704.",
+          "hint_text": "The original earthen wall went up in 1704. The stone pillars came much later, during Spain's final years controlling Florida.",
           "config": {
             "options": [
-              "Hurricane flooding from the Atlantic",
-              "British raids from Carolina colonies",
-              "Pirate fleets in the harbor",
-              "Timucua uprisings in the interior"
+              "1704",
+              "1739",
+              "1763",
+              "1808"
             ],
-            "correct_index": 1,
-            "explanation": "Governor Zúñiga ordered the construction of a earthen wall with a moat after Colonel James Moore's English forces from Carolina burned most of the city in 1702. The gates are what remains."
+            "correct_index": 3,
+            "explanation": "1808 — during the last decade of Spanish rule, long after the original earthen Cubo Line was built in 1704. Most visitors assume they're much older. The foundations beneath them date to 1739."
           }
         },
         {
@@ -120,7 +180,7 @@
           "prompt": "Chat with Thomas Dunbar, a Scottish merchant who passed through these gates daily in 1775. Ask him at least two questions about trade or life during the British period.",
           "points": 50,
           "is_required": false,
-          "hint_text": "Ask about the loyalist refugees arriving from the American colonies, or what goods he sold.",
+          "hint_text": "Ask about the Loyalist refugees arriving from the American colonies, or what goods he sold.",
           "config": {
             "character_id": "colonial_shopkeeper",
             "min_exchanges": 2
@@ -129,9 +189,9 @@
       ]
     },
     {
-      "title": "Flagler College / Ponce de León Hotel",
-      "description": "Henry Flagler's 1888 masterpiece — the most luxurious hotel in the Americas when it opened.",
-      "historical_content": "Henry Flagler built this Spanish Renaissance Revival hotel in 1888 using the then-cutting-edge technology of poured concrete. Thomas Edison personally installed the electric lighting — one of the first hotels in the world to have it. Mrs. Eleanor Whitmore, wintering here in 1895, described the rotunda as 'the most magnificent room I have ever entered.'",
+      "title": "Flagler College (Ponce de León Hotel)",
+      "description": "The building you're looking at was, in 1888, the most lavish hotel in the Western Hemisphere. Henry Morrison Flagler — co-founder of Standard Oil and one of the wealthiest men in America — built the Ponce de León Hotel as the anchor of his plan to transform Florida into a winter playground for the Gilded Age elite. Constructed from poured concrete (then a cutting-edge material), it was one of the first hotels in the world lit by electricity, with Thomas Edison himself overseeing the installation. The rotunda ceiling, painted by George Maynard in allegorical scenes, and the Tiffany-stained-glass windows in the dining room remain intact today. Since 1968 the building has been Flagler College, a four-year liberal arts institution.",
+      "historical_content": "Henry Flagler first visited St. Augustine in 1883 on his honeymoon with his second wife, Alice Shourds Flagler. The city was a sleepy backwater with a single railroad spur and few amenities. Flagler saw something different: winter sunshine, Spanish colonial charm, and no competition. Within two years he had bought the Jacksonville, St. Augustine and Halifax River Railway and started acquiring land.\n\nThe Ponce de León Hotel, designed by the New York architectural firm of Carrère and Hastings (who would later design the New York Public Library), broke ground in 1885 and opened in January 1888. The $2.5 million price tag — roughly $80 million today — was staggering, but so was the result. The Spanish Renaissance Revival structure featured 540 rooms, a casino, a golf course, an artesian well beneath the central courtyard, and the first reinforced poured-concrete construction ever attempted at this scale in the United States. Flagler brought in Thomas Edison to design and install the electrical system — a 4,000-bulb installation powered by its own Westinghouse generator when most American cities still used gas lamps.\n\nThe guest list in the hotel's prime years (1888–1913) read like a Who's Who of the Gilded Age: John D. Rockefeller (Flagler's Standard Oil partner), President Grover Cleveland, Mark Twain, and the industrialist Andrew Carnegie. Each January, the Ponce de León set the social calendar for American high society.\n\nFlagler's vision did not stop at one hotel. He built the Alcazar Hotel across the street (now the Lightner Museum) and the Casa Monica (still a hotel today), then extended his railroad south to Palm Beach, Miami, and ultimately Key West — a project that required building 128 miles of railroad over open ocean. St. Augustine was the launching point for the transformation of an entire state.\n\nAfter Flagler's death in 1913 the hotel gradually declined, closing in 1967. It was saved from demolition by Lawrence Lewis Jr., who purchased it and donated it to establish Flagler College in 1968. The college has meticulously preserved the original interiors, including the dining hall (open for tours), the Tiffany windows, and Maynard's ceiling murals — making this one of the best-preserved Gilded Age interiors in the country.",
       "lat": 29.8898,
       "lng": -81.3135,
       "gps_radius_meters": 40.0,
@@ -139,23 +199,56 @@
       "points": 100,
       "hint_text": "The yellow Spanish-style building on King Street, now a college.",
       "safety_warning": null,
+      "metadata_json": {
+        "key_dates": [
+          "1883 — Flagler first visits St. Augustine on honeymoon",
+          "1885 — Hotel construction begins; Flagler buys local railroad",
+          "January 1888 — Ponce de León Hotel opens",
+          "1889 — Flagler extends railroad to Daytona Beach",
+          "1896 — Railroad reaches Miami",
+          "1913 — Flagler dies at age 83 after completing the Key West Extension",
+          "1967 — Hotel closes",
+          "1968 — Flagler College opens in the building"
+        ],
+        "key_people": [
+          "Henry Morrison Flagler — builder and financier; Standard Oil co-founder",
+          "John Carrère and Thomas Hastings — architects (later designed the New York Public Library)",
+          "Thomas Edison — supervised electrical installation",
+          "George Maynard — painted the allegorical ceiling murals in the rotunda",
+          "Louis Comfort Tiffany — designed stained-glass windows in the dining hall",
+          "John D. Rockefeller — Standard Oil partner; frequent guest"
+        ],
+        "documented_facts": [
+          "Cost $2.5 million to build in 1888 (roughly $80 million today)",
+          "One of the first large hotels in the world with full electric lighting",
+          "Built using poured concrete — the largest reinforced concrete building in the U.S. at the time",
+          "540 rooms at opening; the largest hotel in the Western Hemisphere",
+          "Thomas Edison designed the electrical system; Westinghouse provided the generator",
+          "The artesian well in the courtyard is still functional"
+        ],
+        "common_myths": [
+          "MYTH: The Tiffany windows were installed by Tiffany & Co., the jewelry store. FACT: They were designed by Louis Comfort Tiffany's separate company, Tiffany Studios, which specialized in decorative glass.",
+          "MYTH: Flagler built the hotel for his wife Mary Lily. FACT: The Ponce de León was built for his second wife Alice; he married Mary Lily Kenan in 1901, years later.",
+          "MYTH: The building is made of Spanish stone shipped from Europe. FACT: It is made of poured concrete mixed with local coquina aggregate — one of the reasons Flagler chose concrete was the abundance of local shell material."
+        ]
+      },
       "challenges": [
         {
           "challenge_type": "multiple_choice",
-          "title": "A Famous Guest",
-          "prompt": "Thomas Edison personally supervised the installation of the Ponce de León Hotel's electric lighting. Who was his close friend and business partner who also wintered in St. Augustine during this era?",
+          "title": "Built of What?",
+          "prompt": "Flagler's architects could have used brick, stone, or imported marble for this building. Instead they chose a material so unusual for a structure this size that it made engineering news. What is this building made of?",
           "points": 50,
           "is_required": true,
-          "hint_text": "Think of another famous inventor of the same period.",
+          "hint_text": "Look at the description on your screen — it mentions the construction material directly.",
           "config": {
             "options": [
-              "Alexander Graham Bell",
-              "Nikola Tesla",
-              "Henry Ford",
-              "George Westinghouse"
+              "Coquina limestone blocks, like the Castillo",
+              "Poured reinforced concrete",
+              "Brick faced with Spanish stucco",
+              "Marble imported from Carrara, Italy"
             ],
-            "correct_index": 2,
-            "explanation": "Henry Ford and Thomas Edison were close friends who both wintered in Florida. Ford's Fort Myers estate was near Edison's winter lab in southwest Florida — though both visited St. Augustine as part of Flagler's elite circuit."
+            "correct_index": 1,
+            "explanation": "Poured reinforced concrete — at a scale never attempted in the U.S. before. Flagler chose it partly because of the abundance of local shell aggregate. Thomas Edison wired it; Carrère and Hastings designed it. It was a construction landmark as well as an architectural one."
           }
         },
         {
@@ -187,8 +280,8 @@
     },
     {
       "title": "Fountain of Youth Archaeological Park",
-      "description": "Site of the first Timucua village encountered by Menéndez in 1565 and the original landing site.",
-      "historical_content": "Archaeological evidence places a Timucua village of the Seloy band here. Pedro Menéndez celebrated the first Mass of the new settlement at or near this site on September 8, 1565, with the Timucua people watching.",
+      "description": "This quiet park along Matanzas Bay marks one of the most significant pieces of ground in American history: the site of a Timucua Seloy village where, on September 8, 1565, Pedro Menéndez de Avilés celebrated the founding Mass of St. Augustine — the oldest continuously occupied European settlement in the continental United States. Archaeological excavations beginning in the 1930s have confirmed the presence of pre-contact Timucua occupation, Spanish mission structures, and colonial-era burials on this site. The 'fountain of youth' mythology associated with Ponce de León was added centuries after his visits to Florida, but the ground itself holds legitimate layers of history that no embellishment could improve.",
+      "historical_content": "By 1565, France was establishing a colony in Spanish-claimed territory. Fort Caroline — a Huguenot French settlement near present-day Jacksonville — was threatening Spain's control of the Florida Straits, the maritime highway for treasure fleets sailing from Mexico and Peru to Seville. King Philip II authorized an adelantado (military governor-entrepreneur) to eliminate the French and establish a permanent Spanish presence: Pedro Menéndez de Avilés, a seasoned admiral from Avilés in Asturias.\n\nMenéndez left Spain with 11 ships and roughly 1,500 soldiers and settlers. He sighted the Florida coast on August 28, 1565 — the feast day of St. Augustine of Hippo — and took it as a sign. On September 8, his fleet anchored in Matanzas Bay near a large Timucua Seloy village. A French fleet tried to intercept him the following day but was scattered by a storm. Menéndez landed with his people, met the Seloy chief Seloy (whose name Spanish sources rendered as 'Soloy'), and celebrated a High Mass on September 8.\n\nThe Seloy village here had been occupied for at least a millennium before Menéndez arrived. Archaeological excavations by the Smithsonian and the Florida Museum of Natural History have found Timucua pottery, shell middens, and evidence of a large permanent settlement. The Seloy initially welcomed the Spanish — sharing food and shelter — but the relationship deteriorated as the Spanish appropriated the village's structures for their own use and demanded labor.\n\nWithin a decade, epidemic disease (smallpox and measles, to which the Timucua had no immunity) had reduced the Seloy population catastrophically. The Spanish mission system that followed attempted to convert and acculturate surviving Timucua communities. By 1763, when Britain acquired Florida, the Timucua as a distinct people had effectively ceased to exist — the combined result of disease, displacement, and warfare.\n\nThe 'Fountain of Youth' story was first attached to Ponce de León by Spanish historian Hernando de Escalante Fontaneda in the late 1500s, decades after Ponce de León's death. No contemporary source from Ponce de León's 1513 or 1521 voyages mentions a fountain of youth. The commercial spring on this site — developed as a tourist attraction in the early 1900s — trades on a legend with no historical basis, but the site's genuine history more than justifies the visit.",
       "lat": 29.9028,
       "lng": -81.3169,
       "gps_radius_meters": 60.0,
@@ -196,18 +289,54 @@
       "points": 100,
       "hint_text": "North of downtown along Magnolia Avenue — look for the peacocks.",
       "safety_warning": "Magnolia Avenue has no sidewalk for a short stretch north of the visitor entrance. Walk on the left side facing traffic and use caution.",
+      "metadata_json": {
+        "key_dates": [
+          "c. 500–1565 — Seloy band Timucua village occupied at this site",
+          "March 23, 1513 — Ponce de León makes first recorded European landfall in Florida (date disputed; some sources say April 2; location disputed, likely near Melbourne Beach, not St. Augustine)",
+          "August 28, 1565 — Menéndez sights Florida coast on St. Augustine's feast day",
+          "September 8, 1565 — Founding Mass celebrated; St. Augustine established",
+          "September 20, 1565 — Menéndez destroys Fort Caroline, ending French presence in Florida",
+          "1572 — Menéndez dies in Spain; never returns to Florida",
+          "c. 1580s — Escalante Fontaneda first links Ponce de León to a 'fountain of youth' in writing",
+          "1763 — Britain acquires Florida; Timucua as distinct people have largely disappeared"
+        ],
+        "key_people": [
+          "Pedro Menéndez de Avilés — Adelantado of Florida; founded St. Augustine September 8, 1565",
+          "Seloy — Timucua chief whose village occupied this site",
+          "Juan Ponce de León — Explorer who made the first recorded European landfall in Florida in 1513; NOT the founder of St. Augustine",
+          "Hernando de Escalante Fontaneda — Spanish writer who invented or popularized the 'fountain of youth' story c. 1580s"
+        ],
+        "documented_facts": [
+          "St. Augustine was founded 42 years before Jamestown (1607) and 55 years before Plymouth (1620)",
+          "The founding date of September 8, 1565 is based on Menéndez's own logs and multiple contemporary Spanish accounts",
+          "Smithsonian and Florida Museum of Natural History excavations have confirmed Timucua occupation of this site",
+          "The Timucua population of northeast Florida was estimated at 150,000–200,000 before European contact; collapsed to near zero by 1700",
+          "Menéndez destroyed Fort Caroline on September 20, 1565 — 12 days after founding St. Augustine"
+        ],
+        "common_myths": [
+          "MYTH: Ponce de León was searching for the Fountain of Youth. FACT: No contemporary source mentions this. The story first appears in writing 60+ years after Ponce de León's 1513 voyage.",
+          "MYTH: Ponce de León founded St. Augustine. FACT: Ponce de León visited Florida in 1513 and 1521 (where he was fatally wounded by Calusa warriors). St. Augustine was founded by Menéndez 44 years after Ponce de León's death.",
+          "MYTH: The spring on this site is the one Ponce de León was seeking. FACT: The commercial 'Fountain of Youth' was developed as a tourist attraction in the early 1900s. The spring has no documented historical connection to Ponce de León.",
+          "MYTH: The Timucua peacefully integrated into Spanish colonial society. FACT: Disease, forced labor, and displacement caused catastrophic population collapse within decades of first contact."
+        ]
+      },
       "challenges": [
         {
           "challenge_type": "multiple_choice",
-          "title": "The Real Date",
-          "prompt": "St. Augustine is often called the oldest continuously occupied European city in the continental U.S. What year was it officially founded?",
+          "title": "Why Here, Why Now?",
+          "prompt": "Menéndez didn't come to Florida to found a city — he came to eliminate a rival colony. Which European nation had established a settlement that threatened Spain's treasure fleet routes, forcing Spain to act?",
           "points": 50,
           "is_required": true,
-          "hint_text": "Pedro Menéndez arrived the year after Shakespeare was born.",
+          "hint_text": "The rival colony was called Fort Caroline. Think about which Protestant nation was challenging Catholic Spain's New World claims in the 1560s.",
           "config": {
-            "options": ["1513", "1539", "1565", "1607"],
-            "correct_index": 2,
-            "explanation": "1565 — Pedro Menéndez de Avilés founded St. Augustine on September 8, 1565, 42 years before Jamestown and 55 years before the Mayflower."
+            "options": [
+              "England, from a base in Virginia",
+              "France, from Fort Caroline near present-day Jacksonville",
+              "Portugal, from a base in the Bahamas",
+              "The Netherlands, from a trading post on the St. Johns River"
+            ],
+            "correct_index": 1,
+            "explanation": "France. Huguenot French colonists had established Fort Caroline near modern Jacksonville, directly threatening the Florida Straits — the only safe passage for Spanish treasure fleets returning from Mexico and Peru. Menéndez destroyed Fort Caroline just 12 days after founding St. Augustine, on September 20, 1565."
           }
         },
         {
@@ -216,7 +345,7 @@
           "prompt": "Stop four keyword: the first word in the name of this park.",
           "points": 25,
           "is_required": true,
-          "hint_text": "Ponce de León supposedly came to Florida searching for one.",
+          "hint_text": "Ponce de León supposedly came to Florida searching for one — though that story was invented decades after his death.",
           "config": {
             "accepted_answers": ["fountain"],
             "case_sensitive": false,
@@ -239,32 +368,63 @@
     },
     {
       "title": "Lincolnville — Civil Rights Landmark",
-      "description": "The heart of St. Augustine's Black community and center of the 1964 civil rights demonstrations.",
-      "historical_content": "In 1964, Dr. Robert Hayling led night marches from Lincolnville toward the segregated tourist areas downtown. James Holloway, 19, walked these streets. Dr. Martin Luther King Jr. was arrested nearby during his visit to St. Augustine, and events here directly contributed to the Civil Rights Act of 1964.",
+      "description": "Lincolnville is the historic heart of St. Augustine's Black community, established by freedpeople after the Civil War and named for Abraham Lincoln. In the spring of 1964, it became the stage for some of the most significant civil rights demonstrations in American history — wade-ins at segregated beaches, night marches down St. George Street, and the arrest of Dr. Martin Luther King Jr. at the Monson Motor Lodge restaurant. Historians credit the St. Augustine movement, led locally by Dr. Robert B. Hayling, with providing crucial momentum for the passage of the Civil Rights Act of 1964, signed by President Lyndon Johnson on July 2, 1964. Lincolnville was placed on the National Register of Historic Places in 1991.",
+      "historical_content": "Lincolnville was founded in 1866 by formerly enslaved people who had been freed by the Thirteenth Amendment. The neighborhood grew through the late 19th century as the center of Black professional and civic life in St. Augustine — with churches, schools, businesses, and fraternal organizations that the segregated city otherwise denied its Black residents.\n\nBy the early 1960s, St. Augustine was deeply segregated: separate waiting rooms, water fountains, schools, beaches, and restaurants. Dr. Robert B. Hayling, a young dentist and NAACP Youth Council adviser, began organizing sit-ins, marches, and direct-action protests in 1963. His efforts drew violent opposition — night riders attacked marchers, and Hayling himself was beaten and nearly killed in September 1963 when he and three companions were captured by a Klan group.\n\nThe Southern Christian Leadership Conference (SCLC) recognized St. Augustine's strategic value: as the nation's oldest city and a major tourist destination, demonstrations there would attract national media attention. Dr. King visited in May and June 1964, delivering speeches at St. Mary's Missionary Baptist Church in Lincolnville and leading night marches from the neighborhood toward the segregated historic district. On June 11, 1964, King was arrested at the Monson Motor Lodge while attempting to be served in the segregated restaurant — an image broadcast around the world.\n\nThe wade-ins at St. Augustine Beach — where Black demonstrators entered segregated white-only waters — produced photographs that ran in major newspapers worldwide. On June 18, 1964, the manager of the Monson Motor Lodge placed an unknown substance in the swimming pool water where Black and white demonstrators were swimming together. The image of people being driven from the pool was seen by millions and shocked international audiences.\n\nSenator George Smathers of Florida later said that the events in St. Augustine directly helped break a Senate filibuster against the Civil Rights Act that had stalled the legislation for 60 days. The bill was signed into law on July 2, 1964 — less than two weeks after the most intense demonstrations here.\n\nToday Lincolnville's shotgun houses, churches, and community spaces are protected by historic designation. The St. Augustine Foot Soldiers Monument on MLK Avenue honors those who marched. St. Mary's Missionary Baptist Church, where King spoke, and St. Paul AME Church, where Jackie Robinson addressed the crowd, both still hold services.",
       "lat": 29.8810,
       "lng": -81.3098,
       "gps_radius_meters": 40.0,
       "ai_character_id": "civil_rights_guide",
       "points": 100,
-      "hint_text": "The historic neighborhood south of the plaza — look for the community signs.",
+      "hint_text": "The historic neighborhood south of the plaza — look for the community signs on MLK Avenue.",
       "safety_warning": null,
+      "metadata_json": {
+        "key_dates": [
+          "1866 — Lincolnville founded by freedpeople after the Civil War",
+          "1963 — Dr. Robert B. Hayling begins organizing demonstrations; September — Hayling and companions attacked by Klan",
+          "May 1964 — Dr. Martin Luther King Jr. first visits St. Augustine",
+          "June 11, 1964 — Dr. King arrested at the Monson Motor Lodge",
+          "June 18, 1964 — Manager of the Monson Motor Lodge places unknown substance in pool during wade-in; photographs circulate worldwide",
+          "July 2, 1964 — President Johnson signs the Civil Rights Act of 1964",
+          "1991 — Lincolnville placed on the National Register of Historic Places"
+        ],
+        "key_people": [
+          "Dr. Robert B. Hayling — local NAACP Youth Council adviser and movement leader; dentist",
+          "Dr. Martin Luther King Jr. — SCLC; visited and was arrested in St. Augustine in June 1964",
+          "James Brock — owner of the Monson Motor Lodge; pool incident during wade-in on June 18, 1964",
+          "Senator George Smathers — Florida senator who credited St. Augustine events with breaking the Civil Rights Act filibuster",
+          "Jackie Robinson — addressed a crowd at St. Paul AME Church in Lincolnville during the 1964 demonstrations"
+        ],
+        "documented_facts": [
+          "St. Augustine demonstrations are credited by historians and senators with helping break a 60-day Senate filibuster against the Civil Rights Act",
+          "The Civil Rights Act of 1964 was signed July 2, 1964 — 21 days after King's arrest here",
+          "The Monson Motor Lodge pool acid incident was photographed and ran on front pages internationally",
+          "St. Mary's Missionary Baptist Church in Lincolnville hosted King's speeches; St. Paul AME hosted Jackie Robinson",
+          "Lincolnville was named for Abraham Lincoln by the freedpeople who established it in 1866",
+          "Lincolnville is listed on the National Register of Historic Places (1991)"
+        ],
+        "common_myths": [
+          "MYTH: Dr. King's visit to St. Augustine was a minor side trip. FACT: King made multiple visits, was arrested, and the SCLC considered St. Augustine strategically central to the national campaign at that moment.",
+          "MYTH: The Civil Rights Act passed because of events in Birmingham and Selma alone. FACT: Historians credit St. Augustine's 1964 demonstrations with directly helping break the Senate filibuster — the bill was stalled for two months before those events.",
+          "MYTH: Lincolnville was always a poor neighborhood. FACT: During segregation, Lincolnville was a thriving self-contained community with Black-owned businesses, professionals, and institutions — it was the only place Black residents could access these services."
+        ]
+      },
       "challenges": [
         {
           "challenge_type": "multiple_choice",
-          "title": "The Legislation Connection",
-          "prompt": "Events in St. Augustine in 1964 directly influenced national legislation. Which landmark law did the St. Augustine demonstrations help push over the finish line?",
+          "title": "The Filibuster Clock",
+          "prompt": "The Civil Rights Act had been stalled in the Senate by a filibuster before the St. Augustine demonstrations. According to what you've read here, how many days had that filibuster blocked the bill?",
           "points": 50,
           "is_required": true,
-          "hint_text": "Dr. King was here the same year it passed.",
+          "hint_text": "The answer is a specific number mentioned in the stop's history. Read carefully.",
           "config": {
             "options": [
-              "The Voting Rights Act of 1965",
-              "The Civil Rights Act of 1964",
-              "The Fair Housing Act of 1968",
-              "The 24th Amendment (1964)"
+              "14 days",
+              "30 days",
+              "60 days",
+              "90 days"
             ],
-            "correct_index": 1,
-            "explanation": "Dr. King's high-profile arrest in St. Augustine and the nationally covered demonstrations here helped build momentum for the Civil Rights Act of 1964, signed by President Johnson on July 2, 1964."
+            "correct_index": 2,
+            "explanation": "60 days. The Senate filibuster had stalled the Civil Rights Act for two months when the St. Augustine demonstrations — the wade-ins, King's arrest, the acid in the pool — broke the deadlock. The bill was signed on July 2, 1964, less than three weeks after the most intense demonstrations here."
           }
         },
         {

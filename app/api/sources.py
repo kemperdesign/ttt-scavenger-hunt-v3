@@ -1,9 +1,10 @@
 """
-Historical source register — admin CRUD for provenance / review tracking.
+Historical source register — admin CRUD, PDF upload, and Qdrant ingestion.
 """
 
+import io
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from pydantic import BaseModel
@@ -12,6 +13,7 @@ from app.db.session import get_db
 from app.models.user import User
 from app.models.source_document import SourceDocument
 from app.auth.deps import get_current_admin
+from app.core.config import settings
 
 router = APIRouter()
 
@@ -35,6 +37,8 @@ class SourceOut(BaseModel):
     reviewer: Optional[str]
     notes: Optional[str]
     ingested: bool
+    minio_key: Optional[str]
+    chunk_count: Optional[int]
 
     class Config:
         from_attributes = True
@@ -154,3 +158,98 @@ async def delete_source(
     await db.delete(source)
     await db.flush()
     return None
+
+
+@router.post("/{source_id}/upload", response_model=SourceOut)
+async def upload_source_pdf(
+    source_id: int,
+    file: UploadFile = File(...),
+    db: AsyncSession = Depends(get_db),
+    _: User = Depends(get_current_admin),
+):
+    """Upload a PDF for a source document and store it in MinIO."""
+    result = await db.execute(select(SourceDocument).where(SourceDocument.id == source_id))
+    source = result.scalar_one_or_none()
+    if not source:
+        raise HTTPException(status_code=404, detail="Source not found")
+
+    if not file.filename or not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=422, detail="Only PDF files are accepted")
+
+    try:
+        import boto3
+        from botocore.client import Config as BotoConfig
+
+        s3 = boto3.client(
+            "s3",
+            endpoint_url=f"{'https' if settings.MINIO_SECURE else 'http'}://{settings.MINIO_ENDPOINT}",
+            aws_access_key_id=settings.MINIO_ACCESS_KEY,
+            aws_secret_access_key=settings.MINIO_SECRET_KEY,
+            config=BotoConfig(signature_version="s3v4"),
+        )
+
+        key = f"sources/{source_id}/{file.filename}"
+        contents = await file.read()
+        s3.upload_fileobj(
+            io.BytesIO(contents),
+            settings.MINIO_BUCKET,
+            key,
+            ExtraArgs={"ContentType": "application/pdf"},
+        )
+        source.minio_key = key
+        source.local_filename = file.filename
+        await db.flush()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Upload failed: {e}")
+
+    return source
+
+
+@router.post("/{source_id}/ingest", response_model=SourceOut)
+async def ingest_source(
+    source_id: int,
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db),
+    _: User = Depends(get_current_admin),
+):
+    """Download source PDF from MinIO and ingest chunks into Qdrant."""
+    result = await db.execute(select(SourceDocument).where(SourceDocument.id == source_id))
+    source = result.scalar_one_or_none()
+    if not source:
+        raise HTTPException(status_code=404, detail="Source not found")
+    if not source.minio_key:
+        raise HTTPException(status_code=422, detail="No file uploaded for this source — upload a PDF first")
+
+    try:
+        import tempfile
+        import boto3
+        from botocore.client import Config as BotoConfig
+        from app.ai.ingest import ingest_file
+
+        s3 = boto3.client(
+            "s3",
+            endpoint_url=f"{'https' if settings.MINIO_SECURE else 'http'}://{settings.MINIO_ENDPOINT}",
+            aws_access_key_id=settings.MINIO_ACCESS_KEY,
+            aws_secret_access_key=settings.MINIO_SECRET_KEY,
+            config=BotoConfig(signature_version="s3v4"),
+        )
+
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+            s3.download_fileobj(settings.MINIO_BUCKET, source.minio_key, tmp)
+            tmp_path = tmp.name
+
+        topic = (source.periods_covered or ["st_augustine"])[0]
+        chunk_count = ingest_file(
+            path=tmp_path,
+            topic=topic,
+            source_title=source.title,
+        )
+
+        source.ingested = True
+        source.chunk_count = chunk_count
+        await db.flush()
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Ingestion failed: {e}")
+
+    return source

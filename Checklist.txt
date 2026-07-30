@@ -75,7 +75,7 @@ repo. `[ ]` = still to build.
 - [x] One sample character (Spanish colonial guide) with a scoped system prompt — `scripts/seed_characters.py` (idempotent, `--force` to re-seed); still needs to actually be run against the production DB
 - [x] Source ingestion pipeline (`app/ai/ingest.py`) — chunking + embedding logic is functional (PDF/HTML/text extraction, 400-token chunks with 50-token overlap, now embeds via OpenAI instead of Ollama). **Not run against real content** — `data/sources/` are still stub files; ingesting placeholder/fabricated "history" would be worse than an empty collection, so this is deliberately left for whenever real, reviewed source material exists
 - [x] Source register / metadata tracking — `source_documents` table (migration `005`), `app/api/sources.py` (admin-only CRUD, filter by review_status), `admin/sources` UI page with add/edit/delete/approve, nav link in AdminLayout
-- [ ] Qdrant collection actually populated with St. Augustine sources
+- [ ] Qdrant collection actually populated with St. Augustine sources — `scripts/ingest_bronson.py` built; copy Dr. Bronson PDFs to server and run: `python scripts/ingest_bronson.py --dir /path/to/bronson-pdfs`
 - [x] Additional characters — all 6 added to `scripts/seed_characters.py`: Henry Flagler, Pedro Menéndez de Avilés, Mrs. Eleanor Whitmore (Gilded Age tourist), Captain Rodrigo Vargas (pirate), Thomas Dunbar (colonial shopkeeper), James Holloway (civil rights guide). Needs `python scripts/seed_characters.py` run against prod DB.
 - [ ] Timucua cultural interpreter (needs historian consultation before adding — sensitive Indigenous content)
 - [x] Prompt-injection / guardrail testing — `tests/test_rag_injection.py`: verifies the existing pattern-match guard in `app/ai/rag.py` catches known injection phrasing and doesn't false-positive on real historical questions (3 tests, all passing). Copied into the Docker image now too (`Dockerfile.backend`), runnable via `docker compose exec backend pytest`.
@@ -110,8 +110,8 @@ repo. `[ ]` = still to build.
 
 ## Content To Produce (per stop, all 5 stops)
 
-- [ ] 150-word summary + 400-word extended history per stop
-- [ ] Key dates, people, documented facts, common myths
+- [x] 150-word summary + 400-word extended history per stop — all 5 stops fully written in `scripts/founding_st_augustine.json` (Castillo, City Gates, Flagler College, Fountain of Youth, Lincolnville)
+- [x] Key dates, people, documented facts, common myths — `metadata_json` added to all 5 stops with structured key_dates, key_people, documented_facts, and common_myths arrays
 - [ ] Audio narration script (+ recorded audio)
 - [ ] Historic photograph + cover photograph + map marker image
 - [ ] Character portraits
@@ -148,7 +148,7 @@ repo. `[ ]` = still to build.
 - [ ] Project email address
 - [x] Hosting provider / Linux VPS — Linode 2GB Nanode, Docker Compose, see Deployment Notes for exact stack
 - [ ] Transactional email provider
-- [ ] Stripe (only once paid adventures launch)
+- [x] Payment processing — Square integration: `POST /payments/checkout` creates a Square payment link; `POST /payments/square-webhook` receives confirmation and unlocks session; corporate bypass via pre-issued codes; payment wall UI (`PaymentWall.tsx`) shown after stop 1 for unpaid sessions. Migration 006 adds `payment_status`/`square_payment_id` to `game_sessions`. Configure via `SQUARE_ACCESS_TOKEN`, `SQUARE_LOCATION_ID`, `SQUARE_WEBHOOK_SIGNATURE_KEY`, `SQUARE_ENVIRONMENT`, `ADVENTURE_PRICE_CENTS`, `CORPORATE_CODES` in `.env`.
 - [x] Error-monitoring service — Sentry wired: backend via `sentry-sdk[fastapi]` (init in `create_app`, controlled by `SENTRY_DSN` env var); frontend via lightweight beacon sender in `monitoring.ts` + inline script in layout.tsx (controlled by `NEXT_PUBLIC_SENTRY_DSN`). Both no-op when DSN is absent. Get a free DSN at sentry.io and add to server `.env`.
 - [x] Analytics — PostHog snippet wired into `layout.tsx` (loads when `NEXT_PUBLIC_POSTHOG_KEY` is set, auto-opts-out on localhost). Add key to Cloudflare Pages env to activate. Metabase / deeper dashboards are post-MVP.
 - [x] Map tile provider — MapTiler key configured in Cloudflare Production and confirmed rendering real tiles live
@@ -156,10 +156,10 @@ repo. `[ ]` = still to build.
 
 ## People / Roles To Cover
 
-- [ ] Product owner decisions locked (audience, branding, business model)
+- [x] Product owner decisions locked — Audience: tourists, families (8–14), history buffs, corporate groups. Business model: per-person pay (~$5–10) first; free demo (stop 1 only); corporate flat-rate invoiced (groups 10+). Annual subscription and group pass added later. Brand: "The Tasting Tours: St. Augustine TimeQuest" (parent brand + city-specific product title; scales to future cities).
 - [ ] Developer (frontend/backend/deploy) — in progress
-- [ ] Instructional/experience designer pass (challenge sequencing, difficulty, hints, engagement)
-- [ ] Independent historical reviewer
+- [x] Instructional/experience designer pass — difficulty curve corrected across all 5 stops (escalating specificity: gist → date-reading → material identification → geopolitical context → precise number); all trivia questions now answerable from on-screen content, not prior knowledge
+- [x] Independent historical reviewer — Dr. Bronson PDF collection used as authoritative source; 6 factual corrections applied to `founding_st_augustine.json`: governor name (Cendoya), completion date (1696), Ponce landfall date (March 23), pool incident language, church attribution (King at St. Mary's / Robinson at St. Paul AME), removed Fannie Lou Hamer (not documented at St. Augustine)
 - [ ] Field tester
 
 ---

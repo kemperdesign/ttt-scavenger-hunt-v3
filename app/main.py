@@ -30,6 +30,7 @@ from app.api import (
     admin_audit,
     admin_users,
     sources,
+    payments,
 )
 
 # Middleware
@@ -103,6 +104,7 @@ def create_app() -> FastAPI:
     app.include_router(admin_audit.router,  prefix=f"{API_PREFIX}/admin/audit", tags=["admin"])
     app.include_router(admin_users.router,  prefix=f"{API_PREFIX}/admin/users",   tags=["admin"])
     app.include_router(sources.router,      prefix=f"{API_PREFIX}/admin/sources", tags=["admin"])
+    app.include_router(payments.router,     prefix=f"{API_PREFIX}/payments",      tags=["payments"])
 
     # ── Health check ──────────────────────────────────────────────────────────
     @app.get("/api/health", tags=["health"])

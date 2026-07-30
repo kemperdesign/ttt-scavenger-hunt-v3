@@ -501,7 +501,18 @@ function AdventurePageInner() {
             )}
 
             {!checkedIn && (
-              <div className="flex justify-center pt-2">
+              <div className="flex justify-center gap-6 pt-2">
+                <button
+                  onClick={() => {
+                    setSimulated(true);
+                    if (currentStop) {
+                      simulateLocation(currentStop.lat, currentStop.lng);
+                    }
+                  }}
+                  className="text-slate-500 hover:text-slate-300 text-sm font-medium underline underline-offset-4"
+                >
+                  Simulate Arrival (Test)
+                </button>
                 <button
                   onClick={handleSkipStop}
                   className="text-slate-500 hover:text-slate-300 text-sm font-medium underline underline-offset-4"

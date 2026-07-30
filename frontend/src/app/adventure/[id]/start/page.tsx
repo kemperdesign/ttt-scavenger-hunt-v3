@@ -8,6 +8,7 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import {
   getAdventure,
   createSession,
+  getSession,
   listStops,
   gpsCheckin,
   getChallenges,
@@ -32,6 +33,7 @@ import { AppFooter } from "@/components/player/AppFooter";
 import { TeamSetup } from "@/components/player/TeamSetup";
 import { ChallengeRenderer } from "@/components/player/ChallengeRenderer";
 import { LocationPermissionNotice } from "@/components/player/LocationPermissionNotice";
+import { PaymentWall } from "@/components/player/PaymentWall";
 
 const AdventureMap = dynamic(() => import("@/components/map/AdventureMap"), { ssr: false });
 
@@ -85,6 +87,7 @@ function AdventurePageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isPreview = searchParams.get("preview") === "1";
+  const returnedFromPayment = searchParams.get("paid") === "1";
   const { mapTheme } = useTimeOfDay();
 
   const [adventure, setAdventure] = useState<Adventure | null>(null);
@@ -101,6 +104,7 @@ function AdventurePageInner() {
   const [stopChallenges, setStopChallenges] = useState<Challenge[]>([]);
   const [completedChallengeIds, setCompletedChallengeIds] = useState<Set<string>>(new Set());
   const [locationNoticeAcknowledged, setLocationNoticeAcknowledged] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<"free" | "paid" | "corporate">("free");
 
   const { location, error: gpsError, simulateLocation, startTracking } = usePlayerLocation(simulated, !locationNoticeAcknowledged);
   const { set: dbSet, get: dbGet } = useIndexedDB();
@@ -140,6 +144,7 @@ function AdventurePageInner() {
           // real player progress on this adventure.
           const sess = await createSession(id, undefined, true);
           setSession(sess);
+          setPaymentStatus("paid"); // preview bypasses payment
           setSimulated(true);
         } else {
           // Try to restore session from IndexedDB
@@ -159,6 +164,15 @@ function AdventurePageInner() {
       }
     })();
   }, [id, isPreview]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // When Square redirects back with ?paid=1, re-fetch the session to pick up
+  // the updated payment_status that the webhook already set server-side.
+  useEffect(() => {
+    if (!returnedFromPayment || !session) return;
+    getSession(session.id)
+      .then((s) => setPaymentStatus(s.payment_status ?? "free"))
+      .catch(() => {});
+  }, [returnedFromPayment, session?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Preview mode: auto-teleport simulated GPS to whatever stop is current,
   // so an admin can walk through the whole adventure without leaving their desk.
@@ -180,6 +194,7 @@ function AdventurePageInner() {
     try {
       const sess = await createSession(id, teamId ?? undefined);
       setSession(sess);
+      setPaymentStatus(sess.payment_status ?? "free");
       await dbSet(`session_${id}`, sess.id);
       setCurrentStopIndex(sess.current_stop_index ?? 0);
     } catch {
@@ -304,11 +319,29 @@ function AdventurePageInner() {
   if (!locationNoticeAcknowledged && !simulated) {
     return (
       <LocationPermissionNotice
-        adventureTitle={adventure.title}
+        adventureTitle={adventure?.title ?? "Adventure"}
         onGrant={() => {
           setLocationNoticeAcknowledged(true);
           startTracking();
         }}
+      />
+    );
+  }
+
+  // Payment wall: show when player tries to move past stop 1 without paying.
+  // Preview sessions and already-paid sessions bypass this entirely.
+  const needsPayment =
+    !isPreview &&
+    paymentStatus === "free" &&
+    currentStopIndex >= 1 &&
+    session !== null;
+
+  if (needsPayment) {
+    return (
+      <PaymentWall
+        sessionId={session!.id}
+        adventureTitle={adventure?.title ?? "TimeQuest Adventure"}
+        onUnlocked={() => setPaymentStatus("corporate")}
       />
     );
   }

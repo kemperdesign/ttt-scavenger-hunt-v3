@@ -72,33 +72,29 @@ export function TeamSetup({ adventureId, onDone }: TeamSetupProps) {
                 </span>
               </button>
 
-              {isLoggedIn && (
-                <>
-                  <button
-                    onClick={() => { setMode("create"); setError(""); }}
-                    className="w-full py-4 rounded-xl text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3 border"
-                    style={{ background: "var(--color-surface)", borderColor: "var(--color-border)", color: "var(--color-text)" }}
-                  >
-                    <span className="text-xl" aria-hidden="true">✨</span>
-                    <span>
-                      <span className="block font-semibold">Create a Team</span>
-                      <span className="block text-xs" style={{ color: "var(--color-muted)" }}>Get a code to share with friends</span>
-                    </span>
-                  </button>
+              <button
+                onClick={() => { setMode("create"); setError(""); }}
+                className="w-full py-4 rounded-xl text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3 border"
+                style={{ background: "var(--color-surface)", borderColor: "var(--color-border)", color: "var(--color-text)" }}
+              >
+                <span className="text-xl" aria-hidden="true">✨</span>
+                <span>
+                  <span className="block font-semibold">Create a Team</span>
+                  <span className="block text-xs" style={{ color: "var(--color-muted)" }}>Get a code to share with friends</span>
+                </span>
+              </button>
 
-                  <button
-                    onClick={() => { setMode("join"); setError(""); }}
-                    className="w-full py-4 rounded-xl text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3 border"
-                    style={{ background: "var(--color-surface)", borderColor: "var(--color-border)", color: "var(--color-text)" }}
-                  >
-                    <span className="text-xl" aria-hidden="true">🔑</span>
-                    <span>
-                      <span className="block font-semibold">Join a Team</span>
-                      <span className="block text-xs" style={{ color: "var(--color-muted)" }}>Enter a code someone shared</span>
-                    </span>
-                  </button>
-                </>
-              )}
+              <button
+                onClick={() => { setMode("join"); setError(""); }}
+                className="w-full py-4 rounded-xl text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3 border"
+                style={{ background: "var(--color-surface)", borderColor: "var(--color-border)", color: "var(--color-text)" }}
+              >
+                <span className="text-xl" aria-hidden="true">🔑</span>
+                <span>
+                  <span className="block font-semibold">Join a Team</span>
+                  <span className="block text-xs" style={{ color: "var(--color-muted)" }}>Enter a code someone shared</span>
+                </span>
+              </button>
             </div>
           </>
         )}

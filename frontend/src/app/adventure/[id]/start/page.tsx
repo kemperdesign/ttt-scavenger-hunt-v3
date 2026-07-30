@@ -570,10 +570,22 @@ function AdventurePageInner() {
             {currentStop.historical_content && (
               <section
                 aria-label="Historical information"
-                className="p-4 bg-slate-800/50 rounded-xl border border-slate-700"
+                className="p-5 rounded-sm shadow-[0_4px_12px_rgba(0,0,0,0.3)] relative overflow-hidden"
+                style={{
+                  backgroundImage: "url('/images/parchment.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  border: "1px solid #c9a475",
+                  boxShadow: "inset 0 0 40px rgba(100, 70, 30, 0.2), 0 4px 15px rgba(0,0,0,0.4)",
+                  borderRadius: "2px 8px 4px 6px"
+                }}
               >
-                <h3 className="text-amber-300 font-semibold text-sm mb-2">📜 Historical Note</h3>
-                <p className="text-slate-300 text-sm leading-relaxed">{currentStop.historical_content}</p>
+                <h3 className="font-bold text-lg mb-3 pb-2 border-b border-[#a87a4a]/40" style={{ color: "#543315", fontFamily: "var(--font-work-sans, serif)" }}>
+                  📜 Historical Note
+                </h3>
+                <p className="text-[15px] leading-relaxed font-medium" style={{ color: "#3a2512", textShadow: "0px 1px 1px rgba(255,255,255,0.3)" }}>
+                  {currentStop.historical_content}
+                </p>
               </section>
             )}
 

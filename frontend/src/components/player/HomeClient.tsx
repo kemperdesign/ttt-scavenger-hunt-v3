@@ -191,6 +191,20 @@ export function HomeClient({ adventures }: { adventures: Adventure[] }) {
 }
 
 function AdventureCard({ adventure }: { adventure: Adventure }) {
+  // Determine fallback image based on tags
+  const tags = (adventure.tags || []).map(t => t.toLowerCase());
+  let fallbackImage = "/images/onboarding_bg.jpg"; // Default
+  
+  if (tags.some(t => t.includes("bar") || t.includes("beer"))) {
+    fallbackImage = "/images/onboarding_bg_3.jpg";
+  } else if (tags.some(t => t.includes("scavenger"))) {
+    fallbackImage = "/images/onboarding_bg_2.jpg";
+  } else if (tags.some(t => t.includes("art") || t.includes("history"))) {
+    fallbackImage = "/images/onboarding_bg.jpg"; // Art/history looks good with bg 1
+  }
+
+  const coverImage = adventure.cover_image_url || fallbackImage;
+
   return (
     <div className="relative pb-4">
       <Link
@@ -199,11 +213,8 @@ function AdventureCard({ adventure }: { adventure: Adventure }) {
         style={{ background: "#E5E0DA" }}
       >
         {/* Background Image */}
-        {adventure.cover_image_url ? (
-          <img src={adventure.cover_image_url} alt="" className="w-full h-full object-cover" />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1B4A4A] to-[#C1531A] opacity-80" />
-        )}
+        <img src={coverImage} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/20" />
         
         {/* Top right heart icon */}
         <div className="absolute top-4 right-4 z-10 text-white/90 hover:text-white drop-shadow-lg">

@@ -500,6 +500,17 @@ function AdventurePageInner() {
               </button>
             )}
 
+            {!checkedIn && (
+              <div className="flex justify-center pt-2">
+                <button
+                  onClick={handleSkipStop}
+                  className="text-slate-500 hover:text-slate-300 text-sm font-medium underline underline-offset-4"
+                >
+                  Skip Stop (No Points)
+                </button>
+              </div>
+            )}
+
             {feedback && (
               <p className="text-center text-sm" role="status" aria-live="polite">
                 {feedback}
@@ -560,15 +571,6 @@ function AdventurePageInner() {
               setSimulated(true);
               simulateLocation(lat, lng);
             }} />
-
-            <div className="pt-8 flex justify-center pb-4">
-              <button
-                onClick={handleSkipStop}
-                className="text-slate-500 hover:text-slate-300 text-sm font-medium underline underline-offset-4"
-              >
-                Skip Stop (No Points)
-              </button>
-            </div>
           </>
         ) : (
           <div className="text-center py-12">

@@ -68,21 +68,6 @@ services:
         echo 'MinIO bucket ready.';
       "
 
-  ollama:
-    image: ollama/ollama:0.1.29
-    container_name: tq-ollama
-    restart: unless-stopped
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:11434/api/tags || exit 1"]
-      interval: 15s
-      timeout: 10s
-      retries: 10
-      start_period: 30s
-
   backend:
     build:
       context: .
@@ -103,7 +88,6 @@ services:
       QDRANT_HOST: qdrant
       QDRANT_PORT: "6333"
       MINIO_ENDPOINT: minio:9000
-      OLLAMA_BASE_URL: http://ollama:11434
     ports:
       - "8000:8000"
     volumes:
@@ -114,23 +98,6 @@ services:
       timeout: 5s
       retries: 5
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.frontend
-    container_name: tq-frontend
-    restart: unless-stopped
-    depends_on:
-      backend:
-        condition: service_healthy
-    env_file: ./frontend/.env.local
-    environment:
-      NEXT_PUBLIC_API_URL: http://localhost:8000
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
 
 networks:
   default:
@@ -140,4 +107,3 @@ volumes:
   postgres_data:
   qdrant_data:
   minio_data:
-  ollama_data:

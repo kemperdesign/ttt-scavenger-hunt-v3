@@ -103,7 +103,12 @@ function AdventurePageInner() {
   const [checkedIn, setCheckedIn] = useState(false);
   const [stopChallenges, setStopChallenges] = useState<Challenge[]>([]);
   const [completedChallengeIds, setCompletedChallengeIds] = useState<Set<string>>(new Set());
-  const [locationNoticeAcknowledged, setLocationNoticeAcknowledged] = useState(false);
+  const [locationNoticeAcknowledged, setLocationNoticeAcknowledged] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("locationGranted") === "1";
+    }
+    return false;
+  });
   const [paymentStatus, setPaymentStatus] = useState<"free" | "paid" | "corporate">("free");
 
   const { location, error: gpsError, simulateLocation, startTracking } = usePlayerLocation(simulated, !locationNoticeAcknowledged);
@@ -322,6 +327,7 @@ function AdventurePageInner() {
         adventureTitle={adventure?.title ?? "Adventure"}
         onGrant={() => {
           setLocationNoticeAcknowledged(true);
+          sessionStorage.setItem("locationGranted", "1");
           startTracking();
         }}
       />
@@ -542,7 +548,7 @@ function AdventurePageInner() {
             {/* Hint */}
             {currentStop.hint_text && session && (
               <HintButton
-                challengeId={currentStop.id}
+                hintText={currentStop.hint_text}
                 sessionId={session.id}
               />
             )}

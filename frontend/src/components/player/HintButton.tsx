@@ -4,13 +4,17 @@ import React, { useState } from "react";
 import { useHint } from "@/lib/api";
 
 interface HintButtonProps {
-  challengeId: string;
-  sessionId: string;
+  // Pass hintText directly (stop-level hints already loaded client-side).
+  // Pass challengeId + sessionId to fetch from the API (challenge-level hints).
+  hintText?: string;
+  challengeId?: string;
+  sessionId?: string;
   pointPenalty?: number;
   onHintUsed?: (hint: string, pointsDeducted: number) => void;
 }
 
 export function HintButton({
+  hintText: propHintText,
   challengeId,
   sessionId,
   pointPenalty = 5,
@@ -22,6 +26,13 @@ export function HintButton({
   const [error, setError] = useState<string | null>(null);
 
   const handleRequest = async () => {
+    // If hint text was passed directly, reveal it without an API call.
+    if (propHintText) {
+      setHint(propHintText);
+      onHintUsed?.(propHintText, 0);
+      return;
+    }
+    if (!challengeId || !sessionId) return;
     if (!confirmed) {
       setConfirmed(true);
       return;

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Work_Sans } from "next/font/google";
 import { AccessibilityProvider } from "@/context/AccessibilityContext";
 import { BottomNav } from "@/components/player/BottomNav";
+import { SplashScreen } from "@/components/player/SplashScreen";
 import "@/styles/globals.css";
 import "@/styles/accessibility.css";
 import "@/styles/map-themes.css";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to main content
         </a>
         <AccessibilityProvider>
+          <SplashScreen />
           <main id="main-content">{children}</main>
           <BottomNav />
         </AccessibilityProvider>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { createTeam, joinTeam, type Team } from "@/lib/api";
+import { createTeam, joinTeam, getToken, type Team } from "@/lib/api";
 
 interface TeamSetupProps {
   adventureId: string;
@@ -11,6 +11,7 @@ interface TeamSetupProps {
 type Mode = "choose" | "create" | "join" | "created";
 
 export function TeamSetup({ adventureId, onDone }: TeamSetupProps) {
+  const isLoggedIn = typeof window !== "undefined" && !!getToken();
   const [mode, setMode] = useState<Mode>("choose");
   const [teamName, setTeamName] = useState("");
   const [joinCode, setJoinCode] = useState("");
@@ -85,27 +86,31 @@ export function TeamSetup({ adventureId, onDone }: TeamSetupProps) {
                 </span>
               </button>
 
-              <button
-                onClick={() => { setMode("create"); setError(""); }}
-                className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3"
-              >
-                <span className="text-xl" aria-hidden="true">✨</span>
-                <span>
-                  <span className="block font-semibold">Create a Team</span>
-                  <span className="block text-slate-400 text-xs">Get a code to share with friends</span>
-                </span>
-              </button>
+              {isLoggedIn && (
+                <>
+                  <button
+                    onClick={() => { setMode("create"); setError(""); }}
+                    className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3"
+                  >
+                    <span className="text-xl" aria-hidden="true">✨</span>
+                    <span>
+                      <span className="block font-semibold">Create a Team</span>
+                      <span className="block text-slate-400 text-xs">Get a code to share with friends</span>
+                    </span>
+                  </button>
 
-              <button
-                onClick={() => { setMode("join"); setError(""); }}
-                className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3"
-              >
-                <span className="text-xl" aria-hidden="true">🔑</span>
-                <span>
-                  <span className="block font-semibold">Join a Team</span>
-                  <span className="block text-slate-400 text-xs">Enter a code someone shared</span>
-                </span>
-              </button>
+                  <button
+                    onClick={() => { setMode("join"); setError(""); }}
+                    className="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-colors min-h-[52px] text-left px-5 flex items-center gap-3"
+                  >
+                    <span className="text-xl" aria-hidden="true">🔑</span>
+                    <span>
+                      <span className="block font-semibold">Join a Team</span>
+                      <span className="block text-slate-400 text-xs">Enter a code someone shared</span>
+                    </span>
+                  </button>
+                </>
+              )}
             </div>
           </>
         )}

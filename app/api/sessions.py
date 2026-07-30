@@ -1,5 +1,6 @@
 """
-Game session management.
+Game session management. No login required for player endpoints —
+the session UUID is the secret. Auth only required for admin tools.
 """
 
 from uuid import UUID
@@ -14,7 +15,7 @@ from app.db.session import get_db
 from app.models.session import GameSession
 from app.models.adventure import Adventure
 from app.models.user import User
-from app.auth.deps import get_current_user, get_current_admin
+from app.auth.deps import get_optional_user, get_current_admin
 
 router = APIRouter()
 
@@ -32,7 +33,7 @@ class AwardPointsRequest(BaseModel):
 class SessionOut(BaseModel):
     id: str
     adventure_id: str
-    user_id: str
+    user_id: Optional[str]
     team_id: Optional[str]
     status: str
     current_stop_index: int
@@ -42,6 +43,7 @@ class SessionOut(BaseModel):
     hints_used: int
     is_complete: bool
     is_preview: bool
+    payment_status: str
     completed_at: Optional[datetime]
     started_at: datetime
 
@@ -53,7 +55,7 @@ def _to_out(s: GameSession) -> SessionOut:
     return SessionOut(
         id=str(s.id),
         adventure_id=str(s.adventure_id),
-        user_id=str(s.user_id),
+        user_id=str(s.user_id) if s.user_id else None,
         team_id=str(s.team_id) if s.team_id else None,
         status=s.status,
         current_stop_index=s.current_stop_index,
@@ -63,6 +65,7 @@ def _to_out(s: GameSession) -> SessionOut:
         hints_used=s.hints_used,
         is_complete=s.is_complete,
         is_preview=s.is_preview,
+        payment_status=s.payment_status,
         completed_at=s.completed_at,
         started_at=s.started_at,
     )
@@ -72,18 +75,20 @@ def _to_out(s: GameSession) -> SessionOut:
 async def create_session(
     body: SessionCreate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Optional[User] = Depends(get_optional_user),
 ):
     adventure_id = UUID(body.adventure_id)
     adv_result = await db.execute(select(Adventure).where(Adventure.id == adventure_id))
     if not adv_result.scalar_one_or_none():
         raise HTTPException(status_code=404, detail="Adventure not found")
 
+    is_preview = body.is_preview and current_user is not None and current_user.is_admin
+
     session = GameSession(
-        user_id=current_user.id,
+        user_id=current_user.id if current_user else None,
         adventure_id=adventure_id,
         team_id=UUID(body.team_id) if body.team_id else None,
-        is_preview=body.is_preview and current_user.is_admin,
+        is_preview=is_preview,
     )
     db.add(session)
     await db.flush()
@@ -94,14 +99,8 @@ async def create_session(
 async def get_session(
     session_id: UUID,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
-    result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == session_id,
-            GameSession.user_id == current_user.id,
-        )
-    )
+    result = await db.execute(select(GameSession).where(GameSession.id == session_id))
     session = result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -112,14 +111,8 @@ async def get_session(
 async def complete_session(
     session_id: UUID,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
-    result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == session_id,
-            GameSession.user_id == current_user.id,
-        )
-    )
+    result = await db.execute(select(GameSession).where(GameSession.id == session_id))
     session = result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -135,15 +128,8 @@ async def complete_session(
 async def reset_session(
     session_id: UUID,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
-    """Restart a player's own session from the beginning — self-service, not admin-gated."""
-    result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == session_id,
-            GameSession.user_id == current_user.id,
-        )
-    )
+    result = await db.execute(select(GameSession).where(GameSession.id == session_id))
     session = result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -167,8 +153,7 @@ async def award_test_points(
     db: AsyncSession = Depends(get_db),
     _: User = Depends(get_current_admin),
 ):
-    """Admin testing tool — manually add points to a session to test point-dependent
-    features (badge thresholds, leaderboard position) without playing through challenges."""
+    """Admin testing tool only."""
     result = await db.execute(select(GameSession).where(GameSession.id == session_id))
     session = result.scalar_one_or_none()
     if not session:

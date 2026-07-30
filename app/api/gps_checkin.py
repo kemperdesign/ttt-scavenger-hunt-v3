@@ -1,5 +1,6 @@
 """
-GPS check-in endpoint — server-side haversine validation with simulated GPS support.
+GPS check-in endpoint — server-side haversine validation.
+No login required; session_id is the auth token.
 """
 
 import math
@@ -12,8 +13,6 @@ from pydantic import BaseModel
 from app.db.session import get_db
 from app.models.stop import Stop
 from app.models.session import GameSession
-from app.models.user import User
-from app.auth.deps import get_current_user
 from app.core.config import settings
 
 router = APIRouter()
@@ -36,8 +35,7 @@ class CheckinResponse(BaseModel):
 
 
 def haversine(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
-    """Returns distance in meters between two lat/lng points."""
-    R = 6371000  # Earth radius in meters
+    R = 6371000
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
     dphi = math.radians(lat2 - lat1)
     dlambda = math.radians(lng2 - lng1)
@@ -50,49 +48,34 @@ async def gps_checkin(
     body: CheckinRequest,
     request: Request,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
-    # Block simulated GPS in production
     if body.simulated and not settings.ALLOW_SIMULATED_GPS:
         raise HTTPException(status_code=403, detail="Simulated GPS is not allowed")
 
-    # Load stop
     stop_result = await db.execute(select(Stop).where(Stop.id == UUID(body.stop_id)))
     stop = stop_result.scalar_one_or_none()
     if not stop:
         raise HTTPException(status_code=404, detail="Stop not found")
 
-    # Load session
-    sess_result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == UUID(body.session_id),
-            GameSession.user_id == current_user.id,
-        )
-    )
+    sess_result = await db.execute(select(GameSession).where(GameSession.id == UUID(body.session_id)))
     session = sess_result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
     # Payment gate — stop index ≥ 1 requires a paid or corporate session
-    # (preview sessions bypass payment so admins can walk through freely)
     if stop.order_index >= 1 and not session.is_preview:
         if session.payment_status not in ("paid", "corporate"):
-            raise HTTPException(
-                status_code=402,
-                detail="payment_required",
-            )
+            raise HTTPException(status_code=402, detail="payment_required")
 
     distance = haversine(body.lat, body.lng, stop.lat, stop.lng)
     radius = stop.gps_radius_meters or settings.DEFAULT_GPS_RADIUS_METERS
 
-    # For simulated GPS, skip distance check entirely
     if body.simulated:
         distance = 0.0
 
     success = distance <= radius
 
     if success:
-        # Mark stop as completed
         completed = list(session.completed_stop_ids or [])
         stop_id_str = str(stop.id)
         if stop_id_str not in completed:

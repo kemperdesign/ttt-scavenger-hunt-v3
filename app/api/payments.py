@@ -21,6 +21,7 @@ import hmac
 import uuid
 import httpx
 from datetime import datetime, timezone
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Request, Header
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -30,7 +31,7 @@ from app.db.session import get_db
 from app.models.session import GameSession
 from app.models.adventure import Adventure
 from app.models.user import User
-from app.auth.deps import get_current_user, get_optional_user
+from app.auth.deps import get_optional_user
 from app.core.config import settings
 
 router = APIRouter()
@@ -67,16 +68,13 @@ class CheckoutResponse(BaseModel):
 async def create_checkout(
     body: CheckoutRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Optional[User] = Depends(get_optional_user),
 ):
     if not settings.SQUARE_ACCESS_TOKEN:
         raise HTTPException(status_code=503, detail="Payment processing is not configured")
 
     sess_result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == uuid.UUID(body.session_id),
-            GameSession.user_id == current_user.id,
-        )
+        select(GameSession).where(GameSession.id == uuid.UUID(body.session_id))
     )
     session = sess_result.scalar_one_or_none()
     if not session:
@@ -119,7 +117,7 @@ async def create_checkout(
             "ask_for_shipping_address": False,
         },
         "pre_populated_data": {
-            "buyer_email": current_user.email,
+            "buyer_email": current_user.email if current_user else "",
         },
     }
 

@@ -16,7 +16,7 @@ from app.db.session import get_db
 from app.models.challenge import Challenge, ChallengeAttempt, ConversationMessage
 from app.models.session import GameSession
 from app.models.user import User
-from app.auth.deps import get_current_user
+from app.auth.deps import get_current_user, get_optional_user
 from app.core.config import settings
 from app.ai.characters import get_character
 from app.ai.rag import retrieve_context
@@ -235,21 +235,13 @@ async def submit_challenge(
     challenge_id: UUID,
     body: SubmitRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
-    # Load challenge
     ch_result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
     challenge = ch_result.scalar_one_or_none()
     if not challenge:
         raise HTTPException(status_code=404, detail="Challenge not found")
 
-    # Load session
-    sess_result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == UUID(body.session_id),
-            GameSession.user_id == current_user.id,
-        )
-    )
+    sess_result = await db.execute(select(GameSession).where(GameSession.id == UUID(body.session_id)))
     session = sess_result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -260,7 +252,7 @@ async def submit_challenge(
     attempt = ChallengeAttempt(
         challenge_id=challenge.id,
         session_id=session.id,
-        user_id=current_user.id,
+        user_id=session.user_id,
         is_correct=is_correct,
         points_earned=points,
         answer_data=body.answer_data,
@@ -290,19 +282,13 @@ async def use_hint(
     challenge_id: UUID,
     body: HintRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
     ch_result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
     challenge = ch_result.scalar_one_or_none()
     if not challenge or not challenge.hint_text:
         raise HTTPException(status_code=404, detail="No hint available")
 
-    sess_result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == UUID(body.session_id),
-            GameSession.user_id == current_user.id,
-        )
-    )
+    sess_result = await db.execute(select(GameSession).where(GameSession.id == UUID(body.session_id)))
     session = sess_result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -320,19 +306,13 @@ async def chat(
     challenge_id: UUID,
     body: ChatRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
 ):
     ch_result = await db.execute(select(Challenge).where(Challenge.id == challenge_id))
     challenge = ch_result.scalar_one_or_none()
     if not challenge or challenge.challenge_type != "ai_conversation":
         raise HTTPException(status_code=404, detail="AI conversation challenge not found")
 
-    sess_result = await db.execute(
-        select(GameSession).where(
-            GameSession.id == UUID(body.session_id),
-            GameSession.user_id == current_user.id,
-        )
-    )
+    sess_result = await db.execute(select(GameSession).where(GameSession.id == UUID(body.session_id)))
     session = sess_result.scalar_one_or_none()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -357,7 +337,7 @@ async def chat(
     user_msg = ConversationMessage(
         session_id=session.id,
         challenge_id=challenge.id,
-        user_id=current_user.id,
+        user_id=session.user_id,
         role="user",
         content=body.message,
     )
@@ -415,7 +395,7 @@ async def chat(
     assistant_msg = ConversationMessage(
         session_id=session.id,
         challenge_id=challenge.id,
-        user_id=current_user.id,
+        user_id=session.user_id,
         role="assistant",
         content=reply,
     )

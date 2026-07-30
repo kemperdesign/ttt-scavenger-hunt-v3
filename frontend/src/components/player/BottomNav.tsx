@@ -42,13 +42,11 @@ export function BottomNav() {
       ),
     },
     {
-      href: "/join",
-      label: "Join",
+      href: "https://www.thetastingtours.com/st-augustine-food-tours.html",
+      label: "Tours",
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M15 3h6v6"/>
-          <path d="M10 14L21 3"/>
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
         </svg>
       ),
     },
